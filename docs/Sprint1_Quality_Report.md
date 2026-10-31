@@ -1,6 +1,6 @@
 # Sprint 1 kalite raporu
 
-Durum: **Ara rapor; bağımsız review bekliyor.** Hazırlayan: Ahmet (Quality Assurance and Test Automation Engineer). İlgili Issue: [TODO]. RACI: S1-13 (A/R), S1-05 / S1-09 (C), S1-14 (R).
+Durum: **Ara rapor; bağımsız review bekliyor.** Hazırlayan: Ahmet (Quality Assurance and Test Automation Engineer). İlgili Issue: [#3](https://github.com/mert494/student-information-system/issues/3). RACI: S1-13 (A/R), S1-05 / S1-09 (C), S1-14 (R).
 
 Bu rapor yalnızca belge, sözleşme ve repository kanıtı kontrolüdür. Çalışan ürün olmadığından birim, entegrasyon veya E2E testi çalıştırılmamıştır; %50 birim test kapsama hedefi Sprint 3'e aittir ve burada değerlendirilmez. Henüz bulunmayan teslimler `Pending` olarak işaretlenmiştir; dosyası olmayan hiçbir kontrol `Passed` sayılmaz.
 
@@ -23,7 +23,7 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | RACI tutarlılığı | Python `csv` ile Markdown tablo ↔ CSV satır karşılaştırması; satır başına A ve R sayımı | Uygulandı |
 | Ölçülemeyen ifade taraması | `grep` ile backlog'da "kolay, hızlı, uygun, anlaşılır, düzgün, kullanıcı dostu" araması + manuel okuma | Uygulandı |
 | GitHub kanıtı | `gh api` ile branch, protection, tag, release, Issue, PR ve contributor sorgusu | Uygulandı (okuma yetkisiyle) |
-| OpenAPI doğrulama | Arda'nın seçeceği sürüm ve validator (öneri: `npx @redocly/cli lint api/openapi.yaml`) | `Pending` — dosya yok; Redocly kurulu değil, kurulum izni [TODO]. Ortamda Node v24.13.1, npx 11.8.0, PyYAML 6.0.3 var |
+| OpenAPI doğrulama | Redocly CLI 2.72.1 (`npx redocly lint api/openapi.yaml`, varsayılan `recommended` kuralları); Node v24.13.1. Kesin OpenAPI sürümü Arda'nın seçimine bağlı | Araç hazır; `api/openapi.yaml` olmadığı için `Pending`. Araç, örnek bir 3.1 dosyasında hatasız sonuç verdi; tanımsız path parametresi ve çözülmeyen `$ref` içeren bozuk örnekte 3 hata yakaladı (repository'ye eklenmedi) |
 
 ## 3. Kontrol matrisi
 
@@ -34,7 +34,7 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | QA-03 | System Vision | `docs/System_Vision_and_Boundary.md` — yok | Amaç, hedef kullanıcılar, sistem sorumlulukları ve temel işlevler | Manuel | Pending | Dosya yok | Nurefşan |
 | QA-04 | System Boundary | aynı dosya — yok | Sistem bağlamı ve dış etkileşimler, kapsam içi/dışı, kısıt ve varsayımlar | Manuel | Pending | Dosya yok | Arda |
 | QA-05 | Kapsam tutarlılığı | Proposal ↔ Vision/Boundary ↔ backlog | Backlog'daki iş boundary dışında kalmamalı | Çapraz okuma | Pending | QA-01, QA-03, QA-04'e bağlı | Nurefşan, Arda |
-| QA-06 | OpenAPI — sözdizimi | `api/openapi.yaml` — yok | YAML ayrıştırılır; seçilen OpenAPI sürümüne uygun | Validator | Pending | Dosya yok; validator seçimi [TODO] | Arda |
+| QA-06 | OpenAPI — sözdizimi | `api/openapi.yaml` — yok | YAML ayrıştırılır; seçilen OpenAPI sürümüne uygun | Redocly lint | Pending | Dosya yok; araç hazır, sürüm seçimi [TODO] | Arda |
 | QA-07 | OpenAPI — içerik | aynı dosya — yok | Path/HTTP operasyonları, `$ref` çözülür, request/response şemaları, operationId benzersiz, path parametreleri tanımlı, başarı + hata (400/401/403/404) yanıtları | Validator + manuel | Pending | Dosya yok | Arda |
 | QA-08 | OpenAPI ↔ backlog | YAML ↔ `docs/Initial_Backlog_Draft.md` | PB-01…PB-07'nin yetki/hata senaryoları sözleşmede karşılık bulur | Çapraz okuma | Pending | QA-06'ya bağlı | Arda, Nurefşan |
 | QA-09 | RACI — MD ↔ CSV | `docs/RACI_Matrix.md`, `.csv` @ `78febb9` | 16 satırın kimlik ve hücreleri aynı | Python karşılaştırma | Passed | 16/16 satır birebir aynı; fark yok | Azra |
@@ -77,7 +77,7 @@ Bulgular için gerçek Issue açılmadı; açılması Mert ile koordineli ve ona
 
 ## 6. Açık riskler ve bekleyen kararlar
 
-- OpenAPI sürümü (3.0 / 3.1) ve validator Arda tarafından seçilmedi; QA-06 ve QA-07 buna bağlı.
+- OpenAPI sürümü (3.0 / 3.1) Arda tarafından seçilmedi; QA-06 ve QA-07 buna bağlı. Ekip farklı bir validator seçerse kontroller onunla tekrarlanır.
 - PR hedef branch'i (`develop` / `main`) kararı yok; bu rapor dahil hiçbir PR hedefi netleşmedi.
 - Teslim tarihi, takım numarası ve Teams "Sprint 1 Examples" formatı rapora yansıtılmadı [TODO].
 - Bu rapor tek kişi tarafından hazırlandı; bağımsız review (öneri: Mert) bekleniyor.
