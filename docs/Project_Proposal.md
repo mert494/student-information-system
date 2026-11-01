@@ -1,0 +1,175 @@
+# STUDENT INFORMATION SYSTEM (SIS)
+
+## PROJECT PROPOSAL
+
+# 1. Project Overview
+
+The Student Information System (SIS) is a software system intended to support the centralized management of academic information within a university.
+
+Its main purpose is to enable students, academic staff, and authorized administrative personnel to access the academic information they need in a more organized and controlled manner.
+
+The SIS aims to support essential academic processes such as student records, course information, course enrollment, and grade management. Managing these processes through a single system is intended to improve information accessibility, data consistency, and administrative efficiency.
+
+# 2. Problem Definition
+
+Universities manage various types of academic information, including student records, course details, enrollment information, and grades. When these processes are handled through separate tools or manual procedures, accessing and updating information may become difficult.
+
+Potential problems include:
+
+- Student information being stored in different locations.
+- Difficulties accessing up-to-date course and enrollment information.
+- Delays in recording or viewing grades.
+- Inconsistencies or duplicate records in academic data.
+- Insufficient control over who can access or modify sensitive information.
+
+These problems may lead to unnecessary administrative work, communication difficulties, and risks to data consistency.
+
+**Evidence and validation:** These problems are initial project assumptions. They have not yet been validated through formal interviews, surveys, or institutional data. They must be validated before being treated as established findings.
+
+# 3. Stakeholder Analysis
+
+The initial stakeholder groups are listed below. Their needs and expectations should be validated during the project.
+
+| Stakeholder | Potential Needs and Expectations |
+|---|---|
+| Students | Access their own academic information, courses, enrollment status, and grades. |
+| Academic Staff | Access information about their assigned courses and students, and perform authorized academic operations. |
+| Student Affairs Personnel | Manage student and course enrollment records efficiently. |
+| University Management | Access relevant academic information to monitor administrative processes. |
+
+The exact responsibilities and access permissions of each stakeholder group must be clarified by the team.
+
+# 4. Proposed Solution
+
+The proposed solution is to develop a centralized Student Information System that supports essential academic information management processes.
+
+The initially proposed capabilities include:
+
+- User authentication and access control.
+- Student information management.
+- Course information management.
+- Course enrollment.
+- Grade management.
+- Academic information viewing according to user permissions.
+
+These capabilities are initial proposals. The final feature list must be compared with the existing Product Backlog items PB-01–PB-07 and aligned with team decisions.
+
+# 5. Expected Outcomes
+
+The project aims to achieve the following outcomes:
+
+- Provide centralized access to academic information.
+- Reduce unnecessary manual work in academic information management.
+- Improve the consistency and accessibility of student records.
+- Support course and enrollment management processes.
+- Provide controlled access to academic information.
+- Make relevant information easier for authorized users to retrieve.
+
+These are intended project benefits, not outcomes that have already been achieved.
+
+# 6. Feasibility Analysis
+
+## 6.1 Technical Feasibility
+
+The project is planned to be implemented using software development technologies and tools selected by the team.
+
+Technical feasibility depends on the technologies selected, the system architecture, and the development resources available.
+
+Technical details and external integrations that have not yet been decided must be evaluated separately by the team.
+
+## 6.2 Operational Feasibility
+
+The proposed system is intended to support students, academic staff, and authorized administrative personnel.
+
+Its operational feasibility depends on whether the implemented functions meet the actual needs of these users and whether the proposed workflows are practical.
+
+Stakeholder needs and operational assumptions must be validated.
+
+## 6.3 Schedule and Team Feasibility
+
+The project will be developed collaboratively by the project team. Its schedule feasibility depends on the approved scope, sprint capacity, task distribution, and the time available to team members.
+
+The team should estimate the effort required for backlog items before creating an implementation plan.
+
+# 7. Initial Project Scope
+
+The following features are proposed for consideration in the initial scope.
+
+## 7.1 Potentially In Scope
+
+- User authentication and authorization.
+- Student information management.
+- Course information management.
+- Course enrollment information management.
+- Grade management.
+- Access to academic information according to user permissions.
+
+## 7.2 Potentially Out of Scope
+
+The following features are proposed exclusions from the current project scope. They must not be treated as final scope decisions without team approval:
+
+- Online payment processing.
+- Employee payroll and salary management.
+- Full Learning Management System (LMS) functionality.
+- A separate mobile application.
+- Integrations with external university systems.
+
+The final scope must be consistent with the System Vision and Boundary document and team decisions.
+
+# 8. Assumptions and Constraints
+
+## 8.1 Assumptions
+
+- The system will support multiple user groups.
+- User access permissions will differ according to their roles.
+- Academic information will be managed through a centralized system.
+- The initial release will focus on essential academic information management functions.
+
+These assumptions must be validated during the project.
+
+## 8.2 Constraints
+
+- The project must be completed according to the schedule defined for the course.
+- Development tasks must follow the responsibilities agreed upon by the team.
+- The system scope must remain consistent with the approved project requirements.
+- Technical decisions must be made collaboratively and documented.
+
+# 9. Initial Risks
+
+| Risk | Potential Impact | Proposed Mitigation |
+|---|---|---|
+| Unclear or frequently changing requirements | Rework and delays | Review and document requirements before implementation. |
+| Unclear project boundaries | Scope expansion | Agree on in-scope and out-of-scope features as a team. |
+| Inconsistent academic data | Incorrect or unreliable information | Define appropriate data validation rules. |
+| Unauthorized access | Exposure or modification of sensitive information | Define roles and access permissions. |
+| Insufficient development time | Incomplete functionality | Prioritize essential features and monitor sprint progress. |
+| Communication problems | Misunderstandings and duplicated work | Document decisions and responsibilities. |
+
+# 10. Open-Source License Consideration
+
+The repository already contains an MIT License file. Retaining the existing license is recommended unless the team agrees on a different approach.
+
+The MIT License is a permissive open-source license that allows software to be used, modified, and distributed subject to its conditions. These conditions include preserving the copyright and license notices.
+
+The team should review whether the existing license is appropriate for the project's purpose and intended distribution. No license change is proposed in this document.
+
+# 11. Initial Success Criteria
+
+The project may be considered successful if it:
+
+- Provides the academic information management functions included in the approved scope.
+- Supports the agreed user roles and access permissions.
+- Enables authorized users to access and manage relevant information.
+- Maintains the accuracy and consistency of stored academic data.
+- Meets the functional and quality requirements approved by the team.
+- Is completed according to the agreed schedule and submission requirements.
+
+The final success criteria should be refined as the requirements become more specific.
+
+# 12. Conclusion
+
+The Student Information System aims to provide a centralized and controlled environment for managing essential academic information within a university.
+
+This proposal presents the initial problem definition, stakeholder groups, proposed solution, feasibility considerations, and potential project scope.
+
+These points will be refined through stakeholder analysis, team discussions, and the development of the System Vision, Boundary, and Product Backlog documents.
