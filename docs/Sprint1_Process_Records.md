@@ -6,6 +6,14 @@
 
 Öneri: Beş Sprint 1 teslimini tutarlı, incelenmiş ve bireysel katkıları izlenebilir bir paket hâline getirmek. Ekipçe kabul edilen hedef: [TODO]. Başlangıç: [TODO]; bitiş ve saat dilimi: [TODO]; ders teslim zamanı: [TODO].
 
+## Role Assignment
+
+Mevcut [RACI matrisi](RACI_Matrix.md) kapsamındaki altı üyenin rolleri ve görev atamaları ekip onayı bekleyen önerilerdir. Mert–Azra iş bölümü kesinleşmiş değildir. RACI matrisini burada yinelemeyin; onaylanan değişiklikleri ve kanıtlarını kaydedin.
+
+| Atama / üye(ler) | Durum (öneri/onaylandı/reddedildi) | İlgili sahip onayı | Tarih | Kanıt / bağlantı |
+| --- | --- | --- | --- | --- |
+| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+
 ## Sprint Planning
 
 - Toplantı tarihi / yeri / kolaylaştırıcı: [TODO]
