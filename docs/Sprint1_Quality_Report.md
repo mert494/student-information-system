@@ -8,10 +8,11 @@ Bu rapor yalnızca belge, sözleşme ve repository kanıtı kontrolüdür. Çal�
 
 | Kaynak | Branch / commit | Not |
 | --- | --- | --- |
-| Repository | `mert494/student-information-system` | İlk kontrol: 2026-11-01; yeniden kontrol: 2026-11-02 |
+| Repository | `mert494/student-information-system` | İlk kontrol: 2026-11-01; yeniden kontroller: 2026-11-02 (iki tur) |
 | Süreç belgeleri | `docs/sprint1-process` @ `78febb9` | RACI, Git_Workflow, backlog taslağı (TR), checklist, şablonlar |
 | Ekip rehberleri + süreç kayıtları | `docs/sprint1-team-guides` @ `79e3d40` | PR [#1](https://github.com/mert494/student-information-system/pull/1) ve [#4](https://github.com/mert494/student-information-system/pull/4), açık |
-| Gereksinim belgeleri | `docs/nurefsan-sprint1-requirements` @ `26fc3f4` | Proposal, Vision/Boundary, backlog (EN); PR yok |
+| Gereksinim belgeleri | `docs/nurefsan-sprint1-requirements` @ `26fc3f4` | Proposal, Vision/Boundary, backlog (EN); PR [#7](https://github.com/mert494/student-information-system/pull/7) → `main` |
+| Repository kurulum belgesi | `docs/baris-sprint1-repository` @ `81a66a9` | `docs/Repository_Setup.md`; Issue [#5](https://github.com/mert494/student-information-system/issues/5), PR [#6](https://github.com/mert494/student-information-system/pull/6) → `docs/sprint1-team-guides` |
 | `main` | `7072b41` | Yalnızca README, LICENSE, .gitignore |
 
 Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
@@ -25,6 +26,7 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | RACI tutarlılığı | Python `csv` ile Markdown tablo ↔ CSV satır karşılaştırması; satır başına A ve R sayımı | Uygulandı |
 | Ölçülemeyen ifade taraması | `grep` ile "kolay, hızlı, uygun, anlaşılır, appropriate, easy, fast, proper" araması + manuel okuma | Uygulandı |
 | GitHub kanıtı | `gh api` ile branch, protection, tag, release, Issue, PR, collaborator ve contributor sorgusu | Uygulandı |
+| Belge bağlantıları | Göreli bağlantıların branch'te var olan dosyalara gittiği `git cat-file` ile; boşluk/çakışma işaretleri `git diff --check` ile | Uygulandı (`81a66a9`) |
 | OpenAPI doğrulama | Redocly CLI 2.72.1 (`npx redocly lint api/openapi.yaml`, varsayılan `recommended` kuralları); Node v24.13.1. Kesin OpenAPI sürümü Arda'nın seçimine bağlı | Araç hazır; `api/openapi.yaml` olmadığı için `Pending`. Araç, örnek bir 3.1 dosyasında hatasız sonuç verdi; tanımsız path parametresi ve çözülmeyen `$ref` içeren bozuk örnekte 3 hata yakaladı (repository'ye eklenmedi) |
 
 ## 3. Kontrol matrisi
@@ -45,17 +47,18 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | QA-11 | RACI — ekip kapsamı | aynı | Altı üyenin tamamı ve resmî rolleri yer alıyor | Manuel | Passed | Altı üye ve roller tabloda var | Azra |
 | QA-12 | RACI — onay | aynı + `docs/Sprint1_Process_Records.md` @ `79e3d40` | Ekip onay tarihi / karar kaydı | Manuel | Pending | Onay tarihi `[TODO]`; yeni "Role Assignment" tablosu boş (`[TODO]`) | Azra, Mert |
 | QA-13 | Git-Flow kuralları (yazılı) | `docs/Git_Workflow.md` @ `78febb9` | `main` / `develop` / `feature` dal modeli, commit biçimi, PR, review, merge, protection kuralları | Manuel | Passed | Tüm başlıklar mevcut; belge "onaysız taslak" olarak işaretli | Mert |
-| QA-14 | Git-Flow — uygulama | GitHub (canlı) | `develop` var; `main`/`develop` korumalı; PR'lar `develop`'a gidiyor | `gh api` | Failed | `develop` yok; hiçbir branch korumalı değil; PR #4 doğrudan `main`'i hedefliyor. Bulgu F-03, F-15 | Barış, Mert |
+| QA-14 | Git-Flow — uygulama | GitHub (canlı) | `develop` var; `main`/`develop` korumalı; PR'lar `develop`'a gidiyor | `gh api` | Failed | `develop` yok; hiçbir branch korumalı değil; PR #4 ve #7 doğrudan `main`'i hedefliyor. Bulgu F-03, F-15 | Mert, Barış |
 | QA-15 | GitHub erişimi | GitHub (canlı) | Altı üyenin yazma yetkisi var | `gh api` | Passed | `nsnkcc`, `ardaberkkara1`, `ahmetserdar41`, `baryyss-001`, `azrayy`: write; `mert494`: admin | Barış |
-| QA-16 | Issues / Projects | GitHub (canlı) | Teslimler ve backlog öğeleri için gerçek Issue'lar | `gh issue list` | Failed | Yalnızca #3 (QA) var; teslim ve PB Issue'ları yok | Mert |
+| QA-16 | Issues / Projects | GitHub (canlı) | Teslimler ve backlog öğeleri için gerçek Issue'lar | `gh issue list` | Failed | Yalnızca #3 (QA) ve #5 (DevOps) var; diğer teslimler ve PB Issue'ları yok | Mert |
 | QA-17 | Backlog — alan bütünlüğü | `docs/Initial_Backlog_Draft.md` @ `26fc3f4` | Her öğede epic, story, kabul kriteri, öncelik, puan, bağımlılık, sahip | Manuel | Passed | PB-01…PB-07'nin yedisinde tüm alanlar var; PB-03…PB-07 sahibi "To be determined" | Nurefşan |
 | QA-18 | Backlog — test edilebilirlik | aynı | Kabul kriterleri ölçülebilir; olumlu ve olumsuz koşul içeriyor | grep + manuel | Failed | Her öğede olumlu ve olumsuz koşul var; PB-07 boş durum mesajı artık somut. PB-02 #4 ve PB-05 #5'te "appropriate response" ölçülebilir değil. Bulgu F-06 | Nurefşan |
 | QA-19 | Backlog — onay | aynı, §10 | PO onayı, ekip tahmini, gerçek atama | Manuel | Pending | Onay, tahmin ve atamalar `[TODO]` | Nurefşan |
 | QA-20 | Teslim checklist'i | `docs/Sprint1_Submission_Checklist.md` @ `78febb9` | Güncel durum, altı teslim başlığıyla uyum | Manuel | Failed | Bulgu F-07 | Mert |
 | QA-21 | Release / tag | GitHub (canlı) | İncelenmiş commit'e bağlı Sprint 1 tag'i | `gh api` | Pending | Tag ve release yok; teslimden önce beklenen | Barış |
-| QA-23 | Gereksinim belgelerinin entegrasyonu | `docs/nurefsan-sprint1-requirements` @ `26fc3f4` | Belgeler Issue'ya bağlı PR ile onaylı hedefe gidiyor; aynı dosyanın ikinci sürümü oluşmuyor | `git` + `gh` | Failed | PR yok; branch `main`'den açılmış; `Initial_Backlog_Draft.md` `docs/sprint1-process`'teki TR sürümle aynı yolda. Bulgu F-14 | Nurefşan, Mert |
+| QA-23 | Gereksinim belgelerinin entegrasyonu | `docs/nurefsan-sprint1-requirements` @ `26fc3f4` | Belgeler Issue'ya bağlı PR ile onaylı hedefe gidiyor; aynı dosyanın ikinci sürümü oluşmuyor | `git` + `gh` | Failed | PR #7 açıldı ancak `main`'i hedefliyor ve Issue'ya bağlı değil; `Initial_Backlog_Draft.md` `docs/sprint1-process`'teki TR sürümle aynı yolda. `main`'de bu dosya henüz olmadığı için GitHub şu an çakışma göstermiyor; süreç branch'i `main`'e girince çakışacak. Bulgu F-14 | Nurefşan, Mert |
+| QA-24 | Repository kurulum belgesi | `docs/Repository_Setup.md` @ `81a66a9` | Erişim matrisi, clone/branch adımları, doğrulama adımları, eksikler ve kanıt tablosu; geçerli bağlantılar | Manuel + `git cat-file` + `git diff --check` | Passed | 7 bölüm mevcut; 2 göreli bağlantı geçerli; `diff --check` temiz. Güncel olmayan alanlar bulgu F-17'de | Barış |
 
-Özet: 23 kontrolden 8 `Passed`, 7 `Failed`, 8 `Pending`.
+Özet: 24 kontrolden 9 `Passed`, 7 `Failed`, 8 `Pending`.
 
 ## 4. Bulgular
 
@@ -63,7 +66,7 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | --- | --- | --- | --- | --- | --- |
 | F-01 | P1 | System Boundary (dış aktörler, dış sistemler, arayüzler) ve `api/openapi.yaml` hâlâ yok. | Arda Boundary bölümünü doldurmalı ve OpenAPI taslağını PR olarak açmalı | Arda | Açık (Proposal ve Vision geldi) |
 | F-02 | — | İlk raporda üyelerin yazma yetkisi olmadığı yazılmıştı. Bu, kontrolün yanlış GitHub hesabıyla yapılmasından kaynaklanan **hatalı bir bulguydu**; altı üyenin de yetkisi var. | — | Ahmet | Kapatıldı (geri çekildi) |
-| F-03 | P1 | `develop` yok, branch protection yok. Yazılı Git-Flow kuralları uygulanmıyor. | `develop` oluşturulmalı; `main` ve `develop` için PR zorunluluğu + 1 onay ayarlanmalı | Barış | Açık |
+| F-03 | P1 | `develop` yok, branch protection yok. Yazılı Git-Flow kuralları uygulanmıyor. Repository `mert494` kişisel hesabında olduğu için bu ayarları yalnızca Mert (admin) yapabilir; Barış'ın Settings erişimi yok. | Mert `develop`'ı oluşturmalı ve `main`/`develop` için PR zorunluluğu + 1 onay ayarlamalı; Barış kuralları önerir ve kanıtı `Repository_Setup.md`'ye ekler | Mert, Barış | Açık |
 | F-04 | P2 | Teslimler ve PB-01…PB-07 için Issue yok (yalnızca #3). | Teslimler ve backlog öğeleri için Issue açılmalı | Mert | Açık |
 | F-05 | P2 | PB-07: "anlaşılır boş durum" ölçülebilir değildi. | — | Nurefşan | Kapatıldı (`26fc3f4`: "No published grades are available." mesajı tanımlandı) |
 | F-06 | P2 | PB-02 #4 ve PB-05 #5: "appropriate response / appropriate error response" ölçülebilir değil. PB-05'in uygunluk koşulları açık karar olarak listelenmiş (iyileşme), ancak henüz karara bağlanmamış. | Beklenen yanıt somut yazılmalı (ör. yetki yetersizliğinde 403, koşul sağlanmadığında 409/422 ve hata kodu); OpenAPI ile birlikte netleştirilmeli | Nurefşan, Arda | Kısmen çözüldü |
@@ -74,9 +77,10 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | F-11 | P2 | Rol adları belgeler arasında farklı. Proposal/Vision: Students, Academic Staff, Student Affairs Personnel, University Management. Backlog: "user", "system administrator", "instructor", "authorized administrator". "Administrator" hangi gruba karşılık geliyor belli değil. | Tek bir rol listesi belirlenip üç belgede aynı adlar kullanılmalı; OpenAPI güvenlik şeması da bu listeye dayanmalı | Nurefşan, Arda | Yeni |
 | F-12 | P3 | Proposal §4 / Vision §4'teki "University Management accessing academic information" ihtiyacının backlog karşılığı yok. | Ya bir PB öğesi eklenmeli ya da bu ihtiyaç kapsam dışı olarak belirtilmeli | Nurefşan | Yeni |
 | F-13 | P3 | Lisans gerekçesi genel: MIT'in ne olduğu açıklanmış, bu proje için neden seçildiği yazılmamış. | Projeye özgü 1–2 cümle (ör. ders projesi, açık paylaşım, bağımlılık uyumu) ve ekip kararı eklenmeli | Nurefşan, Arda | Yeni |
-| F-14 | P2 | Gereksinim branch'i için PR ve Issue yok; branch `main`'den açılmış. `docs/Initial_Backlog_Draft.md` hem `docs/sprint1-process`'te (TR, Mert) hem bu branch'te (EN, Nurefşan) var; birleşince çakışır ve iki sürüm oluşur. | Hangi sürümün geçerli olduğuna karar verilmeli; Nurefşan PR açmalı ve çakışma dosya sahipleriyle çözülmeli | Nurefşan, Mert | Yeni |
-| F-15 | P2 | PR #4 `docs/sprint1-team-guides` → `main`; Mert'in `78febb9` ve `2987dc0` commit'lerini de içeriyor, PR #1'i ve `develop`'ı atlıyor. Commit mesajı "update RACI" diyor ama RACI dosyaları değişmemiş. | PR hedefi `develop` açılınca oraya çevrilmeli veya PR #1 ile birleştirme sırası netleştirilmeli; commit/PR açıklaması gerçek değişikliğe göre düzeltilmeli | Azra, Mert | Yeni |
+| F-14 | P2 | Gereksinim branch'i için Issue yok; PR #7 `main`'i hedefliyor; branch `main`'den açılmış. `docs/Initial_Backlog_Draft.md` hem `docs/sprint1-process`'te (TR, Mert) hem bu branch'te (EN, Nurefşan) var; birleşince çakışır ve iki sürüm oluşur. | Hangi sürümün geçerli olduğuna karar verilmeli; PR #7'nin hedefi ortak geçici hedefe (`docs/sprint1-team-guides`) çevrilmeli ve çakışma dosya sahipleriyle çözülmeli | Nurefşan, Mert | Kısmen (PR açıldı) |
+| F-15 | P2 | PR #4 `docs/sprint1-team-guides` → `main`; Mert'in `78febb9` ve `2987dc0` commit'lerini de içeriyor, PR #1'i ve `develop`'ı atlıyor. Commit mesajı "update RACI" diyor ama RACI dosyaları değişmemiş. PR #7 de `main`'i hedefliyor; `Repository_Setup.md` §4 ise geçici hedefi `docs/sprint1-team-guides` olarak tanımlıyor, yani PR hedefleri tutarsız. | PR hedefi `develop` açılınca oraya çevrilmeli veya PR #1 ile birleştirme sırası netleştirilmeli; commit/PR açıklaması gerçek değişikliğe göre düzeltilmeli | Azra, Mert | Yeni |
 | F-16 | P3 | PB-05, PB-06, PB-07 user story'lerinde "so that" (fayda) kısmı yok. | Fayda cümlesi eklenmeli | Nurefşan | Yeni |
+| F-17 | P3 | `Repository_Setup.md`'de "İlgili Issue: [TODO]" ve "Bu çalışmanın PR'ı: [TODO]" yazıyor, oysa Issue #5 ve PR #6 mevcut. Erişim matrisinde dört üye `[TODO]`; API ile altı üyenin yetkisi doğrulandı (QA-15). Kanıt tablosunda PR #6/#7 ve Issue #5 eksik. | Issue/PR bağlantıları ve erişim düzeyleri güncellenmeli | Barış | Yeni |
 
 Bulgular için ayrı Issue açılmadı; açılması Mert ile koordineli ve onaya bağlıdır. Issue taslağı için `.github/ISSUE_TEMPLATE/documentation.md` kullanılacak.
 
@@ -89,13 +93,17 @@ Bulgular için ayrı Issue açılmadı; açılması Mert ile koordineli ve onaya
 | F-05 | `26fc3f4` | 2026-11-02 | Kapatıldı |
 | F-06 | `26fc3f4` | 2026-11-02 | Kısmen; "appropriate response" ifadeleri kaldı |
 | F-08 | `26fc3f4` | 2026-11-02 | Kapatıldı |
-| F-03, F-04, F-07, F-09 | — | 2026-11-02 | Değişiklik yok |
-| F-10…F-16 | [TODO] | [TODO] | [TODO] |
+| F-04, F-07, F-09 | — | 2026-11-02 | Değişiklik yok (F-04: Issue #5 eklendi, teslim Issue'ları hâlâ yok) |
+| F-14 | PR #7 | 2026-11-02 | Kısmen; PR açıldı, hedef `main` ve Issue bağlantısı yok |
+| F-03 | `81a66a9` (öneri belgesi) | 2026-11-02 | Açık; ayar uygulanmadı, yetki Mert'te |
+| F-10…F-13, F-15…F-17 | [TODO] | [TODO] | [TODO] |
 
 ## 6. Açık riskler ve bekleyen kararlar
 
 - OpenAPI sürümü (3.0 / 3.1) Arda tarafından seçilmedi; QA-06 ve QA-07 buna bağlı. Ekip farklı bir validator seçerse kontroller onunla tekrarlanır.
-- PR hedef branch'i (`develop` / `main`) kararı yok; bu rapor dahil hiçbir PR hedefi netleşmedi.
+- PR hedef branch'i (`develop` / `main`) kararı yok. Geçici hedef `docs/sprint1-team-guides` olarak kullanılıyor (PR #2, #6); PR #4 ve #7 `main`'e gidiyor.
+- Açık 5 PR'ın (#1, #2, #4, #6, #7) hiçbirinde review yok; teslime kadar merge sırası belirlenmeli.
+- Arda'dan Boundary bölümü ve `api/openapi.yaml` henüz gelmedi; QA-04, QA-06…QA-08 teslim için kritik.
 - Belge dili karışık: süreç belgeleri Türkçe, gereksinim belgeleri İngilizce. Teslim dili ekipçe seçilmeli.
 - Teslim tarihi, takım numarası ve Teams "Sprint 1 Examples" formatı rapora yansıtılmadı [TODO].
 - Bu rapor tek kişi tarafından hazırlandı; bağımsız review (öneri: Mert) bekleniyor.
