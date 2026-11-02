@@ -19,7 +19,7 @@ Ad–hesap eşlemesi repository kayıtlarından çıkarılmıştır; her üye ke
 | Ahmet | `ahmetserdar41` | [TODO] |
 | Mert | `mert494` | Repository sahibi |
 | Azra | `azrayy` | [TODO] |
-| Nurefşan | `nsnkcc' | [TODO] |
+| Nurefşan | `nsnkcc` | [TODO] |
 
 ## 3. Ön koşullar
 
