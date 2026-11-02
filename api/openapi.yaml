@@ -1,0 +1,514 @@
+openapi: 3.1.0
+info:
+  title: Student Information System API
+  version: 0.1.0-draft
+  summary: Proposed API contract for Sprint 1 review
+  description: |
+    This is a provisional draft, not an approved contract. OpenAPI 3.1.0 is a
+    candidate format, not a team decision. PB-01 through PB-07 are examples
+    awaiting Product Owner approval; operations and fields are illustrative,
+    not approved requirements. Scope, domain rules, roles, authentication,
+    authorization, server URL, and deployment status remain unresolved. No
+    API server is asserted to exist, and missing security configuration must
+    not be interpreted as public access. Resolve requirements and security
+    decisions before adopting or publishing this contract.
+x-draft-status: proposed
+x-not-ready-for-consumption: true
+x-not-ready-for-consumption-description: >-
+  Informational draft marker only; it is not enforced by OpenAPI tooling and
+  does not provide or enforce security.
+x-openapi-version-status: candidate-not-team-approved
+x-issue: "[TODO]"
+x-servers-status: "[TODO: no server URL is known or asserted]"
+x-security-status: "[TODO: authentication and authorization policy unresolved]"
+paths:
+  /sessions:
+    post:
+      operationId: createSession
+      summary: Proposed sign-in operation (PB-01 example)
+      description: Illustrative only; credential fields and session behavior require confirmation.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-01
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInRequest'
+      responses:
+        '200':
+          description: Proposed successful sign-in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /sessions/current:
+    delete:
+      operationId: deleteCurrentSession
+      summary: Proposed sign-out operation (PB-01 example)
+      description: Illustrative only; session identification and termination semantics are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-01
+      responses:
+        '204':
+          description: Proposed successful sign-out with no response body.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /students:
+    get:
+      operationId: listStudents
+      summary: Proposed student listing operation (PB-03 example)
+      description: Illustrative only; permissions, filtering, pagination, and student fields are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-03
+      responses:
+        '200':
+          description: Proposed collection response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    post:
+      operationId: createStudent
+      summary: Proposed student creation operation (PB-03 example)
+      description: Illustrative only; PB-03 mentions duplicate student numbers, but the complete model and rules are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-03
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentInput'
+      responses:
+        '201':
+          description: Proposed student created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /students/{studentId}:
+    parameters:
+      - $ref: '#/components/parameters/StudentId'
+    patch:
+      operationId: updateStudent
+      summary: Proposed student update operation (PB-03 example)
+      description: Illustrative only; updatable fields and partial-update semantics are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-03
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentInput'
+      responses:
+        '200':
+          description: Proposed updated student representation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /courses:
+    get:
+      operationId: listCourses
+      summary: Proposed course listing operation (PB-04 example)
+      description: Illustrative only; course fields, term context, and permissions require decisions.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-04
+      responses:
+        '200':
+          description: Proposed collection response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    post:
+      operationId: createCourse
+      summary: Proposed course creation operation (PB-04 example)
+      description: Illustrative only; PB-04 mentions duplicate course codes, but code format and uniqueness scope are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-04
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseInput'
+      responses:
+        '201':
+          description: Proposed course created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /courses/{courseId}:
+    parameters:
+      - $ref: '#/components/parameters/CourseId'
+    patch:
+      operationId: updateCourse
+      summary: Proposed course update operation (PB-04 example)
+      description: Illustrative only; updatable fields and partial-update semantics are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-04
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseInput'
+      responses:
+        '200':
+          description: Proposed updated course representation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /registrations:
+    get:
+      operationId: listMyRegistrations
+      summary: Proposed registration listing operation (PB-05 example)
+      description: Illustrative only; identity, filters, term, and access policy remain unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-05
+      responses:
+        '200':
+          description: Proposed collection response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Registration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    post:
+      operationId: createRegistration
+      summary: Proposed course registration operation (PB-05 example)
+      description: Illustrative only; eligibility, term, capacity, prerequisites, duplicate handling, and permissions require decisions.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-05
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationInput'
+      responses:
+        '201':
+          description: Proposed registration created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /registrations/{registrationId}/grade:
+    put:
+      operationId: recordGrade
+      summary: Proposed grade entry operation (PB-06 example)
+      description: Illustrative only; grading scale, staff assignment, publication state, and permissions are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-06
+      parameters:
+        - $ref: '#/components/parameters/RegistrationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GradeInput'
+      responses:
+        '200':
+          description: Proposed grade recorded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Grade'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /grades:
+    get:
+      operationId: listMyPublishedGrades
+      summary: Proposed published-grade listing operation (PB-07 example)
+      description: Illustrative only; identity, visible fields, and publication rules are unresolved.
+      x-requirement-status: proposed-example
+      x-backlog-reference: PB-07
+      responses:
+        '200':
+          description: Proposed collection response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Grade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalError'
+components:
+  parameters:
+    StudentId:
+      name: studentId
+      in: path
+      required: true
+      description: Proposed student identifier; format is unresolved.
+      x-requirements-owner-approval: pending
+      schema:
+        type: string
+    CourseId:
+      name: courseId
+      in: path
+      required: true
+      description: Proposed course identifier; format is unresolved.
+      x-requirements-owner-approval: pending
+      schema:
+        type: string
+    RegistrationId:
+      name: registrationId
+      in: path
+      required: true
+      description: Proposed registration identifier; format is unresolved.
+      x-requirements-owner-approval: pending
+      schema:
+        type: string
+  schemas:
+    SignInRequest:
+      type: object
+      description: Proposed credential shape; authentication policy is unresolved.
+      properties:
+        username:
+          type: string
+          description: Illustrative proposed account identifier; exact field is [TODO] and requires requirements-owner approval.
+          x-requirements-owner-approval: pending
+        password:
+          type: string
+          format: password
+          description: Illustrative proposed secret input; credential mechanism is [TODO] and requires requirements-owner approval.
+          x-requirements-owner-approval: pending
+      required: [username, password]
+    SessionResponse:
+      type: object
+      description: Proposed placeholder response; session representation is [TODO].
+      properties:
+        sessionId:
+          type: string
+          description: Illustrative proposed opaque session reference; mechanism is [TODO] and requires requirements-owner approval.
+          x-requirements-owner-approval: pending
+      required: [sessionId]
+    StudentInput:
+      type: object
+      description: Provisional minimal shape. PB-03 mentions student-number uniqueness; all other fields and requiredness are [TODO].
+      properties:
+        studentNumber:
+          type: string
+          description: Illustrative candidate inferred from PB-03; field definition and approval by the requirements owner are [TODO].
+          x-requirements-owner-approval: pending
+    Student:
+      allOf:
+        - $ref: '#/components/schemas/StudentInput'
+        - type: object
+          properties:
+            studentId:
+              type: string
+              description: Illustrative proposed resource identifier; format and requirements-owner approval are [TODO].
+              x-requirements-owner-approval: pending
+          required: [studentId]
+    CourseInput:
+      type: object
+      description: Provisional minimal shape. PB-04 mentions course-code uniqueness; all other fields and requiredness are [TODO].
+      properties:
+        courseCode:
+          type: string
+          description: Illustrative candidate inferred from PB-04; field definition and approval by the requirements owner are [TODO].
+          x-requirements-owner-approval: pending
+    Course:
+      allOf:
+        - $ref: '#/components/schemas/CourseInput'
+        - type: object
+          properties:
+            courseId:
+              type: string
+              description: Illustrative proposed resource identifier; format and requirements-owner approval are [TODO].
+              x-requirements-owner-approval: pending
+          required: [courseId]
+    RegistrationInput:
+      type: object
+      description: Proposed minimal reference shape; student identity and term handling are unresolved.
+      properties:
+        courseId:
+          type: string
+          description: Illustrative candidate course reference inferred from PB-05; definition and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
+      required: [courseId]
+    Registration:
+      allOf:
+        - $ref: '#/components/schemas/RegistrationInput'
+        - type: object
+          properties:
+            registrationId:
+              type: string
+              description: Illustrative proposed resource identifier; format and requirements-owner approval are [TODO].
+              x-requirements-owner-approval: pending
+          required: [registrationId]
+    GradeInput:
+      type: object
+      description: Proposed placeholder; grade scale, value representation, and publication behavior are unresolved.
+      properties:
+        value:
+          description: >-
+            Illustrative placeholder only. JSON type, grading scale, and range
+            are [TODO], pending requirements-owner approval. No representation
+            or grading rule is assumed.
+          x-requirements-owner-approval: pending
+      required: [value]
+    Grade:
+      allOf:
+        - $ref: '#/components/schemas/GradeInput'
+        - type: object
+          properties:
+            registrationId:
+              type: string
+              description: Illustrative proposed registration reference; format and requirements-owner approval are [TODO].
+              x-requirements-owner-approval: pending
+            published:
+              type: boolean
+              description: Illustrative candidate visibility indicator from PB-07; policy, representation, and requirements-owner approval are [TODO].
+              x-requirements-owner-approval: pending
+          required: [registrationId, published]
+    Error:
+      type: object
+      description: Generic illustrative error envelope; API error format is [TODO].
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required: [code, message]
+      additionalProperties: false
+  responses:
+    BadRequest:
+      description: Proposed invalid-request response; validation rules are unresolved.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Proposed unauthenticated response; authentication policy is unresolved.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Proposed denied response; role and permission rules are unresolved.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Proposed missing-resource response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Proposed conflict response; applicable uniqueness rules are unresolved.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InternalError:
+      description: Proposed generic server-error response; operational handling is unresolved.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
