@@ -14,12 +14,12 @@ Ad–hesap eşlemesi repository kayıtlarından çıkarılmıştır; her üye ke
 
 | Üye | GitHub hesabı | Repository erişimi |
 | --- | --- | --- |
-| Arda | [TODO] | [TODO] |
+| Arda | `ardaberkkara1` | [TODO] |
 | Barış | `baryyss-001` | Branch oluşturabiliyor; Settings erişimi yok |
 | Ahmet | `ahmetserdar41` | [TODO] |
 | Mert | `mert494` | Repository sahibi |
 | Azra | `azrayy` | [TODO] |
-| Nurefşan | [TODO] | [TODO] |
+| Nurefşan | `nsnkcc' | [TODO] |
 
 ## 3. Ön koşullar
 
@@ -59,7 +59,6 @@ Repository'de uygulama kodu, manifest, CI veya Docker dosyası yoktur; bu nedenl
 
 ## 6. Eksikler
 
-- [TODO] Arda'nın ve Nurefşan'ın GitHub hesapları; tüm üyelerin hesap onayı.
 - [TODO] Altı üyenin erişim düzeyleri; repository sahibi tarafından doğrulanmalı.
 - [TODO] Organization kararı.
 - [TODO] `develop` başlangıç commit'i ve kalıcı PR hedefleri.
