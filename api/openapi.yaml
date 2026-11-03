@@ -3,6 +3,9 @@ info:
   title: Student Information System API
   version: 0.1.0-draft
   summary: Proposed API contract for Sprint 1 review
+  license:
+    name: MIT
+    identifier: MIT
   description: |
     This is a provisional draft, not an approved contract. OpenAPI 3.1.0 is a
     candidate format, not a team decision. PB-01 through PB-07 are examples
@@ -18,9 +21,13 @@ x-not-ready-for-consumption-description: >-
   Informational draft marker only; it is not enforced by OpenAPI tooling and
   does not provide or enforce security.
 x-openapi-version-status: candidate-not-team-approved
+x-license-status: "proposed: repository LICENSE is MIT; team confirmation pending"
 x-issue: "[TODO]"
-x-servers-status: "[TODO: no server URL is known or asserted]"
-x-security-status: "[TODO: authentication and authorization policy unresolved]"
+servers:
+  - url: http://localhost:8080
+    description: Local development (placeholder, proposed)
+x-servers-status: "proposed: local placeholder only; no deployed server"
+x-security-status: "proposed: bearer token; policy pending team approval"
 tags:
   - name: Sessions
     description: Proposed grouping for illustrative PB-01 session operations; not an approved API commitment.
@@ -32,11 +39,14 @@ tags:
     description: Proposed grouping for illustrative PB-05 registration operations; rules and permissions require approval.
   - name: Grades
     description: Proposed grouping for illustrative PB-06/PB-07 grade operations; grade representation and permissions require approval.
+security:
+  - bearerAuth: []
 paths:
   /sessions:
     post:
       operationId: createSession
       tags: [Sessions]
+      security: []
       summary: Proposed sign-in operation (PB-01 example)
       description: Illustrative only; credential fields and session behavior require confirmation.
       x-requirement-status: proposed-example
@@ -378,6 +388,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Grade'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    value: "[TODO: grade representation]"
+                    status: "[TODO: grade status]"
+                    registrationId: example-registration-id
+                    published: false
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -405,6 +423,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Grade'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    - value: "[TODO: grade representation]"
+                      status: "[TODO: grade status]"
+                      registrationId: example-registration-id
+                      published: false
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -412,6 +438,12 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Proposed; authentication policy pending team approval.
   parameters:
     StudentId:
       name: studentId
@@ -464,12 +496,17 @@ components:
     StudentInput:
       type: object
       description: Provisional minimal shape. PB-03 mentions student-number uniqueness; all other fields and requiredness are [TODO].
+      x-requirements-owner-approval: pending
       properties:
         studentNumber:
           type: string
           description: Illustrative candidate inferred from PB-03; field definition and approval by the requirements owner are [TODO].
           x-requirements-owner-approval: pending
+        fullName:
+          description: Illustrative candidate field; JSON type, definition, and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
     Student:
+      x-requirements-owner-approval: pending
       allOf:
         - $ref: '#/components/schemas/StudentInput'
         - type: object
@@ -482,12 +519,20 @@ components:
     CourseInput:
       type: object
       description: Provisional minimal shape. PB-04 mentions course-code uniqueness; all other fields and requiredness are [TODO].
+      x-requirements-owner-approval: pending
       properties:
         courseCode:
           type: string
           description: Illustrative candidate inferred from PB-04; field definition and approval by the requirements owner are [TODO].
           x-requirements-owner-approval: pending
+        title:
+          description: Illustrative candidate field; JSON type, definition, and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
+        credits:
+          description: Illustrative candidate field; JSON type, units, meaning, and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
     Course:
+      x-requirements-owner-approval: pending
       allOf:
         - $ref: '#/components/schemas/CourseInput'
         - type: object
@@ -500,13 +545,21 @@ components:
     RegistrationInput:
       type: object
       description: Proposed minimal reference shape; student identity and term handling are unresolved.
+      x-requirements-owner-approval: pending
       properties:
         courseId:
           type: string
           description: Illustrative candidate course reference inferred from PB-05; definition and requirements-owner approval are [TODO].
           x-requirements-owner-approval: pending
+        term:
+          description: Illustrative candidate field; JSON type, format, definition, and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
+        status:
+          description: Illustrative candidate field; JSON type, allowed values, meaning, and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
       required: [courseId]
     Registration:
+      x-requirements-owner-approval: pending
       allOf:
         - $ref: '#/components/schemas/RegistrationInput'
         - type: object
@@ -519,6 +572,7 @@ components:
     GradeInput:
       type: object
       description: Proposed placeholder; grade scale, value representation, and publication behavior are unresolved.
+      x-requirements-owner-approval: pending
       properties:
         value:
           description: >-
@@ -526,8 +580,12 @@ components:
             are [TODO], pending requirements-owner approval. No representation
             or grading rule is assumed.
           x-requirements-owner-approval: pending
+        status:
+          description: Illustrative candidate field; JSON type, allowed values, meaning, and requirements-owner approval are [TODO].
+          x-requirements-owner-approval: pending
       required: [value]
     Grade:
+      x-requirements-owner-approval: pending
       allOf:
         - $ref: '#/components/schemas/GradeInput'
         - type: object
