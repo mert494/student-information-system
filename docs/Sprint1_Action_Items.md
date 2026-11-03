@@ -4,6 +4,8 @@ Durum: **QA kontrolüne dayalı görev listesi; 2026-11-03 (öğleden sonra) iti
 
 Teslim: **5 Kasım 2026, 23:59**. Önerilen ara hedef: düzeltmeler ve review'lar **3 Kasım akşamı**, merge ve tag **4 Kasım**.
 
+Her üyenin Codex'e yapıştıracağı hazır prompt'lar ve çalıştırma sırası: [Sprint1_Codex_Prompts.md](Sprint1_Codex_Prompts.md).
+
 Her üye kendi bölümündeki maddeleri tamamladıkça `[ ]` kutusunu `[x]` yapıp kendi PR'ında işaretler. Bir madde yapılmayacaksa silmeyin; yanına gerekçesini yazın. QA, işaretlenen maddeleri yeniden kontrol edip rapora işler.
 
 ## Sprint 1 teslim başlıklarına göre durum
