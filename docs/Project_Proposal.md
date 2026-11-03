@@ -163,7 +163,10 @@ These assumptions must be validated during the project.
 
 The repository already contains an MIT License file. Retaining the existing license is recommended unless the team agrees on a different approach.
 
-The MIT License is a permissive open-source license that allows software to be used, modified, and distributed subject to its conditions. These conditions include preserving the copyright and license notices.
+The MIT License is a permissive open-source license that allows software to be used, modified, and distributed subject to its conditions. These conditions include preserving the copyright and license notices
+
+Retaining the existing MIT License is suitable for this project because it is simple and permissive, allowing others to use, modify, and distribute the project with minimal restrictions. This supports collaboration and future development while requiring the original copyright and license notice to be preserved.
+
 
 The team should review whether the existing license is appropriate for the project's purpose and intended distribution. No license change is proposed in this document.
 
