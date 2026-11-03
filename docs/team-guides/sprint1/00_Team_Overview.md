@@ -38,9 +38,9 @@ Paths are proposed shared destinations when no existing file is available; if an
 
 ## Current status and reuse
 
-Mert's 12-file process preparation was pushed to `docs/sprint1-process` in commit `78febb9`. This does not mean team approval, PR merge or Sprint 1 submission. The working tree was clean when this guide was prepared; no proposal, vision or OpenAPI file was found. Records exist for `main` and `docs/sprint1-process`; `develop` is not visible. Remote Issues/Projects and protection settings were not verified in this task.
+Evidence snapshot: 3 November 2026. Mert's process package 78febb9, guides 2987dc0 and QA checklist corrections b7e8655 are published on task branches. Proposal/backlog/combined Vision and Boundary exist on Nurefşan's branch, OpenAPI on Arda's, repository setup on Barış's, and QA reports on Ahmet's. These are drafts on separate branches. All six PRs are open with zero submitted reviews; main contains only the initial files and develop is absent.
 
-The [submission checklist](../../Sprint1_Submission_Checklist.md) contains the previous preparation's status; for example, “This preparation has not been committed” is now outdated. Mert should update it with the actual commit link. Do not automatically treat all previous records as current. The [process records](../../Sprint1_Process_Records.md) are a fillable template, not evidence of meetings held.
+Use the [submission checklist](../../Sprint1_Submission_Checklist.md) for actual source/PR/commit links and [Projects guide](../../GitHub_Projects_Setup.md) for Issue mapping. Two assigned Issues (#3/#5) exist. Projects board, fields and statuses are Unverified; the proposal is not an implemented board. RACI approval and the Mert–Azra division remain [TODO]. The [process records](../../Sprint1_Process_Records.md) remain a fillable template without verified meeting/approval evidence. Publication does not mean acceptance, integration or Sprint 1 submission.
 
 ## Proposed working sequence
 
@@ -55,7 +55,7 @@ The [submission checklist](../../Sprint1_Submission_Checklist.md) contains the p
 
 ## Shared GitHub workflow
 
-Follow [AGENTS.md](../../../AGENTS.md), [Git rules](../../Git_Workflow.md), [Issue templates](../../../.github/ISSUE_TEMPLATE/documentation.md) and the [PR template](../../../.github/pull_request_template.md). This task creates local guides only; previous push permission does not authorize committing/pushing/opening a PR for these guides.
+Follow [AGENTS.md](../../../AGENTS.md), [Git rules](../../Git_Workflow.md), [Issue templates](../../../.github/ISSUE_TEMPLATE/documentation.md) and the [PR template](../../../.github/pull_request_template.md). These guides were published in 2987dc0. Previous authorization does not grant permission for a new commit, push, PR or merge.
 
 1. Check `git status --short`, `git branch -a`, `git remote -v` and relevant documents. Stop if someone else's uncommitted work exists; do not reset or automatically stash it.
 2. With user approval, run `git fetch origin` and update the approved base. If `develop` does not exist, obtain a base/target decision from Mert/Barış and the user; do not automatically select `main`. If Mert's process documents are not yet integrated into the base, resolve that dependency first.

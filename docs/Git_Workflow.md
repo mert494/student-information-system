@@ -1,57 +1,69 @@
-# Git çalışma akışı — ekip onayına sunulan taslak
+# Git workflow — draft for team approval
 
-Durum: **Öneri; henüz ekipçe onaylanmadı.** Onay tarihi ve karar kaydı: [TODO].
-İlgili Issue: [TODO]. Koordinasyon önerisi: Mert; teknik danışman: Arda; repository ayarları: Barış.
+Status: **Proposal; not yet approved by the team.** Approval date and decision record: [TODO].
+Related Issue: [TODO]. Proposed coordination: Mert; technical consultation: Arda; repository settings: Barış.
 
-## Repository çalışma kuralları
+## Repository working rules
 
-İşe başlamadan README, AGENTS.md, ilgili Issue ve belgeler okunur; `git status` ve aktif branch kontrol edilir. Küçük ve tek amaçlı değişiklikler hazırlanır. Başkasının dosyası veya kaydedilmemiş değişikliği izinsiz değiştirilmez. Gerçek öğrenci verisi, parola, token ve `.env` commit edilmez. Her öğrenci kendi hesabından ve gerçek kimliğiyle katkı verir; ortak hesapla katkı sahipliği oluşturulmaz.
+Before starting, read README, AGENTS.md, the relevant Issue and documents; check `git status` and the active branch. Prepare small, focused changes. Do not modify another person's files or uncommitted changes without permission. Do not commit real student data, passwords, tokens or `.env`. Each student contributes through their own account and actual identity; shared accounts must not be used to establish contribution ownership.
 
-Mert ile Azra arasındaki önerilen ayrım: Mert GitHub Projects, Issues, sprint planlama, Git-Flow koordinasyonu ve teslim takibini; Azra RACI dokümantasyonu, toplantı tutanakları, retrospektifler ve süreç raporlarını koordine eder. Bu ayrım **onay beklemektedir**; mevcut yerel RACI ve süreç şablonları Azra'nın tamamlanmış katkısı sayılmaz.
+Proposed division between Mert and Azra: Mert coordinates GitHub Projects, Issues, sprint planning, Git-Flow and submission tracking; Azra coordinates RACI documentation, Meeting Minutes, retrospectives and process reports. This division **awaits approval**; the existing local RACI and process templates do not count as Azra's completed contributions.
 
-## Branch yapısı
+## Branch structure
 
-| Branch | Önerilen amaç | Başlangıç / PR hedefi |
+| Branch | Proposed purpose | Starting point / PR target |
 | --- | --- | --- |
-| `main` | İncelenmiş teslim ve sürüm geçmişi | Onaylanmış `develop` sürümü / PR ile `main` |
-| `develop` | Sprint entegrasyonu | Ekip onaylı başlangıç commit'i / entegrasyon hedefi |
-| `feature/<issue>-<kisa-ad>` | Ürün özelliği | `develop` / `develop` |
-| `docs/<issue>-<kisa-ad>` | Belge ve süreç işi | `develop` / `develop` |
-| `fix/<issue>-<kisa-ad>` | Hata düzeltmesi | `develop` / `develop` |
+| `main` | Reviewed submissions and release history | Approved `develop` release / `main` through a PR |
+| `develop` | Sprint integration | Team-approved starting commit / integration target |
+| `feature/<issue>-<kisa-ad>` | Product feature | `develop` / `develop` |
+| `docs/<issue>-<kisa-ad>` | Documentation and process work | `develop` / `develop` |
+| `fix/<issue>-<kisa-ad>` | Bug fix | `develop` / `develop` |
 
-Mevcut hazırlık branch'i `docs/sprint1-process` bu adlandırmanın istisnasıdır; Issue bağlantısı sonradan eklenir. İnceleme sırasında `develop` yerel/uzak branch kayıtlarında yoktur. Hedef branch kullanıcıyla netleşmeden PR açılmaz; otomatik olarak `main` seçilmez. Bu çalışma `develop` oluşturmaz.
+The current preparation branch, `docs/sprint1-process`, is an exception to this naming pattern; its Issue link will be added later. At inspection, `develop` was absent from local/remote branch records. Do not open a PR until its target is clarified with the user; do not automatically select `main`. This work does not create `develop`.
 
-## Commit mesajları
+## Observed Sprint 1 configuration — 3 November 2026
 
-Önerilen biçim: `type(scope): kısa açıklama`; türler `feat`, `fix`, `docs`, `test`, `chore`. Örnek: `docs(sprint1): add process and delivery templates`. Gerçek Issue numarası commit gövdesinde `Refs #<numara>` ile verilir; yer tutucu commit'e taşınmaz. Atomik commit ve doğru yazar kimliği kullanılır. Bot veya başka öğrenci adına katkı uydurulmaz.
+The branch model above remains a proposal. Read-only GitHub and Git checks verified:
 
-## Pull Request açma prosedürü
+- Eight remote branches exist; develop is absent. The default main branch remains at 7072b41 with only the initial README, LICENSE and .gitignore. Role-owned drafts and Mert's corrections exist on separate task branches; none of the six PRs is merged.
+- All eight branch records report protected=false, and the repository ruleset list is empty. The detailed main protection query returned 403 (Resource not accessible by integration); individual settings and plan capability remain **Unverified**. The proposed approval/merge gates must not be described as enforced.
+- PR #1 targets docs/sprint1-process; PR #2/#6/#7/#8 target docs/sprint1-team-guides; PR #4 targets main. These are observed targets, not an approved integration policy. All six have zero submitted reviews. PR #1 and #4 share head 79e3d40; their integration sequence requires Mert/Azra and team confirmation.
+- Verified account permissions are Mert admin and the five teammates write. Barış retains infrastructure ownership and technical recommendations under the proposed RACI; Mert coordinates any separately authorized admin action. No settings were changed.
+- Process 78febb9, guides 2987dc0 and QA corrections b7e8655 are published. Publication is not team approval, merge or submission. Existing naming exceptions do not authorize shared-branch renaming or history rewriting.
 
-1. Issue kapsamı, kabul kriterleri ve sorumlu kişi netleştirilir.
-2. Çalışma ağacı kontrol edilir; kullanıcı onayından sonra uygun branch kullanılır.
-3. Yalnızca ilgili dosyalar açık yollarla stage edilir; staged diff ve kontroller incelenir.
-4. Bu görevde commit öncesinde değişiklikler kullanıcıya tekrar gösterilir ve onay alınır.
-5. Ayrı açık push onayından sonra branch gönderilir; ardından PR açma onayı istenir.
-6. Onaylı hedefe PR açılır; PR şablonu doldurulur, Issue, test/inceleme kanıtı ve belgeler eklenir. Hazır olmayan iş Draft PR olur.
+The exact develop base SHA, permanent PR targets, RACI/workflow approval and integration order remain [TODO]. Record actual decisions with Azra and the relevant owners. Branch creation, settings, PR retargeting/closure and merge require applicable separate authorization. Local documentation changes do not complete these live actions.
 
-Varsayılan branch dışında bir hedefe açılan PR'da Issue'nun otomatik kapanacağını varsaymayın. `Related Issue` bağlantısını ekleyin; kapanışı hedef branch ve GitHub davranışına göre doğrulayın.
+## Commit messages
 
-## Code review kuralları
+Proposed format: `type(scope): short description`; types: `feat`, `fix`, `docs`, `test`, `chore`. Example: `docs(sprint1): add process and delivery templates`. Include the actual Issue number in the commit body as `Refs #<numara>`; do not carry placeholders into commits. Use atomic commits and the correct author identity. Do not fabricate contributions on behalf of a bot or another student.
 
-En az bir yazar dışı reviewer önerilir. Arda mimari/API, Ahmet kalite/test, Nurefşan gereksinim uyumu, Mert/Azra süreç belgeleri için danışılacak kişilerdir. Reviewer doğruluk, kapsam, kabul kriterleri, güvenlik ve kanıtları inceler. Yazar kendi PR'ını tek başına onaylayıp merge etmez. Engelleyici yorumlar çözülür; anlamlı yeni değişiklikler yeniden incelenir.
+## Pull Request procedure
 
-## Merge prosedürü
+1. Clarify the Issue scope, Acceptance Criteria and responsible person.
+2. Check the working tree; use an appropriate branch after user approval.
+3. Stage only relevant files using explicit paths; inspect the staged diff and checks.
+4. For this task, show the changes to the user again and obtain approval before committing.
+5. Push the branch only after separate explicit push approval; then request approval to open a PR.
+6. Open the PR against the approved target; complete the PR template and add the Issue, test/review evidence and documentation. Use a Draft PR for unfinished work.
 
-Öneri: görev PR'larında squash merge; kaynak commit ve review bağlantıları PR'da korunur. Sürüm PR'ında `develop` → `main` geçmişini koruyan merge commit tercih edilir. Kesin yöntem ekip onayına bağlıdır. Kabul kriterleri, review ve varsa zorunlu CI kontrolleri geçmeden merge edilmez. Merge için kullanıcıdan açık onay alınır. Sonrasında Issue/Project durumu ve teslim kanıtı güncellenir; branch silme kararı ayrıca doğrulanır.
+For PRs targeting a branch other than the default branch, do not assume that the Issue will close automatically. Add the `Related Issue` link; verify closure according to the target branch and GitHub behavior.
 
-## Conflict çözme
+## Code review rules
 
-Önce temiz çalışma ağacı sağlanır; başkasının değişikliği reset/stash ile kendiliğinden taşınmaz. Onaylı hedefin güncel hâli alınır ve çalışma branch'ine merge edilir. Çakışan bölümler dosya sahibiyle incelenir; `ours`/`theirs` ile kör toplu seçim yapılmaz. İşaretler temizlenir, ilgili kontroller tekrarlanır ve çözüm reviewer'a bildirilir. Paylaşılan branch geçmişi yeniden yazılmaz; force push kullanılmaz.
+At least one reviewer other than the author is proposed. Consult Arda on architecture/API, Ahmet on quality/tests, Nurefşan on requirements alignment, and Mert/Azra on process documentation. Reviewers check correctness, scope, Acceptance Criteria, security and evidence. Authors do not approve and merge their own PRs alone. Resolve blocking comments; review substantive new changes again.
 
-## Branch protection önerileri
+## Merge procedure
 
-Barış, plan ve yetki uygunluğunu doğrulayarak `main` ve `develop` için PR zorunluluğu, en az bir bağımsız onay, yeni commit sonrası eski onayın düşmesi, yorumların çözülmesi, force push ve silme engeli önerisini ekibe sunar. Zorunlu status check yalnızca gerçekten kurulan CI job adıyla seçilir. Yönetici bypass yetkisi mümkün olduğunca sınırlandırılır. Bu ayarlar henüz uygulanmış değildir.
+Proposal: squash merge task PRs, preserving original commit and review links in the PR. For release PRs, prefer a merge commit that preserves `develop` → `main` history. The exact method requires team approval. Do not merge until Acceptance Criteria, review and any required CI checks pass. Obtain explicit user approval for merging. Afterwards, update the Issue/Project status and submission evidence; confirm branch deletion separately.
 
-## Codex ile ortak çalışma
+## Conflict resolution
 
-AGENTS.md izlenir; çıktı insan tarafından gözden geçirilir. Asistan yalnızca yetkilendirilen kapsama müdahale eder. Üretilen içerik için doğrulama ve teslim sorumluluğu öğrenciye aittir. Arda'nın OpenAPI veya Nurefşan'ın gereksinim belgeleri onların adına tamamlanmaz. Yapılmamış toplantı, test veya karar yazılmaz; bilinmeyen bilgiler `[TODO]` olur. Issue → branch → commit → PR → release/tag zinciri gerçek bağlantılarla kaydedilir.
+First ensure a clean working tree; do not automatically move another person's changes with reset/stash. Fetch the current approved target and merge it into the working branch. Review conflicting sections with the file owner; do not blindly apply bulk `ours`/`theirs` selections. Remove conflict markers, repeat relevant checks and notify the reviewer of the resolution. Do not rewrite shared branch history; do not force push.
+
+## Branch protection proposals
+
+After verifying plan and permission availability, Barış presents the following proposal for `main` and `develop`: require PRs, at least one independent approval, dismissal of stale approvals after new commits, resolved conversations, and protection against force pushes and deletion. Select a required status check only by the name of an actual configured CI job. Restrict administrator bypass as far as possible. These settings have not yet been applied.
+
+## Working with Codex
+
+Follow AGENTS.md; a human reviews the output. The assistant works only within the authorized scope. The student remains responsible for validating and submitting generated content. Do not complete Arda's OpenAPI or Nurefşan's requirements documents on their behalf. Do not record meetings, tests or decisions that have not occurred; unknown information is marked `[TODO]`. Record the Issue → branch → commit → PR → release/tag chain using actual links.

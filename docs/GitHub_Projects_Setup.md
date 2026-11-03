@@ -1,59 +1,73 @@
-# GitHub Projects kurulumu ve Sprint 1 takibi
+# GitHub Projects setup and Sprint 1 tracking
 
-**Ekip onayına sunulan öneri.** Bu belge uzak kaynak oluşturmaz veya ayar uygulamaz. Mert takip, Barış altyapı/erişim, Nurefşan ürün kapsamı için önerilen sorumlulardır. GitHub CLI (`gh`) yerelde bulunamadı; mevcut uzak Issues, PR'lar ve Projects incelenmedi. Git remote kişisel repository'yi gösteriyor; bu, Organization kurulduğunu kanıtlamaz.
+**Proposal for team approval.** This document does not create remote resources or apply settings. Proposed responsibilities: Mert for tracking, Barış for infrastructure/access, Nurefşan for product scope. Evidence snapshot: 3 November 2026, from read-only GitHub connector queries and git ls-remote. Two assigned Issues and six open PRs were verified. The repository is owned by the personal account mert494; an Organization has not been established for this repository. Projects board existence, URL, fields, items and automation are **Unverified**: gh is unavailable, the connector has no Projects read capability, and the web read failed. Repository metadata has_projects=true indicates feature availability, not a verified board. No live Issue or Project was created or updated.
 
-## Pano durumları
+## Board statuses
 
-| Status | Giriş / çıkış ölçütü |
+| Status | Entry / exit criteria |
 | --- | --- |
-| Backlog | Öneri kaydedildi; PO/ekip kapsam kararı ve ayrıntılandırma bekleniyor |
-| To Do | Kapsam, sorumlu, kabul kriteri ve bağımlılıklar net; sprint'e alındı |
-| In Progress | Sorumlu çalışmaya başladı; Issue/branch bağlantısı eklendi |
-| In Review | İncelenebilir PR veya belge ve kontrol kanıtları hazır |
-| Done | Kabul kriterleri, bağımsız review ve ilgili kontroller tamam; gerekiyorsa PR merge edildi ve kanıt bağlandı |
+| Backlog | Proposal recorded; PO/team scope decision and refinement pending |
+| To Do | Scope, owner, Acceptance Criteria and dependencies clear; selected for the sprint |
+| In Progress | Owner has started work; Issue/branch link added |
+| In Review | Reviewable PR or document and check evidence ready |
+| Done | Acceptance Criteria, independent review and relevant checks complete; PR merged if applicable and evidence linked |
 
-Engel varsa Status yanında ayrı `Blocked` alanı ve engel bağlantısı kullanılması önerilir. Hazır şablon dosyası bütün Sprint 1 teslimini Done yapmaz.
+For impediments, a separate `Blocked` field and impediment link alongside Status are proposed. A ready template file does not make the entire Sprint 1 submission Done.
 
-## Önerilen alanlar ve görünümler
+## Proposed fields and views
 
-Status, Assignees (gerçek GitHub hesapları [TODO]), Priority (P1/P2/P3), Story Points (Number), Sprint (Sprint 1), Epic, Requirement, Dependencies, Evidence ve Blocked. İş kimlikleri S1-01…S1-16 ile korunur; gerçek Issue numarası yerine geçmez. Board görünümü Status'a göre; tablo görünümü sorumlu, öncelik, sprint ve kanıt alanlarıyla düzenlenir. Varsayılan durum önerisi Backlog'dur.
+Status, Assignees (actual GitHub accounts [TODO]), Priority (P1/P2/P3), Story Points (Number), Sprint (Sprint 1), Epic, Requirement, Dependencies, Evidence and Blocked. Preserve task IDs S1-01…S1-16; they do not replace actual Issue numbers. Organize Board view by Status; configure table view with owner, priority, sprint and evidence fields. The proposed default status is Backlog.
 
-## Sprint 1 görev listesi
+## Sprint 1 task list
 
-Tüm atamalar öneridir. Şu an yalnızca yerel süreç taslakları vardır; uzak Issue veya atama yapılmamıştır. A/R ayrıntıları [RACI](RACI_Matrix.md) ile aynıdır.
+The assignments below remain proposals matching the [RACI](RACI_Matrix.md); team approval is [TODO]. The complete Issue inventory contains two open Issues: QA #3 assigned to ahmetserdar41 and DevOps #5 assigned to baryyss-001. Both bodies contain acceptance criteria, textual P1 priorities and dependencies. Labels and milestones are empty; approved estimates are [TODO]. These actual assignments do not establish an approved Sprint Backlog. Check the latest inventory and reuse existing Issues before any separately authorized creation.
 
-| ID | Görev | Önerilen sorumlu (R) | Kabul kriterleri |
+| ID | Task | Proposed responsible person (R) | Acceptance Criteria |
 | --- | --- | --- | --- |
-| S1-01 | Proposal ve problem tanımı | Nurefşan | Problem, amaç, paydaşlar ve kapsam belgelenmiş; ekip/PO incelemesi kayıtlı |
-| S1-02 | Lisans kararı | Nurefşan, Arda | Mevcut MIT dosyası incelenmiş; seçim gerekçesi proposal'a eklenmiş; karar kayıtlı |
-| S1-03 | System Vision | Nurefşan, Arda | Sistem hedefleri ve paydaş ihtiyaçları açıklanmış; proposal ile uyumlu |
-| S1-04 | System Boundary | Arda, Nurefşan | Aktörler, dış sistemler, kapsam içi/dışı açık; vision ile uyumlu |
-| S1-05 | Draft OpenAPI YAML | Arda | YAML parse ediliyor; seçilen OpenAPI sürümüne göre doğrulanmış; gereksinim eşlemesi ve taslak sınırlamaları yazılı |
-| S1-06 | Roller ve RACI | Azra, Mert | Altı üye mevcut; her satır tek A; CSV/Markdown aynı; ekip onayı kayıtlı |
-| S1-07 | Organization/repository erişimleri | Barış, Mert | Org kararı alınmış; altı üyenin hesap/erişimleri ve repository URL'si doğrulanmış |
-| S1-08 | Git-Flow ve review politikası | Mert, Barış | Branch, commit, PR, review, merge, conflict ve protection kuralları incelenmiş; develop kararı kayıtlı |
-| S1-09 | Initial Product Backlog | Nurefşan, Mert | Hikâye, kabul kriteri, öncelik, tahmin ve bağımlılıklar PO/ekipçe incelenmiş; taslak/onay ayrımı açık |
-| S1-10 | Projects, Issues ve sprint planı | Mert, Azra | İzin sonrası pano ve gerçek Issue bağlantıları mevcut; sorumlular, sprint hedefi ve durumlar doğrulanmış |
-| S1-11 | Issue/PR şablonları ve AGENTS | Mert | Üç Issue ve bir PR şablonu alanları tam; güvenlik ve onay sınırları açık; review yapılmış |
-| S1-12 | Süreç kayıtları | Azra, Mert | Gerçek toplantı/katılım/karar/aksiyon kayıtları kanıtlı; yapılmayanlar açıkça boş/planlandı |
-| S1-13 | Kalite ve teslim uygunluğu | Ahmet, Arda, Mert | Beş resmî teslim ve bağlantıları kontrol edilmiş; eksikler ve sonuç kayıtlı |
-| S1-14 | Bireysel katkı kanıtları | Altı üye | Her üyenin gerçek hesabı, Issue, PR/review ve commit kanıtları eşlenmiş |
-| S1-15 | Release/tag | Barış, Mert | Kullanıcı onayı sonrası incelenmiş commit'e sürüm verilmiş; URL ve SHA kaydedilmiş |
-| S1-16 | Final teslim takibi | Mert, Azra, Barış | Kontrol listesi kapatılmış; teslim bağlantıları ve ders kanalındaki teslim kanıtı kayıtlı |
+| S1-01 | Proposal and problem definition | Nurefşan | Problem, purpose, stakeholders and scope documented; team/PO review recorded |
+| S1-02 | License decision | Nurefşan, Arda | Existing MIT file reviewed; selection rationale added to proposal; decision recorded |
+| S1-03 | System Vision | Nurefşan, Arda | System goals and stakeholder needs explained; consistent with proposal |
+| S1-04 | System Boundary | Arda, Nurefşan | Actors, external systems and in/out-of-scope areas clear; consistent with vision |
+| S1-05 | Draft OpenAPI YAML | Arda | YAML parses; validated against selected OpenAPI version; requirements mapping and draft limitations documented |
+| S1-06 | Roles and RACI | Azra, Mert | All six members included; one A per row; CSV/Markdown match; team approval recorded |
+| S1-07 | Organization/repository access | Barış, Mert | Organization decision made; six members' accounts/access and repository URL verified |
+| S1-08 | Git-Flow and review policy | Mert, Barış | Branch, commit, PR, review, merge, conflict and protection rules reviewed; develop decision recorded |
+| S1-09 | Initial Product Backlog | Nurefşan, Mert | Stories, Acceptance Criteria, priorities, estimates and dependencies reviewed by PO/team; draft/approved distinction clear |
+| S1-10 | Projects, Issues and sprint plan | Mert, Azra | Board and actual Issue links available after permission; owners, sprint goal and statuses verified |
+| S1-11 | Issue/PR templates and AGENTS | Mert | All fields in three Issue templates and one PR template complete; security and approval boundaries clear; review performed |
+| S1-12 | Process records | Azra, Mert | Actual meeting/attendance/decision/action records supported by evidence; events that have not occurred explicitly blank/planned |
+| S1-13 | Quality and submission compliance | Ahmet, Arda, Mert | All six Sprint 1 deliverable headings and links checked; gaps and results recorded |
+| S1-14 | Individual contribution evidence | All six members | Each member's actual account, Issue, PR/review and commit evidence mapped |
+| S1-15 | Release/tag | Barış, Mert | Reviewed commit versioned after user approval; URL and SHA recorded |
+| S1-16 | Final submission tracking | Mert, Azra, Barış | Checklist completed; submission links and course-channel submission evidence recorded |
 
-## GitHub arayüzünden adımlar — yalnızca onay sonrası
+## Verified Issue and PR mapping — 3 November 2026
 
-1. Mevcut Organization/Projects ve repository erişimlerini kontrol edin; mevcut panoyu gereksiz yere çoğaltmayın. Org oluşturma veya repository taşıma ayrı ekip/yetki kararıdır.
-2. Uygun owner altında Projects üzerinden yeni pano açın veya mevcut panoyu seçin. Repository'yle ilişkilendirin.
-3. Status alanını yukarıdaki beş seçenekle düzenleyin. Gerekli ek alanları ekleyin; Board'u Status'a göre gruplayın.
-4. Üyelerin erişimlerini Barış doğrulasın. Ekip onayından sonra S1 görevlerini Issue şablonlarıyla açın; gerçek assignee, kabul kriterleri ve bağımlılık bağlantılarını ekleyin.
-5. Issue'ları panoya ekleyin. Sprint 1 kapsamını S1 işleriyle seçin; PB ürün örneklerini otomatik olarak uygulama taahhüdüne dönüştürmeyin.
-6. Projects Workflows ayarlarını inceleyin. Issue kapanması/PR merge edilmesiyle Done durumuna geçiren varsayılan otomasyonları kontrol edin; kabul edilmeyen veya iptal edilen işi yanlışlıkla tamamlandı saymayın. İlk aşamada geçişleri elle doğrulayın.
-7. Mert ilerleme/engel takibini, Azra gerçekleşen toplantı ve karar kayıtlarını güncellesin. Teslimde gerçek Issue → PR → commit → release/tag bağlantılarını kontrol edin.
+| Sprint 1 work | Existing Issue | Existing PR / evidence | Remaining coordination |
+| --- | --- | --- | --- |
+| Quality checks | [#3](https://github.com/mert494/student-information-system/issues/3), Ahmet | [PR #2](https://github.com/mert494/student-information-system/pull/2) references #3; Mert requested as reviewer | Independent review and affected rechecks pending |
+| Repository setup | [#5](https://github.com/mert494/student-information-system/issues/5), Barış | [PR #6](https://github.com/mert494/student-information-system/pull/6) references #5; Mert/Arda requested | Issue #5 still has a PR TODO; owner update and review pending |
+| Proposal, combined Vision/Boundary and Initial Backlog | [TODO] | [PR #7](https://github.com/mert494/student-information-system/pull/7); no linked Issue evidenced | Nurefşan confirms scope/content; Mert coordinates Issue coverage and backlog mapping |
+| OpenAPI / Boundary draft tracking | [TODO] | [PR #8](https://github.com/mert494/student-information-system/pull/8); no linked Issue evidenced | Arda/Nurefşan reconcile shared-file scope; Mert tracks links only |
+| Roles/process records | [TODO] | [PR #4](https://github.com/mert494/student-information-system/pull/4); no linked Issue evidenced | Azra coordinates RACI approval; agree integration with PR #1 |
+| Mert's process templates, guides and QA checklist corrections | [TODO] | [PR #1](https://github.com/mert494/student-information-system/pull/1); correction [b7e8655](https://github.com/mert494/student-information-system/commit/b7e865574ff87f9ae303d390307fb8317c5569c3) has no PR | Agree task Issue and PR target before any publication |
+| Sprint planning, Projects and submission tracking; PB-01–PB-07 mapping | [TODO] | [Submission checklist](Sprint1_Submission_Checklist.md); board URL [TODO] | Confirm real sprint facts, PO-approved stories, team estimates/owners and board status; no implementation commitment inferred |
 
-## CLI mevcut olduğunda salt okunur kontrol örnekleri
+All six PRs are open and have zero submitted reviews. A requested reviewer is not a completed review. Proposed board statuses above have not been verified on a live board. Missing Issue, dependency and board mappings remain [TODO]; create/update operations require separate approval. Mert coordinates tracking without editing the Product Owner's backlog or approving another member's deliverable.
 
-Kurulum veya giriş bu görevde yapılmadı. Aşağıdaki PowerShell komutları CLI kurulduktan ve hesap yetkilendirildikten sonra mevcut durumu kontrol eder. Project owner Organization ise örnekteki kişisel owner'ı doğrulanmış Organization adıyla değiştirin.
+## GitHub interface steps — only after approval
+
+1. Check existing Organization/Projects and repository access; do not unnecessarily duplicate the board. Organization creation or repository transfer requires a separate team/authorization decision.
+2. Under the appropriate owner, open a new board through Projects or select an existing board. Link it to the repository.
+3. Configure Status with the five options above. Add required fields; group the Board by Status.
+4. Barış verifies member access. After team approval, create S1 tasks with the Issue templates; add actual assignees, Acceptance Criteria and dependency links.
+5. Add Issues to the board. Select S1 tasks as Sprint 1 scope; do not automatically turn PB product examples into implementation commitments.
+6. Review Projects Workflows settings. Check default automations that set Done when an Issue closes/a PR merges; do not mistakenly mark unaccepted or canceled work complete. Initially verify transitions manually.
+7. Mert updates progress/impediment tracking; Azra updates actual meeting and decision records. At submission, check actual Issue → PR → commit → release/tag links.
+
+## Read-only CLI check examples when available
+
+No installation or login was performed in this task. The following PowerShell commands check current status after the CLI is installed and the account authorized. If the Project owner is an Organization, replace the example personal owner with the verified Organization name.
 
 ```powershell
 gh --version
@@ -64,12 +78,12 @@ gh pr list --repo mert494/student-information-system --state all --limit 100
 gh project list --owner mert494
 ```
 
-Project numarası belirlendikten sonra `gh project view <NUMBER> --owner <OWNER>` ve `gh project item-list <NUMBER> --owner <OWNER>` kullanılır; `<...>` alanları gerçek değerlerle değiştirilmeden çalıştırılmaz. Listeleme sayfalaması/sınırları nedeniyle ilk sonuçları bütün kayıtlar sanmayın. Erişim hatasını “pano yok” olarak yorumlamayın. Project okuma için gereken hesap izinleri CLI yardımına göre doğrulanır; yetki genişletme ve uzak değişiklikler bu hazırlığın kapsamı dışındadır.
+Once the Project number is known, use `gh project view <NUMBER> --owner <OWNER>` and `gh project item-list <NUMBER> --owner <OWNER>`; do not run them until `<...>` placeholders have been replaced with actual values. Pagination/limits mean the first results must not be assumed to include all records. Do not interpret an access error as “no board exists”. Verify account permissions needed for Project reading against CLI help; expanding permissions and remote changes are outside this preparation's scope.
 
-Issue, Project, release, branch protection veya başka uzak kaynağı değiştiren komutlar burada çalıştırılmaz. Push için açık onay, ardından PR açmak için ayrı onay gerekir. `develop` yoksa PR hedefi kullanıcıya sorulur.
+Do not execute commands here that change Issues, Projects, releases, branch protection or other remote resources. Explicit push approval is required, followed by separate approval to open a PR. If `develop` does not exist, ask the user for the PR target.
 
-## Kaynaklar
+## Sources
 
-- [GitHub Projects single-select alanları](https://docs.github.com/en/issues/planning-and-tracking-with-projects/understanding-fields/about-single-select-fields)
-- [GitHub Projects yerleşik otomasyonları](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
-- [GitHub CLI project komutları](https://cli.github.com/manual/gh_project)
+- [GitHub Projects single-select fields](https://docs.github.com/en/issues/planning-and-tracking-with-projects/understanding-fields/about-single-select-fields)
+- [GitHub Projects built-in automations](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
+- [GitHub CLI project commands](https://cli.github.com/manual/gh_project)
