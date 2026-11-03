@@ -1,6 +1,6 @@
 # Sprint 1 RACI Matrix
 
-**Draft requiring team approval.** Decision ID / Date: [TODO]. This file is a proposal created for process preparation; it awaits Azra's review and team consensus.
+**Draft requiring team approval.** Decision ID / Date: [TODO]. This file is a proposal created for process preparation; it awaits team approval.
 
 R = Responsible, A = Accountable, C = Consulted, I = Informed. `A/R` indicates a single person holding both roles. Each row has exactly one A; assignments are not assumed to be pre-approved.
 
