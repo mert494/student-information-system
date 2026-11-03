@@ -14,15 +14,15 @@ Make team work visible and traceable; coordinate planning, dependencies, impedim
 4. Facilitate planning/stand-ups and impediment resolution with Azra; preserve actual records.
 5. Track closure of Ahmet's findings, individual contribution evidence and Barış's release/tag preparation; check final submission.
 
-Ready items: The 12-file process package was sent to `docs/sprint1-process` in commit `78febb9`. Rules, templates and examples are ready; this does not mean approved RACI, actual meetings, a live board, a merged PR or completed Sprint 1. This new guide package is local only; commit/push/PR permission is separate.
+Ready items: Process 78febb9, guides 2987dc0 and Azra's 79e3d40 contribution were integrated into develop through PR #1 at 1f6c6ddca7bc1ced42db14ea527b8fa845397ac7, preserving individual commits. Ahmet, Barış and Arda approved that source. Corrections through c2d6d39 are published separately without a PR; the current six-file refresh is local only. Issues #9–#15 exist, are open and unassigned. These facts do not establish approved RACI, actual meetings, a live board or completed Sprint 1. See the [submission checklist](../../Sprint1_Submission_Checklist.md) for evidence.
 
 ## C. Step-by-step implementation
 
-1. Check current status through the [shared workflow](00_Team_Overview.md). Verify evidence and correct the old submission checklist statement “This preparation has not been committed”; do not mark existing `[TODO]` fields complete in bulk.
+1. Check current status through the [shared workflow](00_Team_Overview.md). The old preparation-uncommitted statement was corrected in b7e8655. Keep actual Issue/PR/commit/review evidence current in the existing checklist; do not mark [TODO] fields complete in bulk.
 2. Send everyone `00_Team_Overview.md` and their individual guide. These documents are sharing material; sending messages through Codex requires separate explicit authorization.
 3. Agree on sprint goal, actual end date/time zone, capacity, RACI and Mert–Azra division with the team; record them in the Decision Log with Azra.
-4. Resolve the `develop` starting point and integration of process documents with Barış/Arda. Do not automatically select `main` before a PR target exists. Proposed branch for these guides: `docs/sprint1-team-guides`; do not create/switch to it without user approval.
-5. Verify whether a board/Issues already exist; do not duplicate them. After creation permission, map S1-01…S1-16 tasks in the [Projects guide](../../GitHub_Projects_Setup.md) to actual Issues. Each must include Acceptance Criteria, assignee, priority and dependencies.
+4. Use verified develop as the planned correction PR base; recheck its SHA before synchronization. Preserve correction history. Local merge-commit synchronization is pending clarification of the current no-commit/no-merge limit. Keep PR #4 open until Azra approves closure.
+5. Reuse #3/#5 and #9–#15 in the [Projects guide](../../GitHub_Projects_Setup.md); do not duplicate them. Verify Projects separately. Obtain actual owner/priority/estimate decisions; PB Issues await Nurefşan and separate creation approval.
 6. Nurefşan approves the product backlog; the team clarifies estimates. Proposed board statuses: Backlog → To Do → In Progress → In Review → Done. Keep impediments separately visible; check for incorrect Done transitions caused by early Issue closure.
 7. Conduct regular progress/impediment checks; Azra records actual Meeting Minutes. Return QA findings to owners and obtain recheck evidence from Ahmet.
 8. Map each member's Issue/commit/PR/review contributions from their own account in the checklist. With squash merges, preserve original commit/review traces through the PR; do not count assignment as contribution evidence.
@@ -64,7 +64,7 @@ or force push.
 
 ## F. GitHub workflow
 
-Proposed branch for new guides: `docs/sprint1-team-guides`; proposed commit: `docs(sprint1): add role-specific team execution guides`. Before the PR, check whether branching from the existing process branch introduces an additional base dependency. Stage only this task's nine files; updates to other process documents may proceed as a separate task/diff. Obtain separate commit/push/PR approvals. Proposed reviewers: Azra and relevant guide owners; merging requires separate approval.
+The original guides and Azra's process-record contribution were merged through PR #1. The separate correction head is c2d6d39; its planned PR base is develop at 1f6c6ddca7bc1ced42db14ea527b8fa845397ac7. Only the six Mert documents may change; no correction PR or local synchronization merge has been performed. PR #1 approvals do not cover new corrections. Proposed correction reviewers remain Azra and Ahmet, pending actual requests. Obtain separate commit, push, PR and merge approvals.
 
 ## G. Collaboration
 

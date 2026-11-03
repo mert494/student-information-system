@@ -38,9 +38,9 @@ Paths are proposed shared destinations when no existing file is available; if an
 
 ## Current status and reuse
 
-Mert's 12-file process preparation was pushed to `docs/sprint1-process` in commit `78febb9`. This does not mean team approval, PR merge or Sprint 1 submission. The working tree was clean when this guide was prepared; no proposal, vision or OpenAPI file was found. Records exist for `main` and `docs/sprint1-process`; `develop` is not visible. Remote Issues/Projects and protection settings were not verified in this task.
+Evidence refreshed on 3 November 2026. Process 78febb9, guides 2987dc0 and Azra's 79e3d40 contribution are integrated in develop at 1f6c6ddca7bc1ced42db14ea527b8fa845397ac7 through PR #1 with APPROVED reviews from Ahmet, Barış and Arda. QA/process corrections through c2d6d39 are published separately without a PR. Five PRs remain open (#2/#4/#6/#7/#8); role-owned drafts remain on their branches. Main remains at 7072b41. See the [submission checklist](../../Sprint1_Submission_Checklist.md) for review and merge evidence.
 
-The [submission checklist](../../Sprint1_Submission_Checklist.md) contains the previous preparation's status; for example, “This preparation has not been committed” is now outdated. Mert should update it with the actual commit link. Do not automatically treat all previous records as current. The [process records](../../Sprint1_Process_Records.md) are a fillable template, not evidence of meetings held.
+Use the [submission checklist](../../Sprint1_Submission_Checklist.md) for actual source/PR/commit links and [Projects guide](../../GitHub_Projects_Setup.md) for Issue mapping. Nine Issues are open: #3/#5 assigned, #9–#15 unassigned; delivery tracking exists but is not completed. Projects board, fields and statuses are Unverified; the proposal is not an implemented board. RACI approval and the Mert–Azra division remain [TODO]. The [process records](../../Sprint1_Process_Records.md) remain a fillable template without verified meeting/approval evidence. Publication does not mean acceptance, integration or Sprint 1 submission.
 
 ## Proposed working sequence
 
@@ -55,10 +55,10 @@ The [submission checklist](../../Sprint1_Submission_Checklist.md) contains the p
 
 ## Shared GitHub workflow
 
-Follow [AGENTS.md](../../../AGENTS.md), [Git rules](../../Git_Workflow.md), [Issue templates](../../../.github/ISSUE_TEMPLATE/documentation.md) and the [PR template](../../../.github/pull_request_template.md). This task creates local guides only; previous push permission does not authorize committing/pushing/opening a PR for these guides.
+Follow [AGENTS.md](../../../AGENTS.md), [Git rules](../../Git_Workflow.md), [Issue templates](../../../.github/ISSUE_TEMPLATE/documentation.md) and the [PR template](../../../.github/pull_request_template.md). These guides were published in 2987dc0. Previous authorization does not grant permission for a new commit, push, PR or merge.
 
 1. Check `git status --short`, `git branch -a`, `git remote -v` and relevant documents. Stop if someone else's uncommitted work exists; do not reset or automatically stash it.
-2. With user approval, run `git fetch origin` and update the approved base. If `develop` does not exist, obtain a base/target decision from Mert/Barış and the user; do not automatically select `main`. If Mert's process documents are not yet integrated into the base, resolve that dependency first.
+2. With user approval, fetch and inspect current develop before updating a task branch. PR #1 supplies the integrated shared base; the correction PR is planned against develop. Preserve original commits and do not rewrite shared history.
 3. With user approval, create your task branch. Names in the guides are examples; add the actual Issue ID when available.
 4. Work locally and run checks. Show the diff and obtain **separate commit approval**; stage only task files using explicit paths. Each student uses their own identity.
 5. Obtain **separate push approval**, then **separate PR approval** after pushing. Include the Issue, scope, check results, gaps and reviewer in the PR. Do not describe failed/unrun checks as passed.
@@ -75,4 +75,4 @@ Follow [AGENTS.md](../../../AGENTS.md), [Git rules](../../Git_Workflow.md), [Iss
 
 ## Pending team decisions
 
-Team number and schedule; Mert–Azra division; RACI; `develop` base and PR targets; Git-Flow/merge/protection policy; Organization/access; product scope and role permissions; OpenAPI version and validator; technology stack; story estimates and implementers; release/tag name and submission format [TODO].
+Team number and schedule; Mert–Azra division; RACI; remaining PR targets and PR #4 treatment (Azra approval required); general Git-Flow/merge/protection policy; Organization/access; product scope and role permissions; OpenAPI version and validator; technology stack; story estimates and implementers; release/tag name and submission format [TODO].
