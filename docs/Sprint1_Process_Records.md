@@ -1,86 +1,86 @@
-# Sprint 1 süreç kayıtları
+# Sprint 1 Process Records
 
-**Doldurulabilir şablon; herhangi bir toplantının yapıldığını göstermez.** Koordinasyon önerisi: kayıtlar Azra, planlama/takip Mert; ekip onayı [TODO]. Sprint 1 ikinci haftanın sonunda teslim edilir ve toplam notun %15'idir. Kesin takvim [TODO].
+**Fillable template; does not imply that any meeting has taken place.** Coordination proposal: records by Azra, planning/tracking by Mert; team approval [TODO]. Delivered at the end of the second week of Sprint 1 and accounts for 15% of the total grade. Exact calendar [TODO].
 
 ## Sprint Goal
 
-Öneri: Beş Sprint 1 teslimini tutarlı, incelenmiş ve bireysel katkıları izlenebilir bir paket hâline getirmek. Ekipçe kabul edilen hedef: [TODO]. Başlangıç: [TODO]; bitiş ve saat dilimi: [TODO]; ders teslim zamanı: [TODO].
+Proposal: To consolidate the five Sprint 1 deliverables into a cohesive, reviewed package with trackable individual contributions. Team-accepted goal: [TODO]. Start: [TODO]; end and timezone: [TODO]; course submission time: [TODO].
 
 ## Role Assignment
 
-Mevcut [RACI matrisi](RACI_Matrix.md) kapsamındaki altı üyenin rolleri ve görev atamaları ekip onayı bekleyen önerilerdir. Mert–Azra iş bölümü kesinleşmiş değildir. RACI matrisini burada yinelemeyin; onaylanan değişiklikleri ve kanıtlarını kaydedin.
+The roles and task assignments for the six members under the current [RACI Matrix](RACI_Matrix.md) are proposals pending team approval. The Mert–Azra division is not finalized. Do not reiterate the RACI matrix here; record approved changes and their evidence instead.
 
-| Atama / üye(ler) | Durum (öneri/onaylandı/reddedildi) | İlgili sahip onayı | Tarih | Kanıt / bağlantı |
+| Assignment / Member(s) | Status (proposal/approved/rejected) | Relevant Owner Approval | Date | Evidence / Link |
 | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Sprint Planning
 
-- Toplantı tarihi / yeri / kolaylaştırıcı: [TODO]
-- Katılımcılar ve kapasite: [TODO]
-- Seçilen S1 görevleri / gerçek Issue bağlantıları: [TODO]
-- Tahmin yöntemi ve ekipçe kabul edilen puanlar: [TODO]
-- Bağımlılıklar, riskler ve sprint kapsamı: [TODO]
-- Sprint Goal ve Definition of Done onayı: [TODO]
+- Meeting date / location / facilitator: [TODO]
+- Participants and capacity: [TODO]
+- Selected S1 tasks / actual Issue links: [TODO]
+- Estimation method and team-accepted points: [TODO]
+- Dependencies, risks, and sprint scope: [TODO]
+- Sprint Goal and Definition of Done approval: [TODO]
 
 ## Meeting Minutes
 
-Her gerçekleşen toplantı için bu bölümü kopyalayın. Gelecek toplantıları “planlandı” olarak kaydedin.
+Copy this section for each held meeting. Record future meetings as "planned".
 
-| Kayıt ID | Durum (planlandı/gerçekleşti) | Tarih-saat | Gündem | Görüşme özeti | Kaydeden | Kanıt |
+| Record ID | Status (planned/completed) | Date-Time | Agenda | Meeting Summary | Recorder | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Attendance
 
-| Toplantı ID | Arda | Barış | Ahmet | Mert | Azra | Nurefşan |
+| Meeting ID | Arda | Barış | Ahmet | Mert | Azra | Nurefşan |
 | --- | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
-Durumlar: katıldı, katılmadı, mazeretli; bilinmeyen durum `[TODO]` kalır.
+Statuses: attended, absent, excused; unknown status remains `[TODO]`.
 
 ## Daily/Periodic Stand-up
 
-| Tarih | Üye | Önceki ilerleme | Sıradaki iş / Issue | Engel | Destek ihtiyacı |
+| Date | Member | Previous Progress | Next Task / Issue | Impediment | Support Needed |
 | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Task Progress
 
-| S1 / Issue | Sorumlu | Durum | Son güncelleme | PR / commit kanıtı | Sonraki adım |
+| S1 / Issue | Assignee | Status | Last Update | PR / Commit Evidence | Next Step |
 | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Impediment Log
 
-| Engel ID | Açılış | Engel ve etkisi | Sorumlu | Çözüm / eskalasyon | Durum | Kapanış / kanıt |
+| Impediment ID | Opening | Impediment and Impact | Owner | Resolution / Escalation | Status | Closure / Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Decision Log
 
-| Karar ID | Tarih | Öneri / karar | Durum (öneri/onaylandı/reddedildi) | Onaylayanlar | Gerekçe / bağlantı |
+| Decision ID | Date | Proposal / Decision | Status (proposal/approved/rejected) | Approvers | Rationale / Link |
 | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
-Bekleyen öneriler: Mert–Azra ayrımı, RACI, Git-Flow/merge politikası, `develop` başlangıcı, backlog ve Projects alanları. Bunlar alınmış karar değildir.
+Pending proposals: Mert–Azra division, RACI, Git-Flow/merge policy, `develop` origin, backlog and Projects fields. These are not finalized decisions.
 
 ## Sprint Review
 
-- Gerçekleşme tarihi, katılımcılar: [TODO]
-- Gösterilen teslimler ve sürüm/PR bağlantıları: [TODO]
-- Kabul kriteri bazında sonuçlar ve PO geri bildirimi: [TODO]
-- Kabul edilmeyen / devreden işler ve gerekçeleri: [TODO]
+- Completion date, participants: [TODO]
+- Demonstrated deliverables and release/PR links: [TODO]
+- Results based on acceptance criteria and PO feedback: [TODO]
+- Unaccepted / carried-over work and their rationales: [TODO]
 
 ## Sprint Retrospective
 
-- Tarih ve katılımcılar: [TODO]
-- İyi gidenler: [TODO]
-- İyileştirme alanları ve kök nedenler: [TODO]
-- Seçilen iyileştirme aksiyonları ve başarı ölçütleri: [TODO]
+- Date and participants: [TODO]
+- What went well: [TODO]
+- Areas for improvement and root causes: [TODO]
+- Selected improvement actions and success metrics: [TODO]
 
 ## Action Items
 
-| Aksiyon ID | Kaynak toplantı / karar | Aksiyon | Sorumlu | Hedef tarih | Durum | Sonuç / kanıt |
+| Action ID | Source Meeting / Decision | Action | Owner | Target Date | Status | Outcome / Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
