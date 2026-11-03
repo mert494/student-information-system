@@ -1,6 +1,6 @@
 # GitHub Projects setup and Sprint 1 tracking
 
-**Board configuration proposal for team approval.** Evidence refreshed on 3 November 2026 after PR #1 integration, using read-only GitHub queries. Nine actual Issues are open: #3 (assigned to ahmetserdar41), #5 (assigned to baryyss-001), and #9–#15 (all unassigned). The seven delivery/coordination Issues are created, not completed. PB-01–PB-07 remain local drafts pending Nurefşan's approval; no PB Issues were created. The repository belongs to personal account mert494; no Organization decision is inferred. Projects board existence, owner, URL, fields, items and automation remain **Unverified** because the available connector has no Projects read capability. Feature availability is not proof of an implemented board. This local update performs no remote operations.
+**Board configuration below is a proposal for team approval.** Evidence refreshed on 4 November 2026 through read-only GitHub queries. Issues #3, #5 and #9–#15 are open; current assignee fields are recorded below. Assignment is not approval, priority selection or deliverable acceptance. PB-01–PB-07 remain local drafts pending Nurefşan's approval; no PB Issues were created. The repository belongs to personal account `mert494`; no Organization decision is inferred. Mert reports that a Projects board was created and populated with Issues #3, #5 and #9–#15 and that task statuses/assignees were set. The available connector cannot independently inspect Projects, so board owner, URL, exact fields, views, items, live statuses and automations remain **Unverified**. The status and field tables below are proposals, not verified live configuration. This local update performs no remote operations.
 
 ## Board statuses
 
@@ -20,7 +20,7 @@ Status, Assignees (actual GitHub accounts [TODO]), Priority (P1/P2/P3), Story Po
 
 ## Sprint 1 task list
 
-The assignments below remain proposals matching the [RACI](RACI_Matrix.md); team approval is [TODO]. Actual Issue assignments are distinct from proposed ownership. Nine actual Issues are open: #3 (assigned to ahmetserdar41), #5 (assigned to baryyss-001), and #9–#15 (all unassigned). The seven delivery/coordination Issues are created, not completed. PB-01–PB-07 remain local drafts pending Nurefşan's approval; no PB Issues were created. Approved priorities, estimates and sprint selection remain [TODO]; creation does not establish an approved Sprint Backlog.
+The task roles below remain proposed and do not amend the [RACI](RACI_Matrix.md); team approval is [TODO]. Actual Issue assignee fields are separate from proposed task roles: #3 `ahmetserdar41`, #5 `baryyss-001`, #9/#10 `mert494`, #11 `nsnkcc`, #12 `nsnkcc` and `ardaberkkara1`, #13 `ardaberkkara1`, #14 `azrayy`, #15 `nsnkcc`. These Issues are open and tracked, not accepted deliverables. PB-01–PB-07 remain local drafts pending Nurefşan's approval; no PB Issues were created. Approved priorities, estimates and sprint selection remain [TODO]; assignment/creation does not establish an approved Sprint Backlog.
 
 | ID | Task | Proposed responsible person (R) | Acceptance Criteria |
 | --- | --- | --- | --- |
@@ -41,55 +41,57 @@ The assignments below remain proposals matching the [RACI](RACI_Matrix.md); team
 | S1-15 | Release/tag | Barış, Mert | Reviewed commit versioned after user approval; URL and SHA recorded |
 | S1-16 | Final submission tracking | Mert, Azra, Barış | Checklist completed; submission links and course-channel submission evidence recorded |
 
-## Verified Issue and PR mapping — 3 November 2026
+## Verified Issue and PR mapping — 4 November 2026
 
 | Sprint 1 work | Existing Issue | Existing PR / evidence | Remaining coordination |
 | --- | --- | --- | --- |
-| Quality checks | [#3](https://github.com/mert494/student-information-system/issues/3), Ahmet | [PR #2](https://github.com/mert494/student-information-system/pull/2) references #3; Mert requested as reviewer | Independent review and affected rechecks pending |
-| Repository setup | [#5](https://github.com/mert494/student-information-system/issues/5), Barış | [PR #6](https://github.com/mert494/student-information-system/pull/6) references #5; Mert/Arda requested | Issue #5 still has a PR TODO; owner update and review pending |
-| Proposal, combined Vision/Boundary and Initial Backlog | [#11](https://github.com/mert494/student-information-system/issues/11), [#12](https://github.com/mert494/student-information-system/issues/12), [#15](https://github.com/mert494/student-information-system/issues/15) | [PR #7](https://github.com/mert494/student-information-system/pull/7); local tracking association, not a verified GitHub linked-Issue relationship | Nurefşan confirms content; Nurefşan/Arda resolve shared-file scope and conflicts |
-| OpenAPI / Boundary draft tracking | [#13](https://github.com/mert494/student-information-system/issues/13), [#12](https://github.com/mert494/student-information-system/issues/12) | [PR #8](https://github.com/mert494/student-information-system/pull/8); local tracking association | Arda/Nurefşan reconcile shared-file scope; Mert tracks links only |
-| Roles/process records | [#14](https://github.com/mert494/student-information-system/issues/14) | [PR #4](https://github.com/mert494/student-information-system/pull/4) remains open; Azra's contribution is included through merged PR #1 | RACI/team approval pending; wait for Azra's approval before closing #4 |
-| Mert's process templates, guides and QA checklist corrections | [#9](https://github.com/mert494/student-information-system/issues/9), [#10](https://github.com/mert494/student-information-system/issues/10); QA context [#3](https://github.com/mert494/student-information-system/issues/3) | [PR #1](https://github.com/mert494/student-information-system/pull/1) merged; correction branch c2d6d39 has no PR | Prepare only the six Mert correction documents for a separately authorized PR to develop |
-| Sprint planning, Projects and submission tracking; PB-01–PB-07 mapping | [#10](https://github.com/mert494/student-information-system/issues/10), [#15](https://github.com/mert494/student-information-system/issues/15) | [Submission checklist](Sprint1_Submission_Checklist.md); board URL [TODO] | Real sprint facts, board verification and PO-approved PB mapping remain pending |
+| Quality checks | [#3](https://github.com/mert494/student-information-system/issues/3), assigned `ahmetserdar41` | [PR #2](https://github.com/mert494/student-information-system/pull/2) open, draft, head `8fac0cfa` → `develop` | Independent review and affected rechecks pending |
+| Repository setup | [#5](https://github.com/mert494/student-information-system/issues/5), assigned `baryyss-001` | [PR #6](https://github.com/mert494/student-information-system/pull/6) open, head `81a66a93` → `develop` | Owner updates and reviews pending |
+| Proposal, combined Vision/Boundary and Initial Backlog | [#11](https://github.com/mert494/student-information-system/issues/11), assigned `nsnkcc`; [#12](https://github.com/mert494/student-information-system/issues/12), assigned `nsnkcc` and `ardaberkkara1`; [#15](https://github.com/mert494/student-information-system/issues/15), assigned `nsnkcc` | [PR #7](https://github.com/mert494/student-information-system/pull/7) open, head `6d92c07b` → `develop`; three changed docs | Owner decisions and review pending; GitHub reports mergeable, which is not approval |
+| OpenAPI draft | [#13](https://github.com/mert494/student-information-system/issues/13), assigned `ardaberkkara1` | [PR #8](https://github.com/mert494/student-information-system/pull/8) open, head `c5425a4c` → `develop`; `api/openapi.yaml` only | Arda's validation, requirements alignment and review remain pending |
+| Roles/process records | [#14](https://github.com/mert494/student-information-system/issues/14), assigned `azrayy` | [PR #4](https://github.com/mert494/student-information-system/pull/4) closed, not merged; its source is represented in PR #1's merged history. [PR #17](https://github.com/mert494/student-information-system/pull/17) is open at head `271e102ddbfe311d2cc5a546e8e189b41465cf1c` with two changed files: `docs/RACI_Matrix.md` and `docs/Sprint1_Process_Records.md`. Mert's `CHANGES_REQUESTED` review is anchored to older head `ce9ac8b0`; the current diff needs review | RACI and Mert–Azra team approval remain pending; PR #17 is not approved or complete |
+| Mert's process templates, guides and QA checklist corrections | [#9](https://github.com/mert494/student-information-system/issues/9) and [#10](https://github.com/mert494/student-information-system/issues/10), both assigned `mert494` | [PR #1](https://github.com/mert494/student-information-system/pull/1) merged as `1f6c6dd`; [PR #16](https://github.com/mert494/student-information-system/pull/16) merged as `8f37ba56` | Both PRs are merged; Issues remain open pending acceptance and other evidence |
+| Sprint planning, Projects and submission tracking; PB-01–PB-07 mapping | [#10](https://github.com/mert494/student-information-system/issues/10), assigned `mert494`; [#15](https://github.com/mert494/student-information-system/issues/15), assigned `nsnkcc` | [Submission checklist](Sprint1_Submission_Checklist.md); board URL/details **Unverified** | Real sprint facts, independent board verification and PO-approved PB mapping remain pending |
 
-[PR #1](https://github.com/mert494/student-information-system/pull/1) was merged into develop with merge commit [1f6c6dd](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7) on 3 November 2026 at 21:29:25 Europe/Istanbul. Ahmet (ahmetserdar41), Barış (baryyss-001) and Arda (ardaberkkara1) each submitted APPROVED reviews of source 79e3d407e304038f1eb159479059e1e79cf5e623. [Ahmet review](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757090348), [Barış review](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757194647), [Arda review](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757465470). No review threads were returned. These approvals cover PR #1, not the separate correction branch or RACI/team decisions. Five PRs remain open (#2/#4/#6/#7/#8). Board statuses remain proposals; no Project item or remote Issue relationship was changed by this update.
+[PR #1](https://github.com/mert494/student-information-system/pull/1) merged into `develop` as [1f6c6dd](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7); Ahmet, Barış and Arda approved its source `79e3d407e304038f1eb159479059e1e79cf5e623`: [Ahmet](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757090348), [Barış](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757194647), [Arda](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757465470). [PR #16](https://github.com/mert494/student-information-system/pull/16) merged into `develop` as [8f37ba56](https://github.com/mert494/student-information-system/commit/8f37ba56d2561e772c721104785bcc6c3de19ef4), its current HEAD; Ahmet and Azra approved source `eece32a2fa412c993900d081f723076994a2f4d4`: [Ahmet](https://github.com/mert494/student-information-system/pull/16#pullrequestreview-5757812255), [Azra](https://github.com/mert494/student-information-system/pull/16#pullrequestreview-5757849836). PR #4 is closed but unmerged. PR #17 is open at head `271e102ddbfe311d2cc5a546e8e189b41465cf1c` with two files changed: `docs/RACI_Matrix.md` and `docs/Sprint1_Process_Records.md`. Mert's `CHANGES_REQUESTED` review is for the previous head `ce9ac8b0`; the current diff needs review. These reviews and PR states do not approve the RACI or the Mert–Azra division. Mert reports the board has been created and populated, but its details are not independently verifiable through the available connector. No remote Project or Issue changes were made by this documentation update.
 
 ## Delivery Issue source descriptions — created as #9–#15
 
-The seven descriptions below are retained as the original source drafts for actual Issues #9–#15; do not create duplicates. All seven are open and unassigned. Their proposed assignees, priorities and estimates are not approved assignments. Nurefşan's verified account is nsnkcc. PB drafts below remain separate and uncreated. Live Issue creation does not certify acceptance.
+The seven descriptions below are retained as the original source drafts for actual Issues #9–#15; do not create duplicates. All seven are open and have actual GitHub assignees: #9/#10 `mert494`, #11 `nsnkcc`, #12 `nsnkcc` plus `ardaberkkara1`, #13 `ardaberkkara1`, #14 `azrayy`, and #15 `nsnkcc`. The assignment field records tracking responsibility only; it does not approve RACI, Product Owner decisions, priorities, estimates or acceptance. Nurefşan's verified account is `nsnkcc`. PB drafts below remain separate and uncreated. Live Issue creation does not certify acceptance.
 
 ### Workflow coordination
 
-Actual Issue: [#9](https://github.com/mert494/student-information-system/issues/9) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#9](https://github.com/mert494/student-information-system/issues/9) — Open; GitHub assignee `mert494`. The following source description is not a completion record.
 
 - **Title:** [Docs] Coordinate Sprint 1 Git-Flow and integration decisions
 - **Description:** Track Mert's workflow decisions, the shared process base, overlapping PR #1/#4 and the review route for the correction branch. Reuse #5 for Barış's infrastructure/configuration scope; #9 records the distinct coordination gap.
 - **Sprint 1 requirement:** GitHub Repository and Git-Flow; S1-08, F-03/F-15 support.
 - **Acceptance criteria:** Exact base SHA and permanent PR targets have a real team decision; PR #1/#4 scope is reconciled with Azra; proposed rules are distinguished from verified settings; owner actions and independent review links are recorded without premature closure.
-- **Proposed assignee:** mert494 (Mert); owner/team confirmation [TODO]. Barış owns configuration; Arda advises base/technical dependencies; Azra records actual decisions.
+- **GitHub assignee:** `mert494` (verified). This records issue tracking responsibility; team, RACI, priority and acceptance decisions remain pending. Barış owns configuration; Arda advises base/technical dependencies; Azra records actual decisions.
 - **Priority:** [TODO] — pending team agreement; source finding priorities remain F-03 P1 and F-15 P2.
 - **Dependencies:** Existing #5; team base/policy decision; separate authorization for branches, settings, retargeting, closure and merges. Estimate [TODO].
 - **Evidence required:** Actual decision/date/approvers, approved target SHA, settings evidence supplied by Barış, and review/integration links.
-- **Related PRs:** #1, #4, #6 and Mert's correction PR [TODO].
+- **Related PRs:** [#1](https://github.com/mert494/student-information-system/pull/1) merged; [#4](https://github.com/mert494/student-information-system/pull/4) closed unmerged; [#6](https://github.com/mert494/student-information-system/pull/6) open; [#16](https://github.com/mert494/student-information-system/pull/16) merged. Current branch activity also includes this local evidence update; its PR does not yet exist.
+- **Verified commit evidence:** [PR #1 merge `1f6c6dd`](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7) and [PR #16 merge/current develop `8f37ba56`](https://github.com/mert494/student-information-system/commit/8f37ba56d2561e772c721104785bcc6c3de19ef4).
 
 ### Sprint tracking and submission coordination
 
-Actual Issue: [#10](https://github.com/mert494/student-information-system/issues/10) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#10](https://github.com/mert494/student-information-system/issues/10) — Open; GitHub assignee `mert494`. The following source description is not a completion record.
 
 - **Title:** [Docs] Complete Sprint 1 task tracking and submission evidence
 - **Description:** Track actual Sprint 1 goal/capacity, selected task Issues, Projects verification, dependency/owner progress, independent reviews and the six-member contribution/submission chain. Reuse QA #3 and DevOps #5 rather than duplicating them.
 - **Sprint 1 requirement:** Six-deliverable tracking and identifiable team/contribution evidence; S1-10/S1-14/S1-16, F-04/F-07.
 - **Acceptance criteria:** Actual sprint facts are recorded with sources; selected Issues have confirmed owners/criteria/dependencies; existing board is verified or explicitly Unverified; checklist links real commits/PRs/reviews and pending approvals; no meeting, tag or receipt is fabricated.
-- **Proposed assignee:** mert494; Azra supports actual records, all members provide their own evidence. Assignment approval [TODO].
+- **GitHub assignee:** `mert494` (verified). This records issue tracking responsibility; sprint scope, team decisions and delivery acceptance remain pending. Azra supports actual records; all members provide their own evidence.
 - **Priority:** [TODO] — pending team agreement; F-04 P2 and F-07 P3 are source finding priorities, not new Issue approval.
 - **Dependencies:** Course deadline/time-zone/team-number/channel confirmation, Azra/team actual facts, PO scope, real owner/review evidence; board/live Issue operations and release/submission require authorization. Estimate [TODO].
 - **Evidence required:** Existing process record/checklist links, actual selected Issue URLs, verified board URL/items or explicit limitation, all six contribution chains and eventually authorized final SHA/tag/receipt.
-- **Related PRs:** #1/#2/#4/#6/#7/#8; Mert correction PR [TODO].
+- **Related PRs:** [#1](https://github.com/mert494/student-information-system/pull/1) and [#16](https://github.com/mert494/student-information-system/pull/16) merged; [#2](https://github.com/mert494/student-information-system/pull/2) open/draft; [#4](https://github.com/mert494/student-information-system/pull/4) closed/unmerged; [#6](https://github.com/mert494/student-information-system/pull/6), [#7](https://github.com/mert494/student-information-system/pull/7), [#8](https://github.com/mert494/student-information-system/pull/8) and [#17](https://github.com/mert494/student-information-system/pull/17) open. PR #17 has `CHANGES_REQUESTED`; do not treat it as accepted evidence.
+- **Verified commit evidence:** [PR #1 merge `1f6c6dd`](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7), [PR #16 merge/current develop `8f37ba56`](https://github.com/mert494/student-information-system/commit/8f37ba56d2561e772c721104785bcc6c3de19ef4). Final submission receipt, release/tag and all-member contribution chain remain pending.
 
 ### Proposal and license
 
-Actual Issue: [#11](https://github.com/mert494/student-information-system/issues/11) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#11](https://github.com/mert494/student-information-system/issues/11) — Open; GitHub assignee `nsnkcc`. The following source description is not a completion record.
 
 - **Title:** [Docs] Review Sprint 1 Project Proposal and license decision
 - **Description:** Track Nurefşan's existing proposal, preliminary OBS observations and license rationale without rewriting her content or inventing research.
@@ -103,7 +105,7 @@ Actual Issue: [#11](https://github.com/mert494/student-information-system/issues
 
 ### Vision and Boundary
 
-Actual Issue: [#12](https://github.com/mert494/student-information-system/issues/12) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#12](https://github.com/mert494/student-information-system/issues/12) — Open; GitHub assignees `nsnkcc` and `ardaberkkara1`. The following source description is not a completion record.
 
 - **Title:** [Docs] Reconcile the Sprint 1 System Vision and Boundary
 - **Description:** Track one combined owner-reviewed document across PR #7/#8. Preserve Vision and technical Boundary contributions and leave unapproved scope/role decisions explicit.
@@ -117,7 +119,7 @@ Actual Issue: [#12](https://github.com/mert494/student-information-system/issues
 
 ### OpenAPI draft
 
-Actual Issue: [#13](https://github.com/mert494/student-information-system/issues/13) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#13](https://github.com/mert494/student-information-system/issues/13) — Open; GitHub assignee `ardaberkkara1`. The following source description is not a completion record.
 
 - **Title:** [Docs] Review and validate the Sprint 1 OpenAPI draft
 - **Description:** Track Arda's existing contract draft and its unresolved policy/data/examples; Mert does not select or implement API behavior.
@@ -131,7 +133,7 @@ Actual Issue: [#13](https://github.com/mert494/student-information-system/issues
 
 ### Roles and RACI
 
-Actual Issue: [#14](https://github.com/mert494/student-information-system/issues/14) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#14](https://github.com/mert494/student-information-system/issues/14) — Open; GitHub assignee `azrayy`. The following source description is not a completion record.
 
 - **Title:** [Docs] Confirm Sprint 1 roles, RACI and Agile process division
 - **Description:** Track Azra's existing RACI proposal and actual team approval, including the Mert–Azra division and workload discussion. Do not treat PR #4's RACI checks as a matrix edit.
@@ -145,7 +147,7 @@ Actual Issue: [#14](https://github.com/mert494/student-information-system/issues
 
 ### Initial Product Backlog
 
-Actual Issue: [#15](https://github.com/mert494/student-information-system/issues/15) — Open; unassigned. The following source description is not a completion record.
+Actual Issue: [#15](https://github.com/mert494/student-information-system/issues/15) — Open; GitHub assignee `nsnkcc`. The following source description is not a completion record.
 
 - **Title:** [Docs] Review and map the Sprint 1 Initial Product Backlog
 - **Description:** Track Nurefşan's draft and its Issue mapping after her approval. Resolve the PR #7 content conflict with its owner; Mert does not replace the PO version or silently repair acceptance criteria.
@@ -156,6 +158,42 @@ Actual Issue: [#15](https://github.com/mert494/student-information-system/issues
 - **Dependencies:** Role/business-rule decisions, owner conflict resolution and approved Issue creation; source PB-01–PB-07 draft below. Estimate [TODO].
 - **Evidence required:** Authoritative backlog commit, actual PO/team approval and Issue/PR/QA links.
 - **Related PRs:** #7.
+
+## Prepared Issue #9 and #10 description corrections — not posted
+
+These proposed replacements are compared with the current live Issue bodies. Both Issues remain open and are assigned to `mert494`; neither Issue is being closed or updated by this branch.
+
+### Issue #9 — Git-Flow and integration coordination
+
+**Current text to replace:** “No GitHub assignee is set; proposed ownership below is not a confirmed assignment.” The body also labels `mert494` only as a proposed assignee. Both statements conflict with the verified GitHub assignee field.
+
+**Proposed replacement:**
+
+> **Status:** Sprint 1 tracking task; open. The GitHub assignee field is `mert494`. This records tracking responsibility only; it does not confirm team approval of the workflow, RACI, priority, target-base policy or deliverable acceptance. This Issue does not certify a deliverable as accepted.
+>
+> **Description:** Track Mert's Git-Flow and PR coordination. `develop` exists at [`8f37ba56`](https://github.com/mert494/student-information-system/commit/8f37ba56d2561e772c721104785bcc6c3de19ef4). PR #1 and PR #16 were merged into `develop` with merge commits [`1f6c6dd`](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7) and [`8f37ba56`](https://github.com/mert494/student-information-system/commit/8f37ba56d2561e772c721104785bcc6c3de19ef4). PR #4 is closed unmerged. PR #2 is an open draft; PR #6, #7 and #8 are open and currently target `develop`. Current branch targets are observed state and do not by themselves document team approval of a permanent workflow policy.
+>
+> **Acceptance criteria:** Record the team's actual workflow/base-target decision when made; keep active GitHub protection settings separate from proposed policy; track PR coordination and reviews using real links; keep approvals and outstanding owner decisions pending until evidenced.
+>
+> **Related evidence:** [PR #1](https://github.com/mert494/student-information-system/pull/1), [#2](https://github.com/mert494/student-information-system/pull/2), [#4](https://github.com/mert494/student-information-system/pull/4), [#6](https://github.com/mert494/student-information-system/pull/6), [#7](https://github.com/mert494/student-information-system/pull/7), [#8](https://github.com/mert494/student-information-system/pull/8), [#16](https://github.com/mert494/student-information-system/pull/16); active rulesets [main-protection](https://github.com/mert494/student-information-system/rules/26478471) and [develop-protection](https://github.com/mert494/student-information-system/rules/26478727). Priority and estimate remain `[TODO]` pending team agreement.
+
+### Issue #10 — task tracking and submission evidence
+
+**Current text to replace:** “No GitHub assignee is set” and the related statement that assignment is unconfirmed. These statements conflict with the verified GitHub assignee field.
+
+**Proposed replacement:**
+
+> **Status:** Sprint 1 tracking task; open. The GitHub assignee field is `mert494`. Assignment identifies tracking responsibility; it is not PO/RACI approval, a sprint commitment or deliverable acceptance.
+>
+> **Description:** Track Sprint 1 deliverable evidence, verified Issues and PRs, contribution links, Projects verification and final submission prerequisites. Do not record meetings, decisions, reviews, release/tag or submission receipt that have not occurred.
+>
+> **Verified integration evidence:** PR #1 merged with [`1f6c6dd`](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7), after APPROVED reviews by Ahmet, Barış and Arda. PR #16 merged with [`8f37ba56`](https://github.com/mert494/student-information-system/commit/8f37ba56d2561e772c721104785bcc6c3de19ef4), after APPROVED reviews by Ahmet and Azra; this is the current `develop` HEAD. PR #4 is closed unmerged. PR #2 is open/draft; #6, #7 and #8 are open. PR #17 is open at `271e102ddbfe311d2cc5a546e8e189b41465cf1c` and changes two files; Mert's `CHANGES_REQUESTED` review is for the previous head `ce9ac8b0`, so the current diff still needs review.
+>
+> **Remaining evidence:** Verify the Projects board identity, URL, fields, items and statuses; confirm team/RACI decisions and sprint facts; obtain owner reviews and QA rechecks; record all six members' actual contribution chains; confirm release/tag and final submission channel/receipt only when they exist. Course deadline source, time zone, team number and channel remain `[TODO]`/Unverified. Preserve pending decisions.
+>
+> **Related Issues:** [#3](https://github.com/mert494/student-information-system/issues/3), [#5](https://github.com/mert494/student-information-system/issues/5), [#9](https://github.com/mert494/student-information-system/issues/9)–[#15](https://github.com/mert494/student-information-system/issues/15). The verified assignee fields for #9–#15 are listed in this guide; assignments are not acceptance evidence.
+
+These replacement bodies are prepared for review only and have not been posted. Both Issues remain open.
 
 ## Local PB Issue drafts — PO confirmation required
 
