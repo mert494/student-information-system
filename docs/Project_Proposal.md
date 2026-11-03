@@ -16,26 +16,40 @@ Universities manage various types of academic information, including student rec
 
 Potential problems include:
 
-- Student information being stored in different locations.
-- Difficulties accessing up-to-date course and enrollment information.
-- Delays in recording or viewing grades.
-- Inconsistencies or duplicate records in academic data.
-- Insufficient control over who can access or modify sensitive information.
+* Student information being stored in different locations.
+* Difficulties accessing up-to-date course and enrollment information.
+* Delays in recording or viewing grades.
+* Inconsistencies or duplicate records in academic data.
+* Insufficient control over who can access or modify sensitive information.
 
 These problems may lead to unnecessary administrative work, communication difficulties, and risks to data consistency.
 
-**Evidence and validation:** These problems are initial project assumptions. They have not yet been validated through formal interviews, surveys, or institutional data. They must be validated before being treated as established findings.
+**Evidence and validation:** These problems are initial project assumptions. They have not yet been validated through formal interviews, surveys, or institutional data. However, a preliminary review of the existing university Student Information System (OBS) was conducted to observe its visible academic functions.
+
+### Preliminary Review of the Existing Student Information System
+
+The existing university Student Information System (OBS) was briefly examined to understand how academic processes are presented through its interface. The following observations were recorded:
+
+* The Course Registration screen lists selected courses with information such as course code, course name, credits, ECTS, and academic year.
+* The registration status section displays the student's finalization status and academic advisor approval status.
+* The Add/Drop Courses screen provides access to course selection and modification functions.
+* The Grade List screen provides separate sections for courses, including fields for exam name, grade, announcement date, and class average.
+* Other academic functions, such as transcripts and semester GPA information, are presented under separate menu sections.
+
+These observations show that the existing OBS provides access to essential academic processes, including course registration, course management, and grade viewing. They also indicate that different academic functions are presented through separate menus and screens.
+
+This review is limited to observations of the existing system's interface and visible functionality. No student survey or interview was conducted. Therefore, these observations should not be interpreted as evidence of confirmed user dissatisfaction or specific user problems.
 
 # 3. Stakeholder Analysis
 
 The initial stakeholder groups are listed below. Their needs and expectations should be validated during the project.
 
-| Stakeholder | Potential Needs and Expectations |
-|---|---|
-| Students | Access their own academic information, courses, enrollment status, and grades. |
-| Academic Staff | Access information about their assigned courses and students, and perform authorized academic operations. |
-| Student Affairs Personnel | Manage student and course enrollment records efficiently. |
-| University Management | Access relevant academic information to monitor administrative processes. |
+| Stakeholder               | Potential Needs and Expectations                                                                          |
+| ------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Students                  | Access their own academic information, courses, enrollment status, and grades.                            |
+| Academic Staff            | Access information about their assigned courses and students, and perform authorized academic operations. |
+| Student Affairs Personnel | Manage student and course enrollment records efficiently.                                                 |
+| University Management     | Access relevant academic information to monitor administrative processes.                                 |
 
 The exact responsibilities and access permissions of each stakeholder group must be clarified by the team.
 
@@ -45,12 +59,12 @@ The proposed solution is to develop a centralized Student Information System tha
 
 The initially proposed capabilities include:
 
-- User authentication and access control.
-- Student information management.
-- Course information management.
-- Course enrollment.
-- Grade management.
-- Academic information viewing according to user permissions.
+* User authentication and access control.
+* Student information management.
+* Course information management.
+* Course enrollment.
+* Grade management.
+* Academic information viewing according to user permissions.
 
 These capabilities are initial proposals. The final feature list must be compared with the existing Product Backlog items PB-01–PB-07 and aligned with team decisions.
 
@@ -58,12 +72,12 @@ These capabilities are initial proposals. The final feature list must be compare
 
 The project aims to achieve the following outcomes:
 
-- Provide centralized access to academic information.
-- Reduce unnecessary manual work in academic information management.
-- Improve the consistency and accessibility of student records.
-- Support course and enrollment management processes.
-- Provide controlled access to academic information.
-- Make relevant information easier for authorized users to retrieve.
+* Provide centralized access to academic information.
+* Reduce unnecessary manual work in academic information management.
+* Improve the consistency and accessibility of student records.
+* Support course and enrollment management processes.
+* Provide controlled access to academic information.
+* Make relevant information easier for authorized users to retrieve.
 
 These are intended project benefits, not outcomes that have already been achieved.
 
@@ -97,22 +111,22 @@ The following features are proposed for consideration in the initial scope.
 
 ## 7.1 Potentially In Scope
 
-- User authentication and authorization.
-- Student information management.
-- Course information management.
-- Course enrollment information management.
-- Grade management.
-- Access to academic information according to user permissions.
+* User authentication and authorization.
+* Student information management.
+* Course information management.
+* Course enrollment information management.
+* Grade management.
+* Access to academic information according to user permissions.
 
 ## 7.2 Potentially Out of Scope
 
 The following features are proposed exclusions from the current project scope. They must not be treated as final scope decisions without team approval:
 
-- Online payment processing.
-- Employee payroll and salary management.
-- Full Learning Management System (LMS) functionality.
-- A separate mobile application.
-- Integrations with external university systems.
+* Online payment processing.
+* Employee payroll and salary management.
+* Full Learning Management System (LMS) functionality.
+* A separate mobile application.
+* Integrations with external university systems.
 
 The final scope must be consistent with the System Vision and Boundary document and team decisions.
 
@@ -120,30 +134,30 @@ The final scope must be consistent with the System Vision and Boundary document 
 
 ## 8.1 Assumptions
 
-- The system will support multiple user groups.
-- User access permissions will differ according to their roles.
-- Academic information will be managed through a centralized system.
-- The initial release will focus on essential academic information management functions.
+* The system will support multiple user groups.
+* User access permissions will differ according to their roles.
+* Academic information will be managed through a centralized system.
+* The initial release will focus on essential academic information management functions.
 
 These assumptions must be validated during the project.
 
 ## 8.2 Constraints
 
-- The project must be completed according to the schedule defined for the course.
-- Development tasks must follow the responsibilities agreed upon by the team.
-- The system scope must remain consistent with the approved project requirements.
-- Technical decisions must be made collaboratively and documented.
+* The project must be completed according to the schedule defined for the course.
+* Development tasks must follow the responsibilities agreed upon by the team.
+* The system scope must remain consistent with the approved project requirements.
+* Technical decisions must be made collaboratively and documented.
 
 # 9. Initial Risks
 
-| Risk | Potential Impact | Proposed Mitigation |
-|---|---|---|
-| Unclear or frequently changing requirements | Rework and delays | Review and document requirements before implementation. |
-| Unclear project boundaries | Scope expansion | Agree on in-scope and out-of-scope features as a team. |
-| Inconsistent academic data | Incorrect or unreliable information | Define appropriate data validation rules. |
-| Unauthorized access | Exposure or modification of sensitive information | Define roles and access permissions. |
-| Insufficient development time | Incomplete functionality | Prioritize essential features and monitor sprint progress. |
-| Communication problems | Misunderstandings and duplicated work | Document decisions and responsibilities. |
+| Risk                                        | Potential Impact                                  | Proposed Mitigation                                        |
+| ------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------- |
+| Unclear or frequently changing requirements | Rework and delays                                 | Review and document requirements before implementation.    |
+| Unclear project boundaries                  | Scope expansion                                   | Agree on in-scope and out-of-scope features as a team.     |
+| Inconsistent academic data                  | Incorrect or unreliable information               | Define appropriate data validation rules.                  |
+| Unauthorized access                         | Exposure or modification of sensitive information | Define roles and access permissions.                       |
+| Insufficient development time               | Incomplete functionality                          | Prioritize essential features and monitor sprint progress. |
+| Communication problems                      | Misunderstandings and duplicated work             | Document decisions and responsibilities.                   |
 
 # 10. Open-Source License Consideration
 
@@ -157,12 +171,12 @@ The team should review whether the existing license is appropriate for the proje
 
 The project may be considered successful if it:
 
-- Provides the academic information management functions included in the approved scope.
-- Supports the agreed user roles and access permissions.
-- Enables authorized users to access and manage relevant information.
-- Maintains the accuracy and consistency of stored academic data.
-- Meets the functional and quality requirements approved by the team.
-- Is completed according to the agreed schedule and submission requirements.
+* Provides the academic information management functions included in the approved scope.
+* Supports the agreed user roles and access permissions.
+* Enables authorized users to access and manage relevant information.
+* Maintains the accuracy and consistency of stored academic data.
+* Meets the functional and quality requirements approved by the team.
+* Is completed according to the agreed schedule and submission requirements.
 
 The final success criteria should be refined as the requirements become more specific.
 
