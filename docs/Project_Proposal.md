@@ -64,7 +64,18 @@ The initial stakeholder groups are listed below. Their needs and expectations sh
 | Student Affairs Personnel | Manage student and course enrollment records efficiently.                                                 |
 | University Management     | Access relevant academic information to monitor administrative processes.                                 |
 
-The exact responsibilities and access permissions of each stakeholder group must be clarified by the team.
+### Stakeholder → System Role
+
+| Stakeholder | System Role |
+| --- | --- |
+| Students | Student |
+| Academic Staff | Instructor |
+| Student Affairs Personnel | Student Affairs Staff |
+| University Management | Administrators |
+
+University Management remains a stakeholder, but dedicated University Management functions (such as institution-level dashboards, management reports, and management-specific access workflows) are outside the Sprint 1 scope. The Administrators role is retained as a system role; this does not make those University Management-specific capabilities part of Sprint 1.
+
+The detailed responsibilities and access permissions of each system role must be clarified by the team.
 
 # 4. Proposed Solution
 
@@ -134,6 +145,8 @@ The following features are proposed for consideration in the initial scope.
 ## 7.2 Potentially Out of Scope
 
 The following features are proposed exclusions from the current project scope. They must not be treated as final scope decisions without team approval:
+
+* Dedicated University Management functions, including institution-level dashboards, management reports, and management-specific access workflows, are outside Sprint 1 scope. University Management remains a stakeholder; its mapping to the Administrators system role does not add these capabilities to Sprint 1.
 
 * Online payment processing.
 * Employee payroll and salary management.

@@ -11,7 +11,7 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 # PB-01 – User Login
 
 - **Epic:** Identity and Access
-- **User Story:** As a user, I want to log in with my account so that I can access the operations I am authorized to perform.
+- **User Story:** As a user with an assigned system role, I want to log in with my account so that I can access the operations I am authorized to perform.
 
 **Acceptance Criteria:**
 
@@ -30,14 +30,14 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 # PB-02 – Role-Based Authorization
 
 - **Epic:** Identity and Access
-- **User Story:** As a Student Affairs staff member, I want to restrict students', instructors', Student Affairs staff members', and University Management users' operations according to their roles so that each user can access only the functions they are authorized to use.
+- **User Story:** As a Student Affairs Staff member, I want to restrict operations performed by Students, Instructors, Administrators, and Student Affairs Staff members according to their roles so that each user can access only the functions they are authorized to use.
 
 **Acceptance Criteria:**
 
 1. User permissions must follow the role-and-permission matrix approved by the Product Owner.
 2. An unauthenticated request to a protected API operation must return **401 Unauthorized**.
-3. An authenticated user who lacks permission for an operation must receive **403 Forbidden**.
-4. A student must not be able to access another student's protected academic information, including through a direct API request.
+3. An authenticated user who lacks permission for an operation must receive **403 Forbidden** with an error response containing a code and message.
+4. A Student must not be able to access another Student's protected academic information, including through a direct API request; such an authenticated unauthorized request must return **403 Forbidden** with an error code and message.
 5. The same authorization rules must be enforced by the API, not only by hiding or disabling interface elements.
 
 - **Priority:** P1 – High (proposed)
@@ -50,7 +50,7 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 # PB-03 – Student Management
 
 - **Epic:** Student Affairs
-- **User Story:** As an authorized Student Affairs staff member, I want to create, list, and update student records so that student information can be managed.
+- **User Story:** As an authorized Student Affairs Staff member, I want to create, list, and update student records so that student information can be managed.
 
 **Acceptance Criteria:**
 
@@ -70,7 +70,7 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 # PB-04 – Course Management
 
 - **Epic:** Course Catalog
-- **User Story:** As an authorized Student Affairs staff member, I want to create courses and update existing course information so that course records can be maintained.
+- **User Story:** As an authorized Student Affairs Staff member, I want to create courses and update existing course information so that course records can be maintained.
 
 **Acceptance Criteria:**
 
@@ -90,16 +90,16 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 # PB-05 – Course Enrollment
 
 - **Epic:** Course Enrollment
-- **User Story:** As a student, I want to enroll in eligible courses and view my current course enrollments so that I can plan and track my studies.
+- **User Story:** As a Student, I want to enroll in courses and view my current course enrollments so that I can plan and track my studies.
 
 **Acceptance Criteria:**
 
 1. Only a student with active student status may enroll in a course. Enrollment is allowed only when the enrollment period is open and all approved enrollment conditions are met.
 2. A second enrollment record for the same student, course, and term must be prevented. The API should return **409 Conflict** with a defined error code for a duplicate enrollment.
 3. A new enrollment request made while the enrollment period is closed must be rejected with **409 Conflict** and a defined error code.
-4. A student must be able to view only their own course enrollments.
-5. The system must check course capacity and applicable course prerequisites before accepting an enrollment request.
-6. If an eligibility condition is not met (including inactive student status, a full course, or an unmet prerequisite), the API must reject the request with **422 Unprocessable Content** and a specific error code identifying the unmet condition. The exact error-code names and response schema must be documented with the API implementation.
+4. A Student must be able to view only their own course enrollments.
+5. The system must check course capacity and applicable course prerequisites before accepting an enrollment. If the course is full or a prerequisite is not met, the API must reject the request with **409 Conflict** and an error response containing a specific code and message identifying the unmet condition.
+6. If the student does not have active student status, the API must reject the request with **409 Conflict** and an error response containing a specific code and message identifying the unmet condition. The exact error-code names and response schema must be documented with the API implementation.
 7. A rejected enrollment request must not create or modify an enrollment record.
 8. A successful enrollment request must create exactly one enrollment record for the requested student, course, and term, and that enrollment must appear in the student's own enrollment list.
 
@@ -122,7 +122,7 @@ These enrollment rules are Product Owner decisions and are included as the busin
 # PB-06 – Instructor Grade Entry
 
 - **Epic:** Grade Management
-- **User Story:** As an instructor, I want to enter grades for students enrolled in a course assigned to me so that I can record and maintain the academic results for my course.
+- **User Story:** As an Instructor, I want to enter grades for students enrolled in a course assigned to me so that I can record and maintain the academic results for my course.
 
 **Acceptance Criteria:**
 
@@ -143,14 +143,14 @@ These enrollment rules are Product Owner decisions and are included as the busin
 # PB-07 – Student Grade Viewing
 
 - **Epic:** Grade Management
-- **User Story:** As a student, I want to view the grades published for my courses so that I can monitor my academic performance and progress.
+- **User Story:** As a Student, I want to view the grades published for my courses so that I can monitor my academic performance and progress.
 
 **Acceptance Criteria:**
 
-1. A student must be able to view only their own published grades.
+1. A Student must be able to view only their own published grades.
 2. Grades that have not yet been published must not be displayed to the student.
 3. If the student has no published grades, the system must display the message: "No published grades are available."
-4. If a student attempts to access another student's grade information through a direct request, access must be denied. An authenticated student making such a request must receive **403 Forbidden**.
+4. If a Student attempts to access another Student's grade information through a direct request, access must be denied. An authenticated Student making such a request must receive **403 Forbidden** with an error code and message.
 5. When a grade-viewing request is successful, only information the student is authorized to access must be displayed.
 6. A request for another student's grades must not disclose the grades or other protected academic information.
 
@@ -177,14 +177,14 @@ Proposed owners are not confirmed assignments. Implementation tasks should be as
 
 # 10. Approval and Tracking
 
-- **Product Owner approval:** [TODO]
-- **Team estimates:** [TODO]
-- **Implementation assignments:** [TODO]
-- **API mapping with Arda:** [TODO]
-- **GitHub Issue mapping with Mert:** [TODO]
-- **Quality review by Ahmet:** [TODO]
-- **Confirmed user roles:** Student, Instructor (Teacher), Student Affairs Staff, and University Management.
-- **Role-and-permission matrix:** To be documented.
+- **Product Owner approval:** Pending
+- **Team estimates:** Pending
+- **Implementation assignments:** Pending
+- **API mapping with Arda:** Proposed in api/openapi.yaml via x-backlog-reference (PB-01…PB-07); see PR #8 / Issue #13.
+- **GitHub Issue mapping with Mert:** Deliverable Issues #11 (Proposal), #12 (Vision/Boundary), #15 (Backlog); per-PB Issues [TODO].
+- **Quality review by Ahmet:** In review via PR #7.
+- **Confirmed user roles:** Student, Instructor, Administrators, and Student Affairs Staff.
+- **Role-and-permission matrix:** Pending technical review by the Architecture Lead and team.
 - **Enrollment rules and API error-code mapping:** To be documented with the implementation details.
 
 Approved backlog items should later be mapped to actual GitHub Issues.

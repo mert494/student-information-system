@@ -29,18 +29,18 @@ The following user groups are identified as initial stakeholder and candidate ac
 
 ## 2.1 Proposed System Roles
 
-The following four roles are proposed for further discussion and alignment with the technical architecture:
+The four system roles selected by the Product Owner for the initial SIS role model are:
 
 * **Student:** A user who accesses their own academic information and performs authorized student operations.
 * **Instructor:** An academic staff member who accesses relevant course and student information and performs authorized academic operations.
-* **Administrator:** A candidate administrative role responsible for authorized system management operations.
+* **Administrators:** Users who perform authorized administrative operations within the scope approved for the system.
 * **Student Affairs Staff:** Personnel responsible for authorized student-related administrative processes.
 
-The relationship between these roles and the stakeholder groups listed above must be clarified.
+The stakeholder-to-system-role mapping is documented in the Project Proposal. University Management maps to the Administrators role as a stakeholder relationship; dedicated University Management functions remain outside Sprint 1 scope.
 
-The exact roles, permissions, and responsibilities have not yet been approved by the team.
+The detailed permissions and responsibilities of these roles still require technical review by the Architecture Lead and team.
 
-**[TODO – Nurefşan / Arda / Team]:** Confirm the final system roles and their corresponding permissions.
+**[TODO – Nurefşan / Arda / Team]:** Confirm the role-to-operation and role-to-data permission matrix.
 
 # 3. System Responsibilities and Main Functions
 
