@@ -6,7 +6,7 @@
 
 The user stories in this document are prepared to evaluate the initial requirements of the system. They must not be treated as approved requirements or Sprint commitments until reviewed and approved by the Product Owner and the team.
 
-Priorities are initial proposals. Story Point values are not hours and must be reassessed by the development team. Proposed owners do not represent confirmed assignments.
+All PB-01–PB-07 priorities, Story Point values, and proposed owners are unapproved proposals unless explicitly approved by the Product Owner and team. Story Point values are relative estimates, not hours, and must be reassessed by the development team. Proposed owners do not represent confirmed assignments.
 
 # PB-01 – User Login
 
@@ -35,9 +35,10 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 **Acceptance Criteria:**
 
 1. User permissions must follow the role-and-permission matrix approved by the Product Owner.
-2. An unauthorized user must be denied when attempting an operation through a direct API request.
-3. A student must not be able to access another student's protected academic information.
-4. The system must return an appropriate response indicating that permission is insufficient for an unauthorized operation.
+2. An unauthenticated request to a protected operation must return HTTP `401 Unauthorized`.
+3. An authenticated user who lacks the permission required for an operation must receive HTTP `403 Forbidden`, including when the operation is attempted through a direct API request.
+4. A student who attempts to access another student's protected academic information must receive HTTP `403 Forbidden`; no protected information belonging to the other student must be returned.
+5. The response-code mapping (`401` for missing/invalid authentication and `403` for insufficient permission) is proposed for measurable testing; Arda and the team must confirm it in the API contract before it is treated as approved.
 
 - **Priority:** P1 – High (proposed)
 - **Story Points:** 5 (proposed)
@@ -94,10 +95,12 @@ Priorities are initial proposals. Story Point values are not hours and must be r
 **Acceptance Criteria:**
 
 1. A student must be able to enroll in a course when the approved enrollment conditions are met and the enrollment period is open.
-2. A second enrollment record for the same student, course, and term must be prevented.
-3. A new enrollment request must be rejected when the enrollment period is closed.
-4. A student must be able to view only their own course enrollments.
-5. When enrollment conditions are not met, the system must reject the enrollment request and return an appropriate error response.
+2. A second enrollment record for the same student, course, and term must be prevented; the API must return HTTP `409 Conflict`.
+3. A new enrollment request submitted while the enrollment period is closed must be rejected with HTTP `409 Conflict`.
+4. A student must be able to view only their own course enrollments; a request to view another student's enrollments must return HTTP `403 Forbidden` and must not disclose those records.
+5. When an enrollment condition formally approved by the Product Owner and team is not met, the API must reject the request with HTTP `422 Unprocessable Content`.
+6. For a successful enrollment, the system must create one enrollment record for the requested student, course, and term and make it visible in that student's enrollment list.
+7. The response-code mapping (`409` for duplicate enrollment or a closed enrollment period, and `422` for a failed eligibility condition that the Product Owner and team have approved) is proposed for measurable testing; Arda and the team must confirm it in the API contract before it is treated as approved.
 
 **Open Decisions:**
 

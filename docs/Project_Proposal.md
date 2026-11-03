@@ -40,6 +40,19 @@ These observations show that the existing OBS provides access to essential acade
 
 This review is limited to observations of the existing system's interface and visible functionality. No student survey or interview was conducted. Therefore, these observations should not be interpreted as evidence of confirmed user dissatisfaction or specific user problems.
 
+
+### QA Evidence Register — Preliminary OBS Review
+
+| Ref. | Observation recorded in this proposal | Evidence status for QA |
+| --- | --- | --- |
+| OBS-01 | Course Registration lists selected courses with course code, course name, credits, ECTS, and academic year. | Observation is recorded as a text-based interface observation in this proposal; no image attachment is included or required for this draft. |
+| OBS-02 | Registration status displays finalization status and academic advisor approval status. | Observation is recorded as a text-based interface observation in this proposal; no image attachment is included or required for this draft. |
+| OBS-03 | Add/Drop Courses provides course selection and modification functions. | Observation is recorded as a text-based interface observation in this proposal; no image attachment is included or required for this draft. |
+| OBS-04 | Grade List contains sections for courses and fields including exam name, grade, announcement date, and class average. | Observation is recorded as a text-based interface observation in this proposal; no image attachment is included or required for this draft. |
+| OBS-05 | Transcript and semester GPA functions appear under separate menu sections. | Observation is recorded as a text-based interface observation in this proposal; no image attachment is included or required for this draft. |
+
+**QA limitation:** This proposal records the OBS review as text-based observations. No screenshots or other visual attachments are planned for this document. QA may review the wording and, if OBS access is available, check whether the listed screens and fields are visible. The observations do not establish user dissatisfaction, process failure, or measured performance.
+
 # 3. Stakeholder Analysis
 
 The initial stakeholder groups are listed below. Their needs and expectations should be validated during the project.
@@ -163,12 +176,15 @@ These assumptions must be validated during the project.
 
 The repository already contains an MIT License file. Retaining the existing license is recommended unless the team agrees on a different approach.
 
-The MIT License is a permissive open-source license that allows software to be used, modified, and distributed subject to its conditions. These conditions include preserving the copyright and license notices
+The MIT License is a permissive open-source license that allows software to be used, modified, and distributed subject to its conditions. These conditions include preserving the copyright and license notices.
 
 Retaining the existing MIT License is suitable for this project because it is simple and permissive, allowing others to use, modify, and distribute the project with minimal restrictions. This supports collaboration and future development while requiring the original copyright and license notice to be preserved.
 
 
 The team should review whether the existing license is appropriate for the project's purpose and intended distribution. No license change is proposed in this document.
+
+
+**QA/review note:** This proposal records the rationale for retaining the MIT License already present in the repository; it does not claim that the team has formally approved the license decision. Reviewers should verify that the repository's `LICENSE` file is present and that its text matches the license identified in this section. Team approval remains pending.
 
 # 11. Initial Success Criteria
 
