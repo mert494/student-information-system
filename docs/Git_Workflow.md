@@ -34,7 +34,7 @@ The branch model above remains a proposal; the following records are observed Gi
 | [#6](https://github.com/mert494/student-information-system/pull/6) | Open, mergeable | `81a66a93` → `develop` (`8f37ba56`) | Repository setup; owner/review work remains |
 | [#7](https://github.com/mert494/student-information-system/pull/7) | Open, mergeable | `6d92c07b` → `develop` (`8f37ba56`) | Proposal, backlog and combined Vision/Boundary; owner decisions/review remain |
 | [#8](https://github.com/mert494/student-information-system/pull/8) | Open, mergeable | `c5425a4c` → `develop` (`8f37ba56`) | `api/openapi.yaml`; API validation and review remain |
-| [#17](https://github.com/mert494/student-information-system/pull/17) | Open; Mert's review is `CHANGES_REQUESTED` | `ce9ac8b0` → `develop` (`8f37ba56`) | Current diff has `docs/RACI_Matrix.md` and `docs/Sprint1_Process_Records.md`; team approvals remain pending |
+| [#17](https://github.com/mert494/student-information-system/pull/17) | Open; Mert's review is `CHANGES_REQUESTED` on the previous head | `271e102ddbfe311d2cc5a546e8e189b41465cf1c` → `develop` (`8f37ba56`) | Two changed files: `docs/RACI_Matrix.md` and `docs/Sprint1_Process_Records.md`; the review is on `ce9ac8b0` and the new changes need review. RACI/team approvals remain pending |
 
 Delivery Issues #9–#15 are open with actual GitHub assignees: #9/#10 `mert494`; #11 `nsnkcc`; #12 `nsnkcc` and `ardaberkkara1`; #13 `ardaberkkara1`; #14 `azrayy`; #15 `nsnkcc`. These assignee fields are tracking assignments, not PO approval, RACI approval, priority decisions or acceptance. PB-01–PB-07 remain local drafts pending Product Owner/team approval.
 
