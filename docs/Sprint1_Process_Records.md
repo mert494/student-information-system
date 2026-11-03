@@ -4,7 +4,7 @@
 
 ## Sprint Goal
 
-Proposal: To consolidate the five Sprint 1 deliverables into a cohesive, reviewed package with trackable individual contributions. Team-accepted goal: [TODO]. Start: [TODO]; end and timezone: [TODO]; course submission time: [TODO].
+Proposal: To consolidate the five main specification items into a cohesive, reviewed package with trackable individual contributions. Teams presents these as six submission headings by separating GitHub Repository and Git-Flow from the Initial Product Backlog; this is a presentation distinction, not a scope change. Team-accepted goal: [TODO]. Start: [TODO]; end and timezone: [TODO]; course submission time: [TODO].
 
 ## Role Assignment
 
