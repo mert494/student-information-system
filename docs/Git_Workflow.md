@@ -1,7 +1,7 @@
 # Git workflow — draft for team approval
 
 Status: **Proposal; not yet approved by the team.** Approval date and decision record: [TODO].
-Related Issue: [TODO]. Proposed coordination: Mert; technical consultation: Arda; repository settings: Barış.
+Related Issues: [#9](https://github.com/mert494/student-information-system/issues/9) and [#10](https://github.com/mert494/student-information-system/issues/10). Proposed coordination: Mert; technical consultation: Arda; repository settings: Barış.
 
 ## Repository working rules
 
@@ -15,55 +15,55 @@ Proposed division between Mert and Azra: Mert coordinates GitHub Projects, Issue
 | --- | --- | --- |
 | `main` | Reviewed submissions and release history | Approved `develop` release / `main` through a PR |
 | `develop` | Sprint integration | Team-approved starting commit / integration target |
-| `feature/<issue>-<kisa-ad>` | Product feature | `develop` / `develop` |
-| `docs/<issue>-<kisa-ad>` | Documentation and process work | `develop` / `develop` |
-| `fix/<issue>-<kisa-ad>` | Bug fix | `develop` / `develop` |
+| `feature/<issue>-<short-name>` | Product feature | `develop` / `develop` |
+| `docs/<issue>-<short-name>` | Documentation and process work | `develop` / `develop` |
+| `fix/<issue>-<short-name>` | Bug fix | `develop` / `develop` |
 
-The current preparation branch, `docs/sprint1-process`, is an exception to this naming pattern; its Issue link will be added later. At inspection, `develop` was absent from local/remote branch records. Do not open a PR until its target is clarified with the user; do not automatically select `main`. This work does not create `develop`.
+The historical preparation branch docs/sprint1-process is a naming exception. The current correction branch is docs/mert-qa-corrections at c2d6d39; develop exists at 1f6c6ddca7bc1ced42db14ea527b8fa845397ac7. The planned correction PR targets develop, not main. This does not approve a general workflow policy.
 
 ## Observed Sprint 1 configuration — 3 November 2026
 
-The branch model above remains a proposal. Read-only GitHub and Git checks verified:
+The branch model above remains a proposal. Read-only GitHub queries verified nine branches. Main remains at 7072b41; develop is at 1f6c6ddca7bc1ced42db14ea527b8fa845397ac7. The published correction head is c2d6d39fde35b967182284ea3a3e668b3ddcd3bf.
 
-- Eight remote branches exist; develop is absent. The default main branch remains at 7072b41 with only the initial README, LICENSE and .gitignore. Role-owned drafts and Mert's corrections exist on separate task branches; none of the six PRs is merged.
-- All eight branch records report protected=false, and the repository ruleset list is empty. The detailed main protection query returned 403 (Resource not accessible by integration); individual settings and plan capability remain **Unverified**. The proposed approval/merge gates must not be described as enforced.
-- PR #1 targets docs/sprint1-process; PR #2/#6/#7/#8 target docs/sprint1-team-guides; PR #4 targets main. These are observed targets, not an approved integration policy. All six have zero submitted reviews. PR #1 and #4 share head 79e3d40; their integration sequence requires Mert/Azra and team confirmation.
-- Verified account permissions are Mert admin and the five teammates write. Barış retains infrastructure ownership and technical recommendations under the proposed RACI; Mert coordinates any separately authorized admin action. No settings were changed.
-- Process 78febb9, guides 2987dc0 and QA/process corrections b7e8655 and 226d2e8 are published. Publication is not team approval, merge or submission. Existing naming exceptions do not authorize shared-branch renaming or history rewriting.
+[PR #1](https://github.com/mert494/student-information-system/pull/1) was merged into develop with merge commit [1f6c6dd](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7) on 3 November 2026 at 21:29:25 Europe/Istanbul. Ahmet (ahmetserdar41), Barış (baryyss-001) and Arda (ardaberkkara1) each submitted APPROVED reviews of source 79e3d407e304038f1eb159479059e1e79cf5e623: [Ahmet](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757090348), [Barış](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757194647), [Arda](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757465470). No review threads were returned. These approvals cover PR #1, not the separate correction branch or RACI/team decisions.
 
-The exact develop base SHA, permanent PR targets, RACI/workflow approval and integration order remain [TODO]. Record actual decisions with Azra and the relevant owners. Branch creation, settings, PR retargeting/closure and merge require applicable separate authorization. Local documentation changes do not complete these live actions.
+PR #2/#6/#7/#8 still target docs/sprint1-team-guides; PR #4 remains open against main. Its source is an ancestor of develop and has no file-content difference from it. Do not close #4 without Azra's approval. Nine actual Issues are open: #3 (assigned to ahmetserdar41), #5 (assigned to baryyss-001), and #9–#15 (all unassigned). Delivery Issue creation is complete, not deliverable acceptance. PB-01–PB-07 remain local drafts pending Nurefşan's approval; no PB Issues were created.
+
+All nine branch records report protected=false; rulesets=[]. The earlier detailed protection read returned 403; individual protection settings and plan capability remain Unverified. These proposals are not enforced GitHub rules. Projects and RACI/team approvals remain pending. Barış owns configuration work; this update changes no settings.
 
 ## Prepared correction PR — not created
 
 - **Proposed title:** docs: complete Mert Sprint 1 process tracking preparation
-- **Source branch:** docs/mert-qa-corrections, published head 226d2e8; current local follow-up must receive separate commit/push approval before inclusion.
-- **Candidate base:** docs/sprint1-team-guides at 79e3d40. This preserves the latest shared process work and yields only Mert's six documentation files below. It is a review candidate, not an approved permanent integration target. Base confirmation [TODO]; develop does not exist. Do not default to main.
-- **Related Issue:** [TODO]; QA context #3. Missing local Issue descriptions are in GitHub_Projects_Setup.md and have not been created.
+- **Source branch:** docs/mert-qa-corrections, published head c2d6d39fde35b967182284ea3a3e668b3ddcd3bf. This local evidence refresh is uncommitted.
+- **Planned base:** develop at 1f6c6ddca7bc1ced42db14ea527b8fa845397ac7. Common ancestor is 79e3d407e304038f1eb159479059e1e79cf5e623; the correction branch is three commits ahead and one behind. Develop has the same file tree as the common ancestor, so no content conflict is expected at these SHAs. Local synchronization with a merge commit is deferred because the current instruction also prohibits commits/merges. No rebase, reset or force push is proposed.
+- **Related Issues:** [#9](https://github.com/mert494/student-information-system/issues/9) and [#10](https://github.com/mert494/student-information-system/issues/10); QA context [#3](https://github.com/mert494/student-information-system/issues/3), RACI coordination [#14](https://github.com/mert494/student-information-system/issues/14). Use reference links, not automatic Issue-closing language.
 - **Proposed reviewer:** ahmetserdar41 for evidence/QA; azrayy for process consistency, pending actual review requests and owner agreement.
 
 Prepared PR body (refresh head SHA and actual validation evidence immediately before authorized creation):
 
 ### Summary
 
-Mert's Sprint 1 process documents contained stale publication/Issue status and lacked ready-to-review tracking records for remaining coordination work. The correction distinguishes verified remote state from proposed Git-Flow/Projects settings, preserves real contribution links, prepares missing Issue descriptions and records owner-dependent actions. New local preparation does not claim live configuration, approvals, meetings, reviews or submission.
+Mert's Sprint 1 process documents contained stale publication/Issue status and lacked ready-to-review tracking records for remaining coordination work. The correction distinguishes verified remote state from proposed Git-Flow/Projects settings, preserves real contribution links, prepares missing Issue descriptions and records owner-dependent actions. The refresh records actual earlier GitHub actions without claiming completion of pending configuration, team approvals, meetings, correction reviews or submission.
 
 ### Scope and evidence
 
-Changed paths relative to candidate base 79e3d40 are docs/GitHub_Projects_Setup.md, docs/Git_Workflow.md, docs/Sprint1_Submission_Checklist.md, docs/qa/Mert_QA_Corrections.md, docs/team-guides/sprint1/00_Team_Overview.md and docs/team-guides/sprint1/06_Mert_Scrum_Master_Summary.md. No PO backlog, RACI, shared factual process record, QA-owner source, API, source/test or infrastructure file is changed. Earlier published work: [b7e8655](https://github.com/mert494/student-information-system/commit/b7e865574ff87f9ae303d390307fb8317c5569c3) and [226d2e8](https://github.com/mert494/student-information-system/commit/226d2e898b31e65d7503a4520fef9059d425e8cc). Current follow-up commit/PR [TODO].
+Changed paths relative to develop at 1f6c6dd are docs/GitHub_Projects_Setup.md, docs/Git_Workflow.md, docs/Sprint1_Submission_Checklist.md, docs/qa/Mert_QA_Corrections.md, docs/team-guides/sprint1/00_Team_Overview.md and docs/team-guides/sprint1/06_Mert_Scrum_Master_Summary.md. No PO backlog, RACI, shared factual process record, QA-owner source, API, source/test or infrastructure file is changed. Earlier published work: [b7e8655](https://github.com/mert494/student-information-system/commit/b7e865574ff87f9ae303d390307fb8317c5569c3) and [226d2e8](https://github.com/mert494/student-information-system/commit/226d2e898b31e65d7503a4520fef9059d425e8cc). Published preparation: [c2d6d39](https://github.com/mert494/student-information-system/commit/c2d6d39fde35b967182284ea3a3e668b3ddcd3bf). Current local refresh commit/PR [TODO].
 
 ### Validation and remaining decisions
 
-Use the actual local check results in [Mert_QA_Corrections.md](qa/Mert_QA_Corrections.md); do not mark the independent review complete. Issue/PB drafts preserve Nurefşan's proposed criteria/priorities and require her confirmation. Projects remains Unverified. Approved base/targets, RACI/sprint facts, missing live Issues, independent review, owner conflicts, settings and release/submission evidence remain pending. The course source, exact deadline/time zone/team number/channel are Unverified/[TODO]. No application/API tests are represented as run.
+Use the actual local check results in [Mert_QA_Corrections.md](qa/Mert_QA_Corrections.md); do not mark the independent review complete. Issue/PB drafts preserve Nurefşan's proposed criteria/priorities and require her confirmation. Projects remains Unverified. RACI/sprint facts, PB approval/mapping, independent review of this correction, owner conflicts, settings and release/submission evidence remain pending. Delivery Issues #9–#15 are open, not completed. The course source, exact deadline/time zone/team number/channel are Unverified/[TODO]. No application/API tests are represented as run.
 
 ### Integration dependencies
 
-PR #1 is docs/sprint1-team-guides to docs/sprint1-process; its current delta contains Mert's nine guides plus Azra's process-record change. PR #4 has the same head 79e3d40 but targets main. Neither is exclusively Mert's current correction and neither is automatically safe to merge or close. Agree the overlap and target with Azra/team first. PR #7 has a live conflict, and #7/#8 still compete on Vision/Boundary; their owners must reconcile content. Individually mergeable #8 is not proof of cross-PR compatibility. PR #2/#6 already request Mert's review but have no submitted reviews.
+[PR #1](https://github.com/mert494/student-information-system/pull/1) was merged into develop with merge commit [1f6c6dd](https://github.com/mert494/student-information-system/commit/1f6c6ddca7bc1ced42db14ea527b8fa845397ac7) on 3 November 2026 at 21:29:25 Europe/Istanbul. Ahmet (ahmetserdar41), Barış (baryyss-001) and Arda (ardaberkkara1) each submitted APPROVED reviews of source 79e3d407e304038f1eb159479059e1e79cf5e623: [Ahmet](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757090348), [Barış](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757194647), [Arda](https://github.com/mert494/student-information-system/pull/1#pullrequestreview-5757465470). No review threads were returned. These approvals cover PR #1, not the separate correction branch or RACI/team decisions.
 
-A safe candidate for this documentation correction is review against the confirmed shared guide base, followed by a separately approved team integration path. No merge order or merge method is approved here. Ahmet's new prompt suggests merge commits while the existing workflow proposes squash for task PRs; the team must record the actual method before integration. Do not execute the prompt's install/login, branch, settings, retargeting, closure, review or merge steps as authorization.
+PR #4 remains open against main, with all source contributions preserved in develop. Await Azra's approval before closure. PR #7 remains conflicted, and #7/#8 share competing Vision/Boundary content; their owners must reconcile it. This correction changes neither PR's target or files. PR #1 approvals do not approve this six-file correction.
+
+Use the existing correction worktree, preserve all original commits, and show the refreshed six-file diff before a separately authorized commit/push/PR. No local merge commit, new commit, push or PR has been made in this refresh.
 
 ## Commit messages
 
-Proposed format: `type(scope): short description`; types: `feat`, `fix`, `docs`, `test`, `chore`. Example: `docs(sprint1): add process and delivery templates`. Include the actual Issue number in the commit body as `Refs #<numara>`; do not carry placeholders into commits. Use atomic commits and the correct author identity. Do not fabricate contributions on behalf of a bot or another student.
+Proposed format: `type(scope): short description`; types: `feat`, `fix`, `docs`, `test`, `chore`. Example: `docs(sprint1): add process and delivery templates`. Include the actual Issue number in the commit body as `Refs #<issue-number>`; do not carry placeholders into commits. Use atomic commits and the correct author identity. Do not fabricate contributions on behalf of a bot or another student.
 
 ## Pull Request procedure
 
@@ -82,7 +82,7 @@ At least one reviewer other than the author is proposed. Consult Arda on archite
 
 ## Merge procedure
 
-Proposal: squash merge task PRs, preserving original commit and review links in the PR. For release PRs, prefer a merge commit that preserves `develop` → `main` history. The exact method requires team approval. Do not merge until Acceptance Criteria, review and any required CI checks pass. Obtain explicit user approval for merging. Afterwards, update the Issue/Project status and submission evidence; confirm branch deletion separately.
+General proposal only: squash merge task PRs, preserving original commit and review links in the PR. This is not enforced or authorization to rewrite this branch. PR #1 used a merge commit to preserve individual history. For release PRs, prefer a merge commit that preserves `develop` → `main` history. The exact method requires team approval. Do not merge until Acceptance Criteria, review and any required CI checks pass. Obtain explicit user approval for merging. Afterwards, update the Issue/Project status and submission evidence; confirm branch deletion separately.
 
 ## Conflict resolution
 
