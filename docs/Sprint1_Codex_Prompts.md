@@ -1,6 +1,6 @@
 # Sprint 1 Codex prompt'ları
 
-Durum: **Öneri; 2026-11-03 itibarıyla günceldir.** Hazırlayan: Ahmet (QA). Dayanak: [Sprint1_Action_Items.md](Sprint1_Action_Items.md) ve [Sprint1_Quality_Report.md](Sprint1_Quality_Report.md). İlgili Issue: [#3](https://github.com/mert494/student-information-system/issues/3).
+Durum: **Öneri; 2026-11-03 tarihli ilk sürüm.** 2026-11-04 itibarıyla 1. adım (Mert) tamamlandı ve PR #1, #16, #18 merge edildi; kalan güncel işler için [Sprint1_Action_Items.md](Sprint1_Action_Items.md) esas alınmalıdır. Hazırlayan: Ahmet (QA). Dayanak: [Sprint1_Action_Items.md](Sprint1_Action_Items.md) ve [Sprint1_Quality_Report.md](Sprint1_Quality_Report.md). İlgili Issue: [#3](https://github.com/mert494/student-information-system/issues/3).
 
 Her üye kendi bölümündeki prompt'u kendi Codex oturumuna, kendi GitHub hesabıyla yapıştırır. Prompt'lar her commit, push, PR ve merge öncesinde onay ister; Codex'in önerdiği değişikliği onaylamadan önce kontrol edin.
 
@@ -37,11 +37,11 @@ Görevler (her adımdan önce ne yapacağını göster ve onayımı al):
    GitHub_Projects_Setup.md, team-guides) listele; reviewer ahmetserdar41 olsun.
    develop ile çakışma varsa göster, kendi dosyalarım dışında bir şeyi değiştirme.
 7. .github/ISSUE_TEMPLATE/documentation.md şablonuyla Issue aç ve sahiplerini assignee yap:
-   Project Proposal (nsankcc), System Vision and Boundary (nsankcc, ardaberkkara1),
-   OpenAPI Draft (ardaberkkara1), Team Roles and RACI (azrayy), Initial Product Backlog (nsankcc).
+   Project Proposal (nsnkcc), System Vision and Boundary (nsnkcc, ardaberkkara1),
+   OpenAPI Draft (ardaberkkara1), Team Roles and RACI (azrayy), Initial Product Backlog (nsnkcc).
    Açılan Issue numaralarını ilgili PR açıklamalarına "Related: #n" olarak ekle.
    Açmadan önce kullanıcı adlarını gh api repos/.../collaborators ile doğrula.
-8. Reviewer ata: #6 -> ardaberkkara1, #7 -> ahmetserdar41, #8 -> ahmetserdar41 ve nsankcc,
+8. Reviewer ata: #6 -> ardaberkkara1, #7 -> ahmetserdar41, #8 -> ahmetserdar41 ve nsnkcc,
    #2 -> mert494.
 9. Bittiğinde ekibe atmam için kısa bir mesaj yaz: develop açıldı, PR'lar develop'a çevrildi,
    açılan Issue numaraları.
@@ -82,7 +82,7 @@ Görevler (her commit/push öncesi diff'i göster ve onayımı al):
 Ben Arda, BM321 SIS projesinde Lead Architect'im. Branch'im: docs/arda-sprint1-architecture, PR #8.
 Önce AGENTS.md'yi, origin/docs/ahmet-sprint1-quality branch'indeki docs/Sprint1_Action_Items.md
 içinde "Arda" bölümünü ve docs/Sprint1_Quality_Report.md'deki F-18…F-21 bulgularını oku.
-git config user.email'in s230204017@ankarabilim.edu.tr olduğunu kontrol et (hesap sorunu çözüldü).
+git config user.email'in ardaberkkara1 hesabındaki okul e-posta adresin olduğunu kontrol et (hesap sorunu çözüldü).
 
 Görevler (her commit/push öncesi diff'i göster ve onayımı al):
 1. F-20: docs/System_Vision_and_Boundary.md birleşik hâliyle Nurefşan'ın PR #7'sinde. Bu dosyayı
