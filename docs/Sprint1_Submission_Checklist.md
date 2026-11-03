@@ -1,44 +1,50 @@
-# Sprint 1 teslim kontrol listesi
+# Sprint 1 submission checklist
 
-Teslim: **ikinci haftanın sonu**, ders notunun **%15'i**. Kesin tarih/saat, teslim kanalı ve değerlendirme ayrıntıları: [TODO]. Sorumlular RACI önerisidir; ekip onayı [TODO]. “Yerel taslak hazır” inceleme, merge veya teslim tamamlandı anlamına gelmez.
+Deadline: **end of Week 2**, accounting for **15%** of the course grade. Ahmet's [action list](https://github.com/mert494/student-information-system/blob/84f8c871ae4eedcc009ed45b31ce6feafb6760ef/docs/Sprint1_Action_Items.md) reports **5 November 2026, 23:59**; course-source confirmation, time zone, submission channel and assessment details: [TODO]. Team number: [TODO]. Project: Student Information System (BM321).
 
-| Kontrol maddesi | Önerilen sorumlu / A | Tamamlanma durumu | Kabul / kanıt / bağlantı |
+Evidence snapshot: 3 November 2026, following `git fetch origin --prune` and read-only GitHub PR inspection. Files on separate remote branches are review drafts, not integrated or accepted deliverables. Owners follow the proposed [RACI](RACI_Matrix.md); approval and the Mert–Azra division remain [TODO]. See [Mert's correction report](qa/Mert_QA_Corrections.md) for finding ownership and pending actions.
+
+## Six deliverable headings
+
+The [existing deliverables guide](team-guides/sprint1/08_Sprint1_Final_Deliverables.md) maps five specification items into six Teams headings. The rows below retain separate Vision/Boundary and repository/workflow checks so no required content is lost: **Project Proposal; System Vision and Boundary; OpenAPI Draft; Team Roles and RACI; GitHub Repository and Git-Flow; Initial Product Backlog**. License rationale remains part of the proposal. Actual course instructions and final format must still be confirmed.
+
+| Checklist item | Proposed responsible person / A | Completion status | Acceptance / evidence / link |
 | --- | --- | --- | --- |
-| Project Proposal and Problem Definition | Nurefşan / Nurefşan | Bekliyor; dosya bulunmadı | Problem, amaç, kapsam ve gerekçe; belge ve PR [TODO] |
-| Açık kaynak lisansı | Nurefşan, Arda / Nurefşan | MIT dosyası mevcut; ekip seçimi/gerekçesi doğrulanmadı | [LICENSE](../LICENSE); proposal içindeki seçim gerekçesi ve karar [TODO] |
-| System Vision | Nurefşan, Arda / Nurefşan | Bekliyor; dosya bulunmadı | Paydaşlar, hedef ve başarı ölçütleri; belge/PR [TODO] |
-| System Boundary Specification | Arda, Nurefşan / Arda | Bekliyor; dosya bulunmadı | Kapsam içi/dışı, aktör ve dış sistemler; belge/PR [TODO] |
-| OpenAPI YAML | Arda / Arda | Bekliyor; dosya bulunmadı | Taslak sözleşme, kapsam uyumu ve doğrulama kanıtı [TODO] |
-| RACI Matrix | Azra, Mert / Azra | Yerel taslak hazır; onay bekliyor | [Markdown](RACI_Matrix.md), [CSV](RACI_Matrix.csv); onay [TODO] |
-| GitHub Organization/Repository | Barış, Mert / Barış | Kişisel remote mevcut; org/erişim doğrulanmadı | [Repository](https://github.com/mert494/student-information-system); org ve altı üyenin erişimi [TODO] |
-| Git-Flow Rules | Mert, Barış / Mert | Yerel taslak hazır; onay/ayar bekliyor | [Git_Workflow.md](Git_Workflow.md); develop ve protection kanıtı [TODO] |
-| Initial Product Backlog | Nurefşan, Mert / Nurefşan | Yerel örnek taslak hazır; PO onayı bekliyor | [Initial_Backlog_Draft.md](Initial_Backlog_Draft.md); onaylı backlog [TODO] |
-| Team Information | Azra, Mert / Azra | İsim/roller yazılı; hesaplar ve onay bekliyor | [RACI](RACI_Matrix.md); altı GitHub kullanıcı adı [TODO] |
-| Issue Links | Her üye, Mert / Mert | Uzak durum doğrulanmadı | Her teslimin gerçek Issue URL'si ve assignee bilgisi [TODO] |
-| Pull Request Links | Her üye, Mert / Mert | Uzak durum doğrulanmadı | Review ve kabul kanıtı içeren PR URL'leri [TODO] |
-| Commit Evidence | Her üye, Mert / Mert | Bu hazırlık commit edilmedi | Öğrenci bazında commit SHA/URL, Issue ve PR eşlemesi [TODO] |
-| Sprint 1 Release/Tag | Barış, Mert / Barış | Oluşturulmadı; uzak durum doğrulanmadı | Onaylı commit'e bağlı tag/release URL'si [TODO] |
-| Final Submission Links | Mert, Azra, Barış / Mert | Bekliyor | Teslim kanalı, belge bağlantıları, teslim alındı kanıtı [TODO] |
+| Project Proposal and Problem Definition | Nurefşan / Nurefşan | Remote draft exists; review pending | [Proposal at 1184b26](https://github.com/mert494/student-information-system/blob/1184b261f4eebca2a741cb55550d3a9b3cd67294/docs/Project_Proposal.md), [PR #7](https://github.com/mert494/student-information-system/pull/7); problem, purpose, scope and rationale; F-10 recheck pending |
+| Open-source license | Nurefşan, Arda / Nurefşan | MIT exists; proposal rationale updated; team decision pending | [LICENSE](../LICENSE); [rationale commit](https://github.com/mert494/student-information-system/commit/1184b261f4eebca2a741cb55550d3a9b3cd67294); F-13 recheck and approval [TODO] |
+| System Vision | Nurefşan, Arda / Nurefşan | Combined remote draft exists; review and scope decisions pending | [Vision/Boundary at 243195e](https://github.com/mert494/student-information-system/blob/243195e/docs/System_Vision_and_Boundary.md), PR #7; stakeholders, goal and success measures; F-11/F-12 |
+| System Boundary Specification | Arda, Nurefşan / Arda | Combined draft in PR #7; competing file in PR #8 remains | Same combined document; in/out of scope, actors and external systems; F-20/F-21 require Arda/Nurefşan decisions |
+| OpenAPI YAML | Arda / Arda | Remote draft exists; QA reports spec pass and recommended-rule failures | [YAML at e522c95](https://github.com/mert494/student-information-system/blob/e522c959b93ae3b2f8108cc99812bf3c8bef536a/api/openapi.yaml), [PR #8](https://github.com/mert494/student-information-system/pull/8); scope alignment, F-18/F-19 and revalidation pending; no live API tested |
+| RACI Matrix | Azra, Mert / Azra | Draft exists; team approval pending | [Markdown](RACI_Matrix.md), [CSV](RACI_Matrix.csv); approval [TODO]; [PR #4](https://github.com/mert494/student-information-system/pull/4) adds process records, not RACI changes |
+| GitHub Organization/Repository | Barış, Mert / Barış | Personal repository; QA reports six accounts have access | [Repository](https://github.com/mert494/student-information-system); [setup draft](https://github.com/mert494/student-information-system/blob/81a66a9308eec48c6146444831393d09e6022d39/docs/Repository_Setup.md), [PR #6](https://github.com/mert494/student-information-system/pull/6); Organization decision and current access recheck [TODO] |
+| Git-Flow Rules | Mert, Barış / Mert | Written draft; no develop in fetched branches; settings pending | [Git_Workflow.md](Git_Workflow.md); F-03: approved develop base, PR requirement and one independent approval on main/develop; applied protection evidence [TODO] |
+| Initial Product Backlog | Nurefşan, Mert / Nurefşan | PO-owned remote draft exists; PR #7 mergeable=false; approval pending | [Remote backlog at 1184b26](https://github.com/mert494/student-information-system/blob/1184b261f4eebca2a741cb55550d3a9b3cd67294/docs/Initial_Backlog_Draft.md); local [preparation draft](Initial_Backlog_Draft.md) is not the selected authoritative version; F-06/F-14/F-16 |
+| Team Information | Azra, Mert / Azra | Names/roles and observed accounts recorded; approval pending | [RACI](RACI_Matrix.md); accounts and identity caveat below; final team details [TODO] |
+| Issue Links | Each member, Mert / Mert | QA/DevOps Issues evidenced; remaining mappings pending | [QA #3](https://github.com/mert494/student-information-system/issues/3), [DevOps #5](https://github.com/mert494/student-information-system/issues/5); six deliverable and PB-01–PB-07 Issue mappings [TODO]; check for duplicates before approved creation |
+| Pull Request Links | Each member, Mert / Mert | PRs #1/#2/#4/#6/#7/#8 inspected: all open, none merged | Links in contribution table; independent acceptance/review completion [TODO]; PR #4 still targets main |
+| Commit Evidence | Each member, Mert / Mert | Existing remote commits verified; this correction remains uncommitted | [Process 78febb9](https://github.com/mert494/student-information-system/commit/78febb9), [guides 2987dc0](https://github.com/mert494/student-information-system/commit/2987dc05dac849c012a33b0d42db46a25d272aab); per-member evidence below |
+| Sprint 1 Release/Tag | Barış, Mert / Barış | QA reported none; not created in this task | Recheck current tags/releases; approved commit, tag/release URL [TODO] |
+| Final Submission Links | Mert, Azra, Barış / Mert | Pending | Course channel, final document links, repository/board URL, OpenAPI YAML, tag and submission receipt [TODO]; no submission performed |
 
-## Bireysel katkı kanıtları
+## Individual contribution evidence
 
-Her üye için gerekirse birden fazla satır ekleyin. RACI ataması tek başına katkı kanıtı değildir; squash merge kullanılırsa PR içindeki orijinal commit ve review bağlantıları da saklanır.
+Observed PR authors and fetched commit history establish the evidence below. They do not establish acceptance, independent review completion or approved assignments. With squash merging, retain original commit/review links in the PR. Add more rows as needed. Release/tag links remain [TODO].
 
-| Üye | GitHub hesabı | Gerçek katkı / belge | Issue URL | PR / review URL | Commit SHA / URL | Release/tag bağlantısı |
+| Member | GitHub account | Actual contribution / document | Issue URL | PR / review URL | Commit SHA / URL | Release/tag link |
 | --- | --- | --- | --- | --- | --- | --- |
-| Arda | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
-| Barış | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
-| Ahmet | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
-| Mert | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
-| Azra | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
-| Nurefşan | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| Arda | PR: ardaberkkara1; commit: ardaberk00 (F-22) | Boundary/OpenAPI draft | [TODO] | [PR #8](https://github.com/mert494/student-information-system/pull/8); review [TODO] | [e522c95](https://github.com/mert494/student-information-system/commit/e522c959b93ae3b2f8108cc99812bf3c8bef536a) | [TODO] |
+| Barış | baryyss-001 | Repository setup/access documentation | [#5](https://github.com/mert494/student-information-system/issues/5) | [PR #6](https://github.com/mert494/student-information-system/pull/6); review [TODO] | [81a66a9](https://github.com/mert494/student-information-system/commit/81a66a9308eec48c6146444831393d09e6022d39) | [TODO] |
+| Ahmet | ahmetserdar41 | Quality report and action list | [#3](https://github.com/mert494/student-information-system/issues/3) | [PR #2](https://github.com/mert494/student-information-system/pull/2); review [TODO] | [84f8c87](https://github.com/mert494/student-information-system/commit/84f8c871ae4eedcc009ed45b31ce6feafb6760ef) | [TODO] |
+| Mert | mert494 | Process templates and nine team guides | [TODO] | [PR #1](https://github.com/mert494/student-information-system/pull/1); review [TODO] | [78febb9](https://github.com/mert494/student-information-system/commit/78febb9), [2987dc0](https://github.com/mert494/student-information-system/commit/2987dc05dac849c012a33b0d42db46a25d272aab) | [TODO] |
+| Azra | azrayy | Role Assignment section; RACI checks reported in PR, no RACI file edit | [TODO] | [PR #4](https://github.com/mert494/student-information-system/pull/4); review [TODO] | [79e3d40](https://github.com/mert494/student-information-system/commit/79e3d407e304038f1eb159479059e1e79cf5e623) | [TODO] |
+| Nurefşan | nsnkcc | Requirements, combined Vision/Boundary and proposal updates | [TODO] | [PR #7](https://github.com/mert494/student-information-system/pull/7); review [TODO] | [26fc3f4](https://github.com/mert494/student-information-system/commit/26fc3f4), [243195e](https://github.com/mert494/student-information-system/commit/243195e), [1184b26](https://github.com/mert494/student-information-system/commit/1184b261f4eebca2a741cb55550d3a9b3cd67294) | [TODO] |
 
-## Son kontrol
+## Final check
 
-- [ ] Beş resmî teslimin tamamı mevcut ve birbirleriyle tutarlı.
-- [ ] Lisans seçimi gerekçesi, ekip rolleri, RACI ve Git-Flow ekipçe onaylandı.
-- [ ] Kritik `[TODO]` alanları kapatıldı; kalan belirsizlikler açıkça bildirildi.
-- [ ] Her üyenin kendi hesabından doğrulanabilir katkı kanıtı var.
-- [ ] Issue/PR durumları gerçek kabul durumuyla uyumlu.
-- [ ] Release/tag doğru incelenmiş commit'i gösteriyor; bağlantılar erişilebilir.
-- [ ] Mert son teslimi dersin belirlenen kanalında yaptı ve kanıtı kaydetti.
+- [ ] All six Teams deliverable headings are covered, integrated and mutually consistent; proposal license content and both Vision/Boundary sections are checked.
+- [ ] License selection rationale, team roles, RACI and Git-Flow have team approval.
+- [ ] Critical [TODO] fields are resolved; remaining uncertainties are explicitly reported.
+- [ ] Each member has verifiable contribution evidence from their own account; F-22 is addressed without rewriting history.
+- [ ] Issue/PR/Project statuses reflect actual acceptance status; missing mappings and board URL [TODO].
+- [ ] Release/tag points to the correct reviewed commit; links are accessible.
+- [ ] Mert has confirmed the course deadline, time zone, team number and submission format, submitted through the designated channel and recorded receipt evidence.
