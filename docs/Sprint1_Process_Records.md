@@ -29,7 +29,7 @@ Copy this section for each held meeting. Record future meetings as "planned".
 
 | Record ID | Status (planned/completed) | Date-Time | Agenda | Meeting Summary | Recorder | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| MM-01 | completed | 2026-11-03 20:00 UTC (~1 hour) | Review Issues, completed work and accomplishments; RACI assignments and Mert–Azra division | All six members attended. The team reports agreeing to the current RACI assignments and process-focus division; collaboration and mutual support were discussed. | [TODO] | WhatsApp (team-reported; no saved record/link) |
+| MM-01 | completed | 2026-11-03 20:00–21:00 UTC (~1 hour) | Review Issues, completed work and accomplishments; RACI assignments and Mert–Azra division | All six members attended. The team reports agreeing to the current RACI assignments and process-focus division; collaboration and mutual support were discussed. | [TODO] | WhatsApp (team-reported; no saved record/link) |
 
 ## Attendance
 
@@ -64,7 +64,7 @@ Statuses: attended, absent, excused; unknown status remains `[TODO]`.
 | D-01 | 2026-11-03 | Approval of the current RACI assignments | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
 | D-02 | 2026-11-03 | Approval of the current Mert–Azra process-focus division | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
 
-Pending proposals: Git-Flow/merge policy, `develop` origin, backlog and Projects fields. These are not finalized decisions.
+Implemented and verified: `develop` was created and PR #1 was merged. The recorded branch audit reports `protected=false` for all nine branches and no rulesets (`rulesets=[]`); enabled branch rules are not evidenced. Open PRs have mixed base branches, so do not treat all Sprint 1 PRs as targeting `develop`. Git-Flow/merge policy details, backlog and Projects fields remain proposals.
 
 ## Sprint Review
 
