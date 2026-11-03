@@ -21,10 +21,22 @@ x-openapi-version-status: candidate-not-team-approved
 x-issue: "[TODO]"
 x-servers-status: "[TODO: no server URL is known or asserted]"
 x-security-status: "[TODO: authentication and authorization policy unresolved]"
+tags:
+  - name: Sessions
+    description: Proposed grouping for illustrative PB-01 session operations; not an approved API commitment.
+  - name: Students
+    description: Proposed grouping for illustrative PB-03 student operations; fields and permissions require approval.
+  - name: Courses
+    description: Proposed grouping for illustrative PB-04 course operations; fields and permissions require approval.
+  - name: Registrations
+    description: Proposed grouping for illustrative PB-05 registration operations; rules and permissions require approval.
+  - name: Grades
+    description: Proposed grouping for illustrative PB-06/PB-07 grade operations; grade representation and permissions require approval.
 paths:
   /sessions:
     post:
       operationId: createSession
+      tags: [Sessions]
       summary: Proposed sign-in operation (PB-01 example)
       description: Illustrative only; credential fields and session behavior require confirmation.
       x-requirement-status: proposed-example
@@ -42,6 +54,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SessionResponse'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    sessionId: example-session-id
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -51,6 +68,7 @@ paths:
   /sessions/current:
     delete:
       operationId: deleteCurrentSession
+      tags: [Sessions]
       summary: Proposed sign-out operation (PB-01 example)
       description: Illustrative only; session identification and termination semantics are unresolved.
       x-requirement-status: proposed-example
@@ -65,6 +83,7 @@ paths:
   /students:
     get:
       operationId: listStudents
+      tags: [Students]
       summary: Proposed student listing operation (PB-03 example)
       description: Illustrative only; permissions, filtering, pagination, and student fields are unresolved.
       x-requirement-status: proposed-example
@@ -78,6 +97,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Student'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    - studentNumber: example-student-number
+                      studentId: example-student-id
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -86,6 +111,7 @@ paths:
           $ref: '#/components/responses/InternalError'
     post:
       operationId: createStudent
+      tags: [Students]
       summary: Proposed student creation operation (PB-03 example)
       description: Illustrative only; PB-03 mentions duplicate student numbers, but the complete model and rules are unresolved.
       x-requirement-status: proposed-example
@@ -103,6 +129,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Student'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    studentNumber: example-student-number
+                    studentId: example-student-id
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -118,6 +150,7 @@ paths:
       - $ref: '#/components/parameters/StudentId'
     patch:
       operationId: updateStudent
+      tags: [Students]
       summary: Proposed student update operation (PB-03 example)
       description: Illustrative only; updatable fields and partial-update semantics are unresolved.
       x-requirement-status: proposed-example
@@ -135,6 +168,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Student'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    studentNumber: example-student-number
+                    studentId: example-student-id
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -148,6 +187,7 @@ paths:
   /courses:
     get:
       operationId: listCourses
+      tags: [Courses]
       summary: Proposed course listing operation (PB-04 example)
       description: Illustrative only; course fields, term context, and permissions require decisions.
       x-requirement-status: proposed-example
@@ -161,6 +201,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Course'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    - courseCode: example-course-code
+                      courseId: example-course-id
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -169,6 +215,7 @@ paths:
           $ref: '#/components/responses/InternalError'
     post:
       operationId: createCourse
+      tags: [Courses]
       summary: Proposed course creation operation (PB-04 example)
       description: Illustrative only; PB-04 mentions duplicate course codes, but code format and uniqueness scope are unresolved.
       x-requirement-status: proposed-example
@@ -186,6 +233,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Course'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    courseCode: example-course-code
+                    courseId: example-course-id
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -201,6 +254,7 @@ paths:
       - $ref: '#/components/parameters/CourseId'
     patch:
       operationId: updateCourse
+      tags: [Courses]
       summary: Proposed course update operation (PB-04 example)
       description: Illustrative only; updatable fields and partial-update semantics are unresolved.
       x-requirement-status: proposed-example
@@ -218,6 +272,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Course'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    courseCode: example-course-code
+                    courseId: example-course-id
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -231,6 +291,7 @@ paths:
   /registrations:
     get:
       operationId: listMyRegistrations
+      tags: [Registrations]
       summary: Proposed registration listing operation (PB-05 example)
       description: Illustrative only; identity, filters, term, and access policy remain unresolved.
       x-requirement-status: proposed-example
@@ -244,6 +305,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Registration'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    - courseId: example-course-id
+                      registrationId: example-registration-id
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -252,6 +319,7 @@ paths:
           $ref: '#/components/responses/InternalError'
     post:
       operationId: createRegistration
+      tags: [Registrations]
       summary: Proposed course registration operation (PB-05 example)
       description: Illustrative only; eligibility, term, capacity, prerequisites, duplicate handling, and permissions require decisions.
       x-requirement-status: proposed-example
@@ -269,6 +337,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Registration'
+              examples:
+                illustrative:
+                  summary: Synthetic illustrative response only
+                  value:
+                    courseId: example-course-id
+                    registrationId: example-registration-id
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -284,6 +358,7 @@ paths:
   /registrations/{registrationId}/grade:
     put:
       operationId: recordGrade
+      tags: [Grades]
       summary: Proposed grade entry operation (PB-06 example)
       description: Illustrative only; grading scale, staff assignment, publication state, and permissions are unresolved.
       x-requirement-status: proposed-example
@@ -316,6 +391,7 @@ paths:
   /grades:
     get:
       operationId: listMyPublishedGrades
+      tags: [Grades]
       summary: Proposed published-grade listing operation (PB-07 example)
       description: Illustrative only; identity, visible fields, and publication rules are unresolved.
       x-requirement-status: proposed-example
