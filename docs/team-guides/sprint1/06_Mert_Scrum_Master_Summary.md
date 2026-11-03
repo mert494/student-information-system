@@ -14,7 +14,7 @@ Make team work visible and traceable; coordinate planning, dependencies, impedim
 4. Facilitate planning/stand-ups and impediment resolution with Azra; preserve actual records.
 5. Track closure of Ahmet's findings, individual contribution evidence and Barış's release/tag preparation; check final submission.
 
-Ready items: The 12-file process package was sent to `docs/sprint1-process` in commit `78febb9`. Rules, templates and examples are ready; this does not mean approved RACI, actual meetings, a live board, a merged PR or completed Sprint 1. The guide package was published in 2987dc0 and is part of open PR #1; QA checklist corrections were published in b7e8655 with no PR at the 3 November 2026 snapshot. See the [submission checklist](../../Sprint1_Submission_Checklist.md) for actual links and remaining evidence.
+Ready items: The 12-file process package was sent to `docs/sprint1-process` in commit `78febb9`. Rules, templates and examples are ready; this does not mean approved RACI, actual meetings, a live board, a merged PR or completed Sprint 1. The guide package was published in 2987dc0 and is part of open PR #1; QA/process corrections were published through 226d2e8 with no PR at the 3 November 2026 snapshot. See the [submission checklist](../../Sprint1_Submission_Checklist.md) for actual links and remaining evidence.
 
 ## C. Step-by-step implementation
 
@@ -64,7 +64,7 @@ or force push.
 
 ## F. GitHub workflow
 
-The original nine-guide scope was published in commit 2987dc0 and is part of PR #1, whose shared head also includes Azra's 79e3d40 process change. Mert's b7e8655 QA corrections are published separately and have no PR at this snapshot. For later corrections, review the exact task scope and stage only explicitly approved files, rather than reusing the original nine-file instruction. Confirm the target and unmerged dependencies with the team before a PR. Proposed reviewers remain Azra and relevant guide owners. Obtain separate commit, push, PR and merge approvals; this status update grants none.
+The original nine-guide scope was published in commit 2987dc0 and is part of PR #1, whose shared head also includes Azra's 79e3d40 process change. Mert's corrections through 226d2e8 are published separately and have no PR at this snapshot. For later corrections, review the exact task scope and stage only explicitly approved files, rather than reusing the original nine-file instruction. Confirm the target and unmerged dependencies with the team before a PR. Proposed reviewers remain Azra and relevant guide owners. Obtain separate commit, push, PR and merge approvals; this status update grants none.
 
 ## G. Collaboration
 

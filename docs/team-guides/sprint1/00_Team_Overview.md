@@ -38,7 +38,7 @@ Paths are proposed shared destinations when no existing file is available; if an
 
 ## Current status and reuse
 
-Evidence snapshot: 3 November 2026. Mert's process package 78febb9, guides 2987dc0 and QA checklist corrections b7e8655 are published on task branches. Proposal/backlog/combined Vision and Boundary exist on Nurefşan's branch, OpenAPI on Arda's, repository setup on Barış's, and QA reports on Ahmet's. These are drafts on separate branches. All six PRs are open with zero submitted reviews; main contains only the initial files and develop is absent.
+Evidence snapshot: 3 November 2026. Mert's process package 78febb9, guides 2987dc0 and QA/process corrections b7e8655 and 226d2e8 are published on task branches. Proposal/backlog/combined Vision and Boundary exist on Nurefşan's branch, OpenAPI on Arda's, repository setup on Barış's, and QA report/action/prompt sources exist on Ahmet's branch at 8fac0cf. These are drafts on separate branches. All six PRs are open with zero submitted reviews; main contains only the initial files and develop is absent.
 
 Use the [submission checklist](../../Sprint1_Submission_Checklist.md) for actual source/PR/commit links and [Projects guide](../../GitHub_Projects_Setup.md) for Issue mapping. Two assigned Issues (#3/#5) exist. Projects board, fields and statuses are Unverified; the proposal is not an implemented board. RACI approval and the Mert–Azra division remain [TODO]. The [process records](../../Sprint1_Process_Records.md) remain a fillable template without verified meeting/approval evidence. Publication does not mean acceptance, integration or Sprint 1 submission.
 
