@@ -1,6 +1,6 @@
 # Sprint 1 Process Records
 
-**Fillable template; does not imply that any meeting has taken place.** Coordination proposal: records by Azra, planning/tracking by Mert; team approval [TODO]. Delivered at the end of the second week of Sprint 1 and accounts for 15% of the total grade. Exact calendar [TODO].
+**Fillable template; the meeting and approvals below are team-reported, with no saved minutes or evidence link available.** The current RACI and Mert–Azra process-focus division were reportedly approved by all six members on 2026-11-03. Delivered at the end of the second week of Sprint 1 and accounts for 15% of the total grade. Exact calendar [TODO].
 
 ## Sprint Goal
 
@@ -8,11 +8,11 @@ Proposal: To consolidate the five main specification items into a cohesive, revi
 
 ## Role Assignment
 
-The roles and task assignments for the six members under the current [RACI Matrix](RACI_Matrix.md) are proposals pending team approval. The Mert–Azra division is not finalized. Do not reiterate the RACI matrix here; record approved changes and their evidence instead.
+The roles and task assignments for the six members under the current [RACI Matrix](RACI_Matrix.md), including the Mert–Azra process-focus division, were reportedly approved by all six members on 2026-11-03 (D-01/D-02). No saved meeting record or evidence link is available. Do not reiterate the RACI matrix here; record future approved changes and their evidence instead.
 
 | Assignment / Member(s) | Status (proposal/approved/rejected) | Relevant Owner Approval | Date | Evidence / Link |
 | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| Current RACI assignments and Mert–Azra process-focus division | Approved (team-reported) | All six team members (reported) | 2026-11-03 | MM-01; WhatsApp meeting, no saved evidence/link |
 
 ## Sprint Planning
 
@@ -29,13 +29,13 @@ Copy this section for each held meeting. Record future meetings as "planned".
 
 | Record ID | Status (planned/completed) | Date-Time | Agenda | Meeting Summary | Recorder | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| MM-01 | completed | 2026-11-03 20:00 UTC (~1 hour) | Review Issues, completed work and accomplishments; RACI assignments and Mert–Azra division | All six members attended. The team reports agreeing to the current RACI assignments and process-focus division; collaboration and mutual support were discussed. | [TODO] | WhatsApp (team-reported; no saved record/link) |
 
 ## Attendance
 
 | Meeting ID | Arda | Barış | Ahmet | Mert | Azra | Nurefşan |
 | --- | --- | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| MM-01 | attended | attended | attended | attended | attended | attended |
 
 Statuses: attended, absent, excused; unknown status remains `[TODO]`.
 
@@ -61,9 +61,10 @@ Statuses: attended, absent, excused; unknown status remains `[TODO]`.
 
 | Decision ID | Date | Proposal / Decision | Status (proposal/approved/rejected) | Approvers | Rationale / Link |
 | --- | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| D-01 | 2026-11-03 | Approval of the current RACI assignments | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
+| D-02 | 2026-11-03 | Approval of the current Mert–Azra process-focus division | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
 
-Pending proposals: Mert–Azra division, RACI, Git-Flow/merge policy, `develop` origin, backlog and Projects fields. These are not finalized decisions.
+Pending proposals: Git-Flow/merge policy, `develop` origin, backlog and Projects fields. These are not finalized decisions.
 
 ## Sprint Review
 

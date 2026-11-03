@@ -1,10 +1,10 @@
 # Sprint 1 RACI Matrix
 
-**Draft requiring team approval.** Decision ID / Date: [TODO]. This file is a proposal created for process preparation; it awaits team approval.
+**Team-reported approval.** Decision ID: D-01; date: 2026-11-03. All six members reportedly approved the current assignments during a WhatsApp meeting; no saved minutes or evidence link is available.
 
-R = Responsible, A = Accountable, C = Consulted, I = Informed. `A/R` indicates a single person holding both roles. Each row has exactly one A; assignments are not assumed to be pre-approved.
+R = Responsible, A = Accountable, C = Consulted, I = Informed. `A/R` indicates a single person holding both roles. Each row has exactly one A and at least one R. Current assignments are approved as reported under D-01.
 
-| Member | Official Role | Proposed Process Focus |
+| Member | Official Role | Approved Process Focus |
 | --- | --- | --- |
 | Arda | Lead Software Architect and Technical Lead | Architecture, system boundaries, and OpenAPI |
 | Barış | DevOps and CI/CD Infrastructure Engineer | GitHub infrastructure and repository settings |
@@ -13,7 +13,7 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed. `A/R` indicates a
 | Azra | Scrum Master and Agile Process Coach | RACI, process records, retrospectives, process report |
 | Nurefşan | Product Owner and Requirements Engineer | Problem, product scope, and backlog approval |
 
-The Mert–Azra division is currently a pending proposed recommendation.
+The Mert–Azra division was reportedly approved by all six members under D-02 on 2026-11-03. No saved meeting record or evidence link is available.
 
 | ID | Task / Deliverable | Arda | Barış | Ahmet | Mert | Azra | Nurefşan |
 | --- | --- | --- | --- | --- | --- | --- | --- |
