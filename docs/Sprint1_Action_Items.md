@@ -87,9 +87,9 @@ Her üye kendi bölümündeki maddeleri tamamladıkça `[ ]` kutusunu `[x]` yap�
 
 - [x] Altı teslim başlığı için kontrol matrisi (27 kontrol).
 - [x] OpenAPI'yi Redocly ile doğrula ve backlog ile eşleştir (QA-06…QA-08; `a34146b`).
-- [x] PR #1, #16, #18, #8 ve #7 review edildi ve onaylandı.
+- [x] PR #1, #16, #18, #8, #7 ve #6 review edildi ve onaylandı.
 - [x] 2026-11-04 yeniden kontrolü raporun "Yeniden kontroller" tablosuna işlendi.
-- [ ] PR #6, #17 ve Arda'nın boundary PR'ını düzeltmelerden sonra review et.
+- [ ] PR #17 ve Arda'nın boundary PR'ını düzeltmelerden sonra review et.
 - [ ] Merge sonrası son durumu kontrol et: tek Vision/Boundary belgesi, geçerli OpenAPI, tag doğru commit'te.
 - [ ] Kendi Issue/PR/commit linklerini Mert'e ilet.
 
@@ -98,7 +98,7 @@ Her üye kendi bölümündeki maddeleri tamamladıkça `[ ]` kutusunu `[x]` yap�
 Karar Mert'indir; bu bir öneridir.
 
 1. PR #8 (Arda, OpenAPI) ve PR #7 (Nurefşan, gereksinimler): ikisi de onaylı ve birbiriyle çakışmıyor; hemen merge edilebilir.
-2. PR #6 (Barış): F-17 düzeltildi (`d948a11`); QA onayından sonra merge edilebilir.
+2. PR #6 (Barış): F-17 düzeltildi (`d948a11`) ve QA onaylı; merge edilebilir.
 3. PR #17 (Azra), F-24 düzeltildikten ve Mert'in onayından sonra.
 4. Arda'nın Boundary PR'ı (F-21), PR #7'den sonra.
 5. QA son kontrolü; PR #2 en son merge edilir.
