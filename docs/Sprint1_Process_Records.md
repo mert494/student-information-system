@@ -29,7 +29,7 @@ Copy this section for each held meeting. Record future meetings as "planned".
 
 | Record ID | Status (planned/completed) | Date-Time | Agenda | Meeting Summary | Recorder | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| MM-01 | completed | 2026-11-03 20:00–21:00 UTC (~1 hour) | Review Issues, completed work and accomplishments; RACI assignments and Mert–Azra division | All six members attended. The team reports agreeing to the current RACI assignments and process-focus division; collaboration and mutual support were discussed. | [TODO] | WhatsApp (team-reported; no saved record/link) |
+| MM-01 | completed | 2026-11-03 20:00–21:00 Europe/Istanbul (17:00–18:00 UTC, ~1 hour) | Review Issues, completed work and accomplishments; RACI assignments and Mert–Azra division | All six members attended. The team reports agreeing to the current RACI assignments and process-focus division; collaboration and mutual support were discussed. | [TODO] | WhatsApp (team-reported; no saved record/link) |
 
 ## Attendance
 
@@ -64,7 +64,7 @@ Statuses: attended, absent, excused; unknown status remains `[TODO]`.
 | D-01 | 2026-11-03 | Approval of the current RACI assignments | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
 | D-02 | 2026-11-03 | Approval of the current Mert–Azra process-focus division | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
 
-Implemented and verified: `develop` was created and PR #1 was merged. The recorded branch audit reports `protected=false` for all nine branches and no rulesets (`rulesets=[]`); enabled branch rules are not evidenced. Open PRs have mixed base branches, so do not treat all Sprint 1 PRs as targeting `develop`. Git-Flow/merge policy details, backlog and Projects fields remain proposals.
+Implemented and verified (2026-11-04): `develop` exists. The rulesets `develop-protection` (PR required, 1 approval) and `main-protection` (PR required, 2 approvals) are active; both also dismiss stale approvals, require conversation resolution, allow merge commits only, and block deletion and force push. The currently open Sprint 1 PRs target `develop`; PRs #1, #6, #7, #8, #16, #18 and #19 are merged into `develop`. PR #4 targeted `main` and was closed without merging. Git-Flow/merge policy details, backlog and Projects fields remain proposals.
 
 ## Sprint Review
 
