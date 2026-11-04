@@ -1,86 +1,87 @@
-# Sprint 1 süreç kayıtları
+# Sprint 1 Process Records
 
-**Doldurulabilir şablon; herhangi bir toplantının yapıldığını göstermez.** Koordinasyon önerisi: kayıtlar Azra, planlama/takip Mert; ekip onayı [TODO]. Sprint 1 ikinci haftanın sonunda teslim edilir ve toplam notun %15'idir. Kesin takvim [TODO].
+**Fillable template; the meeting and approvals below are team-reported, with no saved minutes or evidence link available.** The current RACI and Mert–Azra process-focus division were reportedly approved by all six members on 2026-11-03. Delivered at the end of the second week of Sprint 1 and accounts for 15% of the total grade. Exact calendar [TODO].
 
 ## Sprint Goal
 
-Öneri: Beş Sprint 1 teslimini tutarlı, incelenmiş ve bireysel katkıları izlenebilir bir paket hâline getirmek. Ekipçe kabul edilen hedef: [TODO]. Başlangıç: [TODO]; bitiş ve saat dilimi: [TODO]; ders teslim zamanı: [TODO].
+Proposal: To consolidate the five main specification items into a cohesive, reviewed package with trackable individual contributions. Teams presents these as six submission headings by separating GitHub Repository and Git-Flow from the Initial Product Backlog; this is a presentation distinction, not a scope change. Team-accepted goal: [TODO]. Start: [TODO]; end and timezone: [TODO]; course submission time: [TODO].
 
 ## Role Assignment
 
-Mevcut [RACI matrisi](RACI_Matrix.md) kapsamındaki altı üyenin rolleri ve görev atamaları ekip onayı bekleyen önerilerdir. Mert–Azra iş bölümü kesinleşmiş değildir. RACI matrisini burada yinelemeyin; onaylanan değişiklikleri ve kanıtlarını kaydedin.
+The roles and task assignments for the six members under the current [RACI Matrix](RACI_Matrix.md), including the Mert–Azra process-focus division, were reportedly approved by all six members on 2026-11-03 (D-01/D-02). No saved meeting record or evidence link is available. Do not reiterate the RACI matrix here; record future approved changes and their evidence instead.
 
-| Atama / üye(ler) | Durum (öneri/onaylandı/reddedildi) | İlgili sahip onayı | Tarih | Kanıt / bağlantı |
+| Assignment / Member(s) | Status (proposal/approved/rejected) | Relevant Owner Approval | Date | Evidence / Link |
 | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| Current RACI assignments and Mert–Azra process-focus division | Approved (team-reported) | All six team members (reported) | 2026-11-03 | MM-01; WhatsApp meeting, no saved evidence/link |
 
 ## Sprint Planning
 
-- Toplantı tarihi / yeri / kolaylaştırıcı: [TODO]
-- Katılımcılar ve kapasite: [TODO]
-- Seçilen S1 görevleri / gerçek Issue bağlantıları: [TODO]
-- Tahmin yöntemi ve ekipçe kabul edilen puanlar: [TODO]
-- Bağımlılıklar, riskler ve sprint kapsamı: [TODO]
-- Sprint Goal ve Definition of Done onayı: [TODO]
+- Meeting date / location / facilitator: [TODO]
+- Participants and capacity: [TODO]
+- Selected S1 tasks / actual Issue links: [TODO]
+- Estimation method and team-accepted points: [TODO]
+- Dependencies, risks, and sprint scope: [TODO]
+- Sprint Goal and Definition of Done approval: [TODO]
 
 ## Meeting Minutes
 
-Her gerçekleşen toplantı için bu bölümü kopyalayın. Gelecek toplantıları “planlandı” olarak kaydedin.
+Copy this section for each held meeting. Record future meetings as "planned".
 
-| Kayıt ID | Durum (planlandı/gerçekleşti) | Tarih-saat | Gündem | Görüşme özeti | Kaydeden | Kanıt |
+| Record ID | Status (planned/completed) | Date-Time | Agenda | Meeting Summary | Recorder | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| MM-01 | completed | 2026-11-03 20:00–21:00 Europe/Istanbul (17:00–18:00 UTC, ~1 hour) | Review Issues, completed work and accomplishments; RACI assignments and Mert–Azra division | All six members attended. The team reports agreeing to the current RACI assignments and process-focus division; collaboration and mutual support were discussed. | [TODO] | WhatsApp (team-reported; no saved record/link) |
 
 ## Attendance
 
-| Toplantı ID | Arda | Barış | Ahmet | Mert | Azra | Nurefşan |
+| Meeting ID | Arda | Barış | Ahmet | Mert | Azra | Nurefşan |
 | --- | --- | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| MM-01 | attended | attended | attended | attended | attended | attended |
 
-Durumlar: katıldı, katılmadı, mazeretli; bilinmeyen durum `[TODO]` kalır.
+Statuses: attended, absent, excused; unknown status remains `[TODO]`.
 
 ## Daily/Periodic Stand-up
 
-| Tarih | Üye | Önceki ilerleme | Sıradaki iş / Issue | Engel | Destek ihtiyacı |
+| Date | Member | Previous Progress | Next Task / Issue | Impediment | Support Needed |
 | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Task Progress
 
-| S1 / Issue | Sorumlu | Durum | Son güncelleme | PR / commit kanıtı | Sonraki adım |
+| S1 / Issue | Assignee | Status | Last Update | PR / Commit Evidence | Next Step |
 | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Impediment Log
 
-| Engel ID | Açılış | Engel ve etkisi | Sorumlu | Çözüm / eskalasyon | Durum | Kapanış / kanıt |
+| Impediment ID | Opening | Impediment and Impact | Owner | Resolution / Escalation | Status | Closure / Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
 ## Decision Log
 
-| Karar ID | Tarih | Öneri / karar | Durum (öneri/onaylandı/reddedildi) | Onaylayanlar | Gerekçe / bağlantı |
+| Decision ID | Date | Proposal / Decision | Status (proposal/approved/rejected) | Approvers | Rationale / Link |
 | --- | --- | --- | --- | --- | --- |
-| [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
+| D-01 | 2026-11-03 | Approval of the current RACI assignments | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
+| D-02 | 2026-11-03 | Approval of the current Mert–Azra process-focus division | approved (team-reported) | All six team members (reported) | MM-01; WhatsApp meeting, no saved evidence/link |
 
-Bekleyen öneriler: Mert–Azra ayrımı, RACI, Git-Flow/merge politikası, `develop` başlangıcı, backlog ve Projects alanları. Bunlar alınmış karar değildir.
+Implemented and verified (2026-11-04): `develop` exists. The rulesets `develop-protection` (PR required, 1 approval) and `main-protection` (PR required, 2 approvals) are active; both also dismiss stale approvals, require conversation resolution, allow merge commits only, and block deletion and force push. The currently open Sprint 1 PRs target `develop`; PRs #1, #6, #7, #8, #16, #18 and #19 are merged into `develop`. PR #4 targeted `main` and was closed without merging. Git-Flow/merge policy details, backlog and Projects fields remain proposals.
 
 ## Sprint Review
 
-- Gerçekleşme tarihi, katılımcılar: [TODO]
-- Gösterilen teslimler ve sürüm/PR bağlantıları: [TODO]
-- Kabul kriteri bazında sonuçlar ve PO geri bildirimi: [TODO]
-- Kabul edilmeyen / devreden işler ve gerekçeleri: [TODO]
+- Completion date, participants: [TODO]
+- Demonstrated deliverables and release/PR links: [TODO]
+- Results based on acceptance criteria and PO feedback: [TODO]
+- Unaccepted / carried-over work and their rationales: [TODO]
 
 ## Sprint Retrospective
 
-- Tarih ve katılımcılar: [TODO]
-- İyi gidenler: [TODO]
-- İyileştirme alanları ve kök nedenler: [TODO]
-- Seçilen iyileştirme aksiyonları ve başarı ölçütleri: [TODO]
+- Date and participants: [TODO]
+- What went well: [TODO]
+- Areas for improvement and root causes: [TODO]
+- Selected improvement actions and success metrics: [TODO]
 
 ## Action Items
 
-| Aksiyon ID | Kaynak toplantı / karar | Aksiyon | Sorumlu | Hedef tarih | Durum | Sonuç / kanıt |
+| Action ID | Source Meeting / Decision | Action | Owner | Target Date | Status | Outcome / Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
