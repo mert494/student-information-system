@@ -1,78 +1,89 @@
-# Repository erişimi ve kurulum yönergesi
+# Repository access and setup instructions
 
-Durum: **Ekip onayına sunulan öneri; ayar uygulanmadı.** Hazırlayan: Barış. İlgili Issue: [TODO]. RACI: S1-07 (A/R), S1-08 (R), S1-14 (R), S1-15 (A/R), S1-16 (R). Branch, PR, review, merge ve protection kuralları [Git_Workflow.md](Git_Workflow.md) içindedir.
+Status: **Proposal for team approval.** Prepared by: Barış. Related Issue: [#5](https://github.com/mert494/student-information-system/issues/5). PR: [#6](https://github.com/mert494/student-information-system/pull/6). RACI: S1-07 (A/R), S1-08 (R), S1-14 (R), S1-15 (A/R), S1-16 (R). Branch, PR, review, merge and protection rules are in [Git_Workflow.md](Git_Workflow.md).
 
-## 1. Repository ve Organization
+## 1. Repository and Organization
 
-Repository: [mert494/student-information-system](https://github.com/mert494/student-information-system); public, varsayılan branch `main`. Kontrol 2026-11-02'de `git` ve GitHub'ın herkese açık API'siyle yapıldı. Barış'ın Settings erişimi olmadığından collaborator listesi ve branch kuralları doğrulanmadı.
+Repository: [mert494/student-information-system](https://github.com/mert494/student-information-system); public, default branch `main`. Checked on 2026-11-04 with `git` and `gh`. Barış has no Settings access, so the collaborator list and branch rules were read with `gh api` instead of Settings.
 
-Repository bir Organization'a değil, `mert494` kişisel hesabına aittir. Bu durumda Settings, collaborator ve branch kurallarını yalnızca repository sahibi değiştirebilir. Organization kararı: [TODO].
+The repository belongs to the personal account `mert494`, not an Organization. In this setup, only the repository owner can change Settings, collaborators and branch rules. Organization decision: Personal repository (mert494); no Organization in Sprint 1.
 
-## 2. Hesap ve erişim matrisi
+## 2. Account and access matrix
 
-Ad–hesap eşlemesi repository kayıtlarından çıkarılmıştır; her üye kendi hesabını onaylamalıdır.
+The name–account mapping was inferred from repository records (PR authors); each member must confirm their own account. Access levels were verified on 2026-11-04 with `gh api repos/mert494/student-information-system/collaborators --jq '.[]|"\(.login) \(.role_name)"'`.
 
-| Üye | GitHub hesabı | Repository erişimi |
+| Member | GitHub account | Repository access |
 | --- | --- | --- |
-| Arda | `ardaberkkara1` | [TODO] |
-| Barış | `baryyss-001` | Branch oluşturabiliyor; Settings erişimi yok |
-| Ahmet | `ahmetserdar41` | [TODO] |
-| Mert | `mert494` | Repository sahibi |
-| Azra | `azrayy` | [TODO] |
-| Nurefşan | `nsnkcc` | [TODO] |
+| Arda | `ardaberkkara1` | `write` |
+| Barış | `baryyss-001` | `write`; no Settings access |
+| Ahmet | `ahmetserdar41` | `write` |
+| Mert | `mert494` | `admin`; repository owner |
+| Azra | `azrayy` | `write` |
+| Nurefşan | `nsnkcc` | `write` |
 
-## 3. Ön koşullar
+## 3. Prerequisites
 
-- Kendi GitHub hesabı ve repository erişimi.
-- Git; commit kimliği kendi adınız ve GitHub hesabınızla eşleşen e-posta olmalıdır.
-- Markdown düzenleyebilen bir metin editörü.
-- İsteğe bağlı: GitHub CLI (`gh`). Oturum açma her üyenin kendi işidir; token belgelere veya loglara konmaz.
+- Your own GitHub account and repository access.
+- Git; your commit identity must be your own name and an email that matches your GitHub account.
+- A text editor that can edit Markdown.
+- Optional: GitHub CLI (`gh`). Each member logs in themselves; tokens are not placed in documents or logs.
 
-Teknoloji ve sürüm gereksinimleri henüz belirlenmedi: [TODO — Arda].
+Technology and version requirements are not decided yet: [TODO — Arda].
 
-## 4. Clone ve branch
+## 4. Clone and branch
 
 ```bash
 git clone https://github.com/mert494/student-information-system.git
 cd student-information-system
-git config user.name "<Ad Soyad>"
-git config user.email "<GitHub hesabınızla eşleşen e-posta>"
+git config user.name "<Full Name>"
+git config user.email "<email matching your GitHub account>"
 git fetch origin
 ```
 
-`develop` yoktur. Geçici PR hedefi `docs/sprint1-team-guides` branch'idir; çalışma branch'i de buradan başlatılır:
+`develop` exists; its current commit is `a2d4579` (`git rev-parse --short origin/develop`, 2026-11-04). All Sprint 1 PRs target `develop`. Start a new branch from it:
 
 ```bash
-git switch -c docs/<ad>-sprint1-<konu> origin/docs/sprint1-team-guides
+git switch -c docs/<name>-sprint1-<topic> origin/develop
 ```
 
-Her branch, commit, push, PR ve merge adımı için ayrı onay gerekir ([AGENTS.md](../AGENTS.md)). `main`'e doğrudan push ve force push yapılmaz.
+Each branch, commit, push, PR and merge step needs separate approval ([AGENTS.md](../AGENTS.md)). Do not push directly to `main` and do not force push.
 
-## 5. Güncel doğrulama adımları
+## 5. Current validation steps
 
-Repository'de uygulama kodu, manifest, CI veya Docker dosyası yoktur; bu nedenle çalıştırma veya test komutu yoktur. GitHub Actions ve %50 birim test kapsamı Sprint 3'e, Docker ile tek komutla başlatma ve deployment final teslime aittir. Belge değişikliklerinde:
+The repository has no application code, manifest, CI or Docker file, so there are no run or test commands. GitHub Actions and the 50% unit-test coverage target belong to Sprint 3; single-command Docker startup and deployment belong to the final submission. For document changes:
 
-1. `git status --short` ile yalnızca görev dosyalarının değiştiğini kontrol edin.
-2. `git diff --check` ile boşluk ve çakışma işareti hatalarını kontrol edin.
-3. Göreli bağlantıların mevcut dosyalara gittiğini ve tablo sütunlarının tutarlı olduğunu kontrol edin.
-4. Sır, token, parola, `.env` veya gerçek öğrenci verisi olmadığını kontrol edin.
+1. Use `git status --short` to check that only task files changed.
+2. Use `git diff --check` to check for whitespace errors and conflict markers.
+3. Check that relative links point to existing files and that table columns are consistent.
+4. Check that there are no secrets, tokens, passwords, `.env` files or real student data.
 
-## 6. Eksikler
+## 6. Open items
 
-- [TODO] Altı üyenin erişim düzeyleri; repository sahibi tarafından doğrulanmalı.
-- [TODO] Organization kararı.
-- [TODO] `develop` başlangıç commit'i ve kalıcı PR hedefleri.
-- [TODO] Protection/ruleset ayarlarının uygulanması ve kanıtı.
-- [TODO] Sprint 1 release/tag adı ve hedef commit'i.
+- [TODO] Each member confirms their own account mapping.
+- Access levels: verified on 2026-11-04 (see section 2).
+- Organization decision: Personal repository (mert494); no Organization in Sprint 1.
+- `develop` start: develop created; PR #1 merged as `1f6c6dd`.
+- Protection/rulesets: verified on 2026-11-04 (see section 7).
+- Sprint 1 release/tag: Planned: `sprint-1` tag on `main` after `develop` → `main` merge. No tag or release exists yet (2026-11-04). The tag is created only after a reviewed, merged submission commit exists and separate approval is given ([02_Baris_DevOps.md](team-guides/sprint1/02_Baris_DevOps.md)).
 
-## 7. PR, kural ve release kanıtları
+## 7. PR, rule and release evidence
 
-Bu belgenin PR'ı iş akışı kanıtı olarak kullanılır; ayrı test PR'ı açılmaz, `main`'e push denenmez.
+This document's PR serves as workflow evidence; no separate test PR is opened and no push to `main` is attempted.
 
-| Kanıt | Bağlantı |
+| Evidence | Link / value (2026-11-04) |
 | --- | --- |
-| Mevcut PR'lar | [#1](https://github.com/mert494/student-information-system/pull/1), [#2](https://github.com/mert494/student-information-system/pull/2), [#4](https://github.com/mert494/student-information-system/pull/4) |
-| Mevcut Issue | [#3](https://github.com/mert494/student-information-system/issues/3) |
-| Bu çalışmanın PR'ı ve bağımsız review | [TODO] |
-| Aktif branch kuralı / ruleset | [TODO] |
-| Sprint 1 release/tag | [TODO] |
+| Merged PRs | [#1](https://github.com/mert494/student-information-system/pull/1), [#16](https://github.com/mert494/student-information-system/pull/16), [#18](https://github.com/mert494/student-information-system/pull/18) |
+| Closed PRs (not merged) | [#4](https://github.com/mert494/student-information-system/pull/4) |
+| Open PRs | [#2](https://github.com/mert494/student-information-system/pull/2), [#6](https://github.com/mert494/student-information-system/pull/6), [#7](https://github.com/mert494/student-information-system/pull/7), [#8](https://github.com/mert494/student-information-system/pull/8), [#17](https://github.com/mert494/student-information-system/pull/17) |
+| Issues (all open) | [#3](https://github.com/mert494/student-information-system/issues/3), [#5](https://github.com/mert494/student-information-system/issues/5), [#9](https://github.com/mert494/student-information-system/issues/9), [#10](https://github.com/mert494/student-information-system/issues/10), [#11](https://github.com/mert494/student-information-system/issues/11), [#12](https://github.com/mert494/student-information-system/issues/12), [#13](https://github.com/mert494/student-information-system/issues/13), [#14](https://github.com/mert494/student-information-system/issues/14), [#15](https://github.com/mert494/student-information-system/issues/15) |
+| This work's Issue and PR | Issue [#5](https://github.com/mert494/student-information-system/issues/5), PR [#6](https://github.com/mert494/student-information-system/pull/6) (target `develop`) |
+| Independent review of this work | [TODO] |
+| Active rulesets | `develop-protection` (1 approval) and `main-protection` (2 approvals) are active; see the table below |
+| Sprint 1 release/tag | Pending; `main` is still at `7072b41` |
+
+| Ruleset | Target branch | PR required | Approvals | Stale approvals dismissed | Allowed merge method | Deletion / force push blocked | Enforcement |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [develop-protection](https://github.com/mert494/student-information-system/rules/26478727) | `develop` | Yes | 1 | Yes | `merge` | Yes / Yes | `active` |
+| [main-protection](https://github.com/mert494/student-information-system/rules/26478471) | `main` | Yes | 2 | Yes | `merge` | Yes / Yes | `active` |
+
+Source: `gh api repos/mert494/student-information-system/rulesets` and `gh api repos/mert494/student-information-system/rulesets/<id>`. Both rulesets also require conversation resolution and approval of the last push. `bypass_actors` returned `null` for Barış's account, so bypass settings remain unverified.
