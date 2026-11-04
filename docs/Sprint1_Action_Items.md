@@ -1,6 +1,6 @@
 # Sprint 1 open items and task list
 
-Status: **Task list based on the QA checks; current as of 2026-11-04 (evening: merges of PRs #7, #8, #6 and #19, recheck of PR #17, and Mert's review of PR #2).** Prepared by: Ahmet (QA). Source: [Sprint1_Quality_Report.md](Sprint1_Quality_Report.md); the `F-xx` and `QA-xx` IDs are the findings and checks in that report. Related Issue: [#3](https://github.com/mert494/student-information-system/issues/3).
+Status: **Task list based on the QA checks; current as of 2026-11-04 (night: PRs #7, #8, #6, #19 and #17 merged; `develop` @ `eb9d72a`).** Prepared by: Ahmet (QA). Source: [Sprint1_Quality_Report.md](Sprint1_Quality_Report.md); the `F-xx` and `QA-xx` IDs are the findings and checks in that report. Related Issue: [#3](https://github.com/mert494/student-information-system/issues/3).
 
 Submission: **5 November 2026, 23:59**. Proposed milestones: remaining fixes and reviews on **4 November**; merges, `develop` → `main` and the tag by **4 November evening**; 5 November is a buffer day.
 
@@ -15,7 +15,7 @@ Members tick `[ ]` → `[x]` for their own items in their own PR as they finish 
 | 1 | Project Proposal | Nurefşan | `docs/Project_Proposal.md`, PR [#7](https://github.com/mert494/student-information-system/pull/7) | In `develop` (merge `6ad16ce`); no recorded team license decision | F-26 |
 | 2 | System Vision and Boundary | Vision: Nurefşan, Boundary: Arda | `docs/System_Vision_and_Boundary.md`, PR #7 and PR [#19](https://github.com/mert494/student-information-system/pull/19) | One combined document in `develop`; the external-systems decision is "proposed" | — |
 | 3 | OpenAPI Draft | Arda | `api/openapi.yaml`, PR [#8](https://github.com/mert494/student-information-system/pull/8) | In `develop` (merge `36c7c8f`); Redocly 0 errors | F-19 (minor) |
-| 4 | Team Roles and RACI | Azra | `docs/RACI_Matrix.md` / `.csv`, `docs/Sprint1_Process_Records.md`, PR [#17](https://github.com/mert494/student-information-system/pull/17) | F-24 fixed (`85eec71`); waiting for Mert's re-review and the merge; approval evidence team-reported only | QA-28 |
+| 4 | Team Roles and RACI | Azra | `docs/RACI_Matrix.md` / `.csv`, `docs/Sprint1_Process_Records.md`, PR [#17](https://github.com/mert494/student-information-system/pull/17) | In `develop` (merge `eb9d72a`); F-24 fixed; approval evidence team-reported only | QA-28 |
 | 5 | GitHub Repository and Git-Flow | Barış, Mert | `docs/Git_Workflow.md`, `docs/Repository_Setup.md` (both in `develop`) | `develop` and the rulesets are active; setup document merged (`1b6825b`); no `develop` → `main` merge and no tag yet | QA-21 |
 | 6 | Initial Product Backlog | Nurefşan | `docs/Initial_Backlog_Draft.md`, PR #7 | In `develop`; minor inconsistencies; no PB Issues | F-23, F-04 |
 | — | Submission (team details, links, tag) | Mert | `docs/Sprint1_Submission_Checklist.md` (in `develop`) | Current; final links and tag pending | — |
@@ -62,8 +62,9 @@ Members tick `[ ]` → `[x]` for their own items in their own PR as they finish 
 - [x] PR #4 closed; all open PRs retargeted to `develop`; Issues #9–#15 opened and assigned.
 - [x] Merge the approved PRs: #7 (`6ad16ce`), #8 (`36c7c8f`), #6 (`1b6825b`), #19 (`5589968`).
 - [x] Review PR #2 (QA report); review on 2026-11-04 addressed in this revision.
-- [ ] Dismiss or replace the change request on PR #17 with an approval (F-24 fixed in `85eec71`) and merge it; re-review PR #2.
-- [ ] Remaining merge order: #17 → #2.
+- [x] Approve PR #17 (`85eec71`) and merge it (`eb9d72a`).
+- [ ] Re-review PR #2.
+- [ ] Remaining merge: #2.
 - [ ] Open the `develop` → `main` PR (2 approvals required by `main-protection`) and merge it.
 - [ ] Have the team decide how the written review policy relates to the active rules: `Git_Workflow.md` proposes 1 reviewer, `main-protection` enforces 2 approvals (report §3.1).
 - [ ] **F-26** Coordinate the team license decision with Nurefşan and Azra.
@@ -78,7 +79,7 @@ Members tick `[ ]` → `[x]` for their own items in their own PR as they finish 
 - [x] **F-24** (`85eec71`) `Sprint1_Process_Records.md`: MM-01 time "2026-11-03 20:00–21:00 Europe/Istanbul (17:00–18:00 UTC)"; the Decision Log paragraph about "no rulesets / protected=false / mixed PR targets" corrected to the current state.
 - [ ] **QA-28** If evidence exists (screenshot, message link, minutes), add it to the MM-01 "Evidence" field; if you took the notes, fill in the MM-01 "Recorder" field. Do not add evidence that does not exist.
 - [ ] **F-26** Record the license decision (for example D-03) once the team has actually decided.
-- [ ] Ask Mert to re-review PR #17.
+- [x] Ask Mert to re-review PR #17 (approved and merged as `eb9d72a`).
 
 ## Barış — DevOps and CI/CD Infrastructure Engineer
 
@@ -94,8 +95,9 @@ Members tick `[ ]` → `[x]` for their own items in their own PR as they finish 
 - [x] PRs #1, #16, #18, #8, #7, #6 and #19 reviewed and approved.
 - [x] 2026-11-04 rechecks recorded in the report's "Rechecks" table.
 - [x] Mert's review of PR #2 addressed: English documents, QA-02 / QA-12 / QA-28, QA-14 / QA-23, the meaning of a 404 from the classic protection endpoint, archived Codex prompts, and active rules separated from the proposed review policy.
-- [ ] Review PR #17 (the F-24 fix has been checked; approval to be sent).
-- [ ] Final post-merge check: the single Vision/Boundary document and a valid OpenAPI were verified on `develop` @ `5589968`; after PR #17 is merged, recheck PR #2 against the current `develop` and verify the tag is on the right commit.
+- [ ] Review PR #17. Not needed: the F-24 fix was checked and PR #17 was merged with Mert's approval (`eb9d72a`).
+- [x] Final check on `develop` @ `eb9d72a`: one Vision/Boundary document, valid OpenAPI, RACI parity, PR #2 without conflicts.
+- [ ] After the `develop` → `main` merge, verify that the `sprint-1` tag is on the right commit.
 - [ ] Send Mert my own Issue/PR/commit links.
 
 ## Proposed merge order
@@ -103,6 +105,6 @@ Members tick `[ ]` → `[x]` for their own items in their own PR as they finish 
 Mert decides; this is a proposal.
 
 1. Done: PR #7 (`6ad16ce`), PR #8 (`36c7c8f`), PR #6 (`1b6825b`), PR #19 (`5589968`).
-2. PR #17 (Azra): F-24 fixed (`85eec71`); merged after Mert's re-review.
-3. QA final check against the current `develop`; PR #2 is merged last.
+2. Done: PR #17 (`eb9d72a`), after Mert's approval of `85eec71`.
+3. Done: QA final check against `develop` @ `eb9d72a`. PR #2 is merged last.
 4. The `develop` → `main` PR is opened and merged after 2 approvals, and the `sprint-1` tag is placed on the resulting `main` commit.

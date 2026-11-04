@@ -13,7 +13,7 @@ These points were wrong or became outdated; the prompts below are kept unchanged
 | Step 2, Barış, task 3 | Read `branches/{branch}/protection` and write "no protection" if it returns 404 | Wrong. This repository is protected by rulesets, and the classic protection endpoint returns 404 for them. Use `rulesets`, `rulesets/{id}`, `rules/branches/{branch}` and the `protected` field of `branches/{branch}` (see report §2 and §3.1) |
 | Step 1, Mert, task 3 | Apply branch protection through `gh api` with at least 1 approval for `main` and `develop` | Protection was applied as the `main-protection` (2 approvals) and `develop-protection` (1 approval) rulesets |
 | Step 2, Nurefşan, task 3, and Arda, task 3 | Role names "Administrator" (singular) | The agreed documents use "Administrators" |
-| Step 4, Mert | Merge order #6 → #8 → #7 → … | Actual order: #7, #8, #6, #19; #17 and #2 still open on 2026-11-04 |
+| Step 4, Mert | Merge order #6 → #8 → #7 → … | Actual order: #7, #8, #6, #19, #17 (`eb9d72a`); #2 is merged last |
 | All steps | PR #1, #2, #6, #7, #8 targets and branch names as of 2026-11-03 | See the report's §1 for the current state |
 
 ## Order (as planned on 2026-11-03)
