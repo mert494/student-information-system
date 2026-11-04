@@ -1,144 +1,168 @@
-# Sprint 1 kalite raporu
+# Sprint 1 quality report
 
-Durum: **Ara rapor; bağımsız review bekliyor.** Hazırlayan: Ahmet (Quality Assurance and Test Automation Engineer). İlgili Issue: [#3](https://github.com/mert494/student-information-system/issues/3). RACI: S1-13 (A/R), S1-05 / S1-09 (C), S1-14 (R).
+Status: **Interim report; revised after Mert's review on 2026-11-04.** A final check against `develop` after PR #17 is merged is still pending. Prepared by: Ahmet (Quality Assurance and Test Automation Engineer). Related Issue: [#3](https://github.com/mert494/student-information-system/issues/3). RACI: S1-13 (A/R), S1-05 / S1-09 (C), S1-14 (R).
 
-Bu rapor yalnızca belge, sözleşme ve repository kanıtı kontrolüdür. Çalışan ürün olmadığından birim, entegrasyon veya E2E testi çalıştırılmamıştır; %50 birim test kapsama hedefi Sprint 3'e aittir ve burada değerlendirilmez. Henüz bulunmayan teslimler `Pending` olarak işaretlenmiştir; dosyası olmayan hiçbir kontrol `Passed` sayılmaz. Merge edilmemiş PR'lardaki belgeler, PR'ın head commit'i üzerinden değerlendirilmiştir.
+This report checks documents, the API contract and repository evidence only. There is no running product, so no unit, integration or E2E tests were run; the 50% unit-test coverage target belongs to Sprint 3 and is not assessed here. Deliverables that do not exist yet are marked `Pending`; no check passes without its file. Documents in unmerged PRs were assessed at the PR's head commit.
 
-## 1. Kapsam ve kaynak sürümleri
+## 1. Scope and source versions
 
-| Kaynak | Branch / commit | Not |
+| Source | Branch / commit | Note |
 | --- | --- | --- |
-| Repository | `mert494/student-information-system` | İlk kontrol: 2026-11-01; yeniden kontroller: 2026-11-02 (iki tur), 2026-11-03 (iki tur), 2026-11-04 (üç tur) |
-| Entegrasyon branch'i | `develop` @ `5589968` | Merge edilen PR'lar: [#1](https://github.com/mert494/student-information-system/pull/1) (`1f6c6dd`), [#16](https://github.com/mert494/student-information-system/pull/16) (`8f37ba5`), [#18](https://github.com/mert494/student-information-system/pull/18) (`a2d4579`), [#7](https://github.com/mert494/student-information-system/pull/7) (`6ad16ce`), [#8](https://github.com/mert494/student-information-system/pull/8) (`36c7c8f`), [#6](https://github.com/mert494/student-information-system/pull/6) (`1b6825b`), [#19](https://github.com/mert494/student-information-system/pull/19) (`5589968`) |
-| Gereksinim belgeleri | `develop` @ `5589968` | Proposal, birleşik Vision/Boundary, backlog (EN); PR [#7](https://github.com/mert494/student-information-system/pull/7) (`e0226bb`) ve Boundary bağlamı PR [#19](https://github.com/mert494/student-information-system/pull/19) (`0761004`, Arda) ile merge edildi |
-| OpenAPI taslağı | `develop` @ `5589968` | Yalnızca `api/openapi.yaml`; PR [#8](https://github.com/mert494/student-information-system/pull/8) (`a34146b`) ile merge edildi; dosya o tarihten beri değişmedi |
-| RACI ve süreç kayıtları | `14-docs-confirm-sprint-1-roles-raci-and-agile-process-division` @ `85eec71` | PR [#17](https://github.com/mert494/student-information-system/pull/17) → `develop`, çakışma yok; F-24 düzeltildi. Mert'in 2026-11-03 tarihli değişiklik isteği hâlâ açık |
-| Repository kurulum belgesi | `develop` @ `5589968` | `docs/Repository_Setup.md`; Issue [#5](https://github.com/mert494/student-information-system/issues/5), PR [#6](https://github.com/mert494/student-information-system/pull/6) (`d948a11`) ile merge edildi |
-| `main` | `7072b41` | Yalnızca README, LICENSE, .gitignore |
+| Repository | `mert494/student-information-system` | First check: 2026-11-01; rechecks: 2026-11-02 (two rounds), 2026-11-03 (two rounds), 2026-11-04 (four rounds) |
+| Integration branch | `develop` @ `5589968` | Merged PRs: [#1](https://github.com/mert494/student-information-system/pull/1) (`1f6c6dd`), [#16](https://github.com/mert494/student-information-system/pull/16) (`8f37ba5`), [#18](https://github.com/mert494/student-information-system/pull/18) (`a2d4579`), [#7](https://github.com/mert494/student-information-system/pull/7) (`6ad16ce`), [#8](https://github.com/mert494/student-information-system/pull/8) (`36c7c8f`), [#6](https://github.com/mert494/student-information-system/pull/6) (`1b6825b`), [#19](https://github.com/mert494/student-information-system/pull/19) (`5589968`) |
+| Requirements documents | `develop` @ `5589968` | Proposal, combined Vision/Boundary, backlog; merged through PR [#7](https://github.com/mert494/student-information-system/pull/7) (`e0226bb`) and the Boundary context through PR [#19](https://github.com/mert494/student-information-system/pull/19) (`0761004`, Arda) |
+| OpenAPI draft | `develop` @ `5589968` | `api/openapi.yaml` only; merged through PR [#8](https://github.com/mert494/student-information-system/pull/8) (`a34146b`); unchanged since |
+| RACI and process records | `14-docs-confirm-sprint-1-roles-raci-and-agile-process-division` @ `85eec71` | PR [#17](https://github.com/mert494/student-information-system/pull/17) → `develop`, no conflicts; F-24 fixed. Mert's `CHANGES_REQUESTED` review from 2026-11-03 is still open |
+| Repository setup document | `develop` @ `5589968` | `docs/Repository_Setup.md`; Issue [#5](https://github.com/mert494/student-information-system/issues/5), merged through PR [#6](https://github.com/mert494/student-information-system/pull/6) (`d948a11`) |
+| `main` | `7072b41` | README, LICENSE and .gitignore only |
 
-Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
+Result values: `Passed`, `Failed`, `Pending`, `Not applicable (with reason)`.
 
-## 2. Yöntem ve araçlar
+## 2. Method and tools
 
-| Kontrol türü | Yöntem / araç | Durum |
+| Check type | Method / tool | Status |
 | --- | --- | --- |
-| Belge içeriği | Teslim başlıklarına göre manuel okuma | Uygulandı (mevcut dosyalar) |
-| Kapsam tutarlılığı | Proposal, Vision/Boundary ve backlog'da rol, özellik ve kapsam dışı listelerinin çapraz karşılaştırması | Uygulandı (`e0226bb`) |
-| RACI tutarlılığı | Python `csv` ile Markdown tablo ↔ CSV satır karşılaştırması (ID, görev adı, atamalar); satır başına A ve R sayımı | Uygulandı (`98e323b`) |
-| Ölçülemeyen ifade taraması | `grep` ile "kolay, hızlı, uygun, anlaşılır, appropriate, easy, fast, proper" araması + manuel okuma | Uygulandı (`e0226bb`) |
-| GitHub kanıtı | `gh api` ile branch, ruleset, tag, release, Issue, PR, review, collaborator ve commit yazarı sorgusu | Uygulandı (2026-11-04) |
-| Entegrasyon | `git merge-tree` ile her açık PR'ın `develop`'a ve birbirine karşı çakışma simülasyonu | Uygulandı |
-| Belge bağlantıları | Göreli bağlantıların branch'te var olan dosyalara gittiği `git ls-tree` / `git cat-file` ile; boşluk/çakışma işaretleri `git diff --check` ile | Uygulandı |
-| OpenAPI doğrulama | Redocly CLI 2.72.1, iki kural setiyle: `npx redocly lint api/openapi.yaml --extends=spec` (yalnızca OpenAPI 3.1 şartnamesi) ve varsayılan `recommended`; ayrıca PyYAML ile operasyon, `operationId`, güvenlik, örnek, şema ve yanıt envanteri. Node v24.13.1 | Uygulandı (`a34146b`). Bu yalnızca sözleşme doğrulamasıdır; canlı API yok ve test edilmedi |
+| Document content | Manual reading against the deliverable headings | Applied (existing files) |
+| Scope consistency | Cross-comparison of roles, features and out-of-scope lists in the Proposal, Vision/Boundary and backlog | Applied (`e0226bb`) |
+| RACI consistency | Python `csv` comparison of the Markdown table and the CSV (ID, task name, assignments); A and R count per row | Applied (`85eec71`; RACI files unchanged since `98e323b`) |
+| Unmeasurable wording scan | `grep` for "easy, fast, appropriate, proper, user-friendly" and the Turkish equivalents, plus manual reading | Applied (`e0226bb`) |
+| GitHub evidence | `gh api` queries for branches, rulesets, tags, releases, Issues, PRs, reviews, collaborators and commit author accounts. Branch protection is read from `repos/{owner}/{repo}/rulesets`, `rulesets/{id}` and `rules/branches/{branch}`, plus the `protected` field of `branches/{branch}`. The classic `branches/{branch}/protection` endpoint returns 404 for rulesets-based protection, so a 404 there is **not** evidence that a branch is unprotected | Applied (2026-11-04) |
+| Integration | `git merge-tree` simulation of each open PR against `develop` and against each other | Applied |
+| Document links | Relative links checked against files in the branch with `git ls-tree` / `git cat-file`; whitespace and conflict markers with `git diff --check` | Applied |
+| OpenAPI validation | Redocly CLI 2.72.1 with two rule sets: `npx redocly lint api/openapi.yaml --extends=spec` (OpenAPI 3.1 specification only) and the default `recommended`; plus a PyYAML inventory of operations, `operationId`s, security, examples, schemas and responses. Node v24.13.1 | Applied (`a34146b`; rechecked on `develop` @ `5589968`). This is contract validation only; there is no live API and none was tested |
 
-## 3. Kontrol matrisi
+## 3. Check matrix
 
-| ID | Teslim | Dosya @ commit | Beklenen kriter | Yöntem | Sonuç | Kanıt / not | Bulgu sahibi |
+| ID | Deliverable | File @ commit | Expected criterion | Method | Result | Evidence / note | Finding owner |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| QA-01 | Project Proposal — başlıklar | `docs/Project_Proposal.md` @ `e0226bb` | Problem, paydaş analizi, çözüm ve beklenen çıktılar, fizibilite/kapsam, varsayım/risk, lisans | Manuel | Passed | Ödevdeki tüm başlıklar karşılanıyor; paydaş → sistem rolü eşleme tablosu eklendi | Nurefşan |
-| QA-22 | Project Proposal — kanıt | aynı | Problem tanımı destekleyici kanıta dayanıyor | Manuel | Passed | Mevcut üniversite ÖBS'sinin arayüz ön incelemesi eklendi (`c7e9d79`); anket/görüşme yapılmadığı ve gözlemin sınırlılığı açıkça yazılmış | Nurefşan |
-| QA-02 | Lisans seçimi | `LICENSE` @ `7072b41`, Proposal §10 @ `e0226bb` | Lisans dosyası + projeye özgü seçim gerekçesi + ekip kararı | Manuel | Passed | MIT dosyası ve projeye özgü gerekçe var (`1184b26`); OpenAPI'de de `license: MIT` (`a34146b`). Ekip onayı PR #7 review'larıyla | Nurefşan, Arda |
-| QA-03 | System Vision | `docs/System_Vision_and_Boundary.md` @ `e0226bb` | Amaç, hedef kullanıcılar, sistem sorumlulukları ve temel işlevler | Manuel | Passed | §1–3 mevcut; PO'nun seçtiği dört sistem rolü (§2.1) ve temel işlevler tanımlı | Nurefşan |
-| QA-04 | System Boundary | `docs/System_Vision_and_Boundary.md` @ `5589968` (`develop`) | Sistem bağlamı ve dış etkileşimler, kapsam içi/dışı, kısıt ve varsayımlar | Manuel | Passed | §4.4'te "Sprint 1'de dış sistem yok" kararı (proposed, ekip onayı bekliyor) ve dört rol için aktör–SIS etkileşim tablosu var; §5.2 kapsam dışı listesiyle tutarlı (PR #19, `0761004`). Rol–izin matrisi ve onaylı kapsam listesi açıkça "pending" / `[TODO]` olarak işaretli (5 `[TODO]`) | Arda |
-| QA-05 | Kapsam tutarlılığı | Proposal ↔ Vision/Boundary ↔ backlog @ `e0226bb` | Roller ve özellikler belgelerde aynı; backlog'daki iş boundary dışında kalmıyor | Çapraz okuma | Passed | Üç belge aynı dört rolü kullanıyor (Student, Instructor, Administrators, Student Affairs Staff); University Management → Administrators eşlemesi ve özel yönetim işlevlerinin kapsam dışı olduğu yazılı. Kalan tek cümle bulgu F-23'te (P3) | Nurefşan |
-| QA-06 | OpenAPI — sözdizimi | `api/openapi.yaml` @ `a34146b` | YAML ayrıştırılır; seçilen OpenAPI sürümüne uygun | Redocly `--extends=spec` | Passed | OpenAPI 3.1.0; şartname kurallarıyla 0 hata. Sürüm dosyada "aday, ekip onaysız" olarak işaretli | Arda |
-| QA-07 | OpenAPI — içerik | aynı | Path/HTTP operasyonları, `$ref` çözülür, request/response şemaları, operationId benzersiz, path parametreleri tanımlı, başarı + hata (400/401/403/404) yanıtları, güvenlik tanımı | Redocly `recommended` + PyYAML envanteri | Passed | `recommended`: 0 hata, 1 uyarı (`no-server-example.com`; `localhost` bilinçli yer tutucu). `bearerAuth` + kök `security`, `createSession` için `security: []`, `servers` ve `license` var. 12 operasyonun hepsinde tag; 11'inde sahte örnek (`deleteCurrentSession` 204, gövdesiz). `Registration` şemasında `term`/`status` yok. Bulgu F-19 | Arda |
-| QA-08 | OpenAPI ↔ backlog | YAML @ `a34146b` ↔ backlog @ `e0226bb` | PB-01…PB-07'nin yetki/hata senaryoları sözleşmede karşılık bulur | Çapraz okuma | Passed | Her operasyonda `x-backlog-reference`. Backlog'daki somut yanıtlar sözleşmeyle uyumlu: yetkisiz → 403, mükerrer kayıt / kontenjan / ön koşul / pasif öğrenci → 409, geçersiz not → 400 | Arda, Nurefşan |
-| QA-09 | RACI — MD ↔ CSV | `docs/RACI_Matrix.md`, `.csv` @ `98e323b` | 16 satırın kimlik, görev adı ve hücreleri aynı | Python karşılaştırma | Passed | 16/16 satır birebir aynı; CSV İngilizceye çevrildi (`72b2f86`), UTF-8 BOM korunmuş | Azra |
-| QA-10 | RACI — A/R kuralı | aynı | Her satırda tam bir A, en az bir R; yalnızca R/A/C/I, A/R değerleri | Python sayım | Passed | 16 satırın hepsi kurala uyuyor | Azra |
-| QA-11 | RACI — ekip kapsamı | aynı | Altı üyenin tamamı ve resmî rolleri yer alıyor | Manuel | Passed | Altı üye ve roller tabloda var | Azra |
-| QA-12 | RACI — onay | aynı + `docs/Sprint1_Process_Records.md` @ `98e323b` | Ekip onay tarihi / karar kaydı | Manuel | Passed | D-01 (RACI) ve D-02 (Mert–Azra iş bölümü), 2026-11-03, altı üye; toplantı MM-01 (WhatsApp, 6/6 katılım). Kayıt "team-reported" ve kanıt linki yok; PR #17 henüz merge edilmedi | Azra, Mert |
-| QA-27 | Süreç kayıtlarının doğruluğu | `docs/Sprint1_Process_Records.md` @ `85eec71` | Kayıtlar gerçek ve güncel durumla çelişmiyor | `gh api` + manuel | Passed | MM-01 saati "20:00–21:00 Europe/Istanbul (17:00–18:00 UTC)"; Decision Log paragrafı iki aktif ruleset'i, `develop` hedefini ve merge edilen PR'ları (#1, #6, #7, #8, #16, #18, #19) doğru veriyor; `gh api` ile doğrulandı. MM-01 "Recorder" alanı `[TODO]` | Azra |
-| QA-13 | Git-Flow kuralları (yazılı) | `docs/Git_Workflow.md` @ `a2d4579` | `main` / `develop` / `feature` dal modeli, commit biçimi, PR, review, merge, protection kuralları | Manuel | Passed | Tüm başlıklar mevcut; gözlenen ayarlar ile önerilen politika ayrı tutulmuş | Mert |
-| QA-14 | Git-Flow — uygulama | GitHub (canlı) | `develop` var; `main`/`develop` korumalı; PR'lar `develop`'a gidiyor | `gh api` | Passed | `develop` var (`a2d4579`). Ruleset'ler: `develop-protection` (PR zorunlu, 1 onay, eski onay düşer, silme/force push yasak) ve `main-protection` (aynı, 2 onay). Açık PR'lar #2, #6, #7, #8, #17 → `develop`; PR #4 kapatıldı | Mert, Barış |
-| QA-15 | GitHub erişimi | GitHub (canlı) | Altı üyenin yazma yetkisi var | `gh api` | Passed | `nsnkcc`, `ardaberkkara1`, `ahmetserdar41`, `baryyss-001`, `azrayy`: write; `mert494`: admin (2026-11-04) | Barış |
-| QA-16 | Issues / Projects | GitHub (canlı) | Teslimler ve backlog öğeleri için gerçek Issue'lar | `gh issue list` | Failed | Teslim Issue'ları #9–#15 açıldı ve atandı; #3, #5 mevcut. PB-01…PB-07 için Issue yok (yalnızca `GitHub_Projects_Setup.md`'de taslak). Bulgu F-04 | Mert |
-| QA-17 | Backlog — alan bütünlüğü | `docs/Initial_Backlog_Draft.md` @ `e0226bb` | Her öğede epic, story, kabul kriteri, öncelik, puan, bağımlılık, sahip | Manuel | Failed | Yedi öğenin yedisinde epic, story, öncelik, puan, bağımlılık ve durum var; PB-05'te "Proposed Owner" alanı yok. Bulgu F-23 | Nurefşan |
-| QA-18 | Backlog — test edilebilirlik | aynı | Kabul kriterleri ölçülebilir; olumlu ve olumsuz koşul içeriyor | grep + manuel | Passed | "appropriate response" ifadeleri kalktı; 403 / 409 + hata kodu ve mesajı tanımlı. Yedi story'nin hepsinde "so that" var | Nurefşan |
-| QA-19 | Backlog — onay | aynı | PO onayı, ekip tahmini, gerçek atama | Manuel | Pending | PO onayı, ekip tahmini ve atamalar "Pending"; API ve Issue eşlemesi dolduruldu | Nurefşan |
-| QA-20 | Teslim checklist'i | `docs/Sprint1_Submission_Checklist.md` @ `a2d4579` | Güncel durum, altı teslim başlığıyla uyum | Manuel | Passed | Altı teslim başlığı eşlenmiş; gerçek PR/review/commit linkleri var; bekleyen kanıtlar "pending" | Mert |
-| QA-21 | Release / tag | GitHub (canlı) | İncelenmiş commit'e bağlı Sprint 1 tag'i | `gh api` | Pending | Tag ve release yok; `develop` → `main` merge'ünden sonra bekleniyor | Barış |
-| QA-23 | Gereksinim belgelerinin entegrasyonu | `docs/nurefsan-sprint1-requirements` @ `e0226bb` | Belgeler Issue'ya bağlı PR ile onaylı hedefe gidiyor; aynı dosyanın ikinci sürümü oluşmuyor | `git merge-tree` + `gh` | Passed | PR #7 → `develop`, `MERGEABLE`; backlog çakışması `6d92c07` ile çözüldü; PR #8 ile çakışma yok. Backlog #11, #12, #15'e referans veriyor; PR açıklaması Issue bağlamıyor (F-23) | Nurefşan, Mert |
-| QA-25 | Vision/Boundary tek belge | PR #7 @ `e0226bb`, PR #8 @ `a34146b` | Teslimin tek, birleşik sürümü var | `git merge-tree` | Passed | PR #8 yalnızca `api/openapi.yaml` içeriyor (`c5425a4`); birleşik belge yalnızca PR #7'de | Arda, Nurefşan |
-| QA-26 | Commit kimliği | Tüm açık PR commit'leri | Commit'ler yazarın ekipteki GitHub hesabına bağlı | `gh api` | Failed | Arda'nın commit'leri artık `ardaberkkara1`'e bağlı. Nurefşan'ın `26fc3f4`, `243195e`, `c7e9d79`, `1184b26` commit'leri `nsankcc` hesabına bağlı; ekip hesabı `nsnkcc` (sonraki `69832d5`, `6d92c07`, `e0226bb` doğru). Bulgu F-25 | Nurefşan |
-| QA-24 | Repository kurulum belgesi | `docs/Repository_Setup.md` @ `d948a11` | Erişim matrisi, clone/branch adımları, doğrulama adımları, eksikler ve kanıt tablosu; geçerli ve güncel bilgi | Manuel + `gh api` + `git merge-tree` + `git diff --check` | Passed | Belge İngilizce; erişim tablosu `collaborators` çıktısıyla, ruleset tablosu `rulesets/26478727` ve `26478471` çıktısıyla birebir aynı; `develop` hedefi doğru; tag "planned" olarak yazılmış; bağlantılar geçerli, çakışma yok. F-17 kapatıldı | Barış |
+| QA-01 | Project Proposal — sections | `docs/Project_Proposal.md` @ `e0226bb` (in `develop`) | Problem, stakeholder analysis, solution and expected outcomes, feasibility/scope, assumptions/risks, license | Manual | Passed | All required sections are present; a stakeholder → system role mapping table was added | Nurefşan |
+| QA-22 | Project Proposal — evidence | same | The problem statement is supported by evidence | Manual | Passed | A preliminary review of the current university SIS interface was added (`c7e9d79`); the document states that no survey or interviews were run and notes the limits of the observation | Nurefşan |
+| QA-02 | License choice | `LICENSE` @ `7072b41`, Proposal §10 @ `e0226bb` | License file + project-specific rationale + recorded team decision | Manual | Pending | The MIT file and a project-specific rationale exist (`1184b26`); OpenAPI also declares `license: MIT` (`a34146b`). No team license decision is recorded. The PR #7 approvals (Ahmet, Mert) are document reviews and are **not** counted as a formal team license decision. Finding F-26 | Nurefşan, Mert |
+| QA-03 | System Vision | `docs/System_Vision_and_Boundary.md` @ `5589968` | Purpose, target users, system responsibilities and main functions | Manual | Passed | §1–3 present; the four system roles chosen by the PO (§2.1) and the main functions are defined | Nurefşan |
+| QA-04 | System Boundary | `docs/System_Vision_and_Boundary.md` @ `5589968` | System context and external interactions, in/out of scope, constraints and assumptions | Manual | Passed | §4.4 states "No external systems are in scope for Sprint 1" (proposed, pending team confirmation) and has an actor–SIS interaction table for the four roles; consistent with the out-of-scope list in §5.2 (PR #19, `0761004`). The role–permission matrix and the approved scope list are explicitly marked "pending" / `[TODO]` (5 `[TODO]`) | Arda |
+| QA-05 | Scope consistency | Proposal ↔ Vision/Boundary ↔ backlog @ `5589968` | Roles and features match across documents; backlog work stays inside the boundary | Cross-reading | Passed | All three documents use the same four roles (Student, Instructor, Administrators, Student Affairs Staff); the University Management → Administrators mapping and the out-of-scope status of dedicated management functions are written down. The one remaining sentence is finding F-23 (P3) | Nurefşan |
+| QA-06 | OpenAPI — syntax | `api/openapi.yaml` @ `a34146b` (in `develop`) | YAML parses; valid for the chosen OpenAPI version | Redocly `--extends=spec` | Passed | OpenAPI 3.1.0; 0 errors against the specification rules. The file marks the version as "candidate, not team-approved" | Arda |
+| QA-07 | OpenAPI — content | same | Paths/HTTP operations, `$ref`s resolve, request/response schemas, unique operationIds, defined path parameters, success + error (400/401/403/404) responses, security definition | Redocly `recommended` + PyYAML inventory | Passed | `recommended`: 0 errors, 1 warning (`no-server-example.com`; `localhost` is a deliberate placeholder). `bearerAuth` + root `security`, `security: []` for `createSession`, `servers` and `license` present. All 12 operations have tags; 11 have fake examples (`deleteCurrentSession` returns 204 without a body). The `Registration` schema has no `term`/`status`. Finding F-19 | Arda |
+| QA-08 | OpenAPI ↔ backlog | YAML @ `a34146b` ↔ backlog @ `e0226bb` | Authorization and error scenarios of PB-01…PB-07 appear in the contract | Cross-reading | Passed | Every operation has `x-backlog-reference`. The concrete backlog responses match the contract: unauthorized → 403; duplicate registration / quota / prerequisite / inactive student → 409; invalid grade → 400 | Arda, Nurefşan |
+| QA-09 | RACI — MD ↔ CSV | `docs/RACI_Matrix.md`, `.csv` @ `85eec71` | IDs, task names and cells of all 16 rows match | Python comparison | Passed | 16/16 rows identical; the CSV was translated to English (`72b2f86`) and keeps its UTF-8 BOM | Azra |
+| QA-10 | RACI — A/R rule | same | Exactly one A and at least one R per row; only R/A/C/I and A/R values | Python count | Passed | All 16 rows follow the rule | Azra |
+| QA-11 | RACI — team coverage | same | All six members and their official roles are listed | Manual | Passed | Six members and roles are in the table | Azra |
+| QA-12 | RACI — decision record | same + `docs/Sprint1_Process_Records.md` @ `85eec71` | A dated team decision record for the RACI exists | Manual | Passed | Decision records D-01 (RACI) and D-02 (Mert–Azra process division), dated 2026-11-03, linked to meeting MM-01 (WhatsApp, 6/6 attendance). This check covers only that a record exists. The records are marked "team-reported"; their independent verification is QA-28 | Azra, Mert |
+| QA-28 | RACI — independent approval evidence | `docs/Sprint1_Process_Records.md` @ `85eec71` + GitHub | The team approval in D-01 / D-02 can be verified independently of the team-reported record (meeting evidence link, or member approvals on GitHub) | Manual + `gh api` | Pending | No evidence link (screenshot, message link or minutes) is attached to MM-01, D-01 or D-02; the MM-01 "Recorder" field is `[TODO]`. Approvals of PR #17 would count as GitHub evidence once given; there are none yet | Azra, Mert |
+| QA-27 | Process record accuracy | `docs/Sprint1_Process_Records.md` @ `85eec71` | Records do not contradict the actual, current state | `gh api` + manual | Passed | MM-01 time is "20:00–21:00 Europe/Istanbul (17:00–18:00 UTC)"; the Decision Log paragraph correctly lists the two active rulesets, the `develop` target and the merged PRs (#1, #6, #7, #8, #16, #18, #19); verified with `gh api` | Azra |
+| QA-13 | Git-Flow rules (written) | `docs/Git_Workflow.md` @ `5589968` (unchanged since `a2d4579`) | `main` / `develop` / `feature` branch model, commit format, PR, review, merge and protection rules | Manual | Passed | All sections present; the document is marked "Proposal; not yet approved by the team" and keeps observed settings apart from the proposed policy (see §3.1) | Mert |
+| QA-14 | Git-Flow — in practice | GitHub (live) | `develop` exists; `main` and `develop` are protected; PRs target `develop` | `gh api` | Passed | `develop` exists at `5589968`. `branches/{main,develop}` report `protected: true`; `rules/branches/{branch}` returns the `deletion`, `non_fast_forward` and `pull_request` rules of `main-protection` (26478471) and `develop-protection` (26478727), both `active` (details in §3.1). The classic `branches/{branch}/protection` endpoint returns 404 because protection comes from rulesets. Open PRs #2 and #17 target `develop`; PRs #1, #6, #7, #8, #16, #18 and #19 are merged into `develop`; PR #4 (→ `main`) was closed without merging | Mert, Barış |
+| QA-15 | GitHub access | GitHub (live) | All six members can write | `gh api` | Passed | `nsnkcc`, `ardaberkkara1`, `ahmetserdar41`, `baryyss-001`, `azrayy`: write; `mert494`: admin (2026-11-04) | Barış |
+| QA-16 | Issues / Projects | GitHub (live) | Real Issues for deliverables and backlog items | `gh issue list` | Failed | Delivery Issues #9–#15 are open and assigned; #3 and #5 exist. PB-01…PB-07 have no Issues (drafts only in `GitHub_Projects_Setup.md`). Finding F-04 | Mert |
+| QA-17 | Backlog — field completeness | `docs/Initial_Backlog_Draft.md` @ `5589968` | Each item has epic, story, acceptance criteria, priority, points, dependencies and owner | Manual | Failed | All seven items have epic, story, priority, points, dependencies and status; PB-05 has no "Proposed Owner" field. Finding F-23 | Nurefşan |
+| QA-18 | Backlog — testability | same | Acceptance criteria are measurable and include positive and negative conditions | grep + manual | Passed | The "appropriate response" wording is gone; 403 / 409 with an error code and message are defined. All seven stories contain "so that" | Nurefşan |
+| QA-19 | Backlog — approval | same | PO approval, team estimates, real assignments | Manual | Pending | PO approval, team estimates and assignments are "Pending"; the API and Issue mapping is filled in | Nurefşan |
+| QA-20 | Submission checklist | `docs/Sprint1_Submission_Checklist.md` @ `5589968` (unchanged since `a2d4579`) | Current status, aligned with the six deliverable headings | Manual | Passed | The six deliverable headings are mapped; real PR/review/commit links are present; outstanding evidence is marked "pending" | Mert |
+| QA-21 | Release / tag | GitHub (live) | A Sprint 1 tag on a reviewed commit | `gh api` | Pending | No tag or release; expected after the `develop` → `main` merge | Barış |
+| QA-23 | Integration of the requirements documents | `develop` @ `5589968` | Documents reach the approved target through a PR linked to Issues; no second copy of a file appears | `git merge-tree` + `gh` | Passed | PR #7 was merged into `develop` as `6ad16ce` with approvals from Ahmet and Mert; the backlog conflict had been resolved in `6d92c07`. The PR description references #11, #12 and #15. The Boundary follow-up arrived through PR #19 (`5589968`, Related #12) | Nurefşan, Mert |
+| QA-25 | Single Vision/Boundary document | `develop` @ `5589968` | One combined version of the deliverable exists | `git ls-tree` | Passed | `develop` contains exactly one `docs/System_Vision_and_Boundary.md`; PR #8 contained only `api/openapi.yaml` (`c5425a4`) | Arda, Nurefşan |
+| QA-26 | Commit identity | All Sprint 1 PR commits | Commits are linked to the author's team GitHub account | `gh api` | Failed | Arda's commits are linked to `ardaberkkara1`. Nurefşan's commits `26fc3f4`, `243195e`, `c7e9d79` and `1184b26` are linked to `nsankcc`; the team account is `nsnkcc` (the later `69832d5`, `6d92c07` and `e0226bb` are correct). Finding F-25 | Nurefşan |
+| QA-24 | Repository setup document | `docs/Repository_Setup.md` @ `d948a11` (in `develop`) | Access matrix, clone/branch steps, validation steps, open items and evidence table; valid and current | Manual + `gh api` + `git merge-tree` + `git diff --check` | Passed | The document is in English; the access table matches the `collaborators` output and the ruleset table matches `rulesets/26478727` and `26478471`; the `develop` target is correct; the tag is written as "planned"; links resolve and there are no conflicts. F-17 closed | Barış |
 
-Özet: 27 kontrolden 22 `Passed`, 3 `Failed`, 2 `Pending`.
+Summary: 28 checks: 21 `Passed`, 3 `Failed`, 4 `Pending`.
 
-## 4. Bulgular
+### 3.1 Active protection rules and the proposed review policy
 
-| ID | Öncelik | Bulgu | Önerilen düzeltme | Sahip | Durum |
+These are two different things and must not be mixed. The active rules are enforced by GitHub today. The review policy in `Git_Workflow.md` is still a proposal awaiting team approval.
+
+**Active protection rules** (GitHub rulesets, read with `gh api` on 2026-11-04):
+
+| Ruleset | Branch | PR required | Required approvals | Other enforced rules | Enforcement |
 | --- | --- | --- | --- | --- | --- |
-| F-01 | P1 | System Boundary ve `api/openapi.yaml` yoktu. | — | Arda | Kapatıldı (`e522c95`, PR #8) |
-| F-02 | — | İlk raporda üyelerin yazma yetkisi olmadığı yazılmıştı. Bu, kontrolün yanlış GitHub hesabıyla yapılmasından kaynaklanan **hatalı bir bulguydu**; altı üyenin de yetkisi var. | — | Ahmet | Kapatıldı (geri çekildi) |
-| F-03 | P1 | `develop` ve branch protection yoktu; yazılı Git-Flow kuralları uygulanmıyordu. | — | Mert, Barış | Kapatıldı (`develop` oluşturuldu, PR #1 `1f6c6dd`; `develop-protection` ve `main-protection` ruleset'leri aktif) |
-| F-04 | P2 | Teslimler ve PB-01…PB-07 için Issue yoktu. | PB-01…PB-07 için Issue'lar `GitHub_Projects_Setup.md`'deki taslaklarla açılmalı | Mert | Kısmen (teslim Issue'ları #9–#15 açıldı ve atandı; PB Issue'ları yok) |
-| F-05 | P2 | PB-07: "anlaşılır boş durum" ölçülebilir değildi. | — | Nurefşan | Kapatıldı (`26fc3f4`) |
-| F-06 | P2 | PB-02 ve PB-05: "appropriate response" ölçülebilir değildi. | — | Nurefşan, Arda | Kapatıldı (`69832d5`, `e0226bb`: 403 / 409 + hata kodu ve mesajı; OpenAPI ile uyumlu) |
-| F-07 | P3 | Checklist "Beş resmî teslim" diyordu; "commit edilmedi" satırı güncel değildi. | — | Mert | Kapatıldı (PR #16 `8f37ba5`, PR #18 `a2d4579`) |
-| F-08 | P3 | Backlog'da tüm önerilen sahipler Arda idi. | — | Nurefşan, Mert | Kapatıldı (`26fc3f4`) |
-| F-09 | P3 | RACI'de Mert 5 satırda A, 11 satırda R; diğer üyelerde A sayısı 1–4. Hata değil, iş yükü bilgisi. | — | Azra | Kapatıldı (bilgi; RACI D-01 ile mevcut hâliyle onaylandı) |
-| F-10 | P2 | Proposal'da problem tanımı için kanıt yoktu. | — | Nurefşan | Kapatıldı (`c7e9d79`: ÖBS ön incelemesi; anket yapılmadığı ve sınırlılık açıkça yazılı) |
-| F-11 | P2 | Rol adları belgeler arasında farklıydı. | — | Nurefşan, Arda | Kapatıldı (`e0226bb`: dört sistem rolü ve paydaş → rol eşlemesi üç belgede aynı) |
-| F-12 | P3 | University Management ihtiyacının backlog karşılığı yoktu. | — | Nurefşan | Kapatıldı (`e0226bb`: Administrators rolüne eşlendi; özel yönetim işlevleri Sprint 1 kapsamı dışında) |
-| F-13 | P3 | Lisans gerekçesi geneldi. | — | Nurefşan, Arda | Kapatıldı (`1184b26`) |
-| F-14 | P2 | Gereksinim PR'ı Issue'suzdu ve backlog dosyasında hedefle çakışıyordu. | — | Nurefşan, Mert | Kapatıldı (`6d92c07` çakışma çözümü; backlog #11, #12, #15'e referans veriyor) |
-| F-15 | P2 | PR #4 `develop`'u atlayarak `main`'i hedefliyordu. | — | Azra, Mert | Kapatıldı (PR #4 kapatıldı; içerik PR #1 ile `develop`'ta) |
-| F-16 | P3 | PB-05, PB-06, PB-07'de "so that" yoktu. | — | Nurefşan | Kapatıldı (`69832d5`) |
-| F-17 | P3 | `Repository_Setup.md` güncel değil: Issue/PR alanları `[TODO]`, erişim ve ruleset alanları `[TODO]`, "`develop` yoktur" ve "geçici hedef `docs/sprint1-team-guides`" yazıyor. | Issue #5 / PR #6 bağlanmalı; erişim tablosu `gh api` çıktısıyla doldurulmalı; `develop` ve ruleset kanıtı eklenmeli; PR açıklamasına "Closes #5" | Barış | Kapatıldı (`d948a11`, PR #6) |
-| F-18 | P2 | OpenAPI'de güvenlik şeması, `security`, `servers` ve `license` yoktu. | — | Arda | Kapatıldı (`a34146b`; `recommended` lint 0 hata) |
-| F-19 | P3 | OpenAPI'de örnek, tag ve şema alanları eksikti. | `Registration` şemasına `term`/`status` eklenebilir (PB-05 kararıyla) | Arda, Nurefşan | Kısmen (`c5425a4`, `a34146b`: tüm tag'ler, 11 örnek, temel alanlar) |
-| F-20 | P1 | `docs/System_Vision_and_Boundary.md` iki PR'da ayrı sürümlerdeydi. | — | Arda, Nurefşan | Kapatıldı (`c5425a4`: PR #8'den çıkarıldı) |
-| F-21 | P2 | Boundary'de dış sistemler/arayüzler ve rol izinleri tanımsız (`[TODO]`). | PR #7 merge edildikten sonra §4.4'e "Sprint 1'de dış sistem yok (proposed)" kararı ve aktör–SIS etkileşim tablosu eklenmeli; rol–izin matrisi "pending" olarak işaretlenmeli | Arda | Kapatıldı (`0761004`, PR #19, merge `5589968`) |
-| F-22 | P2 | `e522c95` commit'i ekip dışı `ardaberk00` hesabına bağlıydı. | — | Arda | Kapatıldı (e-posta `ardaberkkara1`'e taşındı; geçmiş yeniden yazılmadı) |
-| F-23 | P3 | Backlog'da küçük tutarsızlıklar: PB-05'te "University Management is responsible for defining the enrollment dates" (University Management artık Administrators'a eşli ve özel işlevleri kapsam dışı); PB-05'te "Proposed Owner" alanı yok; rol adı "Administrators" çoğul, diğerleri tekil; PR #7 açıklaması eski ve Issue bağlamıyor. | Cümle "Administrators" ile düzeltilmeli; PB-05'e sahip alanı eklenmeli; rol adı tekilleştirilebilir; PR açıklamasına düzeltmeler ve "Related: #11, #12, #15" eklenmeli | Nurefşan | Yeni |
-| F-24 | P2 | `Sprint1_Process_Records.md` @ `98e323b`: MM-01 saati UTC olarak yazılmış (ekip bilgisine göre 20:00–21:00 Europe/Istanbul); Decision Log altındaki paragraf ruleset'lerin olmadığını, branch'lerin korumasız olduğunu ve PR hedeflerinin karışık olduğunu söylüyor, bu 2026-11-04 itibarıyla yanlış. | Saat "2026-11-03 20:00–21:00 Europe/Istanbul (17:00–18:00 UTC)" yapılmalı; paragraf güncel duruma göre düzeltilmeli (iki ruleset aktif, tüm açık PR'lar `develop`'a) | Azra | Kapatıldı (`85eec71`, PR #17) |
-| F-25 | P2 | Nurefşan'ın `26fc3f4`, `243195e`, `c7e9d79`, `1184b26` commit'leri kişisel Gmail adresiyle atılmış ve ekip dışı `nsankcc` hesabına bağlı; ekip hesabı `nsnkcc`. Bu katkılar ekip hesabında görünmez. | Geçmişi yeniden yazmadan çözüm: Gmail adresi `nsankcc`'den kaldırılıp `nsnkcc`'ye eklenmeli (Settings → Emails). Sonraki commit'ler zaten doğru | Nurefşan | Yeni |
+| [develop-protection](https://github.com/mert494/student-information-system/rules/26478727) (26478727) | `develop` | Yes | 1 | Stale approvals dismissed on push; approval of the last push required; review threads must be resolved; merge commits only; deletion and non-fast-forward (force push) blocked | `active` |
+| [main-protection](https://github.com/mert494/student-information-system/rules/26478471) (26478471) | `main` | Yes | 2 | Same as `develop-protection` | `active` |
 
-Bulgular için ayrı Issue açılmadı; açılması Mert ile koordineli ve onaya bağlıdır. Issue taslağı için `.github/ISSUE_TEMPLATE/documentation.md` kullanılacak.
+**Proposed review policy** (`docs/Git_Workflow.md` @ `5589968`, status "Proposal; not yet approved by the team"):
 
-## 5. Yeniden kontroller
+| Topic | Proposal |
+| --- | --- |
+| Reviewers | At least one reviewer other than the author; Arda for architecture/API, Ahmet for quality/tests, Nurefşan for requirements, Mert/Azra for process documents |
+| Author rule | Authors do not approve and merge their own PRs alone |
+| Merge | Use the merge strategy chosen by the team; only merge commits are currently possible under the rulesets |
+| Approval | Explicit user approval before merging |
 
-| Bulgu | Düzeltme PR / commit | Yeniden kontrol tarihi | Sonuç |
+Gap: the proposal names one reviewer for every PR, but `main-protection` enforces two approvals. The team should align the two (see §6).
+
+## 4. Findings
+
+| ID | Priority | Finding | Proposed fix | Owner | Status |
+| --- | --- | --- | --- | --- | --- |
+| F-01 | P1 | The System Boundary and `api/openapi.yaml` did not exist. | — | Arda | Closed (`e522c95`, PR #8) |
+| F-02 | — | The first report stated that members had no write access. This was a **wrong finding** caused by checking with the wrong GitHub account; all six members have access. | — | Ahmet | Closed (withdrawn) |
+| F-03 | P1 | There was no `develop` branch and no branch protection; the written Git-Flow rules were not applied. | — | Mert, Barış | Closed (`develop` created, PR #1 `1f6c6dd`; `develop-protection` and `main-protection` rulesets active) |
+| F-04 | P2 | There were no Issues for the deliverables and PB-01…PB-07. | Open Issues for PB-01…PB-07 from the drafts in `GitHub_Projects_Setup.md` | Mert | Partial (delivery Issues #9–#15 open and assigned; no PB Issues) |
+| F-05 | P2 | PB-07: "understandable empty state" was not measurable. | — | Nurefşan | Closed (`26fc3f4`) |
+| F-06 | P2 | PB-02 and PB-05: "appropriate response" was not measurable. | — | Nurefşan, Arda | Closed (`69832d5`, `e0226bb`: 403 / 409 with error code and message; consistent with OpenAPI) |
+| F-07 | P3 | The checklist said "five official deliverables"; the "not committed" row was out of date. | — | Mert | Closed (PR #16 `8f37ba5`, PR #18 `a2d4579`) |
+| F-08 | P3 | All proposed backlog owners were Arda. | — | Nurefşan, Mert | Closed (`26fc3f4`) |
+| F-09 | P3 | In the RACI, Mert is A in 5 rows and R in 11; other members have 1–4 A. Not an error; workload information. | — | Azra | Closed (information; the RACI was recorded as approved as-is in D-01, team-reported) |
+| F-10 | P2 | The Proposal had no evidence for the problem statement. | — | Nurefşan | Closed (`c7e9d79`: preliminary SIS review; the absence of a survey and the limits are stated) |
+| F-11 | P2 | Role names differed between documents. | — | Nurefşan, Arda | Closed (`e0226bb`: the four system roles and the stakeholder → role mapping match in all three documents) |
+| F-12 | P3 | The University Management need had no backlog counterpart. | — | Nurefşan | Closed (`e0226bb`: mapped to the Administrators role; dedicated management functions are out of Sprint 1 scope) |
+| F-13 | P3 | The license rationale was generic. | — | Nurefşan, Arda | Closed (`1184b26`) |
+| F-14 | P2 | The requirements PR had no Issue and conflicted with the target in the backlog file. | — | Nurefşan, Mert | Closed (`6d92c07` conflict resolution; the backlog references #11, #12, #15) |
+| F-15 | P2 | PR #4 targeted `main`, bypassing `develop`. | — | Azra, Mert | Closed (PR #4 closed; its content reached `develop` through PR #1) |
+| F-16 | P3 | PB-05, PB-06 and PB-07 had no "so that". | — | Nurefşan | Closed (`69832d5`) |
+| F-17 | P3 | `Repository_Setup.md` was out of date: Issue/PR, access and ruleset fields were `[TODO]`, and it said "`develop` does not exist" and "temporary target `docs/sprint1-team-guides`". | — | Barış | Closed (`d948a11`, PR #6) |
+| F-18 | P2 | OpenAPI had no security scheme, `security`, `servers` or `license`. | — | Arda | Closed (`a34146b`; `recommended` lint 0 errors) |
+| F-19 | P3 | OpenAPI lacked examples, tags and schema fields. | `term`/`status` could be added to the `Registration` schema (subject to the PB-05 decision) | Arda, Nurefşan | Partial (`c5425a4`, `a34146b`: all tags, 11 examples, basic fields) |
+| F-20 | P1 | `docs/System_Vision_and_Boundary.md` existed in different versions in two PRs. | — | Arda, Nurefşan | Closed (`c5425a4`: removed from PR #8) |
+| F-21 | P2 | External systems/interfaces and role permissions in the Boundary were undefined (`[TODO]`). | — | Arda | Closed (`0761004`, PR #19, merge `5589968`) |
+| F-22 | P2 | Commit `e522c95` was linked to the non-team account `ardaberk00`. | — | Arda | Closed (email moved to `ardaberkkara1`; history not rewritten) |
+| F-23 | P3 | Minor backlog inconsistencies: PB-05 says "University Management is responsible for defining the enrollment dates" (University Management now maps to Administrators and its dedicated functions are out of scope); PB-05 has no "Proposed Owner" field; the role name "Administrators" is plural while the others are singular. | Replace the sentence with "Administrators"; add an owner field to PB-05; optionally make the role name singular. The file is in `develop`, so this needs a new PR | Nurefşan | Open (the PR #7 description part is fixed: it references #11, #12, #15) |
+| F-24 | P2 | `Sprint1_Process_Records.md` @ `98e323b` gave the MM-01 time in UTC (20:00–21:00 Europe/Istanbul according to the team), and the Decision Log said there were no rulesets, branches were unprotected and PR targets were mixed. | — | Azra | Closed (`85eec71`, PR #17) |
+| F-25 | P2 | Nurefşan's commits `26fc3f4`, `243195e`, `c7e9d79` and `1184b26` were made with a personal Gmail address and are linked to the non-team account `nsankcc`; the team account is `nsnkcc`. These contributions do not show on the team account. | Without rewriting history: remove the Gmail address from `nsankcc` and add it to `nsnkcc` (Settings → Emails). Later commits are already correct | Nurefşan | Open |
+| F-26 | P3 | No team decision for the MIT license is recorded. The PR #7 approvals review the documents; they are not a team license decision. | When the team confirms the license, record it as a decision (for example D-03 in `Sprint1_Process_Records.md`) with date and participants; do not record it before the team has decided | Nurefşan, Mert, Azra | Open |
+
+No separate Issues were opened for the findings; opening them is coordinated with Mert and requires approval. The draft Issue template is `.github/ISSUE_TEMPLATE/documentation.md`.
+
+## 5. Rechecks
+
+| Finding | Fix PR / commit | Recheck date | Result |
 | --- | --- | --- | --- |
-| F-01 | `26fc3f4` (Proposal, Vision) | 2026-11-02 | Kısmen: Boundary ve OpenAPI bekleniyor |
-| F-02 | — (hatalı bulgu) | 2026-11-02 | Geri çekildi; QA-15 `Passed` |
-| F-05 | `26fc3f4` | 2026-11-02 | Kapatıldı |
-| F-06 | `26fc3f4` | 2026-11-02 | Kısmen; "appropriate response" ifadeleri kaldı |
-| F-08 | `26fc3f4` | 2026-11-02 | Kapatıldı |
-| F-04, F-07, F-09 | — | 2026-11-02 | Değişiklik yok (F-04: Issue #5 eklendi, teslim Issue'ları hâlâ yok) |
-| F-14 | PR #7 | 2026-11-02 | Kısmen; PR açıldı, hedef `main` ve Issue bağlantısı yok |
-| F-03 | `81a66a9` (öneri belgesi) | 2026-11-02 | Açık; ayar uygulanmadı, yetki Mert'te |
-| F-01 | `e522c95` (PR #8) | 2026-11-03 | Kapatıldı; yeni bulgular F-18…F-22 |
-| F-03, F-04, F-07 | — | 2026-11-03 | Değişiklik yok |
-| F-11, F-20, F-21 | `243195e` | 2026-11-03 | Kısmen; birleşik Vision/Boundary, rol listesi önerisi, kapsam dışı eşitlendi. PR #8 eski dosyayı hâlâ içeriyor |
-| F-14, F-15 | PR #7 hedef değişikliği | 2026-11-03 | Kısmen; PR #7 `docs/sprint1-team-guides`'a çevrildi ancak backlog dosyasında çakışmalı. PR #4 hâlâ `main` |
-| F-18, F-19, F-22 | — | 2026-11-03 | Değişiklik yok (`e522c95` hâlâ `ardaberk00` hesabında) |
-| F-03 | PR #1 (`1f6c6dd`), ruleset'ler | 2026-11-04 | Kapatıldı; `develop` korumalı (1 onay), `main` korumalı (2 onay) |
-| F-04 | Issue #9–#15 | 2026-11-04 | Kısmen; teslim Issue'ları var, PB Issue'ları yok |
-| F-07 | PR #16 (`8f37ba5`), PR #18 (`a2d4579`) | 2026-11-04 | Kapatıldı |
-| F-06, F-11, F-12, F-14, F-16 | `69832d5`, `6d92c07`, `e0226bb` (PR #7) | 2026-11-04 | Kapatıldı; yeni küçük bulgu F-23 |
-| F-10, F-13 | `c7e9d79`, `1184b26` (PR #7) | 2026-11-04 | Kapatıldı |
-| F-15 | PR #4 kapatıldı | 2026-11-04 | Kapatıldı |
-| F-18, F-20 | `c5425a4`, `a34146b` (PR #8) | 2026-11-04 | Kapatıldı; Redocly `recommended` 0 hata, 1 uyarı |
-| F-19 | `c5425a4`, `a34146b` (PR #8) | 2026-11-04 | Kısmen |
-| F-22 | Hesap e-posta ayarı | 2026-11-04 | Kapatıldı; `e522c95`, `c5425a4`, `a34146b` → `ardaberkkara1` |
-| F-09, QA-12 | `3a18842`, `98e323b` (PR #17) | 2026-11-04 | D-01 / D-02 kaydedildi; yeni bulgu F-24 |
-| F-21 | — | 2026-11-04 | Değişiklik yok; PR #7 merge'ünü bekliyor |
-| F-17 | `99d197a`, `d948a11` (PR #6) | 2026-11-04 (gece) | Kapatıldı; QA-24 `Passed` |
-| F-21 | `0761004` (PR #19) | 2026-11-04 (akşam) | Kapatıldı; QA-04 `Passed`. PR #7, #8, #6 ve #19 `develop`'ta; tek `System_Vision_and_Boundary.md` var; `api/openapi.yaml` Redocly ile yeniden doğrulandı (0 hata, 1 uyarı) |
-| F-24 | `85eec71` (PR #17) | 2026-11-04 (akşam) | Kapatıldı; QA-27 `Passed` |
-| F-04, F-23, F-25 | — | 2026-11-04 (akşam) | Değişiklik yok (F-25: dört commit hâlâ `nsankcc` hesabında) |
+| F-01 | `26fc3f4` (Proposal, Vision) | 2026-11-02 | Partial: Boundary and OpenAPI awaited |
+| F-02 | — (wrong finding) | 2026-11-02 | Withdrawn; QA-15 `Passed` |
+| F-05 | `26fc3f4` | 2026-11-02 | Closed |
+| F-06 | `26fc3f4` | 2026-11-02 | Partial; "appropriate response" wording remained |
+| F-08 | `26fc3f4` | 2026-11-02 | Closed |
+| F-04, F-07, F-09 | — | 2026-11-02 | No change (F-04: Issue #5 added, still no delivery Issues) |
+| F-14 | PR #7 | 2026-11-02 | Partial; PR opened, but it targeted `main` and had no Issue link |
+| F-03 | `81a66a9` (proposal document) | 2026-11-02 | Open; settings not applied, the permission lies with Mert |
+| F-01 | `e522c95` (PR #8) | 2026-11-03 | Closed; new findings F-18…F-22 |
+| F-03, F-04, F-07 | — | 2026-11-03 | No change |
+| F-11, F-20, F-21 | `243195e` | 2026-11-03 | Partial; combined Vision/Boundary, proposed role list, aligned out-of-scope list. PR #8 still contained the old file |
+| F-14, F-15 | PR #7 retargeted | 2026-11-03 | Partial; PR #7 retargeted to `docs/sprint1-team-guides` but conflicted in the backlog file. PR #4 still targeted `main` |
+| F-18, F-19, F-22 | — | 2026-11-03 | No change (`e522c95` still on `ardaberk00`) |
+| F-03 | PR #1 (`1f6c6dd`), rulesets | 2026-11-04 | Closed; `develop` protected (1 approval), `main` protected (2 approvals) |
+| F-04 | Issues #9–#15 | 2026-11-04 | Partial; delivery Issues exist, PB Issues do not |
+| F-07 | PR #16 (`8f37ba5`), PR #18 (`a2d4579`) | 2026-11-04 | Closed |
+| F-06, F-11, F-12, F-14, F-16 | `69832d5`, `6d92c07`, `e0226bb` (PR #7) | 2026-11-04 | Closed; new minor finding F-23 |
+| F-10, F-13 | `c7e9d79`, `1184b26` (PR #7) | 2026-11-04 | Closed |
+| F-15 | PR #4 closed | 2026-11-04 | Closed |
+| F-18, F-20 | `c5425a4`, `a34146b` (PR #8) | 2026-11-04 | Closed; Redocly `recommended` 0 errors, 1 warning |
+| F-19 | `c5425a4`, `a34146b` (PR #8) | 2026-11-04 | Partial |
+| F-22 | Account email setting | 2026-11-04 | Closed; `e522c95`, `c5425a4`, `a34146b` → `ardaberkkara1` |
+| F-09, QA-12 | `3a18842`, `98e323b` (PR #17) | 2026-11-04 | D-01 / D-02 recorded; new finding F-24 |
+| F-21 | — | 2026-11-04 | No change; waiting for the PR #7 merge |
+| F-17 | `99d197a`, `d948a11` (PR #6) | 2026-11-04 (night) | Closed; QA-24 `Passed` |
+| F-21 | `0761004` (PR #19) | 2026-11-04 (evening) | Closed; QA-04 `Passed`. PRs #7, #8, #6 and #19 are in `develop`; there is one `System_Vision_and_Boundary.md`; `api/openapi.yaml` revalidated with Redocly (0 errors, 1 warning) |
+| F-24 | `85eec71` (PR #17) | 2026-11-04 (evening) | Closed; QA-27 `Passed` |
+| F-04, F-23, F-25 | — | 2026-11-04 (evening) | No change (F-25: the four commits are still on `nsankcc`) |
+| QA-02, QA-12, QA-14, QA-23 | Mert's review of PR #2 | 2026-11-04 (evening) | QA-02 reassessed as `Pending` (PR reviews are not a team license decision; new finding F-26). QA-12 split: the decision record stays `Passed`, independent approval evidence moved to new check QA-28 (`Pending`). QA-14 and QA-23 updated to `develop` @ `5589968`; the meaning of a 404 from the classic protection endpoint is corrected in §2 and QA-14 |
 
-## 6. Açık riskler ve bekleyen kararlar
+## 6. Open risks and pending decisions
 
-- **PR #17 (Azra):** F-24 düzeltildi; Mert'in 2026-11-03 tarihli değişiklik isteği kaldırılıp onaylanmadan merge edilemez. `develop` → `main` bundan sonra açılmalı.
-- **Barış (QA-21):** `sprint-1` tag'i `develop` → `main` merge'ünden sonra bekleniyor.
-- **Kalan küçük bulgular (F-23, F-25):** Teslimi engellemez; F-23 artık `develop`'ta olduğundan yeni bir PR gerektirir, F-25 yalnızca hesap e-posta ayarıdır.
-- **Release:** `develop` → `main` PR'ı `main-protection` nedeniyle 2 onay gerektiriyor; `Git_Workflow.md`'deki öneri 1 onay. Ekip kararıyla eşitlenmeli. Sprint 1 tag'i yok.
-- **PB Issue'ları (F-04):** PB-01…PB-07 için Issue açılması teslimde backlog izlenebilirliğini güçlendirir.
-- **Onay kayıtları:** D-01 / D-02 ve MM-01 "team-reported"; kanıt linki (ekran görüntüsü vb.) yok.
-- **Dil:** `develop`'taki süreç belgeleri ve gereksinim belgeleri İngilizce; bu rapor Türkçe. Teslim dili ekipçe netleştirilmeli.
-- OpenAPI 3.1.0 dosyada "aday, ekip onaysız" olarak işaretli; güvenlik politikası "proposed". Ekip farklı bir karar verirse QA-06…QA-08 tekrarlanır.
-- Teslim tarihi, takım numarası ve Teams "Sprint 1 Examples" formatı rapora yansıtılmadı [TODO].
-- Bu rapor tek kişi tarafından hazırlandı; bağımsız review (öneri: Mert) bekleniyor.
+- **PR #17 (Azra):** F-24 is fixed; the PR cannot be merged until Mert's `CHANGES_REQUESTED` review from 2026-11-03 is dismissed or replaced by an approval. `develop` → `main` should be opened after that.
+- **Barış (QA-21):** the `sprint-1` tag is expected after the `develop` → `main` merge.
+- **Remaining minor findings (F-23, F-25, F-26):** they do not block submission. F-23 needs a new PR because the file is in `develop`; F-25 is only an account email setting; F-26 needs a real team decision first.
+- **Review policy vs. active rules:** `main-protection` enforces 2 approvals while the proposed policy in `Git_Workflow.md` names 1 reviewer. The team should decide which one the written policy follows (§3.1).
+- **PB Issues (F-04):** opening Issues for PB-01…PB-07 would strengthen backlog traceability in the submission.
+- **Approval records (QA-28):** D-01 / D-02 and MM-01 are "team-reported" with no evidence link (screenshot, message link or minutes).
+- OpenAPI 3.1.0 is marked "candidate, not team-approved" in the file and the security policy is "proposed". If the team decides differently, QA-06…QA-08 are repeated.
+- The submission date, team number and the Teams "Sprint 1 Examples" format are not reflected in this report [TODO].
+- This report was prepared by one person; Mert reviewed the previous version on 2026-11-04 and will review this revision.
