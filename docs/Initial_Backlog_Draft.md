@@ -115,6 +115,7 @@ These enrollment rules are Product Owner decisions and are included as the busin
 - **Priority:** P1 – High (proposed)
 - **Story Points:** 8 (proposed)
 - **Dependencies:** PB-03 and PB-04.
+- **Proposed Owner:** Pending team assignment; no implementer confirmed.
 - **Business Rules Advisor:** Nurefşan
 - **Validation Advisor:** Ahmet
 - **Status:** Business rules defined; detailed API error mapping and team estimation remain to be documented.
@@ -190,3 +191,19 @@ Proposed owners are not confirmed assignments. Implementation tasks should be as
 Approved backlog items should later be mapped to actual GitHub Issues.
 
 A backlog item should be considered complete only after its acceptance criteria have been verified, relevant tests have passed, required documentation has been updated, and the independent review process has been completed.
+
+# 11. Submission field completeness — proposed decomposition
+
+Related Issue: #15. This supplements missing Feature, Task and PB-05 Owner fields for submission review. It does not change existing user stories, acceptance criteria, priorities, estimates or business decisions. Feature/task wording below is Proposed and requires Nurefşan and relevant technical-owner review. Tasks are requirements-review work, not a Sprint 1 implementation commitment; task estimates and assignees remain Pending.
+
+| Item | Proposed Feature | Proposed Task | Owner status | Estimate status | Dependency / acceptance reference |
+| --- | --- | --- | --- | --- | --- |
+| PB-01 | Account sign-in and sign-out | Review login/logout and invalid-credential scenarios against PB-01 criteria. | Existing proposed owner: Arda; not confirmed | Existing story points remain proposed; task estimate Pending | Existing PB-01 dependencies and Acceptance Criteria above; PO approval Pending |
+| PB-02 | Role-based API authorization | Review the role–operation/data matrix and 401/403 cases with the PO and Architecture Lead. | Existing proposed owner: Arda; not confirmed | Existing story points remain proposed; task estimate Pending | Existing PB-02 dependencies and Acceptance Criteria above; PO approval Pending |
+| PB-03 | Student record maintenance | Review required student fields, uniqueness and invalid-update scenarios. | Pending team assignment | Existing story points remain proposed; task estimate Pending | Existing PB-03 dependencies and Acceptance Criteria above; PO approval Pending |
+| PB-04 | Course catalog maintenance | Review course fields, course-code uniqueness scope and invalid-create cases. | Pending team assignment | Existing story points remain proposed; task estimate Pending | Existing PB-04 dependencies and Acceptance Criteria above; PO approval Pending |
+| PB-05 | Course enrollment and own enrollment list | Review active status, period, capacity, prerequisites and duplicate/no-side-effect cases. | Pending team assignment | Existing story points remain proposed; task estimate Pending | Existing PB-05 dependencies and Acceptance Criteria above; PO approval Pending |
+| PB-06 | Assigned-course grade entry | Review course assignment, grading range and rejected-write cases. | Pending team assignment | Existing story points remain proposed; task estimate Pending | Existing PB-06 dependencies and Acceptance Criteria above; PO approval Pending |
+| PB-07 | Own published-grade viewing | Review publication/ownership rules, empty state and protected-data cases. | Pending team assignment | Existing story points remain proposed; task estimate Pending | Existing PB-07 dependencies and Acceptance Criteria above; PO approval Pending |
+
+Every PB item already contains an Epic, User Story, Priority, Acceptance Criteria, proposed Story Points (Estimate) and Dependencies. PB-03/PB-04/PB-06/PB-07 already identify unresolved owners; PB-05 previously lacked an owner field. The added field does not allocate work. No new product requirement, priority or assignment is approved by this supplement.
