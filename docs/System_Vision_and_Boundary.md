@@ -129,6 +129,12 @@ No actual user interface, client application, or running service is established 
 
 **Pending team confirmation:** The external-systems decision and the actor interaction table above are proposals by the Architecture Lead.
 
+### Sprint 1 system context diagram
+
+![Proposed SIS context and unconfirmed external interactions](diagrams/Sprint1_System_Context.svg)
+
+This visualizes the existing section 4.4 draft. Solid connectors show proposed actor interactions, not implemented endpoints or approved permissions. The dashed external-system connector is an open decision, not a live integration. Related Issue: #12.
+
 ## 4.5 Data and Trust Boundaries
 
 Candidate information areas inferred from the example user stories include:
