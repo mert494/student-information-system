@@ -13,7 +13,7 @@ Bu rapor yalnızca belge, sözleşme ve repository kanıtı kontrolüdür. Çal�
 | Gereksinim belgeleri | `docs/nurefsan-sprint1-requirements` @ `e0226bb` | Proposal, birleşik Vision/Boundary, backlog (EN); PR [#7](https://github.com/mert494/student-information-system/pull/7) → `develop`; onaylı (Ahmet, Mert), çakışma yok |
 | OpenAPI taslağı | `docs/arda-sprint1-architecture` @ `a34146b` | Yalnızca `api/openapi.yaml`; PR [#8](https://github.com/mert494/student-information-system/pull/8) → `develop`; onaylı (Ahmet) |
 | RACI ve süreç kayıtları | `14-docs-confirm-sprint-1-roles-raci-and-agile-process-division` @ `98e323b` | PR [#17](https://github.com/mert494/student-information-system/pull/17) → `develop`; Mert'in değişiklik isteği açık |
-| Repository kurulum belgesi | `docs/baris-sprint1-repository` @ `81a66a9` | `docs/Repository_Setup.md`; Issue [#5](https://github.com/mert494/student-information-system/issues/5), PR [#6](https://github.com/mert494/student-information-system/pull/6) → `develop`; 2026-11-02'den beri değişmedi |
+| Repository kurulum belgesi | `docs/baris-sprint1-repository` @ `d948a11` | `docs/Repository_Setup.md`; Issue [#5](https://github.com/mert494/student-information-system/issues/5), PR [#6](https://github.com/mert494/student-information-system/pull/6) → `develop`; `origin/develop` branch'e merge edildi (`99d197a`) |
 | `main` | `7072b41` | Yalnızca README, LICENSE, .gitignore |
 
 Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
@@ -61,9 +61,9 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | QA-23 | Gereksinim belgelerinin entegrasyonu | `docs/nurefsan-sprint1-requirements` @ `e0226bb` | Belgeler Issue'ya bağlı PR ile onaylı hedefe gidiyor; aynı dosyanın ikinci sürümü oluşmuyor | `git merge-tree` + `gh` | Passed | PR #7 → `develop`, `MERGEABLE`; backlog çakışması `6d92c07` ile çözüldü; PR #8 ile çakışma yok. Backlog #11, #12, #15'e referans veriyor; PR açıklaması Issue bağlamıyor (F-23) | Nurefşan, Mert |
 | QA-25 | Vision/Boundary tek belge | PR #7 @ `e0226bb`, PR #8 @ `a34146b` | Teslimin tek, birleşik sürümü var | `git merge-tree` | Passed | PR #8 yalnızca `api/openapi.yaml` içeriyor (`c5425a4`); birleşik belge yalnızca PR #7'de | Arda, Nurefşan |
 | QA-26 | Commit kimliği | Tüm açık PR commit'leri | Commit'ler yazarın ekipteki GitHub hesabına bağlı | `gh api` | Failed | Arda'nın commit'leri artık `ardaberkkara1`'e bağlı. Nurefşan'ın `26fc3f4`, `243195e`, `c7e9d79`, `1184b26` commit'leri `nsankcc` hesabına bağlı; ekip hesabı `nsnkcc` (sonraki `69832d5`, `6d92c07`, `e0226bb` doğru). Bulgu F-25 | Nurefşan |
-| QA-24 | Repository kurulum belgesi | `docs/Repository_Setup.md` @ `81a66a9` | Erişim matrisi, clone/branch adımları, doğrulama adımları, eksikler ve kanıt tablosu; geçerli ve güncel bilgi | Manuel + `git cat-file` + `git diff --check` | Failed | Bağlantılar geçerli ve `diff --check` temiz; ancak belge "`develop` yoktur", "geçici hedef `docs/sprint1-team-guides`" diyor, erişim ve ruleset alanları `[TODO]`. Bulgu F-17 | Barış |
+| QA-24 | Repository kurulum belgesi | `docs/Repository_Setup.md` @ `d948a11` | Erişim matrisi, clone/branch adımları, doğrulama adımları, eksikler ve kanıt tablosu; geçerli ve güncel bilgi | Manuel + `gh api` + `git merge-tree` + `git diff --check` | Passed | Belge İngilizce; erişim tablosu `collaborators` çıktısıyla, ruleset tablosu `rulesets/26478727` ve `26478471` çıktısıyla birebir aynı; `develop` hedefi doğru; tag "planned" olarak yazılmış; bağlantılar geçerli, çakışma yok. F-17 kapatıldı | Barış |
 
-Özet: 27 kontrolden 19 `Passed`, 6 `Failed`, 2 `Pending`.
+Özet: 27 kontrolden 20 `Passed`, 5 `Failed`, 2 `Pending`.
 
 ## 4. Bulgular
 
@@ -85,7 +85,7 @@ Sonuç değerleri: `Passed`, `Failed`, `Pending`, `Not applicable (gerekçeli)`.
 | F-14 | P2 | Gereksinim PR'ı Issue'suzdu ve backlog dosyasında hedefle çakışıyordu. | — | Nurefşan, Mert | Kapatıldı (`6d92c07` çakışma çözümü; backlog #11, #12, #15'e referans veriyor) |
 | F-15 | P2 | PR #4 `develop`'u atlayarak `main`'i hedefliyordu. | — | Azra, Mert | Kapatıldı (PR #4 kapatıldı; içerik PR #1 ile `develop`'ta) |
 | F-16 | P3 | PB-05, PB-06, PB-07'de "so that" yoktu. | — | Nurefşan | Kapatıldı (`69832d5`) |
-| F-17 | P3 | `Repository_Setup.md` güncel değil: Issue/PR alanları `[TODO]`, erişim ve ruleset alanları `[TODO]`, "`develop` yoktur" ve "geçici hedef `docs/sprint1-team-guides`" yazıyor. | Issue #5 / PR #6 bağlanmalı; erişim tablosu `gh api` çıktısıyla doldurulmalı; `develop` ve ruleset kanıtı eklenmeli; PR açıklamasına "Closes #5" | Barış | Açık (2026-11-02'den beri değişiklik yok) |
+| F-17 | P3 | `Repository_Setup.md` güncel değil: Issue/PR alanları `[TODO]`, erişim ve ruleset alanları `[TODO]`, "`develop` yoktur" ve "geçici hedef `docs/sprint1-team-guides`" yazıyor. | Issue #5 / PR #6 bağlanmalı; erişim tablosu `gh api` çıktısıyla doldurulmalı; `develop` ve ruleset kanıtı eklenmeli; PR açıklamasına "Closes #5" | Barış | Kapatıldı (`d948a11`, PR #6) |
 | F-18 | P2 | OpenAPI'de güvenlik şeması, `security`, `servers` ve `license` yoktu. | — | Arda | Kapatıldı (`a34146b`; `recommended` lint 0 hata) |
 | F-19 | P3 | OpenAPI'de örnek, tag ve şema alanları eksikti. | `Registration` şemasına `term`/`status` eklenebilir (PB-05 kararıyla) | Arda, Nurefşan | Kısmen (`c5425a4`, `a34146b`: tüm tag'ler, 11 örnek, temel alanlar) |
 | F-20 | P1 | `docs/System_Vision_and_Boundary.md` iki PR'da ayrı sürümlerdeydi. | — | Arda, Nurefşan | Kapatıldı (`c5425a4`: PR #8'den çıkarıldı) |
@@ -124,17 +124,18 @@ Bulgular için ayrı Issue açılmadı; açılması Mert ile koordineli ve onaya
 | F-19 | `c5425a4`, `a34146b` (PR #8) | 2026-11-04 | Kısmen |
 | F-22 | Hesap e-posta ayarı | 2026-11-04 | Kapatıldı; `e522c95`, `c5425a4`, `a34146b` → `ardaberkkara1` |
 | F-09, QA-12 | `3a18842`, `98e323b` (PR #17) | 2026-11-04 | D-01 / D-02 kaydedildi; yeni bulgu F-24 |
-| F-17, F-21 | — | 2026-11-04 | Değişiklik yok |
+| F-21 | — | 2026-11-04 | Değişiklik yok; PR #7 merge'ünü bekliyor |
+| F-17 | `99d197a`, `d948a11` (PR #6) | 2026-11-04 (gece) | Kapatıldı; QA-24 `Passed` |
 
 ## 6. Açık riskler ve bekleyen kararlar
 
-- **Barış (F-17):** PR #6 2026-11-02'den beri değişmedi; belge `develop` ve ruleset'ler hakkında güncel olmayan bilgi içeriyor. Merge sırasında beklemede.
+- **Barış (QA-21):** F-17 kapatıldı; PR #6 merge'e hazır. `sprint-1` tag'i `develop` → `main` merge'ünden sonra bekleniyor.
 - **Azra (F-24):** PR #17'deki yanlış ruleset/PR hedefi paragrafı merge edilirse `develop`'ta hatalı kanıt kalır; merge öncesi düzeltilmeli. Mert'in değişiklik isteği yeni commit'te yeniden değerlendirilmeli.
 - **Arda (F-21):** Boundary'nin dış sistemler kısmı PR #7 merge edildikten sonra yeni bir PR ile tamamlanacak.
 - **Release:** `develop` → `main` PR'ı `main-protection` nedeniyle 2 onay gerektiriyor; `Git_Workflow.md`'deki öneri 1 onay. Ekip kararıyla eşitlenmeli. Sprint 1 tag'i yok.
 - **PB Issue'ları (F-04):** PB-01…PB-07 için Issue açılması teslimde backlog izlenebilirliğini güçlendirir.
 - **Onay kayıtları:** D-01 / D-02 ve MM-01 "team-reported"; kanıt linki (ekran görüntüsü vb.) yok.
-- **Dil:** `develop`'taki süreç belgeleri ve gereksinim belgeleri İngilizce; `Repository_Setup.md` ve bu rapor Türkçe. Teslim dili ekipçe netleştirilmeli.
+- **Dil:** `develop`'taki süreç belgeleri ve gereksinim belgeleri İngilizce; bu rapor Türkçe. Teslim dili ekipçe netleştirilmeli.
 - OpenAPI 3.1.0 dosyada "aday, ekip onaysız" olarak işaretli; güvenlik politikası "proposed". Ekip farklı bir karar verirse QA-06…QA-08 tekrarlanır.
 - Teslim tarihi, takım numarası ve Teams "Sprint 1 Examples" formatı rapora yansıtılmadı [TODO].
 - Bu rapor tek kişi tarafından hazırlandı; bağımsız review (öneri: Mert) bekleniyor.

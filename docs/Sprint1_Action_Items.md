@@ -1,6 +1,6 @@
 # Sprint 1 eksikler ve görev listesi
 
-Durum: **QA kontrolüne dayalı görev listesi; 2026-11-04 (gece) itibarıyla günceldir.** Hazırlayan: Ahmet (QA). Kaynak: [Sprint1_Quality_Report.md](Sprint1_Quality_Report.md); `F-xx` ve `QA-xx` kimlikleri o rapordaki bulgu ve kontrollerdir. İlgili Issue: [#3](https://github.com/mert494/student-information-system/issues/3).
+Durum: **QA kontrolüne dayalı görev listesi; 2026-11-04 (gece, PR #6 yeniden kontrolü) itibarıyla günceldir.** Hazırlayan: Ahmet (QA). Kaynak: [Sprint1_Quality_Report.md](Sprint1_Quality_Report.md); `F-xx` ve `QA-xx` kimlikleri o rapordaki bulgu ve kontrollerdir. İlgili Issue: [#3](https://github.com/mert494/student-information-system/issues/3).
 
 Teslim: **5 Kasım 2026, 23:59**. Önerilen ara hedef: kalan düzeltmeler ve review'lar **4 Kasım öğlen**, merge, `develop` → `main` ve tag **4 Kasım akşam**; 5 Kasım yedek gün.
 
@@ -16,7 +16,7 @@ Her üye kendi bölümündeki maddeleri tamamladıkça `[ ]` kutusunu `[x]` yap�
 | 2 | System Vision and Boundary | Vision: Nurefşan, Boundary: Arda | `docs/System_Vision_and_Boundary.md`, PR #7 | Tek birleşik belge; dış sistemler `[TODO]` | F-21 |
 | 3 | OpenAPI Draft | Arda | `api/openapi.yaml`, PR [#8](https://github.com/mert494/student-information-system/pull/8) | Hazır; Redocly `recommended` 0 hata; PR onaylı, merge bekliyor | F-19 (küçük) |
 | 4 | Team Roles and RACI | Azra | `docs/RACI_Matrix.md` / `.csv`, `docs/Sprint1_Process_Records.md`, PR [#17](https://github.com/mert494/student-information-system/pull/17) | RACI tutarlı ve onay kaydı (D-01) var; süreç kaydında düzeltme gerekiyor | F-24 |
-| 5 | GitHub Repository and Git-Flow | Barış, Mert | `docs/Git_Workflow.md` (`develop`'ta), `docs/Repository_Setup.md` PR [#6](https://github.com/mert494/student-information-system/pull/6) | `develop` ve ruleset'ler aktif; kurulum belgesi güncel değil; tag yok | F-17, QA-21 |
+| 5 | GitHub Repository and Git-Flow | Barış, Mert | `docs/Git_Workflow.md` (`develop`'ta), `docs/Repository_Setup.md` PR [#6](https://github.com/mert494/student-information-system/pull/6) | `develop` ve ruleset'ler aktif; kurulum belgesi güncel (`d948a11`), QA kontrolünden geçti; tag yok | QA-21 |
 | 6 | Initial Product Backlog | Nurefşan | `docs/Initial_Backlog_Draft.md`, PR #7 | Hazır; küçük tutarsızlıklar; PB Issue'ları yok | F-23, F-04 |
 | — | Submission (takım bilgisi, linkler, tag) | Mert | `docs/Sprint1_Submission_Checklist.md` (`develop`'ta) | Güncel; final linkler ve tag bekliyor | — |
 
@@ -78,9 +78,9 @@ Her üye kendi bölümündeki maddeleri tamamladıkça `[ ]` kutusunu `[x]` yap�
 
 ## Barış — DevOps and CI/CD Infrastructure Engineer
 
-- [ ] **F-17** `origin/develop`'u branch'ine merge et; `Repository_Setup.md`'de Issue #5 ve PR #6'yı bağla; erişim tablosunu `gh api .../collaborators` çıktısıyla doldur.
-- [ ] **F-17** "`develop` yoktur / geçici hedef `docs/sprint1-team-guides`" kısmını güncelle; `develop-protection` ve `main-protection` ruleset kanıtını ekle; belgeyi İngilizceye çevir.
-- [ ] PR #6 açıklamasına "Closes #5" ekle; reviewer olarak Ahmet'i ekle.
+- [x] **F-17** `origin/develop`'u branch'ine merge et; `Repository_Setup.md`'de Issue #5 ve PR #6'yı bağla; erişim tablosunu `gh api .../collaborators` çıktısıyla doldur.
+- [x] **F-17** "`develop` yoktur / geçici hedef `docs/sprint1-team-guides`" kısmını güncelle; `develop-protection` ve `main-protection` ruleset kanıtını ekle; belgeyi İngilizceye çevir.
+- [x] PR #6 açıklamasına "Closes #5" ekle; reviewer olarak Ahmet'i ekle (`d948a11`).
 - [ ] **QA-21** `develop` → `main` merge edildikten sonra `sprint-1` tag'ini ve release'i oluştur; linki checklist'e ekle.
 
 ## Ahmet — Quality Assurance and Test Automation Engineer
@@ -98,7 +98,7 @@ Her üye kendi bölümündeki maddeleri tamamladıkça `[ ]` kutusunu `[x]` yap�
 Karar Mert'indir; bu bir öneridir.
 
 1. PR #8 (Arda, OpenAPI) ve PR #7 (Nurefşan, gereksinimler): ikisi de onaylı ve birbiriyle çakışmıyor; hemen merge edilebilir.
-2. PR #6 (Barış), F-17 düzeltildikten ve onaylandıktan sonra.
+2. PR #6 (Barış): F-17 düzeltildi (`d948a11`); QA onayından sonra merge edilebilir.
 3. PR #17 (Azra), F-24 düzeltildikten ve Mert'in onayından sonra.
 4. Arda'nın Boundary PR'ı (F-21), PR #7'den sonra.
 5. QA son kontrolü; PR #2 en son merge edilir.
