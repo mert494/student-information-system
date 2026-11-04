@@ -108,17 +108,26 @@ The expected interactions include:
 * Students accessing their own academic information.
 * Academic staff accessing information about relevant courses and students.
 * Student affairs personnel managing authorized student and enrollment records.
-* University management accessing relevant information according to its permissions.
+* Administrators performing authorized administrative operations.
 
 The repository does not identify any confirmed external systems, integrations, deployment environments, or system interfaces.
 
 Potential integrations such as identity providers, academic calendars, payment systems, and notification services must not be assumed to be part of the system.
 
-Confirmed external interactions remain **[TODO]**.
+No external systems are in scope for Sprint 1 (proposed; pending team confirmation). This is consistent with section 5.2, which lists integrations with external university systems as out of scope.
+
+| Actor | Interaction with SIS | Related API operations |
+| --- | --- | --- |
+| Student | Access their own academic information and perform authorized student operations. | pending role–permission matrix |
+| Instructor | Access relevant course and student information and perform authorized academic operations. | pending role–permission matrix |
+| Administrators | Perform authorized administrative operations within the scope approved for the system. | pending role–permission matrix |
+| Student Affairs Staff | Perform authorized student-related administrative processes. | pending role–permission matrix |
+
+Channel: HTTPS REST API defined in api/openapi.yaml (proposed). No user interface is defined in Sprint 1.
 
 No actual user interface, client application, or running service is established by this draft.
 
-**[TODO – Arda / Team]:** Identify confirmed external actors, external systems, interfaces, and interactions.
+**Pending team confirmation:** The external-systems decision and the actor interaction table above are proposals by the Architecture Lead.
 
 ## 4.5 Data and Trust Boundaries
 
@@ -201,7 +210,7 @@ These assumptions require validation.
 | Exact system roles and permissions                     | Nurefşan / Arda        | Pending |
 | Role-to-operation and role-to-data mapping             | Nurefşan / Arda        | Pending |
 | Final system boundary                                  | Arda / Team            | Pending |
-| Confirmed external systems and integrations            | Arda / Team            | Pending |
+| Confirmed external systems and integrations            | Arda / Team            | Proposed: none for Sprint 1 |
 | Domain entities, fields, lifecycle, and business rules | Nurefşan / Arda        | Pending |
 | Data classification and trust boundaries               | Team                   | Pending |
 | Authentication and session approach                    | Arda / Team            | Pending |
