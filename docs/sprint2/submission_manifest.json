@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "related_issue": "https://github.com/mert494/student-information-system/issues/40",
+  "deadline_date": "2026-11-24",
+  "base_commit": "2945b81c934ee14c2c7a5875ad5cbcae79fc1f96",
+  "expected_commit": "",
+  "expected_documents": [
+    "docs/sprint2/Sprint2_Plan.md",
+    "docs/sprint2/Sprint2_Task_Breakdown.md",
+    "docs/sprint2/Sprint2_Submission_Checklist.md",
+    "docs/sprint2/Sprint2_Requirements_Traceability.md",
+    "docs/sprint2/Sprint2_Gap_Analysis.md"
+  ],
+  "scan_documents": [".github/pull_request_template.md"],
+  "categories": {
+    "srs_backlog": {"srs": [], "refined_backlog": [], "review": {}},
+    "nfr_quality": {"nfr": [], "quality_measures": [], "review": {}},
+    "figma_flows": {"figma": [], "user_flows": [], "review": {}, "access": {}},
+    "architecture": {"architecture_document": [], "c4": [], "uml": [], "review": {}}
+  },
+  "members": {
+    "mert494": {"evidence": []},
+    "nsnkcc": {"evidence": []},
+    "ardaberkkara1": {"evidence": []},
+    "ahmetserdar41": {"evidence": []},
+    "baryyss-001": {"evidence": []},
+    "azrayy": {"evidence": []}
+  },
+  "release": {"tag": "", "commit": "", "url": ""}
+}
