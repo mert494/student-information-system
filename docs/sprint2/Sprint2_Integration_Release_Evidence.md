@@ -15,7 +15,7 @@ All values were read with `git` and `gh` from Barış's account (`write` access,
 | `origin/develop` | `2945b81` — Merge PR [#25](https://github.com/mert494/student-information-system/pull/25) | `git rev-parse origin/develop` |
 | `main` vs `develop` | `main` has 2 commits not in `develop` (the merge commits of [#21](https://github.com/mert494/student-information-system/pull/21) and [#23](https://github.com/mert494/student-information-system/pull/23)); `develop` has 4 commits not in `main` (Sprint 2 planning [#24](https://github.com/mert494/student-information-system/pull/24) and traceability [#25](https://github.com/mert494/student-information-system/pull/25)) | `git rev-list --left-right --count origin/main...origin/develop` |
 | Repository merge settings | Merge, squash and rebase are allowed at repository level; rulesets restrict `main` and `develop` to `merge` (section 2). Branches are not deleted automatically on merge. | `gh repo view ... --json mergeCommitAllowed,squashMergeAllowed,rebaseMergeAllowed,deleteBranchOnMerge` |
-| Open PRs | [#41](https://github.com/mert494/student-information-system/pull/41) `feature/40-sprint2-submission-checker` → `develop`, review decision `APPROVED`, not merged | `gh pr list --state open` |
+| Open PRs | Read before this document's own PR ([#42](https://github.com/mert494/student-information-system/pull/42)) was opened, so #42 is not listed: [#41](https://github.com/mert494/student-information-system/pull/41) `feature/40-sprint2-submission-checker` → `develop`, review decision `APPROVED`, not merged | `gh pr list --state open` |
 | CI | No GitHub Actions workflow exists; `.github/` holds only Issue and PR templates. There is no automated status check to require. | `git ls-tree -r --name-only origin/develop .github` |
 
 ## 2. Branch protection (rulesets)
@@ -73,34 +73,41 @@ Copy this into the PR description or a review comment and fill it against the ac
 Nothing in this section has been done. It is the plan for 23–24 November (Proposed window).
 
 1. Wait until S2-12 (#37) and S2-13 (#38) record their results and the final `develop` → `main` PR passes section 5.
-2. After separate authorization, create a new tag and release on the reviewed `main` merge commit. Proposed name: `sprint-2` [TODO — team confirms name and annotated vs lightweight].
-3. Do not delete, move or reuse `sprint-1` or its release.
-4. Verify after creation and record the output:
+2. Before tagging, record the full 40-character SHA of the reviewed `main` merge commit in the release evidence table below, and get the tag/release authorization for that exact SHA. This recorded SHA, not whatever `main` points to later, is the reference for verification.
+3. After separate authorization, create the new tag and release on that recorded SHA (pass the SHA explicitly, not the branch name `main`). Proposed name: `sprint-2` [TODO — team confirms name and annotated vs lightweight].
+4. Do not delete, move or reuse `sprint-1` or its release.
+5. Verify after creation and record the output. Replace `<AUTHORIZED_SHA>` with the SHA recorded in step 2:
 
    ```bash
    git fetch --tags origin
    git rev-parse "sprint-2^{commit}"
+   echo <AUTHORIZED_SHA>
+   git merge-base --is-ancestor <AUTHORIZED_SHA> origin/main && echo "authorized commit is on main"
    git rev-parse origin/main
    git rev-parse sprint-1
    gh release view sprint-2 --repo mert494/student-information-system --json tagName,targetCommitish,url
    ```
 
-   Expected: the first two values are equal; `sprint-1` still returns `d64b7f33119d9ccccb20200aaed38ea6b54b1e16`.
+   Expected:
+   - `sprint-2^{commit}` equals `<AUTHORIZED_SHA>` exactly. This is the pass/fail check.
+   - The authorized commit is on `main`.
+   - `origin/main` is recorded for information only. If it differs from `<AUTHORIZED_SHA>`, list the later commits (`git log --oneline <AUTHORIZED_SHA>..origin/main`); they are not part of the release and the tag is not moved.
+   - `sprint-1` still returns `d64b7f33119d9ccccb20200aaed38ea6b54b1e16`.
 
-5. Release notes contain the four Sprint 2 deliverable headings, known gaps and validation limits ([submission checklist](Sprint2_Submission_Checklist.md#authorized-integration-release-and-teams-delivery)).
+6. Release notes contain the four Sprint 2 deliverable headings, known gaps and validation limits ([submission checklist](Sprint2_Submission_Checklist.md#authorized-integration-release-and-teams-delivery)).
 
 | Release evidence | Value |
 | --- | --- |
 | Final integration PR (`develop` → `main`) | [TODO] |
-| Reviewed `main` merge commit SHA | [TODO] |
-| Sprint 2 tag name and SHA | [TODO] |
+| Reviewed `main` merge commit SHA (authorized, recorded before tagging) | [TODO] |
+| Sprint 2 tag name and resolved commit SHA (must equal the authorized SHA) | [TODO] |
 | Sprint 2 release URL | [TODO] |
 | `sprint-1` SHA after release (unchanged) | [TODO] |
 | Authorization for tag/release | [TODO] |
 
 ## 7. Tool and artifact access
 
-No Sprint 2 artifact exists yet. Each row must be checked with a reviewer account (or the agreed sharing audience) once the artifact exists.
+No Sprint 2 deliverable artifact was found in this repository on 18 November 2026 (`origin/develop` at `2945b81`; `docs/sprint2/` holds planning and tracking files only). Work in external tools such as Figma or diagram editors was not checked and is not assumed to be absent. Each row must be checked with a reviewer account (or the agreed sharing audience) once the artifact exists.
 
 | Artifact | Location | Editable source preserved | Export available | Access checked by / date |
 | --- | --- | --- | --- | --- |
