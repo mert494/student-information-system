@@ -88,18 +88,18 @@ Out of scope unless explicitly approved: payment processing, payroll, full LMS c
 ### FR-03 — Create, list, and update student records (trace: PB-03)
 **Actor:** Authorized Student Affairs Staff  
 **Preconditions:** Authenticated staff member has student-record permission; student data schema and required fields approved.  
-**Normal scenario:** Staff enters required student fields; system validates; system creates record; authorized listing returns it. Staff updates an existing record; system validates and persists; updated values are reflected in subsequent reads.  
+**Normal scenario:** Staff enters required student fields; system validates; system creates record; authorized listing returns it. Staff requests an update to an existing record using the agreed update operation (PATCH semantics are proposed for confirmation); the system validates only submitted, permitted fields, persists the accepted changes, and subsequent reads reflect the updated values. If the target student record does not exist, the system returns a not-found response and makes no changes.  
 **Alternate/error scenarios:** Missing/invalid fields are rejected; duplicate student number is rejected; unauthorized user cannot create/update; failed validation does not create or alter a record.  
-**Acceptance criteria:** Required-field validation; student number uniqueness; role authorization; successful update visible in list; invalid requests rejected without persistence.  
-**Open decisions:** Student field list, format/validation rules, identifier source, allowed status values, deletion/archive policy, audit logging.
+**Acceptance criteria:** Required-field validation on creation; student number uniqueness; role authorization; successful update visible in subsequent reads; nonexistent target returns not-found; update fields are restricted to an approved allowlist; invalid requests rejected without persistence.  
+**Open decisions:** Student field list, format/validation rules, identifier source, allowed status values, mutable-field allowlist, PATCH vs PUT contract and null/omitted-field semantics, not-found response contract, deletion/archive policy, audit logging.
 
 ### FR-04 — Create and update course records (trace: PB-04)
 **Actor:** Authorized Student Affairs Staff  
 **Preconditions:** Authenticated user has course-management permission; course/term data model and uniqueness scope approved.  
-**Normal scenario:** Staff enters course fields; system validates; course is created. Staff edits an existing course; system validates and saves changes.  
-**Alternate/error scenarios:** Missing/invalid fields are rejected; duplicate course code within the agreed uniqueness scope is rejected; unauthorized changes are denied.  
-**Acceptance criteria:** Required fields validated; duplicate prevention applies; unauthorized changes denied; new course appears in course list; invalid requests do not persist.  
-**Open decisions:** Course fields, code uniqueness scope, term/offering structure, course status lifecycle, edit restrictions after enrollment.
+**Normal scenario:** Staff enters course fields; system validates; course is created. Staff requests an update to an existing course using the agreed update operation (PATCH semantics are proposed for confirmation); only permitted submitted fields are validated and saved. If the target course does not exist, the system returns not-found and makes no changes.  
+**Alternate/error scenarios:** Missing/invalid creation fields are rejected; duplicate course code within the agreed uniqueness scope is rejected; unauthorized changes are denied; updates to nonexistent courses return not-found; unknown, immutable, or disallowed update fields are rejected or handled according to an approved contract.  
+**Acceptance criteria:** Required fields validated on creation; duplicate prevention applies; unauthorized changes denied; new course appears in course list; successful updates are reflected in subsequent reads; nonexistent targets return not-found; updates are limited to an approved field allowlist; invalid requests do not persist.  
+**Open decisions:** Course fields, code uniqueness scope, term/offering structure, course status lifecycle, mutable-field allowlist, PATCH vs PUT contract and null/omitted-field semantics, not-found response contract, edit restrictions after enrollment.
 
 ### FR-05 — Enroll in a course and view enrollments (trace: PB-05)
 **Actor:** Student  
@@ -119,10 +119,10 @@ Out of scope unless explicitly approved: payment processing, payroll, full LMS c
 
 ### FR-07 — View own published grades (trace: PB-07)
 **Actor:** Student  
-**Preconditions:** Student authenticated; grade data exists; publication state defined.  
+**Preconditions:** Student is authenticated and authorized to view their own grade collection; the grade-query operation completed successfully. An empty-state is applicable only to a successful query returning zero published grades—not to authentication, authorization, server, or data-loading errors.  
 **Normal scenario:** Student opens grades; system returns only that student's published grades and only authorized fields.  
-**Alternate/error scenarios:** No published grades produces the defined empty state; attempt to access another student's grades via direct request returns 403 with code/message and discloses no protected information.  
-**Acceptance criteria:** Own grades only; unpublished grades hidden; empty state text is `No published grades are available.`; cross-student access denied with 403; successful response contains only authorized information.  
+**Alternate/error scenarios:** A successful query returning zero published grades produces the defined empty state. Loading/API failure is presented as an error state, not as an empty collection. Attempt to access another student's grades via direct request returns 403 with code/message and discloses no protected information.  
+**Acceptance criteria:** Own grades only; unpublished grades hidden; empty state text is `No published grades are available.` only after a successful zero-results response; errors are not shown as empty state; cross-student access denied with 403; successful response contains only authorized information.  
 **Open decisions:** Publication trigger/authority, displayed fields, term/course sorting, grade visibility changes after publication, empty-state wording approval, API mapping.
 
 ## 6. Data Requirements and Data Decisions
@@ -174,6 +174,19 @@ These are candidate quality requirements, not approved targets. Ahmet and the te
 
 ## 10. Open Questions / Decision Log
 
+### API contract alignment — comparison required (no mismatch is asserted until Arda verifies the current OpenAPI file)
+
+| Topic | SRS candidate expectation | OpenAPI evidence to inspect | Decision / status | Owner |
+|---|---|---|---|---|
+| Authentication | Credential submission, session/token behavior, logout and protected-operation outcomes | Actual login endpoint, request/response schemas, auth scheme, error codes, logout/expiry coverage | Pending comparison; do not assume contract supports all SRS statements | Arda + team |
+| Student fields | Candidate fields listed in Section 6; requiredness, formats and mutability are undecided | Student schema required/optional properties, formats, IDs, status enum, update endpoint/method | Pending comparison and PO data-field decision | Arda + PO |
+| Enrollment | Active student, period, duplicate, capacity and prerequisite rules; successful creation and own-list visibility | Enrollment endpoints, request identifiers, response codes, rule/error schema, collection/read endpoints | Pending comparison; business rules require confirmation | Arda + PO/team |
+| Grade entry/publication | Instructor assignment, enrolled student, approved range, saved grade and publication state | Grade endpoints/schema, assignment authorization, update method, publication fields/operation, student grade response | Pending comparison; grading/publication policy unresolved | Arda + academic stakeholder/PO |
+| Student/course updates | Not-found handling; allowed mutable fields; update semantics; no unintended changes | PATCH/PUT methods, request schema, required fields, nullable fields, response status/schema | Pending contract review; PATCH semantics are a proposal, not a confirmed API fact | Arda |
+
+Record each confirmed difference in the table above with the exact OpenAPI operation/schema reference, agreed decision, reviewer, date, and evidence link.
+
+
 The entries below are open proposals, not approved decisions. When an item is closed, record the decision, owner, date, and evidence link (meeting note, issue comment, PR review, policy source, or approved document).
 
 | ID | Question | Owner to consult | Status | Decision / evidence |
@@ -190,7 +203,7 @@ The entries below are open proposals, not approved decisions. When an item is cl
 | OQ-10 | Measurable performance, availability and recovery targets | Ahmet + team | Open | Pending |
 | OQ-11 | Confirm external actors/systems/interactions | Arda/team | Open | Pending |
 
-## 11. Review and Evidence Tracker
+## 12. Review and Evidence Tracker
 
 | Review / decision | Reviewer or decision owner | Required evidence | Status | Evidence link / date |
 |---|---|---|---|---|
@@ -202,7 +215,7 @@ The entries below are open proposals, not approved decisions. When an item is cl
 | Priority and estimates | Product Owner/team | PO priority confirmation and team estimation record | Pending | TBD |
 | Sprint commitment | Team | Agreed sprint scope/commitment record | Pending | TBD |
 
-## 12. Review Checklist
+## 13. Review Checklist
 - [ ] Product Owner confirms candidate scope, stakeholder-role mapping, and business rules.
 - [ ] Team confirms which assumptions become requirements and which remain out of scope.
 - [ ] Arda reviews API feasibility, boundary, data model, permissions, and response-code consistency.

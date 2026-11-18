@@ -7,14 +7,19 @@
 
 > Sprint 1 backlog history is preserved. This is a proposed Sprint 2 refinement, not a replacement of the Sprint 1 record or an approved Sprint commitment. Story points below are illustrative initial proposals only and must be estimated by the team. No owner or sprint commitment is assigned by this draft.
 
-## Hierarchy (proposed; confirm against repository conventions)
+## Work hierarchy and traceability (proposed; confirm labels/structure with team)
 
-| Level | Item(s) | Purpose / parent-child relationship | Status |
-|---|---|---|---|
-| Epic | Identity & Access; Student Affairs; Course Catalog; Course Enrollment; Grade Management | Group related work; no separate implementation commitment | Proposed |
-| Feature | Login; authorization; student records; course records; enrollment; grade entry; grade viewing | Feature-level grouping under the listed epics (feature labels are provisional) | Proposed |
-| Story | PB-01–PB-07 | User-valued work items with acceptance criteria and SRS links | Draft; PO/team review pending |
-| Task | T-01–T-09 | Supporting decision, review, and estimation work; linked to relevant stories/requirements | Draft; owners/status pending |
+| Epic | Feature | User Story | Supporting Task(s) | SRS | Business Rules / NFRs | Status |
+|---|---|---|---|---|---|
+| Identity & Access | Login | PB-01 | T-06, T-07 | FR-01 | BR-08; NFR-SEC-01, NFR-SEC-03 | Proposed; pending review |
+| Identity & Access | Authorization | PB-02 | T-01, T-07, T-08 | FR-02 | BR-08; NFR-SEC-01, NFR-SEC-02, NFR-TEST-01 | Proposed; pending review |
+| Student Affairs | Student Records | PB-03 | T-02, T-07, T-08 | FR-03 | BR-09; NFR-DATA-01, NFR-TEST-01, NFR-AUD-01 (open) | Proposed; pending review |
+| Course Catalog | Course Records | PB-04 | T-03, T-07, T-08 | FR-04 | BR-09; NFR-DATA-01, NFR-TEST-01, NFR-AUD-01 (open) | Proposed; pending review |
+| Course Enrollment | Enrollment | PB-05 | T-04, T-07, T-08 | FR-05 | BR-01–BR-05, BR-09; NFR-TEST-01 | Proposed; pending review |
+| Grade Management | Instructor Grade Entry | PB-06 | T-05, T-07, T-08 | FR-06 | BR-06, BR-09; NFR-DATA-01, NFR-TEST-01, NFR-AUD-01 (open) | Proposed; pending review |
+| Grade Management | Published Grade Viewing | PB-07 | T-05, T-07, T-08 | FR-07 | BR-07, BR-08; NFR-SEC-02, NFR-TEST-01 | Proposed; pending review |
+
+**Traceability convention:** Tasks refine/validate the linked story; they are not separate user-value commitments. BR and NFR references identify constraints/quality checks applicable to stories. Confirm any additional hierarchy levels or naming conventions with the team before baselining.
 
 ## Refinement rules
 - Every story has a clear actor, outcome (`so that`), explicit acceptance criteria, dependencies, and SRS trace links.
@@ -24,15 +29,15 @@
 
 ## Backlog summary
 
-| PB | Epic | User story | Priority | SP | SRS trace | Dependency | Owner status |
+| PB | Epic | User story | Priority | SP | SRS trace | BR / NFR trace | Dependency | Owner status |
 |---|---|---|---|---|---|---|
-| PB-01 | Identity & Access | As a user with an assigned system role, I want to log in with my account so that I can access authorized operations. | P1 Proposed | 5 Proposed | FR-01 | Authentication policy | Owner: TBD (technical reviewer: Arda) |
-| PB-02 | Identity & Access | As Student Affairs Staff, I want role-based access restrictions to be enforced so that each user can perform only authorized operations and access permitted data. | P1 Proposed | 5 Proposed | FR-02 | PB-01; permission matrix | Owner: TBD (technical reviewer: Arda) |
-| PB-03 | Student Affairs | As authorized Student Affairs Staff, I want to create, list, and update student records so that student information can be maintained accurately. | P1 Proposed | 5 Proposed | FR-03 | PB-02; student data decisions | Owner: TBD |
-| PB-04 | Course Catalog | As authorized Student Affairs Staff, I want to create and update course records so that course information can be maintained. | P1 Proposed | 5 Proposed | FR-04 | PB-02; course data decisions | Owner: TBD |
-| PB-05 | Enrollment | As a Student, I want to enroll in eligible courses and view my enrollments so that I can plan and track my studies. | P1 Proposed | 8 Proposed | FR-05 | PB-03, PB-04; enrollment rules | Owner: TBD (business-rule refinement support: Product Owner) |
-| PB-06 | Grade Management | As an Instructor, I want to enter and update grades for students in courses assigned to me so that I can maintain course results. | P2 Proposed | 8 Proposed | FR-06 | PB-02, PB-05; instructor/course assignment; grading policy | Owner: TBD (review support: Product Owner/QA) |
-| PB-07 | Grade Management | As a Student, I want to view my published grades so that I can monitor my academic progress. | P2 Proposed | 3 Proposed | FR-07 | PB-06; publication policy | Owner: TBD |
+| PB-01 | Identity & Access | As a user with an assigned system role, I want to log in with my account so that I can access authorized operations. | P1 Proposed | 5 Proposed | FR-01 | BR-08; NFR-SEC-01, NFR-SEC-03, NFR-TEST-01 | Authentication policy | Owner: TBD (technical reviewer: Arda) |
+| PB-02 | Identity & Access | As a user with an assigned system role, I want role-based access restrictions to be enforced so that I can perform only authorized operations and access only permitted data. | P1 Proposed | 5 Proposed | FR-02 | BR-08; NFR-SEC-01, NFR-SEC-02, NFR-TEST-01 | PB-01; permission matrix | Owner: TBD (technical reviewer: Arda) |
+| PB-03 | Student Affairs | As authorized Student Affairs Staff, I want to create, list, and update student records so that student information can be maintained accurately. | P1 Proposed | 5 Proposed | FR-03 | BR-09; NFR-DATA-01, NFR-TEST-01, NFR-AUD-01 (open) | PB-02; student data decisions | Owner: TBD |
+| PB-04 | Course Catalog | As authorized Student Affairs Staff, I want to create and update course records so that course information can be maintained. | P1 Proposed | 5 Proposed | FR-04 | BR-09; NFR-DATA-01, NFR-TEST-01, NFR-AUD-01 (open) | PB-02; course data decisions | Owner: TBD |
+| PB-05 | Enrollment | As a Student, I want to enroll in eligible courses and view my enrollments so that I can plan and track my studies. | P1 Proposed | 8 Proposed | FR-05 | BR-01–BR-05, BR-09; NFR-TEST-01 | PB-03, PB-04; enrollment rules | Owner: TBD (business-rule refinement support: Product Owner) |
+| PB-06 | Grade Management | As an Instructor, I want to enter and update grades for students in courses assigned to me so that I can maintain course results. | P2 Proposed | 8 Proposed | FR-06 | BR-06, BR-09; NFR-DATA-01, NFR-TEST-01, NFR-AUD-01 (open) | PB-02, PB-05; instructor/course assignment; grading policy | Owner: TBD (review support: Product Owner/QA) |
+| PB-07 | Grade Management | As a Student, I want to view my published grades so that I can monitor my academic progress. | P2 Proposed | 3 Proposed | FR-07 | BR-07, BR-08; NFR-SEC-02, NFR-TEST-01 | PB-06; publication policy | Owner: TBD |
 
 
 ## PB-01 — User Login
@@ -46,11 +51,11 @@
 3. The failure response does not reveal whether the account exists.
 4. After logout, protected operations require re-authentication.
 5. Authentication behavior, expiration and logout policy are documented before implementation.
-**Dependencies:** Authentication policy and account provisioning decisions. **Trace:** FR-01.
+**Dependencies:** Authentication policy and account provisioning decisions. **Trace:** [SRS FR-01](SRS_Draft_Revision1.md#fr-01--authenticate-user).
 
 ## PB-02 — Role-Based Authorization
 **Epic:** Identity and Access  
-**Story:** As Student Affairs Staff, I want role-based access restrictions to be enforced so that each user can perform only authorized operations and access permitted data.  
+**Story:** As a user with an assigned system role, I want role-based access restrictions to be enforced so that I can perform only authorized operations and access only permitted data.  
 **Priority:** P1 (proposed) · **Story Points:** 5 (unestimated; placeholder proposal) · **Owner:** TBD
 
 **Acceptance Criteria:**
@@ -60,7 +65,7 @@
 4. Students cannot access other students' protected academic records through UI or direct API requests.
 5. API enforcement is mandatory; UI hiding alone does not satisfy authorization.
 6. Permission and data-scope rules are documented and testable.
-**Dependencies:** PB-01 and role/permission matrix. **Trace:** FR-02.
+**Dependencies:** PB-01 and role/permission matrix. **Trace:** [SRS FR-02](SRS_Draft_Revision1.md#fr-02--enforce-role-and-record-authorization).
 ## PB-03 — Student Management
 **Epic:** Student Affairs  
 **Story:** As authorized Student Affairs Staff, I want to create, list, and update student records so that student information can be maintained accurately.  
@@ -72,8 +77,10 @@
 3. Unauthorized users cannot create or update student records.
 4. Successful updates are reflected in subsequent list/read results.
 5. Missing or invalid data is rejected without creating or changing a record.
-6. Required fields and validation rules are documented.
-**Dependencies:** PB-02; student-field/status decisions. **Trace:** FR-03.
+6. Updating a nonexistent student returns a documented not-found outcome and does not create a record.
+7. Updates accept only an agreed mutable-field allowlist; immutable/unknown fields and omitted-versus-null semantics are documented and testable.
+8. Required fields and validation rules are documented.
+**Dependencies:** PB-02; student-field/status decisions. **Trace:** [SRS FR-03](SRS_Draft_Revision1.md#fr-03--create-list-and-update-student-records).
 ## PB-04 — Course Management
 **Epic:** Course Catalog  
 **Story:** As authorized Student Affairs Staff, I want to create and update course records so that course information can be maintained.  
@@ -85,8 +92,10 @@
 3. Unauthorized users cannot create or update course records.
 4. Successfully created courses appear in the course list.
 5. Missing or invalid data is rejected without persisting a record.
-6. Course fields, term/offering model, and uniqueness scope are documented.
-**Dependencies:** PB-02; course model/uniqueness decision. **Trace:** FR-04.
+6. Updating a nonexistent course returns a documented not-found outcome and does not create a record.
+7. Updates accept only an agreed mutable-field allowlist; immutable/unknown fields and omitted-versus-null semantics are documented and testable.
+8. Course fields, term/offering model, and uniqueness scope are documented.
+**Dependencies:** PB-02; course model/uniqueness decision. **Trace:** [SRS FR-04](SRS_Draft_Revision1.md#fr-04--create-and-update-course-records).
 ## PB-05 — Course Enrollment
 **Epic:** Course Enrollment  
 **Story:** As a Student, I want to enroll in eligible courses and view my enrollments so that I can plan and track my studies.  
@@ -102,7 +111,7 @@
 7. Rejected requests create or modify no enrollment record.
 8. Successful requests create exactly one enrollment record and it appears in the student's own enrollment list.
 **Business Rules:** Active status required; period enforced; capacity and prerequisites checked; duplicate prohibited. University Management stakeholder is responsible for enrollment dates, but role/configuration authority needs team confirmation.  
-**Dependencies:** PB-03 and PB-04; enrollment data and rule decisions. **Trace:** FR-05.
+**Dependencies:** PB-03 and PB-04; enrollment data and rule decisions. **Trace:** [SRS FR-05](SRS_Draft_Revision1.md#fr-05--enroll-in-a-course-and-view-enrollments).
 ## PB-06 — Instructor Grade Entry
 **Epic:** Grade Management  
 **Story:** As an Instructor, I want to enter and update grades for students in courses assigned to me so that I can maintain course results.  
@@ -116,7 +125,7 @@
 5. An authenticated user without permission receives 403 Forbidden.
 6. Rejected requests create or modify no grade record.
 7. Grading scale, grade editing and publication policy are documented.
-**Dependencies:** PB-02, PB-05, instructor/course assignment, grading policy. **Trace:** FR-06.
+**Dependencies:** PB-02, PB-05, instructor/course assignment, grading policy. **Trace:** [SRS FR-06](SRS_Draft_Revision1.md#fr-06--enter-or-update-grades-for-assigned-courses).
 ## PB-07 — Student Grade Viewing
 **Epic:** Grade Management  
 **Story:** As a Student, I want to view my published grades so that I can monitor my academic progress.  
@@ -125,22 +134,22 @@
 **Acceptance Criteria:**
 1. A Student can view only their own published grades.
 2. Unpublished grades are not visible to the student.
-3. If there are no published grades, display `No published grades are available.`
+3. If the authenticated/authorized grade query succeeds and returns zero published grades, display `No published grades are available.` A failed request/loading error must not be treated as an empty collection.
 4. Direct API requests for another student's grades return 403 Forbidden with code/message and disclose no protected information.
 5. Successful results include only authorized grade information.
 6. Publication policy and returned fields are documented.
-**Dependencies:** PB-06 and publication policy. **Trace:** FR-07.
+**Dependencies:** PB-06 and publication policy. **Trace:** [SRS FR-07](SRS_Draft_Revision1.md#fr-07--view-own-published-grades).
 
 ## Supporting refinement tasks
 
 | Task | Description | Priority | Estimate | Status |
 |---|---|---|---|---|
-| T-01 | Confirm role-to-operation and role-to-data matrix | P0 Proposed | Pending | Open decision; PO/Arda/team |
-| T-02 | Approve Student entity fields, status values and validation | P0 Proposed | Pending | Open decision |
-| T-03 | Approve Course fields and code uniqueness scope | P0 Proposed | Pending | Open decision |
-| T-04 | Confirm enrollment dates, capacity, prerequisites, waitlist/withdrawal and error-code mapping | P0 Proposed | Pending | Open decision |
-| T-05 | Confirm grading scale, precision, edit and publication rules | P0 Proposed | Pending | Open decision |
-| T-06 | Define authentication/session policy and account lifecycle | P0 Proposed | Pending | Open decision |
+| T-01 | Confirm role-to-operation and role-to-data matrix | P1 Proposed (priority convention to confirm) | Pending | Open decision; PO/Arda/team |
+| T-02 | Approve Student entity fields, status values and validation | P1 Proposed (priority convention to confirm) | Pending | Open decision |
+| T-03 | Approve Course fields and code uniqueness scope | P1 Proposed (priority convention to confirm) | Pending | Open decision |
+| T-04 | Confirm enrollment dates, capacity, prerequisites, waitlist/withdrawal and error-code mapping | P1 Proposed (priority convention to confirm) | Pending | Open decision |
+| T-05 | Confirm grading scale, precision, edit and publication rules | P1 Proposed (priority convention to confirm) | Pending | Open decision |
+| T-06 | Define authentication/session policy and account lifecycle | P1 Proposed (priority convention to confirm) | Pending | Open decision |
 | T-07 | Arda: review API feasibility and contract consistency | P1 Proposed | Pending | Review requested, not yet evidenced |
 | T-08 | Ahmet: review scenario/testability and negative cases | P1 Proposed | Pending | Review requested, not yet evidenced |
 | T-09 | Team estimates selected PBs in Story Points and records evidence | P1 Proposed | Pending | Team estimation pending |
@@ -148,19 +157,31 @@
 ## Definition of Ready / Refinement checks
 Before a story is selected for implementation, the team should confirm: (a) the actor and outcome are understood; (b) acceptance criteria are observable and testable; (c) dependencies and open business/technical decisions are identified; (d) data and permission impacts are understood; (e) the story is estimated by the team; and (f) an owner is assigned by agreement. These checks are proposed team practice, not an existing approved project rule.
 
+## OpenAPI–SRS alignment decision register (comparison pending)
+
+These are review topics, not confirmed mismatches. Arda should compare the current OpenAPI contract with the SRS and record the exact operation/schema references and outcome.
+
+| Topic | Verify against OpenAPI | Current draft expectation | Status / owner |
+|---|---|---|---|
+| Authentication | Login endpoint, credential payload, auth scheme/token/session, logout/expiry, error responses | FR-01 authentication and protected operations | Pending — Arda
+| Student fields | Student schema required/optional fields, IDs, status enum, formats, update endpoint and method | Section 6 candidate fields; field list/mutability unresolved | Pending — Arda + PO
+| Enrollment | Request/response schema, identifiers, duplicate/capacity/prerequisite errors, enrollment-period representation, own-enrollment read | FR-05 and BR-01–BR-05 | Pending — Arda + PO/team
+| Grade publishing | Grade schema, instructor/course association, edit method, publication field/operation and student-facing response | FR-06/FR-07; policy undecided | Pending — Arda + academic stakeholder/PO
+| Student/course updates | PATCH/PUT method, allowed fields, omitted/null handling, nonexistent target response and error schema | PATCH proposed for confirmation; not-found required; mutable-field allowlist TBD | Pending — Arda
+
 ## Traceability and deferred items
 
 ### Forward traceability (SRS requirement → backlog)
 
-| SRS requirement | Backlog story | Linkage | Status |
-|---|---|---|---|
-| FR-01 | PB-01 | Authentication story covers the requirement | Proposed; review pending |
-| FR-02 | PB-02 | Authorization story covers the requirement | Proposed; review pending |
-| FR-03 | PB-03 | Student record management story covers the requirement | Proposed; review pending |
-| FR-04 | PB-04 | Course record management story covers the requirement | Proposed; review pending |
-| FR-05 | PB-05 | Enrollment story covers the requirement | Proposed; review pending |
-| FR-06 | PB-06 | Instructor grade-entry story covers the requirement | Proposed; review pending |
-| FR-07 | PB-07 | Student published-grade viewing story covers the requirement | Proposed; review pending |
+| SRS requirement | Backlog story | Epic | Feature | BR / NFR coverage | Status |
+|---|---|---|---|---|
+| FR-01 | PB-01 | Identity & Access | Login | BR-08; NFR-SEC-01, SEC-03, TEST-01 | Proposed; review pending |
+| FR-02 | PB-02 | Identity & Access | Authorization | BR-08; NFR-SEC-01, SEC-02, TEST-01 | Proposed; review pending |
+| FR-03 | PB-03 | Student Affairs | Student Records | BR-09; NFR-DATA-01, TEST-01, AUD-01 (open) | Proposed; review pending |
+| FR-04 | PB-04 | Course Catalog | Course Records | BR-09; NFR-DATA-01, TEST-01, AUD-01 (open) | Proposed; review pending |
+| FR-05 | PB-05 | Course Enrollment | Enrollment | BR-01–BR-05, BR-09; NFR-TEST-01 | Proposed; review pending |
+| FR-06 | PB-06 | Grade Management | Instructor Grade Entry | BR-06, BR-09; NFR-DATA-01, TEST-01, AUD-01 (open) | Proposed; review pending |
+| FR-07 | PB-07 | Grade Management | Published Grade Viewing | BR-07, BR-08; NFR-SEC-02, TEST-01 | Proposed; review pending |
 
 ### Reverse traceability (backlog → SRS)
 
