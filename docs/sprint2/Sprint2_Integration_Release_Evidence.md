@@ -76,23 +76,59 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
 2. Before tagging, record the full 40-character SHA of the reviewed `main` merge commit in the release evidence table below, and get the tag/release authorization for that exact SHA. This recorded SHA, not whatever `main` points to later, is the reference for verification.
 3. After separate authorization, create the new tag and release on that recorded SHA (pass the SHA explicitly, not the branch name `main`). Proposed name: `sprint-2` [TODO — team confirms name and annotated vs lightweight].
 4. Do not delete, move or reuse `sprint-1` or its release.
-5. Verify after creation and record the output. Replace `<AUTHORIZED_SHA>` with the SHA recorded in step 2:
+5. Verify after creation and record the full output. The check reads tags from the remote with `git ls-remote`, not from local tags, so a stale or locally created tag cannot pass it. It stops with `FAIL` and a non-zero exit code at the first fetch, SHA or ancestry error; only a final `PASS` line counts as evidence. Set `AUTHORIZED_SHA` to the SHA recorded in step 2 and run it in Bash (Git Bash on Windows):
 
    ```bash
-   git fetch --tags origin
-   git rev-parse "sprint-2^{commit}"
-   echo <AUTHORIZED_SHA>
-   git merge-base --is-ancestor <AUTHORIZED_SHA> origin/main && echo "authorized commit is on main"
-   git rev-parse origin/main
-   git rev-parse sprint-1
-   gh release view sprint-2 --repo mert494/student-information-system --json tagName,targetCommitish,url
+   AUTHORIZED_SHA=<AUTHORIZED_SHA> NEW_TAG=sprint-2 bash -s <<'EOF'
+   set -euo pipefail
+   REPO="mert494/student-information-system"
+   REMOTE_URL="https://github.com/${REPO}.git"
+   SPRINT1_SHA="d64b7f33119d9ccccb20200aaed38ea6b54b1e16"
+   fail() { echo "FAIL: $*" >&2; exit 1; }
+
+   [[ "$AUTHORIZED_SHA" =~ ^[0-9a-f]{40}$ ]] || fail "AUTHORIZED_SHA is not a full 40-character SHA"
+
+   # Remote tags only; annotated tags are peeled (^{}) to their commit.
+   remote_tags="$(git ls-remote --tags "$REMOTE_URL")" || fail "git ls-remote failed"
+   remote_tag_commit() {
+     printf '%s\n' "$remote_tags" | awk -v t="refs/tags/$1" '
+       $2 == t "^{}" { peeled = $1 }
+       $2 == t       { direct = $1 }
+       END { if (peeled) print peeled; else if (direct) print direct }'
+   }
+
+   new_sha="$(remote_tag_commit "$NEW_TAG")"
+   [[ -n "$new_sha" ]] || fail "remote tag $NEW_TAG not found"
+   [[ "$new_sha" == "$AUTHORIZED_SHA" ]] || fail "remote $NEW_TAG -> $new_sha, expected $AUTHORIZED_SHA"
+
+   s1_sha="$(remote_tag_commit sprint-1)"
+   [[ -n "$s1_sha" ]] || fail "remote tag sprint-1 not found"
+   [[ "$s1_sha" == "$SPRINT1_SHA" ]] || fail "remote sprint-1 -> $s1_sha, expected $SPRINT1_SHA (sprint-1 was changed)"
+
+   git fetch --no-tags origin main || fail "git fetch origin main failed"
+   git cat-file -e "${AUTHORIZED_SHA}^{commit}" 2>/dev/null || fail "authorized commit not found after fetch"
+   if git merge-base --is-ancestor "$AUTHORIZED_SHA" origin/main; then :; else
+     rc=$?; [[ $rc -eq 1 ]] && fail "authorized commit is not on origin/main" || fail "ancestry check error (exit $rc)"
+   fi
+
+   release_tag="$(gh release view "$NEW_TAG" --repo "$REPO" --json tagName --jq .tagName)" || fail "gh release view $NEW_TAG failed"
+   [[ "$release_tag" == "$NEW_TAG" ]] || fail "release tag is $release_tag, expected $NEW_TAG"
+
+   echo "PASS: remote $NEW_TAG -> $new_sha (authorized), on origin/main; sprint-1 unchanged -> $s1_sha"
+   echo "INFO: origin/main is $(git rev-parse origin/main); later commits not in the release:"
+   git log --oneline "${AUTHORIZED_SHA}..origin/main"
+   EOF
    ```
 
-   Expected:
-   - `sprint-2^{commit}` equals `<AUTHORIZED_SHA>` exactly. This is the pass/fail check.
-   - The authorized commit is on `main`.
-   - `origin/main` is recorded for information only. If it differs from `<AUTHORIZED_SHA>`, list the later commits (`git log --oneline <AUTHORIZED_SHA>..origin/main`); they are not part of the release and the tag is not moved.
-   - `sprint-1` still returns `d64b7f33119d9ccccb20200aaed38ea6b54b1e16`.
+   What it checks, in order (any failure stops the run):
+   - `AUTHORIZED_SHA` is a full 40-character SHA, so an unfilled placeholder or short SHA fails.
+   - The remote `sprint-2` tag exists and resolves to exactly `AUTHORIZED_SHA`. This is the pass/fail check.
+   - The remote `sprint-1` tag still resolves to `d64b7f33119d9ccccb20200aaed38ea6b54b1e16`.
+   - `origin/main` is fetched and the authorized commit is on it (an ancestry error is reported separately from "not on main").
+   - A GitHub release exists for the new tag.
+   - `origin/main` and any commits after the authorized SHA are printed for information only; they are not part of the release and the tag is not moved.
+
+   Tested on 19 November 2026 with `NEW_TAG=sprint-1` and `AUTHORIZED_SHA=d64b7f3…` as a stand-in (`PASS`, exit 0), and with a wrong SHA, a missing tag (`sprint-2`), a placeholder and a short SHA, an unreachable remote and a commit not on `main` (each `FAIL`, exit 1). The annotated-tag (peeled `^{}`) branch was checked only with sample `ls-remote` output, because no annotated tag exists on the remote yet.
 
 6. Release notes contain the four Sprint 2 deliverable headings, known gaps and validation limits ([submission checklist](Sprint2_Submission_Checklist.md#authorized-integration-release-and-teams-delivery)).
 
@@ -103,6 +139,7 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
 | Sprint 2 tag name and resolved commit SHA (must equal the authorized SHA) | [TODO] |
 | Sprint 2 release URL | [TODO] |
 | `sprint-1` SHA after release (unchanged) | [TODO] |
+| Verification output (`PASS` line and date) | [TODO] |
 | Authorization for tag/release | [TODO] |
 
 ## 7. Tool and artifact access
