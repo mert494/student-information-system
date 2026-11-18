@@ -114,9 +114,14 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
    release_tag="$(gh release view "$NEW_TAG" --repo "$REPO" --json tagName --jq .tagName)" || fail "gh release view $NEW_TAG failed"
    [[ "$release_tag" == "$NEW_TAG" ]] || fail "release tag is $release_tag, expected $NEW_TAG"
 
+   # Informational output is collected first; a failure here also stops the run before PASS.
+   main_sha="$(git rev-parse origin/main)" || fail "git rev-parse origin/main failed"
+   later="$(git log --oneline "${AUTHORIZED_SHA}..origin/main")" || fail "git log ${AUTHORIZED_SHA}..origin/main failed"
+   echo "INFO: origin/main is $main_sha; commits after the authorized SHA (not in the release):"
+   if [[ -n "$later" ]]; then printf '%s\n' "$later"; else echo "(none)"; fi
+
+   # PASS is printed last, only after every check and informational step succeeded.
    echo "PASS: remote $NEW_TAG -> $new_sha (authorized), on origin/main; sprint-1 unchanged -> $s1_sha"
-   echo "INFO: origin/main is $(git rev-parse origin/main); later commits not in the release:"
-   git log --oneline "${AUTHORIZED_SHA}..origin/main"
    EOF
    ```
 
@@ -126,9 +131,10 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
    - The remote `sprint-1` tag still resolves to `d64b7f33119d9ccccb20200aaed38ea6b54b1e16`.
    - `origin/main` is fetched and the authorized commit is on it (an ancestry error is reported separately from "not on main").
    - A GitHub release exists for the new tag.
-   - `origin/main` and any commits after the authorized SHA are printed for information only; they are not part of the release and the tag is not moved.
+   - `origin/main` and any commits after the authorized SHA are printed for information only; they are not part of the release and the tag is not moved. If reading them fails, the run stops with `FAIL`.
+   - `PASS` is printed as the very last line, only after all of the above succeeded.
 
-   Tested on 19 November 2026 with `NEW_TAG=sprint-1` and `AUTHORIZED_SHA=d64b7f3…` as a stand-in (`PASS`, exit 0), and with a wrong SHA, a missing tag (`sprint-2`), a placeholder and a short SHA, an unreachable remote and a commit not on `main` (each `FAIL`, exit 1). The annotated-tag (peeled `^{}`) branch was checked only with sample `ls-remote` output, because no annotated tag exists on the remote yet.
+   Tested on 19 November 2026 with `NEW_TAG=sprint-1` and `AUTHORIZED_SHA=d64b7f3…` as a stand-in (`PASS`, exit 0), and with a wrong SHA, a missing tag (`sprint-2`), a placeholder and a short SHA, an unreachable remote and a commit not on `main` (each `FAIL`, exit 1). After moving `PASS` to the last line, the block was run again as written: the normal run ends with `PASS` (exit 0), and a simulated failure of `git log` or `git rev-parse` in the informational step stops with `FAIL` and no `PASS` line (exit 1). The annotated-tag (peeled `^{}`) branch was checked only with sample `ls-remote` output, because no annotated tag exists on the remote yet.
 
 6. Release notes contain the four Sprint 2 deliverable headings, known gaps and validation limits ([submission checklist](Sprint2_Submission_Checklist.md#authorized-integration-release-and-teams-delivery)).
 
