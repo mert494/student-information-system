@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1160" viewBox="0 0 1650 1160" role="img" aria-labelledby="title description">
+  <title id="title">UML sequence — proposed course enrollment</title>
+  <desc id="description">A proposed sequence for FR-05/PB-05 registration and registration listing using existing API operations. Business rules and authorization remain pending; no behavior is implemented or tested.</desc>
+  <defs>
+    <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
+    <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 29px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #425d72; }
+      .part { font-size: 16px; font-weight: 700; }
+      .msg { font-size: 14px; }
+      .note { font-size: 14px; }
+      .frame { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; fill: #425d72; }
+    </style>
+  </defs>
+  <rect width="1650" height="1160" fill="#f4f7fb" />
+  <text class="title" x="42" y="50">UML Sequence — Student course enrollment (FR-05 / PB-05 proposed)</text>
+  <text class="subtitle" x="42" y="80">Draft SRS scenario mapped to existing POST /registrations and GET /registrations operations; role mapping and business decisions Pending.</text>
+
+  <!-- Lifelines -->
+  <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
+    <path d="M160 200 V1090" /><path d="M480 200 V1090" /><path d="M800 200 V1090" /><path d="M1120 200 V1090" /><path d="M1440 200 V1090" />
+  </g>
+  <!-- Proposed participants -->
+  <g>
+    <rect x="45" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="160" y="149" text-anchor="middle">Student</text><text class="small" x="160" y="176" text-anchor="middle">Proposed actor</text>
+    <rect x="365" y="115" width="230" height="85" rx="12" fill="#dcecf8" stroke="#244f73" stroke-width="2" />
+    <text class="part" x="480" y="149" text-anchor="middle">API contract boundary</text><text class="small" x="480" y="176" text-anchor="middle">No running API asserted</text>
+    <rect x="685" y="115" width="230" height="85" rx="12" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
+    <text class="part" x="800" y="149" text-anchor="middle">Authorization decision</text><text class="small" x="800" y="176" text-anchor="middle">Role matrix Pending</text>
+    <rect x="1005" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="1120" y="149" text-anchor="middle">Enrollment responsibility</text><text class="small" x="1120" y="176" text-anchor="middle">Logical component proposal</text>
+    <rect x="1325" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 5" />
+    <text class="part" x="1440" y="149" text-anchor="middle">Conceptual data</text><text class="small" x="1440" y="176" text-anchor="middle">No store/engine selected</text>
+  </g>
+
+  <!-- Request and authorization check -->
+  <path d="M160 260 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="248" text-anchor="middle">1. POST /registrations (RegistrationInput)</text>
+  <path d="M480 310 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="298" text-anchor="middle">2. authenticate and check role/record permission</text>
+  <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="338" text-anchor="middle">3. decision per approved matrix [TODO]</text>
+  <rect x="395" y="366" width="740" height="52" rx="8" fill="#fff5dc" stroke="#a17a2d" />
+  <text class="note" x="765" y="389" text-anchor="middle">Unauthenticated / unauthorized outcomes are declared as 401 / 403 in the draft contract;</text>
+  <text class="small" x="765" y="408" text-anchor="middle">expected role outcomes are not established. No write should proceed on denial (proposed SRS rule).</text>
+
+  <!-- Enrollment evaluation -->
+  <path d="M480 455 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="443" text-anchor="middle">4. submit candidate enrollment request</text>
+  <path d="M1120 505 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="493" text-anchor="middle">5. check candidate student / offering / term</text>
+  <path d="M1440 545 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="533" text-anchor="middle">6. data and capacity result [model Pending]</text>
+
+  <rect x="80" y="570" width="1505" height="250" fill="none" stroke="#49677f" stroke-width="2" />
+  <path d="M80 600 H1585" stroke="#49677f" stroke-width="2" />
+  <text class="frame" x="100" y="592">alt — validation outcome (proposed)</text>
+  <text class="small" x="100" y="625">[All approved eligibility and offering checks pass]</text>
+  <path d="M1120 650 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="638" text-anchor="middle">persist one registration (SRS proposal)</text>
+  <path d="M1440 675 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="663" text-anchor="middle">accepted; transaction mechanism Pending</text>
+  <path d="M80 710 H1585" stroke="#c6d2dc" stroke-width="1.5" />
+  <text class="small" x="100" y="735">[Inactive, closed, duplicate, capacity, or prerequisite rejection; SRS says no write, untested]</text>
+  <path d="M1120 765 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="800" y="753" text-anchor="middle">409 Conflict to API; specific error code/message Pending</text>
+  <path d="M480 795 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="783" text-anchor="middle">409 Conflict response (proposed)</text>
+  <path d="M480 700 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="688" text-anchor="middle">201 Registration (proposed success response)</text>
+
+  <!-- Separate list interaction for the same FR-05 scenario. -->
+  <path d="M160 875 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="863" text-anchor="middle">7. GET /registrations</text>
+  <path d="M480 915 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="903" text-anchor="middle">8. authenticate / authorize [matrix Pending]</text>
+  <path d="M800 955 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="943" text-anchor="middle">9. decision Pending</text>
+  <path d="M480 995 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="983" text-anchor="middle">10. request own-registration collection (proposed)</text>
+  <path d="M1120 1035 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="1023" text-anchor="middle">11. query candidate registration records</text>
+  <path d="M1440 1075 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="1063" text-anchor="middle">12. candidate collection</text>
+  <path d="M480 1115 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="1103" text-anchor="middle">200 Registration[]; own-data filtering Pending</text>
+  <text class="small" x="42" y="1145">All exchanges are proposed contract/SRS mapping only. RegistrationInput uses courseId and untyped optional term/status; offering and transaction details remain unresolved.</text>
+</svg>

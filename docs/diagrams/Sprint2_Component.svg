@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title description">
+  <title id="title">C4 Level 3 proposed SIS component view</title>
+  <desc id="description">Proposed logical component decomposition consistent with the Sprint 2 architecture draft. No box asserts an implemented component, service, technology, or deployment unit.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
+    <marker id="dashArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 31px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #425d72; }
+      .card-title { font-size: 18px; font-weight: 700; }
+      .body { font-size: 14px; }
+      .small { font-size: 12px; fill: #425d72; }
+      .actor { font-size: 17px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1800" height="1120" fill="#f4f7fb" />
+  <text class="title" x="45" y="53">C4 Level 3 — SIS proposed component view</text>
+  <text class="subtitle" x="45" y="85">Logical decomposition inside the conceptual SIS boundary; implementation and deployment form are Pending.</text>
+  <rect x="325" y="145" width="1440" height="865" rx="24" fill="#eef5fa" stroke="#244f73" stroke-width="4" />
+  <rect x="355" y="127" width="500" height="48" rx="10" fill="#244f73" />
+  <text x="375" y="159" font-size="21" font-weight="700" fill="#ffffff">Student Information System — conceptual boundary</text>
+
+  <!-- Proposed actor set from the Boundary; no permissions are encoded. -->
+  <rect x="35" y="230" width="245" height="75" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor" x="157" y="263" text-anchor="middle">Student</text><text class="small" x="157" y="287" text-anchor="middle">Proposed actor</text>
+  <rect x="35" y="340" width="245" height="75" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor" x="157" y="373" text-anchor="middle">Instructor</text><text class="small" x="157" y="397" text-anchor="middle">Proposed actor</text>
+  <rect x="35" y="450" width="245" height="75" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor" x="157" y="483" text-anchor="middle">Administrators</text><text class="small" x="157" y="507" text-anchor="middle">Proposed actor</text>
+  <rect x="35" y="560" width="245" height="75" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor" x="157" y="593" text-anchor="middle">Student Affairs Staff</text><text class="small" x="157" y="617" text-anchor="middle">Proposed actor</text>
+
+  <!-- Actor interactions converge on the draft API contract boundary. -->
+  <path d="M280 268 H370 V263 H560" fill="none" stroke="#49677f" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M280 378 H405 V270 H560" fill="none" stroke="#49677f" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M280 488 H435 V277 H560" fill="none" stroke="#49677f" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M280 598 H465 V284 H560" fill="none" stroke="#49677f" stroke-width="2" marker-end="url(#arrow)" />
+  <text class="small" x="35" y="675">Proposed interactions;</text><text class="small" x="35" y="694">role permissions Pending.</text>
+
+  <!-- Proposed routes from the API contract to domain responsibilities. -->
+  <path d="M760 345 V410 H545 V450" fill="none" stroke="#49677f" stroke-width="2.5" marker-end="url(#arrow)" />
+  <path d="M860 345 V450" fill="none" stroke="#49677f" stroke-width="2.5" marker-end="url(#arrow)" />
+  <path d="M1010 345 V410 H1190 V450" fill="none" stroke="#49677f" stroke-width="2.5" marker-end="url(#arrow)" />
+  <path d="M1110 345 V410 H1535 V450" fill="none" stroke="#49677f" stroke-width="2.5" marker-end="url(#arrow)" />
+  <!-- Cross-cutting identity and authorization consultation. -->
+  <path d="M650 345 L360 380 V700 L735 740" fill="none" stroke="#49677f" stroke-width="2.5" marker-end="url(#arrow)" />
+  <path d="M1220 345 H1700 V700 L1275 740" fill="none" stroke="#8a6a2b" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#dashArrow)" />
+  <path d="M960 795 H1050" fill="none" stroke="#8a6a2b" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#dashArrow)" />
+
+  <!-- Proposed logical data dependencies. -->
+  <path d="M545 550 V640 H1535" fill="none" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 6" />
+  <path d="M860 550 V640 M1190 550 V640 M1535 550 V640 M1010 640 V900" fill="none" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#dashArrow)" />
+  <path d="M1190 550 V600 H1535 V550" fill="none" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#dashArrow)" />
+  <path d="M735 850 V875 H890 V900" fill="none" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#dashArrow)" />
+  <path d="M1275 850 V875 H1210 V900" fill="none" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#dashArrow)" />
+
+  <rect x="560" y="200" width="660" height="145" rx="16" fill="#dcecf8" stroke="#244f73" stroke-width="3" />
+  <text class="card-title" x="890" y="235" text-anchor="middle">API contract boundary</text>
+  <text class="body" x="890" y="263" text-anchor="middle">Proposed REST contract; 12 illustrative operations in api/openapi.yaml</text>
+  <text class="small" x="890" y="290" text-anchor="middle">No running API or transport/deployment configuration asserted.</text>
+  <text class="small" x="890" y="316" text-anchor="middle">Boundary suggests HTTPS; OpenAPI localhost placeholder is HTTP. Transport Pending.</text>
+
+  <rect x="400" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="card-title" x="545" y="482" text-anchor="middle">Student information</text>
+  <text class="small" x="545" y="510" text-anchor="middle">listStudents; createStudent;</text><text class="small" x="545" y="530" text-anchor="middle">updateStudent</text>
+
+  <rect x="715" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="card-title" x="860" y="482" text-anchor="middle">Course catalog</text>
+  <text class="small" x="860" y="510" text-anchor="middle">listCourses; createCourse;</text><text class="small" x="860" y="530" text-anchor="middle">updateCourse</text>
+
+  <rect x="1045" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="card-title" x="1190" y="482" text-anchor="middle">Enrollment</text>
+  <text class="small" x="1190" y="510" text-anchor="middle">listMyRegistrations;</text><text class="small" x="1190" y="530" text-anchor="middle">createRegistration</text>
+
+  <rect x="1390" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="card-title" x="1535" y="482" text-anchor="middle" font-size="17">Grade management and publication</text>
+  <text class="small" x="1535" y="510" text-anchor="middle">recordGrade;</text><text class="small" x="1535" y="530" text-anchor="middle">listMyPublishedGrades</text>
+
+  <rect x="510" y="740" width="450" height="110" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="card-title" x="735" y="775" text-anchor="middle">Identity and session responsibility</text>
+  <text class="small" x="735" y="804" text-anchor="middle">createSession; deleteCurrentSession</text>
+  <text class="small" x="735" y="827" text-anchor="middle">Credential and session/token policy Pending.</text>
+
+  <rect x="1050" y="740" width="450" height="110" rx="13" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
+  <text class="card-title" x="1275" y="775" text-anchor="middle">Authorization decision responsibility</text>
+  <text class="small" x="1275" y="804" text-anchor="middle">Proposed cross-cutting permission checks</text>
+  <text class="small" x="1275" y="827" text-anchor="middle">Role, record, and ownership rules Pending.</text>
+
+  <rect x="650" y="900" width="720" height="75" rx="14" fill="#ffffff" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="9 6" />
+  <text class="card-title" x="1010" y="930" text-anchor="middle">Conceptual data responsibility</text>
+  <text class="small" x="1010" y="955" text-anchor="middle">Candidate entities only; persistence design and database engine Pending.</text>
+  <text class="small" x="1010" y="678" text-anchor="middle">Candidate data dependencies; links and persistence details Pending.</text>
+  <text class="small" x="1362" y="590" text-anchor="middle">enrolled-course check (candidate)</text>
+
+  <text class="small" x="355" y="1038">Solid: proposed API interactions. Dashed: candidate dependency. Names match the Issue #34 architecture draft; no role permission is implied.</text>
+  <text class="small" x="355" y="1062">Open gap: FR-06 requires later grade retrieval, but no instructor read/list operation is mapped in the current API.</text>
+</svg>
