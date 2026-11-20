@@ -1,6 +1,6 @@
 # Sprint 2 Process, Decisions & Contribution Evidence (S2-12 / Issue #37)
 
-- **Snapshot Date:** 2026-11-19 (`UTC+3` / `Europe/Istanbul`)
+- **Snapshot Date:** 2026-11-20 (`UTC+3` / `Europe/Istanbul`)
 - **Timezone Note:** All event dates and timestamps in this log are recorded in `UTC+3` (`Europe/Istanbul`) unless explicitly marked as `Pending`.
 - **Tracking Issue:** [Issue #37](https://github.com/mert494/student-information-system/issues/37)
 - **Tracking PR:** [PR #44](https://github.com/mert494/student-information-system/pull/44) (Prior Reviewed HEAD: `fbc2b44`; Follow-up Reviewed HEAD: `479e68b`)
@@ -14,11 +14,14 @@
 
 | Date (`UTC+3`) | Decision / Review Event | Participants / Approvers | Outcome / State | Evidence Link |
 | :--- | :--- | :--- | :--- | :--- |
-| 2026-11-17 | Sprint 2 planning / tracking update merged into `develop` (Merge SHA: `Pending` — verify exact commit SHA on PR #41) | Mert (Author & Merger: `mert494`); Azra & Ahmet (Reviewers — `Pending` link/state verification) | `MERGED` (Merge SHA `Pending`) | [PR #41](https://github.com/mert494/student-information-system/pull/41) |
-| 2026-11-18 | Sprint 2 release/integration evidence PR authored/revised and merged into `develop` (exact submission/revision vs. merge timestamp details `Pending` verification) | Barış (Author / Reviser); Mert (`mert494`, Merger); Azra (Historical `DISMISSED` approval) | `MERGED` (Azra approval: `DISMISSED` historical record) | [PR #42](https://github.com/mert494/student-information-system/pull/42) |
+| 2026-11-17 20:31 | Sprint 2 planning / tracking PR merged into `develop` (Merge SHA: `eb6e7a0`) | Mert (Author & Merger: `mert494`); Ahmet (Review: `APPROVED` at `c6a1aa9`); Azra (`Pending` verification) | `MERGED` (`eb6e7a0`) | [PR #24](https://github.com/mert494/student-information-system/pull/24) |
+| 2026-11-17 21:07 | Sprint 2 planning / tracking PR merged into `develop` (Merge SHA: `2945b81`) | Mert (Author & Merger: `mert494`); Ahmet (First approval `DISMISSED` after base change; re-approved at `54c1e0a`); Azra (`Pending` verification) | `MERGED` (`2945b81`) | [PR #25](https://github.com/mert494/student-information-system/pull/25) |
+| 2026-11-19 00:47 | Sprint 2 release/integration evidence PR merged into `develop` (Merge SHA: `98f9b5a`, `2026-11-18 21:47 UTC`) | Barış (Author / Reviser); Mert (`mert494`, Merger); Azra (Historical `DISMISSED` approval) | `MERGED` (`98f9b5a`; Azra approval: `DISMISSED` historical record) | [PR #42](https://github.com/mert494/student-information-system/pull/42) |
+| 2026-11-19 21:56 | Sprint 2 planning / tracking PR merged into `develop` (Merge SHA: `ee5c64b`) | Mert (Author & Merger: `mert494`); Ahmet (Review: `APPROVED` at `f4d49c1`); Azra (`Pending` verification) | `MERGED` (`ee5c64b`) | [PR #41](https://github.com/mert494/student-information-system/pull/41) |
 | 2026-11-19 | Sprint 2 responsibility acceptance and initial Figma user-flow & prototype sharing for SIS (#32, #33) | Azra (Owner / Author) | `Recorded` / `Under Review` (Unverified) | [Issue #32](https://github.com/mert494/student-information-system/issues/32), [Issue #33](https://github.com/mert494/student-information-system/issues/33) |
 | 2026-11-19 | Sprint 2 requirements / SRS traceability PR submitted and revised | Nurefşan (Author); Mert (Reviewer) | `COMMENTED` / `Under Review` (Revised) | [PR #43](https://github.com/mert494/student-information-system/pull/43) |
-| 2026-11-19 | Sprint 2 QA / quality attributes PR submitted | Ahmet (Author); Mert (Reviewer) | `COMMENTED` / `Under Review` | [PR #45](https://github.com/mert494/student-information-system/pull/45) |
+| 2026-11-19 | Sprint 2 QA / quality attributes PR submitted and revised (`4502c7e` after Mert's review) | Ahmet (Author); Mert (Reviewer) | `Under Review` (`4502c7e`) | [PR #45](https://github.com/mert494/student-information-system/pull/45) |
+| 2026-11-19 | QA matrix recheck recorded (`0f0d2fb`) | Ahmet (Reviewer: `COMMENTED` at `0f0d2fb`) | `COMMENTED` (`0f0d2fb`) | [PR #46](https://github.com/mert494/student-information-system/pull/46) |
 | 2026-11-19 | Sprint 2 process & contribution log submitted (`PR #44`, HEAD `fbc2b44`) and reviewed | Azra (Author); Mert (Reviewer) | `COMMENTED` (Open review items; not `REQUEST_CHANGES`) | [PR #44](https://github.com/mert494/student-information-system/pull/44) |
 | Pending (2026-11-20 snapshot window) | Sprint 2 architecture PR opened (`Docs/arda sprint2 architecture`) | Arda (`ardaberkkara1`, Author); Reviewers (`Pending`) | `Draft / Open` (`Under Review` — `Pending` verification) | [PR #47](https://github.com/mert494/student-information-system/pull/47) |
 | Pending | Additional team responsibility acceptances, independent reviews, verified PR review links (#24, #25, #41, #42, #43, #44, #45, #46, #47), and final approvals | All Team Members | `Pending` | Pending verification |
@@ -36,13 +39,17 @@
     - [PR #42](https://github.com/mert494/student-information-system/pull/42): Prior approval recorded as `DISMISSED` (historical review evidence only; not a valid current approval).
     - [PR #24](https://github.com/mert494/student-information-system/pull/24), [PR #25](https://github.com/mert494/student-information-system/pull/25), [PR #41](https://github.com/mert494/student-information-system/pull/41), [PR #43](https://github.com/mert494/student-information-system/pull/43), [PR #45](https://github.com/mert494/student-information-system/pull/45): Direct review links and review states `Pending` verification.
 - **Mert:**
-  - **Planning, Coordination & Setup (`Merged / Active`):** Authored Sprint 2 planning and repository tracking updates in [PR #24](https://github.com/mert494/student-information-system/pull/24), [PR #25](https://github.com/mert494/student-information-system/pull/25), and [PR #41](https://github.com/mert494/student-information-system/pull/41) (merged `2026-11-17` `UTC+3` by `mert494`; merge SHA `Pending` verification).
-  - **Reviews & Merges (`Active`):** Merged [PR #42](https://github.com/mert494/student-information-system/pull/42) (`mert494`, `2026-11-18` `UTC+3`); recorded `COMMENTED` reviews on [PR #43](https://github.com/mert494/student-information-system/pull/43), [PR #44](https://github.com/mert494/student-information-system/pull/44), and [PR #45](https://github.com/mert494/student-information-system/pull/45) (specific review comment links `Pending` insertion).
+  - **Planning, Coordination & Setup (`Merged / Active`):** Authored Sprint 2 planning and repository tracking updates in [PR #24](https://github.com/mert494/student-information-system/pull/24) (merged `2026-11-17 20:31` `UTC+3`, SHA `eb6e7a0`), [PR #25](https://github.com/mert494/student-information-system/pull/25) (merged `2026-11-17 21:07` `UTC+3`, SHA `2945b81`), and [PR #41](https://github.com/mert494/student-information-system/pull/41) (merged `2026-11-19 21:56` `UTC+3`, SHA `ee5c64b`), all merged by `mert494`.
+  - **Reviews & Merges (`Active`):** Merged [PR #42](https://github.com/mert494/student-information-system/pull/42) (`mert494`, `2026-11-19 00:47` `UTC+3` / `2026-11-18 21:47 UTC`, SHA `98f9b5a`); recorded `COMMENTED` reviews on [PR #43](https://github.com/mert494/student-information-system/pull/43), [PR #44](https://github.com/mert494/student-information-system/pull/44), and [PR #45](https://github.com/mert494/student-information-system/pull/45) (specific review comment links `Pending` insertion).
 - **Ahmet:**
-  - **QA & NFR Documentation (`Draft / Under Review`):** Authored Sprint 2 quality/NFR deliverable in [PR #45](https://github.com/mert494/student-information-system/pull/45).
-  - **Cross-Deliverable Reviews:** Direct review links and states on [PR #24](https://github.com/mert494/student-information-system/pull/24), [PR #25](https://github.com/mert494/student-information-system/pull/25), and [PR #41](https://github.com/mert494/student-information-system/pull/41) (`Pending` verification).
+  - **QA & NFR Documentation (`Under Review`):** Authored Sprint 2 quality/NFR deliverable in [PR #45](https://github.com/mert494/student-information-system/pull/45), revised to `4502c7e` after Mert's review (`Under Review`).
+  - **Sprint 2 PR Reviews (GitHub API verified `2026-11-20`, `UTC+3`):**
+    - [PR #24](https://github.com/mert494/student-information-system/pull/24): `APPROVED` at `c6a1aa9`.
+    - [PR #25](https://github.com/mert494/student-information-system/pull/25): First approval `DISMISSED` after base change; re-approved at `54c1e0a`.
+    - [PR #41](https://github.com/mert494/student-information-system/pull/41): `APPROVED` at `f4d49c1`.
+    - [PR #46](https://github.com/mert494/student-information-system/pull/46): `COMMENTED` at `0f0d2fb` (recheck of QA matrix).
 - **Barış:**
-  - **Integration & Release Evidence (`MERGED`):** Authored and revised Sprint 2 integration/release evidence in [PR #42](https://github.com/mert494/student-information-system/pull/42); merged into `develop` by Mert (`mert494`) on `2026-11-18` (`UTC+3`) (distinct submission/revision vs. merge timestamp details `Pending` verification).
+  - **Integration & Release Evidence (`MERGED`):** Authored and revised Sprint 2 integration/release evidence in [PR #42](https://github.com/mert494/student-information-system/pull/42); merged into `develop` by Mert (`mert494`) on `2026-11-19 00:47` (`UTC+3` / `2026-11-18 21:47 UTC`, SHA `98f9b5a`).
 - **Nurefşan:**
   - **SRS & Traceability (`Under Review`):** Authored and submitted revision commits for Sprint 2 requirements and traceability in [PR #43](https://github.com/mert494/student-information-system/pull/43).
 - **Arda:**
