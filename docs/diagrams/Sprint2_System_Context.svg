@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="940" viewBox="0 0 1500 940" role="img" aria-labelledby="title description">
+  <title id="title">C4 Level 1 proposed SIS system context</title>
+  <desc id="description">A proposed system context with four proposed actors and the conceptual Student Information System. JWT Bearer with sid-linked server-side session invalidation is approved per the architecture update request; expiry and contract mapping remain open. Permissions and external-system decisions are pending. No deployed system is asserted.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#49677f" />
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 31px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #425d72; }
+      .actor-title { font-size: 22px; font-weight: 700; }
+      .body { font-size: 16px; }
+      .small { font-size: 14px; fill: #425d72; }
+      .system-title { font-size: 27px; font-weight: 700; }
+      .system-body { font-size: 18px; }
+      .edge-label { font-size: 14px; fill: #334f66; }
+    </style>
+  </defs>
+  <rect width="1500" height="940" fill="#f4f7fb" />
+  <text class="title" x="50" y="58">C4 Level 1 — Student Information System context</text>
+  <text class="subtitle" x="50" y="91">Proposed actors and system boundary; role permissions and external-system decisions remain pending.</text>
+
+  <!-- Proposed actor relationships; draw before the nodes. -->
+  <path d="M350 250 C420 250 435 360 505 360" fill="none" stroke="#49677f" stroke-width="3" marker-end="url(#arrow)" />
+  <path d="M350 510 C420 510 435 465 505 465" fill="none" stroke="#49677f" stroke-width="3" marker-end="url(#arrow)" />
+  <path d="M1150 250 C1080 250 1065 360 995 360" fill="none" stroke="#49677f" stroke-width="3" marker-end="url(#arrow)" />
+  <path d="M1150 510 C1080 510 1065 465 995 465" fill="none" stroke="#49677f" stroke-width="3" marker-end="url(#arrow)" />
+
+  <rect x="385" y="286" width="118" height="46" rx="8" fill="#ffffff" stroke="#c6d2dc" />
+  <text class="edge-label" x="444" y="305" text-anchor="middle"><tspan x="444">Proposed</tspan><tspan x="444" dy="17">interaction</tspan></text>
+  <rect x="385" y="477" width="118" height="46" rx="8" fill="#ffffff" stroke="#c6d2dc" />
+  <text class="edge-label" x="444" y="496" text-anchor="middle"><tspan x="444">Proposed</tspan><tspan x="444" dy="17">interaction</tspan></text>
+  <rect x="997" y="286" width="142" height="46" rx="8" fill="#ffffff" stroke="#c6d2dc" />
+  <text class="edge-label" x="1068" y="305" text-anchor="middle"><tspan x="1068">Proposed</tspan><tspan x="1068" dy="17">interaction</tspan></text>
+  <rect x="997" y="477" width="142" height="46" rx="8" fill="#ffffff" stroke="#c6d2dc" />
+  <text class="edge-label" x="1068" y="496" text-anchor="middle"><tspan x="1068">Proposed</tspan><tspan x="1068" dy="17">interaction</tspan></text>
+
+  <rect x="50" y="190" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor-title" x="75" y="230">Student</text>
+  <text class="body" x="75" y="260"><tspan x="75">Proposed actor</tspan><tspan x="75" dy="22">Own academic information, enrollment,</tspan><tspan x="75" dy="22">and published-grade interactions.</tspan></text>
+
+  <rect x="50" y="450" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor-title" x="75" y="490">Instructor</text>
+  <text class="body" x="75" y="520"><tspan x="75">Proposed actor</tspan><tspan x="75" dy="22">Course and grade interactions;</tspan><tspan x="75" dy="22">FR-06 later retrieval remains unmapped.</tspan></text>
+
+  <rect x="1150" y="190" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor-title" x="1175" y="230">Administrators</text>
+  <text class="body" x="1175" y="260"><tspan x="1175">Proposed actor</tspan><tspan x="1175" dy="22">Administrative interactions are</tspan><tspan x="1175" dy="22">subject to scope and permission decisions.</tspan></text>
+
+  <rect x="1150" y="450" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+  <text class="actor-title" x="1175" y="490">Student Affairs Staff</text>
+  <text class="body" x="1175" y="520"><tspan x="1175">Proposed actor</tspan><tspan x="1175" dy="22">Candidate student, course, and</tspan><tspan x="1175" dy="22">enrollment-related interactions.</tspan></text>
+
+  <rect x="505" y="240" width="490" height="360" rx="22" fill="#dcecf8" stroke="#244f73" stroke-width="3" />
+  <text class="system-title" x="750" y="290" text-anchor="middle">Student Information System</text>
+  <text class="subtitle" x="750" y="321" text-anchor="middle">Conceptual software-system boundary</text>
+  <line x1="545" y1="344" x2="955" y2="344" stroke="#9cb8ca" stroke-width="2" />
+  <text class="system-body" x="550" y="383">Candidate responsibilities (Issue #34):</text>
+  <text class="system-body" x="575" y="419">• JWT Bearer with sid-linked session (Approved)</text>
+  <text class="system-body" x="575" y="451">• Authorization decision</text>
+  <text class="system-body" x="575" y="483">• Student and course information</text>
+  <text class="system-body" x="575" y="515">• Enrollment; grade management and publication</text>
+  <text class="small" x="750" y="558" text-anchor="middle">Logout invalidates sid; expiry Open. OpenAPI response lacks token/sid mapping.</text>
+  <text class="small" x="750" y="581" text-anchor="middle">Draft REST contract only; no running service. Actors do not imply permission.</text>
+
+  <rect x="300" y="680" width="900" height="150" rx="14" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" stroke-dasharray="10 7" />
+  <text class="actor-title" x="750" y="724" text-anchor="middle">External systems and integrations: none confirmed</text>
+  <text class="body" x="750" y="758" text-anchor="middle">Proposed Sprint 1 exclusion; team confirmation pending.</text>
+  <text class="small" x="750" y="790" text-anchor="middle">No external provider or data flow is modeled as present.</text>
+
+  <text class="small" x="50" y="895">Relationships are conceptual proposals. Role permissions, final product scope, integration boundary, and implementation status are Pending.</text>
+</svg>
