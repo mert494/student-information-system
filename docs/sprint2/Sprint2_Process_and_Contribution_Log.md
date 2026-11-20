@@ -20,6 +20,7 @@
 | 2026-11-19 | Sprint 2 requirements / SRS traceability PR submitted and revised | Nurefşan (Author); Mert (Reviewer) | `COMMENTED` / `Under Review` (Revised) | [PR #43](https://github.com/mert494/student-information-system/pull/43) |
 | 2026-11-19 | Sprint 2 QA / quality attributes PR submitted | Ahmet (Author); Mert (Reviewer) | `COMMENTED` / `Under Review` | [PR #45](https://github.com/mert494/student-information-system/pull/45) |
 | 2026-11-19 | Sprint 2 process & contribution log submitted (`PR #44`, HEAD `fbc2b44`) and reviewed | Azra (Author); Mert (Reviewer) | `COMMENTED` (Open review items; not `REQUEST_CHANGES`) | [PR #44](https://github.com/mert494/student-information-system/pull/44) |
+| Pending (2026-11-20 snapshot window) | Sprint 2 architecture PR opened (`Docs/arda sprint2 architecture`) | Arda (`ardaberkkara1`, Author); Reviewers (`Pending`) | `Draft / Open` (`Under Review` — `Pending` verification) | [PR #47](https://github.com/mert494/student-information-system/pull/47) |
 | Pending | Additional team responsibility acceptances, independent reviews, verified PR review links (#24, #25, #41, #42, #43, #44, #45, #46, #47), and final approvals | All Team Members | `Pending` | Pending verification |
 
 ---
@@ -30,7 +31,7 @@
 
 - **Azra:**
   - **Process & Contribution Log (`Draft / Open`):** Authored Sprint 2 process and contribution log in [PR #44](https://github.com/mert494/student-information-system/pull/44) (linked to [Issue #37](https://github.com/mert494/student-information-system/issues/37)).
-  - **UI/UX Design & Prototype (`Under Review`):** Accepted responsibility and shared initial Figma design & clickable prototype links via comments in [Issue #32](https://github.com/mert494/student-information-system/issues/32) and [Issue #33](https://github.com/mert494/student-information-system/issues/33).
+  - **UI/UX Design & Prototype (`Under Review`):** Accepted responsibility and shared initial Figma design & clickable prototype links via comments in [Issue #32](https://github.com/mert494/student-information-system/issues/32) and [Issue #33](https://github.com/mert494/student-information-system/issues/33); prototype checks planned for `NFR-USE-01`, `NFR-USE-02`, and `NFR-ACCESS-01` (verification `Pending`).
   - **Sprint 2 PR Reviews:**
     - [PR #42](https://github.com/mert494/student-information-system/pull/42): Prior approval recorded as `DISMISSED` (historical review evidence only; not a valid current approval).
     - [PR #24](https://github.com/mert494/student-information-system/pull/24), [PR #25](https://github.com/mert494/student-information-system/pull/25), [PR #41](https://github.com/mert494/student-information-system/pull/41), [PR #43](https://github.com/mert494/student-information-system/pull/43), [PR #45](https://github.com/mert494/student-information-system/pull/45): Direct review links and review states `Pending` verification.
@@ -45,7 +46,7 @@
 - **Nurefşan:**
   - **SRS & Traceability (`Under Review`):** Authored and submitted revision commits for Sprint 2 requirements and traceability in [PR #43](https://github.com/mert494/student-information-system/pull/43).
 - **Arda:**
-  - **Architecture & UML/C4 Deliverables (`Draft / Open`):** Sprint 2 architecture PR (#47) opened in the repository (`Under Review` / unverified delivery; historical Sprint 1 artifacts are excluded).
+  - **Architecture & UML/C4 Deliverables (`Draft / Open`):** Sprint 2 architecture PR ([PR #47](https://github.com/mert494/student-information-system/pull/47)) opened in the repository (`Under Review` / unverified delivery; historical Sprint 1 artifacts are excluded).
 
 ---
 
@@ -57,9 +58,9 @@
 | Verification Dimension | Current Status | Notes |
 | :--- | :--- | :--- |
 | GitHub Sharing & Acceptance Comments | `Recorded` | Shared/accepted by Azra on 2026-11-19 (`UTC+3`) via comments in [Issue #32](https://github.com/mert494/student-information-system/issues/32) and [Issue #33](https://github.com/mert494/student-information-system/issues/33) (not a PR review state) |
-| Independent Team Access & Reviewer Permissions | `Unverified / Pending` | Awaiting independent access & reviewer permission confirmation |
-| Actual User-Flow Coverage (Student, Faculty, Student Affairs) | `Unverified / Pending` | Initial draft shared; completeness check pending |
-| Click-Through Prototype Behavior | `Unverified / Pending` | Independent interaction walkthrough not yet recorded |
+| Independent Team Access & Reviewer Permissions | `Unverified / Pending` | Awaiting independent access & reviewer permission confirmation (`NFR-ACCESS-01` prototype check pending) |
+| Actual User-Flow Coverage (Student, Faculty, Student Affairs) | `Unverified / Pending` | Initial draft shared; completeness check pending (`NFR-USE-01`, `NFR-USE-02` checks pending) |
+| Click-Through Prototype Behavior | `Unverified / Pending` | Independent interaction walkthrough not yet recorded (`NFR-USE-01`, `NFR-USE-02`, `NFR-ACCESS-01` prototype checks pending) |
 | Version Ownership & Static/PDF/PNG Exports | `Pending` | Exported snapshots not yet committed to repository |
 
 ---
