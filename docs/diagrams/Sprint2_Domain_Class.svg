@@ -16,30 +16,36 @@
   </defs>
   <rect width="1700" height="1180" fill="#f4f7fb" />
   <text class="title" x="45" y="54">UML — Candidate SIS domain/class model</text>
-  <text class="subtitle" x="45" y="85">All classes and fields are draft candidates from PR #43 / OpenAPI; keys, multiplicities, and constraints are not approved.</text>
+  <text class="subtitle" x="45" y="85">IDs and the limited multiplicities shown are candidates from PR #43 / OpenAPI; all require owner/team confirmation.</text>
 
   <!-- Candidate associations are drawn behind the UML class boxes. -->
   <path d="M480 305 H610" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="545" y="292" text-anchor="middle">assigned role; lifecycle Pending</text>
+  <text class="edge" x="545" y="292" text-anchor="middle">assigned role; cardinality Pending</text>
   <path d="M500 655 H650" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="575" y="642" text-anchor="middle">offers by term (candidate)</text>
+  <text class="edge" x="575" y="642" text-anchor="middle">offers by term (candidate; approval Pending)</text>
+  <text class="edge" x="514" y="674" text-anchor="middle">1</text>
+  <text class="edge" x="632" y="674" text-anchor="middle">0..*</text>
   <path d="M1100 655 H1235" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="1167" y="642" text-anchor="middle">assigned instructor(s)</text>
+  <text class="edge" x="1167" y="642" text-anchor="middle">assigned instructor(s); counts Pending</text>
   <path d="M1550 450 H1630 V825 H640 V875" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="1135" y="812" text-anchor="middle">student-to-enrollment relationship; multiplicity Pending</text>
+  <text class="edge" x="1135" y="812" text-anchor="middle">student-to-enrollment; candidate multiplicities</text>
+  <text class="edge" x="1570" y="468" text-anchor="middle">1</text>
+  <text class="edge" x="660" y="861" text-anchor="middle">0..*</text>
   <path d="M875 790 V840 H740 V875" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="820" y="833" text-anchor="middle">offering enrollment</text>
+  <text class="edge" x="820" y="833" text-anchor="middle">offering enrollment (candidate)</text>
+  <text class="edge" x="891" y="811" text-anchor="middle">1</text>
+  <text class="edge" x="737" y="858" text-anchor="middle">0..*</text>
   <path d="M960 790 V835 H1240 V875" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="1095" y="828" text-anchor="middle">grade for offering (candidate)</text>
+  <text class="edge" x="1095" y="828" text-anchor="middle">grade for offering; cardinality Pending</text>
   <path d="M850 1015 H950" fill="none" stroke="#a17a2d" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="900" y="860" text-anchor="middle">API registrationId link; parent [TODO]</text>
+  <text class="edge" x="900" y="860" text-anchor="middle">API registrationId link; grade parent Pending</text>
 
   <!-- UML candidate classes. -->
   <g>
     <rect x="100" y="190" width="380" height="230" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="100" y="190" width="380" height="62" rx="8" fill="#dcecf8" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="290" y="211" text-anchor="middle">«candidate»</text><text class="class-name" x="290" y="237" text-anchor="middle">User / Account</text>
-    <text class="attr" x="120" y="282">userId — candidate identifier</text>
+    <text class="attr" x="120" y="282">userId — SRS candidate PK; approval Pending</text>
     <text class="attr" x="120" y="311">loginIdentifier; credentialReference</text>
     <text class="attr" x="120" y="340">systemRole; accountStatus</text>
     <text class="small" x="120" y="385">Credential and role policy Pending.</text>
@@ -56,27 +62,28 @@
     <rect x="1150" y="190" width="450" height="260" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="1150" y="190" width="450" height="62" rx="8" fill="#dcecf8" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="1375" y="211" text-anchor="middle">«candidate»</text><text class="class-name" x="1375" y="237" text-anchor="middle">Student</text>
-    <text class="attr" x="1170" y="282">studentNumber — unique in SRS draft</text>
-    <text class="attr" x="1170" y="311">firstName; lastName; email</text>
-    <text class="attr" x="1170" y="340">program/department; studentStatus</text>
-    <text class="attr" x="1170" y="369">API candidate: studentId; fullName (type [TODO])</text>
-    <text class="small" x="1170" y="415">Field set, source, and identity link Pending.</text>
+    <text class="attr" x="1170" y="282">studentId — API ID; PK candidate Pending</text>
+    <text class="attr" x="1170" y="311">studentNumber — unique in SRS draft</text>
+    <text class="attr" x="1170" y="340">firstName; lastName; email</text>
+    <text class="attr" x="1170" y="369">program/department; studentStatus</text>
+    <text class="attr" x="1170" y="398">API candidate: fullName (type [TODO])</text>
+    <text class="small" x="1170" y="430">Field set, source, and identity link Pending.</text>
   </g>
 
   <g>
     <rect x="100" y="550" width="400" height="240" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="100" y="550" width="400" height="62" rx="8" fill="#dcecf8" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="300" y="571" text-anchor="middle">«candidate»</text><text class="class-name" x="300" y="597" text-anchor="middle">Course</text>
-    <text class="attr" x="120" y="642">courseCode — uniqueness scope Pending</text>
-    <text class="attr" x="120" y="671">title; description; credits; department</text>
-    <text class="attr" x="120" y="700">API candidate: courseId</text>
+    <text class="attr" x="120" y="642">courseId — API ID; PK candidate Pending</text>
+    <text class="attr" x="120" y="671">courseCode — uniqueness scope Pending</text>
+    <text class="attr" x="120" y="700">title; description; credits; department</text>
     <text class="small" x="120" y="755">Required fields and lifecycle Pending.</text>
   </g>
   <g>
     <rect x="650" y="530" width="450" height="260" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="650" y="530" width="450" height="62" rx="8" fill="#dcecf8" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="875" y="551" text-anchor="middle">«candidate»</text><text class="class-name" x="875" y="577" text-anchor="middle">Course Offering / Term</text>
-    <text class="attr" x="670" y="622">courseOfferingId — candidate reference</text>
+    <text class="attr" x="670" y="622">courseOfferingId — SRS ref; PK candidate Pending</text>
     <text class="attr" x="670" y="651">term; capacity</text>
     <text class="attr" x="670" y="680">assigned instructor(s)</text>
     <text class="small" x="670" y="730">No dedicated API resource or approved key.</text>
@@ -86,7 +93,7 @@
     <rect x="1235" y="550" width="365" height="240" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="1235" y="550" width="365" height="62" rx="8" fill="#fff5dc" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="1417" y="571" text-anchor="middle">«candidate reference»</text><text class="class-name" x="1417" y="597" text-anchor="middle">Instructor identity</text>
-    <text class="attr" x="1255" y="642">instructorId — cited in Grade draft</text>
+    <text class="attr" x="1255" y="642">instructorId — SRS candidate reference</text>
     <text class="attr" x="1255" y="671">Identity key/source [TODO]</text>
     <text class="small" x="1255" y="725">Assignment model and permissions Pending.</text>
     <text class="small" x="1255" y="750">Not an API resource in current contract.</text>
@@ -96,7 +103,8 @@
     <rect x="300" y="875" width="550" height="260" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="300" y="875" width="550" height="62" rx="8" fill="#dcecf8" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="575" y="896" text-anchor="middle">«candidate»</text><text class="class-name" x="575" y="922" text-anchor="middle">Enrollment / Registration</text>
-    <text class="attr" x="320" y="967">enrollmentId (SRS); registrationId (API)</text>
+    <text class="attr" x="320" y="967">enrollmentId (SRS) / registrationId (API)</text>
+    <text class="small" x="320" y="948">Candidate PK identifier; mapping Pending.</text>
     <text class="attr" x="320" y="996">studentNumber; courseOfferingId; term; status</text>
     <text class="attr" x="320" y="1025">created/enrolled timestamp (candidate)</text>
     <text class="small" x="320" y="1075">Duplicate student-course-term prohibition is a proposed BR.</text>
@@ -106,13 +114,14 @@
     <rect x="950" y="875" width="570" height="260" rx="8" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <rect x="950" y="875" width="570" height="62" rx="8" fill="#dcecf8" stroke="#54738c" stroke-width="2" />
     <text class="stereo" x="1235" y="896" text-anchor="middle">«candidate»</text><text class="class-name" x="1235" y="922" text-anchor="middle">Grade</text>
-    <text class="attr" x="970" y="967">gradeId; studentNumber; courseOfferingId</text>
-    <text class="attr" x="970" y="996">instructorId; value; publication status</text>
-    <text class="attr" x="970" y="1025">API: registrationId; untyped value/status; published</text>
+    <text class="attr" x="970" y="967">gradeId — SRS candidate PK; approval Pending</text>
+    <text class="attr" x="970" y="990">studentNumber; courseOfferingId</text>
+    <text class="attr" x="970" y="1019">instructorId; value; publication status</text>
+    <text class="attr" x="970" y="1048">API: registrationId; untyped value/status; published</text>
     <text class="small" x="970" y="1075">Scale, lifecycle, visibility, and parent relationship Pending.</text>
     <text class="small" x="970" y="1100">FR-06 later retrieval has no mapped API operation.</text>
   </g>
 
   <rect x="40" y="1145" width="1620" height="25" fill="#fff5dc" />
-  <text class="note" x="55" y="1164">Dashed associations are candidates; multiplicities are intentionally omitted pending owner decisions. No database schema or persistence engine is implied.</text>
+  <text class="note" x="55" y="1164">ID labels and shown multiplicities are candidate interpretations, not approved database keys/cardinalities; confirm with requirements owner. Other counts remain Pending. No schema or engine is implied.</text>
 </svg>
