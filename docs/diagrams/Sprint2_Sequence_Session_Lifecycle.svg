@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1290" viewBox="0 0 1500 1290" role="img" aria-labelledby="title description">
+  <title id="title">UML sequence — approved session lifecycle behavior</title>
+  <desc id="description">A logical sequence for public session creation, JWT Bearer with sid linked to a server-side session, logout invalidation, and rejection of a token whose session was invalidated. These behaviors are approved per the architecture update request. Expiry duration, provider, token response contract mapping, and implementation are open or absent.</desc>
+  <defs>
+    <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
+    <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 29px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #425d72; }
+      .part { font-size: 15px; font-weight: 700; }
+      .msg { font-size: 14px; }
+      .note { font-size: 14px; }
+      .small { font-size: 12px; fill: #425d72; }
+      .status { font-size: 14px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1500" height="1290" fill="#f4f7fb" />
+  <text class="title" x="42" y="50">UML Sequence — JWT Bearer and server-side session lifecycle</text>
+  <text class="subtitle" x="42" y="80">Approved logical behavior per the architecture update request; contract and implementation alignment remain incomplete.</text>
+
+  <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
+    <path d="M160 195 V1190" /><path d="M455 195 V1190" /><path d="M750 195 V1190" /><path d="M1045 195 V1190" /><path d="M1340 195 V1190" />
+  </g>
+  <g>
+    <rect x="45" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="160" y="145" text-anchor="middle">User</text><text class="small" x="160" y="172" text-anchor="middle">Actor; permissions not implied</text>
+    <rect x="340" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="455" y="145" text-anchor="middle">Client</text><text class="small" x="455" y="172" text-anchor="middle">No UI implementation asserted</text>
+    <rect x="635" y="110" width="230" height="85" rx="12" fill="#dcecf8" stroke="#244f73" stroke-width="2" />
+    <text class="part" x="750" y="145" text-anchor="middle">API contract boundary</text><text class="small" x="750" y="172" text-anchor="middle">No running API asserted</text>
+    <rect x="930" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="1045" y="145" text-anchor="middle">Identity / session</text><text class="small" x="1045" y="172" text-anchor="middle">Logical responsibility only</text>
+    <rect x="1225" y="110" width="230" height="85" rx="12" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" stroke-dasharray="8 5" />
+    <text class="part" x="1340" y="145" text-anchor="middle">Server-side Session</text><text class="small" x="1340" y="172" text-anchor="middle">Conceptual state; store Open</text>
+  </g>
+
+  <text class="small" x="42" y="225">SESSION CREATION — POST /sessions is public in the current contract (`security: []`).</text>
+  <path d="M160 270 H455" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="308" y="258" text-anchor="middle">1. enter credentials</text>
+  <path d="M455 320 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="308" text-anchor="middle">2. POST /sessions (SignInRequest)</text>
+  <path d="M750 370 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="358" text-anchor="middle">3. authenticate; provider/mechanism not selected</text>
+  <path d="M1045 420 H1340" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1192" y="408" text-anchor="middle">4. create server-side session reference sid</text>
+  <path d="M1340 470 H1045" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1192" y="458" text-anchor="middle">5. active session (logical state)</text>
+  <path d="M1045 520 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="508" text-anchor="middle">6. issue JWT Bearer containing sid; expiry duration Open</text>
+  <path d="M750 570 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="558" text-anchor="middle">7. 200 response with session reference + token info</text>
+
+  <rect x="330" y="595" width="820" height="90" rx="9" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
+  <text class="status" x="740" y="625" text-anchor="middle">CONTRACT MISMATCH — align in a separate OpenAPI change</text>
+  <text class="small" x="740" y="651" text-anchor="middle">Current SessionResponse defines `sessionId` only and has no JWT field or `sid` claim description.</text>
+  <text class="small" x="740" y="673" text-anchor="middle">Exact response shape and expiry duration are Open; no provider or token format detail is inferred here.</text>
+
+  <text class="small" x="42" y="730">PROTECTED REQUEST — current bearer declaration is proposed in OpenAPI; `sid` behavior is Approved per this update.</text>
+  <path d="M455 780 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="768" text-anchor="middle">8. protected request: Authorization: Bearer JWT</text>
+  <path d="M750 830 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="818" text-anchor="middle">9. resolve sid and check server-side session is valid</text>
+  <path d="M1045 880 H1340" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1192" y="868" text-anchor="middle">10. inspect current session state</text>
+  <path d="M1340 930 H1045" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1192" y="918" text-anchor="middle">active / invalidated state</text>
+
+  <text class="small" x="42" y="980">LOGOUT AND REPLAY</text>
+  <path d="M455 1020 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="1008" text-anchor="middle">11. DELETE /sessions/current with current JWT</text>
+  <path d="M750 1070 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="1058" text-anchor="middle">12. invalidate session identified by sid</text>
+  <path d="M1045 1120 H1340" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1192" y="1108" text-anchor="middle">13. mark logical session invalid</text>
+  <path d="M750 1170 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="1158" text-anchor="middle">14. 204; later JWT replay rejected (401 is NFR expectation; mapping Pending)</text>
+
+  <rect x="330" y="1200" width="1120" height="60" rx="9" fill="#f7f9fb" stroke="#c6d2dc" />
+  <text class="small" x="890" y="1225" text-anchor="middle">Approved: invalidated session's token is no longer usable. Expiry duration OPEN; 403 role/record policy and implementation verification remain separate.</text>
+  <text class="small" x="890" y="1248" text-anchor="middle">This is a logical proposal only; no authentication provider, persistence engine, or live API is asserted.</text>
+</svg>

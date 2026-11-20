@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1030" viewBox="0 0 1650 1030" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed student published-grade query</title>
-  <desc id="description">A proposed FR-07 sequence for GET /grades. Own-record filtering, publication policy, and returned fields remain pending; the current illustrative response has a published-false inconsistency.</desc>
+  <desc id="description">A proposed FR-07 sequence for GET /grades. Published-only results are approved per the architecture update request. Own-record authorization and returned fields remain pending; the unchanged OpenAPI example contradicts this by showing published false.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
@@ -17,7 +17,7 @@
   </defs>
   <rect width="1650" height="1030" fill="#f4f7fb" />
   <text class="title" x="42" y="50">UML Sequence — Student published-grade query (FR-07 / PB-07 proposed)</text>
-  <text class="subtitle" x="42" y="80">Draft SRS intent mapped to GET /grades; authorization and publication behavior remain pending decisions.</text>
+  <text class="subtitle" x="42" y="80">GET /grades must return only published grades (Approved); own-record authorization remains Pending.</text>
 
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
     <path d="M160 200 V935" /><path d="M480 200 V935" /><path d="M800 200 V935" /><path d="M1120 200 V935" /><path d="M1440 200 V935" />
@@ -52,21 +52,21 @@
   <path d="M1440 575 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="1280" y="563" text-anchor="middle">6. matching data [field set Pending]</text>
   <path d="M1120 615 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="800" y="603" text-anchor="middle">7. apply own-student and published-only rules [Pending]</text>
+  <text class="msg" x="800" y="603" text-anchor="middle">7. apply published-only filter (Approved); own-record check (Pending)</text>
 
   <rect x="80" y="650" width="1500" height="205" fill="none" stroke="#49677f" stroke-width="2" />
   <path d="M80 680 H1580" stroke="#49677f" stroke-width="2" />
   <text class="frame" x="100" y="672">alt — successful query result (proposed SRS behavior)</text>
   <text class="small" x="100" y="705">[One or more published grades for this Student]</text>
   <path d="M480 745 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="733" text-anchor="middle">200 Grade[]; only own, published fields (proposed)</text>
+  <text class="msg" x="320" y="733" text-anchor="middle">200 Grade[]; published items only (Approved)</text>
   <path d="M80 770 H1580" stroke="#c6d2dc" stroke-width="1.5" />
   <text class="small" x="100" y="798">[Successful query returns no published grades]</text>
   <path d="M480 830 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="320" y="818" text-anchor="middle">200 [] (successful empty collection)</text>
 
   <rect x="350" y="880" width="1235" height="92" rx="10" fill="#fff5dc" stroke="#a17a2d" />
-  <text class="note" x="967" y="912" text-anchor="middle">OpenAPI example inconsistency: the illustrative GET /grades item has published: false.</text>
+  <text class="note" x="967" y="912" text-anchor="middle">Contract mismatch: unchanged OpenAPI GET /grades example contains published: false; revise separately.</text>
   <text class="small" x="967" y="940" text-anchor="middle">SRS's exact empty-state text belongs to UX/UI; no Figma or implemented interface was found in reviewed sources.</text>
   <text class="small" x="42" y="1005">No sequence path assigns role permission. The distinction between a successful empty result and an API/authentication error must be preserved in future UI work.</text>
 </svg>

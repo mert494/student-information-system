@@ -57,9 +57,9 @@
 
   <rect x="560" y="200" width="660" height="145" rx="16" fill="#dcecf8" stroke="#244f73" stroke-width="3" />
   <text class="card-title" x="890" y="235" text-anchor="middle">API contract boundary</text>
-  <text class="body" x="890" y="263" text-anchor="middle">Proposed REST contract; 12 illustrative operations in api/openapi.yaml</text>
-  <text class="small" x="890" y="290" text-anchor="middle">No running API or transport/deployment configuration asserted.</text>
-  <text class="small" x="890" y="316" text-anchor="middle">Boundary suggests HTTPS; OpenAPI localhost placeholder is HTTP. Transport Pending.</text>
+  <text class="body" x="890" y="263" text-anchor="middle">Proposed REST contract; 12 current operations in api/openapi.yaml</text>
+  <text class="small" x="890" y="290" text-anchor="middle">FR-06 read option is Proposed, not a current operation.</text>
+  <text class="small" x="890" y="316" text-anchor="middle">No running API; server and transport/deployment remain Pending.</text>
 
   <rect x="400" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="card-title" x="545" y="482" text-anchor="middle">Student information</text>
@@ -71,28 +71,30 @@
 
   <rect x="1045" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="card-title" x="1190" y="482" text-anchor="middle">Enrollment</text>
-  <text class="small" x="1190" y="510" text-anchor="middle">listMyRegistrations;</text><text class="small" x="1190" y="530" text-anchor="middle">createRegistration</text>
+  <text class="small" x="1190" y="510" text-anchor="middle">listMyRegistrations; createRegistration</text><text class="small" x="1190" y="530" text-anchor="middle">Student + CourseOffering; duplicate key Proposed</text>
 
   <rect x="1390" y="450" width="290" height="100" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="card-title" x="1535" y="482" text-anchor="middle" font-size="17">Grade management and publication</text>
-  <text class="small" x="1535" y="510" text-anchor="middle">recordGrade;</text><text class="small" x="1535" y="530" text-anchor="middle">listMyPublishedGrades</text>
+  <text class="small" x="1535" y="510" text-anchor="middle">recordGrade; published-only listMyPublishedGrades</text><text class="small" x="1535" y="530" text-anchor="middle">Instructor read option Proposed; access Open</text>
 
   <rect x="510" y="740" width="450" height="110" rx="13" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="card-title" x="735" y="775" text-anchor="middle">Identity and session responsibility</text>
-  <text class="small" x="735" y="804" text-anchor="middle">createSession; deleteCurrentSession</text>
-  <text class="small" x="735" y="827" text-anchor="middle">Credential and session/token policy Pending.</text>
+  <text class="small" x="735" y="804" text-anchor="middle">createSession; deleteCurrentSession (Approved flow)</text>
+  <text class="small" x="735" y="827" text-anchor="middle">JWT Bearer sid; invalidation approved; expiry Open.</text>
 
   <rect x="1050" y="740" width="450" height="110" rx="13" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
   <text class="card-title" x="1275" y="775" text-anchor="middle">Authorization decision responsibility</text>
-  <text class="small" x="1275" y="804" text-anchor="middle">Proposed cross-cutting permission checks</text>
-  <text class="small" x="1275" y="827" text-anchor="middle">Role, record, and ownership rules Pending.</text>
+  <text class="small" x="1275" y="804" text-anchor="middle">Validate session sid; apply role/record checks</text>
+  <text class="small" x="1275" y="827" text-anchor="middle">401/403 matrix and permissions Pending.</text>
 
   <rect x="650" y="900" width="720" height="75" rx="14" fill="#ffffff" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="9 6" />
   <text class="card-title" x="1010" y="930" text-anchor="middle">Conceptual data responsibility</text>
-  <text class="small" x="1010" y="955" text-anchor="middle">Candidate entities only; persistence design and database engine Pending.</text>
+  <text class="small" x="1010" y="955" text-anchor="middle">Registration → Student + CourseOffering; Grade → Registration</text>
   <text class="small" x="1010" y="678" text-anchor="middle">Candidate data dependencies; links and persistence details Pending.</text>
   <text class="small" x="1362" y="590" text-anchor="middle">enrolled-course check (candidate)</text>
 
-  <text class="small" x="355" y="1038">Solid: proposed API interactions. Dashed: candidate dependency. Names match the Issue #34 architecture draft; no role permission is implied.</text>
-  <text class="small" x="355" y="1062">Open gap: FR-06 requires later grade retrieval, but no instructor read/list operation is mapped in the current API.</text>
+  <rect x="350" y="988" width="1400" height="34" rx="7" fill="#fff5dc" stroke="#a17a2d" />
+  <text class="small" x="1050" y="1010" text-anchor="middle">NFR control points (verification Pending): SEC-01 sid validity/revocation · SEC-02 record/assignment access · DATA-01 no partial writes · DATA-02 duplicate pair · published-only filter</text>
+  <text class="small" x="355" y="1052">Solid: proposed API interactions. Dashed: candidate data dependency. Logical components only; no role permissions or deployable services implied.</text>
+  <text class="small" x="355" y="1076">FR-06 read option: GET /course-offerings/{courseOfferingId}/grades (Proposed); path and authorization Open.</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1240" viewBox="0 0 1800 1240" role="img" aria-labelledby="title description">
   <title id="title">C4 Level 2 proposed SIS logical container view</title>
-  <desc id="description">Three proposed logical components: Web Interface / Frontend, API / Backend, and Database. They describe responsibilities and candidate connections only, not deployable services, technologies, or a deployment architecture. API operations, persistence, transport, roles, and deployment remain proposed or pending.</desc>
+  <desc id="description">Three proposed logical components: Web Interface / Frontend, API / Backend, and Database. They describe responsibilities and candidate connections only, not deployable services, technologies, or a deployment architecture. JWT Bearer with sid-linked server-side session invalidation is approved per the architecture update request; expiry, contract alignment, persistence, transport, roles, and deployment remain pending.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L10,5 L0,10 z" fill="#49677f" />
@@ -83,18 +83,19 @@
   <text class="operation" x="1115" y="481">listCourses · createCourse · updateCourse</text>
   <text class="operation" x="1115" y="504">listMyRegistrations · createRegistration</text>
   <text class="operation" x="1115" y="527">recordGrade · listMyPublishedGrades</text>
-  <text class="small" x="1115" y="566">Transport/server URL Pending: Boundary proposes HTTPS;</text>
-  <text class="small" x="1115" y="589">OpenAPI contains only an HTTP localhost placeholder.</text>
-  <text class="small" x="1115" y="623">Authentication, role/record permissions, and error semantics</text>
-  <text class="small" x="1115" y="646">remain Proposed/Pending; endpoint presence is not enforcement.</text>
+  <text class="small" x="1115" y="566">APPROVED: JWT Bearer `sid` links to a server-side session;</text>
+  <text class="small" x="1115" y="589">logout invalidates it; its tokens must then be rejected.</text>
+  <text class="small" x="1115" y="623">Expiry duration OPEN. OpenAPI currently returns only</text>
+  <text class="small" x="1115" y="646">sessionId; token/claim response mapping is incomplete.</text>
+  <text class="small" x="1115" y="670">Role/record permissions and error semantics remain Pending.</text>
   <text class="small" x="1115" y="690">No framework, language, or deployment form is selected.</text>
 
   <rect x="1090" y="880" width="600" height="180" rx="18" fill="#fffaf0" stroke="#a17a2d" stroke-width="3" stroke-dasharray="10 6" />
   <rect x="1090" y="880" width="600" height="55" rx="16" fill="#fff0c9" stroke="#a17a2d" stroke-width="2" />
   <text class="card-title" x="1390" y="916" text-anchor="middle">Database</text>
   <text class="small" x="1115" y="970">Proposed logical persistence responsibility only.</text>
-  <text class="body" x="1115" y="1002">Candidate account, student, course/offering, registration,</text>
-  <text class="body" x="1115" y="1027">and grade data; schema, keys, and constraints Pending.</text>
+  <text class="body" x="1115" y="1002">Candidate account/session, student, course/offering/term,</text>
+  <text class="body" x="1115" y="1027">registration, and grade data; physical schema/keys Pending.</text>
   <text class="small" x="1115" y="1050">No database engine, server, or deployment choice is implied.</text>
 
   <rect x="390" y="780" width="610" height="165" rx="14" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />

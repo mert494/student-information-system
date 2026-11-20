@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1010" viewBox="0 0 1650 1010" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed instructor grade entry</title>
-  <desc id="description">A proposed FR-06 grade-entry sequence using the existing PUT operation. Authentication, instructor assignment, grade scale, and persistence are unresolved. The missing later retrieval operation is called out.</desc>
+  <desc id="description">A proposed FR-06 sequence using the current PUT operation. Grade's canonical parent is Registration through registrationId as approved per the architecture update request. Instructor read/list path and authorization remain open; no behavior is implemented or tested.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
@@ -17,7 +17,7 @@
   </defs>
   <rect width="1650" height="1010" fill="#f4f7fb" />
   <text class="title" x="42" y="50">UML Sequence — Instructor grade entry (FR-06 / PB-06 proposed)</text>
-  <text class="subtitle" x="42" y="80">Draft SRS scenario mapped to PUT /registrations/{registrationId}/grade; no later instructor grade-read operation exists.</text>
+  <text class="subtitle" x="42" y="80">Grade belongs to Registration via registrationId (Approved); later instructor retrieval remains uncontracted.</text>
 
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
     <path d="M160 200 V920" /><path d="M480 200 V920" /><path d="M800 200 V920" /><path d="M1120 200 V920" /><path d="M1440 200 V920" />
@@ -47,7 +47,7 @@
   <path d="M480 485 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="800" y="473" text-anchor="middle">4. submit grade input (scale/range Pending)</text>
   <path d="M1120 535 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="523" text-anchor="middle">5. check registration / candidate grade state</text>
+  <text class="msg" x="1280" y="523" text-anchor="middle">5. resolve Registration by registrationId (approved parent)</text>
   <path d="M1440 575 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="1280" y="563" text-anchor="middle">6. matching record and constraints [TODO]</text>
 
@@ -70,5 +70,5 @@
   <text class="note" x="967" y="887" text-anchor="middle">Authenticated but unauthorized is declared 403; unauthenticated is 401. These are proposed contract responses,</text>
   <text class="small" x="967" y="914" text-anchor="middle">not verified enforcement. A rejected request must not modify grade data (draft rule; no persistence test run).</text>
   <rect x="350" y="945" width="1235" height="48" rx="9" fill="#f7f9fb" stroke="#c6d2dc" />
-  <text class="small" x="967" y="975" text-anchor="middle">FR-06 also requires later retrieval, but the current API has no instructor grade-read/list operation. GET /grades is for published student grades and does not close this gap.</text>
+  <text class="small" x="967" y="975" text-anchor="middle">FR-06 later read is absent. Recommended option only: GET /course-offerings/{courseOfferingId}/grades; path/response/permissions Open. GET /grades remains student published-only.</text>
 </svg>

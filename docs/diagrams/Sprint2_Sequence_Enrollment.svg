@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1160" viewBox="0 0 1650 1160" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed course enrollment</title>
-  <desc id="description">A proposed sequence for FR-05/PB-05 registration and registration listing using existing API operations. Business rules and authorization remain pending; no behavior is implemented or tested.</desc>
+  <desc id="description">A proposal for FR-05/PB-05 using the existing registration operations, updated to the Product Owner-approved Student/CourseOffering relationship and duplicate-prevention rule. The current OpenAPI still accepts courseId only; its contract alignment and authorization remain open. No behavior is implemented or tested.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
@@ -17,7 +17,7 @@
   </defs>
   <rect width="1650" height="1160" fill="#f4f7fb" />
   <text class="title" x="42" y="50">UML Sequence — Student course enrollment (FR-05 / PB-05 proposed)</text>
-  <text class="subtitle" x="42" y="80">Draft SRS scenario mapped to existing POST /registrations and GET /registrations operations; role mapping and business decisions Pending.</text>
+  <text class="subtitle" x="42" y="80">Approved model: one Student + one CourseOffering per Registration; current request schema mismatch is called out below.</text>
 
   <!-- Lifelines -->
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
@@ -39,7 +39,7 @@
 
   <!-- Request and authorization check -->
   <path d="M160 260 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="320" y="248" text-anchor="middle">1. POST /registrations (RegistrationInput)</text>
+  <text class="msg" x="320" y="248" text-anchor="middle">1. POST /registrations (proposed courseOfferingId)</text>
   <path d="M480 310 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="640" y="298" text-anchor="middle">2. authenticate and check role/record permission</text>
   <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
@@ -52,20 +52,20 @@
   <path d="M480 455 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="800" y="443" text-anchor="middle">4. submit candidate enrollment request</text>
   <path d="M1120 505 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="493" text-anchor="middle">5. check candidate student / offering / term</text>
+  <text class="msg" x="1280" y="493" text-anchor="middle">5. resolve caller Student + CourseOffering</text>
   <path d="M1440 545 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="533" text-anchor="middle">6. data and capacity result [model Pending]</text>
+  <text class="msg" x="1280" y="533" text-anchor="middle">6. verify pair uniqueness; other rules Pending</text>
 
   <rect x="80" y="570" width="1505" height="250" fill="none" stroke="#49677f" stroke-width="2" />
   <path d="M80 600 H1585" stroke="#49677f" stroke-width="2" />
   <text class="frame" x="100" y="592">alt — validation outcome (proposed)</text>
-  <text class="small" x="100" y="625">[All approved eligibility and offering checks pass]</text>
+  <text class="small" x="100" y="625">[Approved Student/CourseOffering links valid; other eligibility checks Pending]</text>
   <path d="M1120 650 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="638" text-anchor="middle">persist one registration (SRS proposal)</text>
+  <text class="msg" x="1280" y="638" text-anchor="middle">create one Registration with studentId + courseOfferingId (logical FKs)</text>
   <path d="M1440 675 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="1280" y="663" text-anchor="middle">accepted; transaction mechanism Pending</text>
   <path d="M80 710 H1585" stroke="#c6d2dc" stroke-width="1.5" />
-  <text class="small" x="100" y="735">[Inactive, closed, duplicate, capacity, or prerequisite rejection; SRS says no write, untested]</text>
+  <text class="small" x="100" y="735">[Duplicate pair rejected (Approved); 409 is current SRS/API proposal, mapping Pending]</text>
   <path d="M1120 765 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="800" y="753" text-anchor="middle">409 Conflict to API; specific error code/message Pending</text>
   <path d="M480 795 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
@@ -88,5 +88,6 @@
   <text class="msg" x="1280" y="1063" text-anchor="middle">12. candidate collection</text>
   <path d="M480 1115 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="320" y="1103" text-anchor="middle">200 Registration[]; own-data filtering Pending</text>
-  <text class="small" x="42" y="1145">All exchanges are proposed contract/SRS mapping only. RegistrationInput uses courseId and untyped optional term/status; offering and transaction details remain unresolved.</text>
+  <rect x="42" y="1128" width="1560" height="27" fill="#fff5dc" />
+  <text class="small" x="52" y="1147">Contract mismatch: current RegistrationInput requires courseId and has no CourseOffering/Term API resource; propose courseOfferingId mapping. Term/ID formats, permissions, transaction mechanism, and physical unique constraint remain Open/Proposed.</text>
 </svg>
