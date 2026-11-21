@@ -2,7 +2,7 @@
 
 **Version:** Draft 0.3  
 **Sprint:** 2  
-**Status:** Working draft; three architecture/product decisions approved by Product Owner; OpenAPI implementation, remaining product decisions, and technical/QA review pending  
+**Status:** Working draft; four architecture/product decisions approved by Product Owner; OpenAPI implementation, remaining product decisions, and technical/QA review pending  
 **Prepared by:** Nurefşan (proposed owner; assignment confirmation pending)  
 **Inputs:** Sprint 1 PB-01–PB-07, System Vision and Boundary, Sprint 2 refinement draft
 
@@ -34,6 +34,8 @@ Out of scope unless explicitly approved: payment processing, payroll, full LMS c
 - **Decision owner:** Arda (Architecture Lead) and the team should validate technical boundary and integration feasibility; Product Owner/team must confirm selected scope. Evidence remains pending review. This section does not replace the Sprint 1 Vision/Boundary document's reserved external-interactions TODO.
 
 ## 2. Stakeholders and System Roles
+
+**Terminology convention:** Use **Course Enrollment** for the user-facing business capability/feature; use **Registration** for the individual persisted enrollment record and `CourseOffering` for the specific course section/branch. Use these entity names consistently in SRS data relationships and API mapping. The current API path `/registrations` is retained as an API-contract name pending Arda's alignment; do not use `Enrollment` and `Registration` interchangeably for the same entity.
 
 **Naming convention:** Stakeholder labels describe groups outside/around the system; system-role labels are the role names used for authorization. Use the system-role names consistently in requirements and permissions: `Student`, `Instructor`, `Student Affairs Staff`, and `Administrators`.
 
@@ -129,11 +131,13 @@ Out of scope unless explicitly approved: payment processing, payroll, full LMS c
 <a id="fr-07-view-own-published-grades"></a>
 ### FR-07 — View own published grades (trace: PB-07)
 **Actor:** Student  
-**Preconditions:** Student authenticated; grade data exists; publication state defined.  
-**Normal scenario:** Student opens grades; system returns only that student's published grades and only authorized fields.  
-**Alternate/error scenarios:** No published grades produces the defined empty state; attempt to access another student's grades via direct request returns 403 with code/message and discloses no protected information.  
-**Acceptance criteria:** Own grades only; unpublished grades hidden; empty state text is `No published grades are available.`; cross-student access denied with 403; successful response contains only authorized information.  
-**Open decisions:** Publication trigger/authority, displayed fields, term/course sorting, grade visibility changes after publication, empty-state wording approval, API mapping.
+**Preconditions:** Student is authenticated and authorized to view their own grades; the grades query has completed successfully. The query may return zero records.  
+**Normal scenario:** Student opens the grades view; the system completes the query and returns only that student's published grades and authorized fields.  
+**Successful empty-result scenario:** If the query completes successfully and returns zero published grades, the system presents the empty state `No published grades are available.` This is a successful result, not a loading state or an error.  
+**Loading state:** While the query is still in progress, the UI presents a loading state and does not present the successful-empty message.  
+**Error scenarios:** If the API/query fails, the system presents a distinct error state and does not present the successful-empty message. An attempt to access another student's grades through a direct request is denied with 403 and does not disclose protected information.  
+**Acceptance criteria:** (1) A successful query with one or more published grades displays only the student's own authorized grades. (2) A successful query returning zero published grades displays `No published grades are available.` (3) An in-progress query displays a loading state, not the empty state. (4) A failed API/query displays a distinct error state, not the empty state. (5) Unpublished grades remain hidden. (6) Cross-student access is denied with 403.  
+**Open decisions:** Publication trigger/authority, displayed fields, term/course sorting, grade visibility changes after publication, empty-state wording approval, exact loading/error presentation and API mapping.
 
 ## 6. Data Requirements and Data Decisions
 
@@ -150,7 +154,7 @@ Out of scope unless explicitly approved: payment processing, payroll, full LMS c
 ## 7. Business Rules
 - BR-01: Only active students may enroll.
 - BR-02: Enrollment requests are accepted only during the configured open period.
-- BR-03: Duplicate registration for the same student and course offering is prohibited. The unique key is `(studentId, courseOfferingId)`.
+- BR-03: A student must not have more than one Registration for the same Course Offering (the specific course section/branch). The pair `(studentId, courseOfferingId)` must be unique. A repeated attempt for the same student and Course Offering must be rejected. The exact API error response remains subject to OpenAPI alignment.
 - BR-04: Course capacity is enforced.
 - BR-05: Prerequisites are enforced where applicable.
 - BR-06: Only an instructor assigned to the course offering may enter its grades.
@@ -172,19 +176,37 @@ These are candidate quality requirements, not approved targets. Ahmet and the te
 - NFR-ACCESS-01 (**OPEN**): Confirm accessibility/usability requirements and test criteria, if applicable to the course scope.
 
 
-## 8.1 Approved architecture and data-model decisions
+## 8.1 Approved architecture and data-model decisions — Product Owner record for PR #43
 
-The Product Owner has approved the following decisions proposed by the Architecture Lead. These decisions are approved at the product/requirements level. Their OpenAPI representation is **TODO — Arda**; do not treat the API contract as updated until the corresponding changes are committed and reviewed.
+The following four product decisions are **APPROVED (PO approval)**. This section is the explicit repository record requested in the review. Approval of a product decision does not mean that Arda has completed its OpenAPI representation or implementation.
 
-1. **Session lifecycle:** JWT includes a `sid` (sessionId) claim. Logout revokes the corresponding server-side session. A revoked session must not authorize subsequent protected requests.
-2. **Registration model:** `Registration` references one `Student` and one `CourseOffering`; `CourseOffering` references one `Course` and one `Term`. Enforce uniqueness on `(studentId, courseOfferingId)`.
-3. **Grade model and instructor retrieval:** `Grade` references one `Registration`. Provide a separate GET operation for authorized Instructor grade retrieval. The exact path, response schema and access scope are API-contract details to be completed by Arda.
+| Decision | Approved product decision | Related SRS trace | Implementation / contract status |
+|---|---|---|---|
+| PD-01 — JWT/session lifecycle | JWT includes a `sid` (`sessionId`) claim. Logout revokes the corresponding server-side session; a revoked session must not authorize subsequent protected requests. | FR-01 / PB-01 | **TODO — Arda:** update and verify OpenAPI token/session/logout contract. Expiry/refresh policy remains **Pending**. |
+| PD-02 — Registration relationships | Each `Registration` references exactly one `Student` and one `CourseOffering`. Each `CourseOffering` references one `Course` and one `Term`. | FR-05 / PB-05 | **TODO — Arda:** map approved relationships into OpenAPI schemas and operations; align `Registration` / `Enrollment` naming. |
+| PD-03 — Duplicate registration per course section | A student must not register more than once for the same `CourseOffering` (the particular course section/branch). The unique pair is `(studentId, courseOfferingId)`. This is the approved rule recorded as **BR-03**. | BR-03; FR-05 / PB-05 | Product rule **Approved**. **TODO — Arda:** represent the constraint and conflict behavior consistently in the API/data contract. Exact HTTP error schema remains **Pending**. |
+| PD-04 — Grade relationship | Each `Grade` references exactly one `Registration`. | FR-06 / PB-06 | Product relationship **Approved**. **TODO — Arda:** reflect it in OpenAPI and define the separate Instructor grade-retrieval GET route, response schema and authorization scope. |
 
-These approvals do not decide credential policy, token expiry/refresh, all enrollment rules, grading policy, or unspecified endpoint details.
+These approvals do not decide credential policy, token expiry/refresh, enrollment dates/capacity/prerequisite/waitlist/withdrawal rules, grading scale/editing/publication policy, or unspecified endpoint details. Those remain **Pending** with the relevant decision owners.
+
+## 8.2 Cross-check against Arda's Sprint 2 architecture proposal (PR #47)
+
+This is a documentation cross-check against the diagrams visible in the open PR #47. The diagrams are proposed architecture evidence; they do not establish that the OpenAPI contract or implementation has been updated, and PR #47 is not treated as merged or approved as a whole.
+
+| PR #47 artifact | What the visible proposal depicts | SRS alignment / remaining boundary |
+|---|---|---|
+| `Sprint2_Domain_Class.svg` | Student, Course, CourseOffering, Term, Registration/Enrollment, Grade and account/role concepts; Registration connects Student and CourseOffering; CourseOffering connects Course and Term; Grade connects to Registration. | Matches PD-02 and PD-04. Treat class diagram as a proposed logical model, not a physical schema or OpenAPI implementation. |
+| `Sprint2_Sequence_Enrollment.svg` | Student submits a registration request; validation and authorization occur; success and conflict branches are shown. | Matches the Course Enrollment flow and PD-02/PD-03. Specific conflict codes/messages, identity source and API schema remain TODO/Pending. |
+| `Sprint2_Sequence_Grade_Entry.svg` | Instructor grade-entry flow references Registration; grade validation and authorization are shown. | Matches Grade → Registration. Instructor retrieval is not finalized by this entry flow; separate GET route/schema/scope remain TODO — Arda. |
+| `Sprint2_Sequence_Published_Grades.svg` | Student requests published grades; successful response branches include records and an empty collection. | Supports FR-07 successful-empty distinction. API/query failure and loading remain separate UI states under FR-07; exact response contract remains to be aligned. |
+| `Sprint2_Sequence_Session_Lifecycle.svg` | JWT bearer/session reference, server-side session validation, logout revocation and replay rejection are depicted. | Matches PD-01 at logical level. The diagram itself notes a contract mismatch; `sid`, logout route/response and protected-operation security still require OpenAPI alignment. |
+| `Sprint2_Container.svg` and `Sprint2_Component.svg` | Proposed frontend/API/backend and logical component responsibilities; deployment/implementation choices remain pending. | Consistent with this SRS being a requirements draft. Do not infer a selected technology, deployed service or completed backend. |
+
+**Scope of PO approval:** PD-01 to PD-04 in Section 8.1 are the only decisions recorded as approved here. This does not approve the entire architecture, role/record authorization matrix, token expiry/refresh, enrollment eligibility policies, grading/publication policies, PATCH policies, OpenAPI alignment, or the SRS/backlog as a whole.
 
 ## 9. OpenAPI contract comparison (repository `develop`)
 
-**Evidence source:** [`api/openapi.yaml`](https://github.com/mert494/student-information-system/blob/develop/api/openapi.yaml), OpenAPI 3.1.0, draft `0.1.0-draft`. This is a repository snapshot; reviewers should compare against the current `develop` version before baselining. The source explicitly says it is proposed and not ready for consumption. The three architecture/data-model decisions below are approved by the Product Owner. The current OpenAPI draft has not yet been updated to evidence them; concrete contract changes are **TODO — Arda**. Remaining policy questions are separately marked **Pending**.
+**Evidence source:** [`api/openapi.yaml`](https://github.com/mert494/student-information-system/blob/develop/api/openapi.yaml), OpenAPI 3.1.0, draft `0.1.0-draft`. This is a repository snapshot; reviewers should compare against the current `develop` version before baselining. The source explicitly says it is proposed and not ready for consumption. The four architecture/data-model decisions below are approved by the Product Owner and explicitly recorded for PR #43 review. The current OpenAPI draft has not yet been updated to evidence them; concrete contract changes are **TODO — Arda**. Remaining policy questions are separately marked **Pending**.
 
 **Implementation status (do not confuse with decision status):**
 - [ ] **TODO — Arda:** add `sid` to the session/token contract and define logout revocation behavior; verify protected-operation security.
@@ -196,26 +218,27 @@ These approvals do not decide credential policy, token expiry/refresh, all enrol
 |---|---|---|---|---|---|
 | OQ-02 | FR-01 / PB-01 | `POST /sessions`, `createSession`, `SignInRequest`, `SessionResponse.sessionId` (lines 44–76, 472–494); global `bearerAuth` JWT (41–42, 439–445); operation has `security: []` | Approved: JWT contains `sid` and logout revokes the server-side session. Arda must align token/session schemas and protected-operation security with this decision; credential policy, expiry and refresh remain open. | Arda + team; PO decision recorded | Product decision approved; OpenAPI update TODO — Arda |
 | OQ-03 | FR-03 / PB-03 | `POST /students`, `createStudent`; `StudentInput.studentNumber`, `StudentInput.fullName` (121–156, 495–517) | SRS candidate data lists firstName/lastName; OpenAPI has fullName and no firstName/lastName. Decide canonical fields, requiredness and studentNumber mutability. | PO + Arda + team | Pending |
-| OQ-05 | FR-05 / PB-05 | `POST /registrations`, `createRegistration`; `RegistrationInput.courseId`, `term`, `status`; only `courseId` required (329–366, 544–570) | Approved: Registration → Student + CourseOffering; CourseOffering → Course + Term; unique `(studentId, courseOfferingId)`. Arda must map the approved model to request/response schemas and resolve whether student identity is derived from the authenticated principal; Enrollment vs Registration terminology must be consistent. | PO + Arda + team | Product decision approved; OpenAPI mapping TODO — Arda |
+| OQ-05 | FR-05 / PB-05 | `POST /registrations`, `createRegistration`; `RegistrationInput.courseId`, `term`, `status`; only `courseId` required (329–366, 544–570) | PD-02 and PD-03 approved: Registration → Student + CourseOffering; CourseOffering → Course + Term; BR-03 prohibits duplicate registration for the same student and CourseOffering using unique `(studentId, courseOfferingId)`. Arda must map the approved model to request/response schemas and resolve whether student identity is derived from the authenticated principal; Enrollment vs Registration terminology must be consistent. | PO + Arda + team | Product decision approved; OpenAPI mapping TODO — Arda |
 | OQ-07 | FR-06/FR-07; PB-06/PB-07 | `PUT /registrations/{registrationId}/grade`, `recordGrade`; `GET /grades`, `listMyPublishedGrades`; `Grade.published` (367–438, 571–600) | Approved: Grade → Registration and a separate GET operation shall support authorized Instructor grade retrieval. Arda must define the route, response schema and instructor assignment scope. The existing student published-grade GET remains distinct; its example has `published: false` and still needs correction/clarification. | Arda + academic stakeholder + team | Product decision approved; OpenAPI mapping TODO — Arda |
 | OQ-12 | FR-03 / PB-03 | `PATCH /students/{studentId}`, `updateStudent`; body `$ref: StudentInput`; responses include 404 (157–195) | Define mutable fields, requiredness, omission/null behavior, unknown/immutable field handling and no-op behavior. | Arda + PO + team | Pending |
 | OQ-13 | FR-04 / PB-04 | `PATCH /courses/{courseId}`, `updateCourse`; body `$ref: CourseInput`; responses include 404 (261–299) | Define mutable fields, requiredness, omission/null behavior, unknown/immutable field handling and no-op behavior. | Arda + PO + team | Pending |
 
-### PATCH scenario matrix — decisions remain Pending
+### PATCH scenario matrix — policies remain Pending where owner decision is required
 
-The OpenAPI draft defines PATCH routes but does not define dedicated patch schemas or omission/null semantics. The following are test cases to be decided, not assumed system behavior.
+The OpenAPI draft defines PATCH routes but does not define dedicated patch schemas or omission/null semantics. These are distinct scenarios; listing them does not pre-approve a response policy.
 
-| Case | Student test | Course test | Expected result |
+| Case | Student PATCH scenario | Course PATCH scenario | Policy / expected result |
 |---|---|---|---|
-| Missing target | Unknown `studentId` | Unknown `courseId` | OpenAPI lists 404 NotFound; confirm error envelope/code and no creation side effect. Pending OQ-08. |
-| Omitted field | Send only one proposed field | Send only one proposed field | Decide whether omitted fields remain unchanged. Pending OQ-12/OQ-13. |
-| Explicit null | Send candidate field as `null` | Send candidate field as `null` | Decide whether null clears nullable field or is rejected. Pending. |
-| Immutable field | Include identifier/field later declared immutable | Include identifier/field later declared immutable | Decide reject vs ignore and error mapping. Pending. |
-| Unknown field | Include undeclared property | Include undeclared property | Decide reject vs ignore; current input schemas do not set `additionalProperties: false`. Pending. |
-| Same value / duplicate update | Submit the same current value twice, including a repeated identical request | Submit the same current value twice, including a repeated identical request | Decide whether identical repeat is accepted as no-op, whether it creates duplicate side effects, and whether audit metadata changes. Pending OQ-12/OQ-13. |
-| Invalid value | Submit invalid candidate value | Submit invalid candidate value | Reject without partial unintended persistence; exact validation/error mapping pending. |
+| Missing target | PATCH an unknown `studentId` | PATCH an unknown `courseId` | OpenAPI lists 404 NotFound. Confirm error envelope/code and ensure no record is created. Pending OQ-08. |
+| Unique-value collision | Change `studentNumber` to a value already used by another student (if mutable) | Change a unique course field (for example `courseCode`, if unique at the approved scope) to a value already used by another course | Must be distinguished from a repeated request. Decide conflict response/code and field-level message; reject without overwriting the other record. Pending OQ-12/OQ-13 and uniqueness-scope decisions. |
+| Omitted field | Send only one mutable candidate field; omit another existing field | Same | Decide whether omitted fields remain unchanged. Pending OQ-12/OQ-13. |
+| Explicit null | Send a candidate field explicitly as `null` | Same | Decide per-field whether null clears a nullable value or is rejected; do not treat null as omission without an explicit rule. Pending. |
+| Immutable field | Include an identifier or field declared immutable | Same | Decide whether request is rejected or field ignored; define validation/error mapping. Pending. |
+| Unknown field | Include an undeclared property | Same | Decide reject vs ignore; current input schemas do not set `additionalProperties: false`. Pending. |
+| Same-value no-op | Set a field to its current value | Same | Decide whether accepted as a successful no-op and whether `updatedAt`/audit data changes. This is not the same as a repeated state-changing request. Pending. |
+| Repeated state-changing submission | Submit the same state-changing PATCH request again after the first submission changed the resource | Same | Keep distinct from a same-value no-op: decide whether the repeated request is idempotent, whether side effects/audit events repeat, and whether an idempotency mechanism is required. Pending. |
+| Invalid value | Submit an invalid candidate value | Same | Reject without partial unintended persistence; exact validation/error mapping pending. |
 | Unauthorized caller | Unauthenticated / insufficient role | Unauthenticated / insufficient role | OpenAPI lists 401/403; confirm role matrix and response contract. Pending OQ-01/OQ-08. |
-
 
 ## 10. Traceability Matrix (SRS ↔ Product Backlog)
 
@@ -225,7 +248,7 @@ The OpenAPI draft defines PATCH routes but does not define dedicated patch schem
 | FR-02 | Authorization | PB-02 | P1 | 5 |
 | FR-03 | Student records | PB-03 | P1 | 5 |
 | FR-04 | Course records | PB-04 | P1 | 5 |
-| FR-05 | Enrollment | PB-05 | P1 | 8 |
+| FR-05 | Course Enrollment | PB-05 | P1 | 8 |
 | FR-06 | Instructor grades | PB-06 | P2 | 8 |
 | FR-07 | Published grades for student | PB-07 | P2 | 3 |
 
@@ -236,18 +259,18 @@ The entries below are open proposals, not approved decisions. When an item is cl
 | ID | Question | Owner to consult | Status | Decision / evidence |
 |---|---|---|---|---|
 | OQ-01 | Final role-to-operation and role-to-data matrix | Product Owner + Arda + team | Open | Pending |
-| OQ-02 | Authentication method, session/token policy, credential controls | Arda/team | Product decision approved; OpenAPI mapping TODO — Arda. Expiry/refresh policy remains Pending. |
+| OQ-02 | Authentication method, session/token policy, credential controls | Arda / Architecture Lead; Product Owner for product policy | Partially decided | **Approved by PO:** JWT carries `sid`; logout revokes the corresponding server-side session. **TODO — Arda:** align token/session/logout schema, route and protected-operation security in OpenAPI. Credential policy, expiry/refresh, exact route and response remain **Pending**. Evidence: PR #47 session-lifecycle proposal; contract mismatch remains explicitly noted. |
 | OQ-03 | Student required fields/status values and authoritative source | Product Owner + team | Open | Pending |
 | OQ-04 | Course fields and course-code uniqueness scope | Product Owner + team | Open | Pending |
-| OQ-05 | Enrollment period dates/timezone and configuration authority; Registration/CourseOffering mapping | University policy stakeholder + team | Product decision approved; OpenAPI mapping TODO — Arda. Enrollment policy remains Pending. |
+| OQ-05 | Enrollment period dates/timezone and configuration authority; Registration/CourseOffering mapping | Product Owner; University policy stakeholder; Arda / team for API mapping | Partially decided | **Approved by PO:** Registration → Student + CourseOffering; CourseOffering → Course + Term; BR-03 prohibits duplicate Registration for the same student and CourseOffering using unique `(studentId, courseOfferingId)`. **TODO — Arda:** map to OpenAPI schemas/operations and resolve authenticated-student identity source. Enrollment dates/timezone, configuration authority, capacity, prerequisites, waitlist, withdrawal and error contract remain **Pending**. Evidence: PR #47 class/enrollment sequence proposals. |
 | OQ-06 | Capacity, waitlist, prerequisite rules and race-condition behavior | Product Owner + Arda/team | Open | Pending |
-| OQ-07 | Grade scale, precision, grade editing and publication policy; Grade relationship and Instructor read operation | Academic stakeholder + team | Product decision approved; Instructor GET API mapping TODO — Arda. Grading/publication rules remain Pending. |
+| OQ-07 | Grade scale, precision, grade editing and publication policy; Grade relationship and Instructor read operation | Product Owner; academic stakeholder; Arda / team for API mapping | Partially decided | **Approved by PO:** Grade → Registration. **TODO — Arda:** define a separate Instructor grade-retrieval GET route, response schema and authorization scope in OpenAPI. Grading scale, precision, editing, publication authority, student published-grade query contract and Instructor access scope remain **Pending**. Evidence: PR #47 grade-entry/published-grade sequence proposals. |
 | OQ-08 | API error-code names and error response schema | Arda | Open | Pending |
 | OQ-09 | Data ownership, classification, retention and audit trail | Team/QA | Open | Pending |
 | OQ-10 | Measurable performance, availability and recovery targets | Ahmet + team | Open | Pending |
 | OQ-11 | Confirm external actors/systems/interactions | Arda/team | Open | Pending |
-| OQ-12 | Student PATCH mutable fields, omission/null/unknown/immutable field and no-op behavior | Arda + PO + team | Open | Pending |
-| OQ-13 | Course PATCH mutable fields, omission/null/unknown/immutable field and no-op behavior | Arda + PO + team | Open | Pending |
+| OQ-12 | Student PATCH: unique-value collision, repeated state-changing submission, same-value no-op, omitted/null/immutable/unknown fields | Arda + PO + team | Open | Pending |
+| OQ-13 | Course PATCH: unique-value collision, repeated state-changing submission, same-value no-op, omitted/null/immutable/unknown fields | Arda + PO + team | Open | Pending |
 
 ## 12. Review and Evidence Tracker
 

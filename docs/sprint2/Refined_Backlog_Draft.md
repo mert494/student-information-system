@@ -12,7 +12,7 @@
 | Epic | Feature | User Story | Supporting tasks | SRS / BR / NFR / OQ | Status |
 |---|---|---|---|---|---|
 | Identity & Access | Authentication/session lifecycle | PB-01 | T-06, T-07, T-09 | [FR-01](SRS_Draft.md#fr-01-authenticate-user); NFR-SEC-03; OQ-02 | Proposed/Pending |
-| Identity & Access | Role and record authorization | PB-02 | T-01, T-07, T-08, T-09 | [FR-02](SRS_Draft.md#fr-02-enforce-role-and-record-authorization); BR-08; NFR-SEC-01/02; OQ-01 | Proposed/Pending |
+| Identity & Access | Role and record authorization | PB-02 | T-01, T-07, T-08, T-09 | [FR-02](SRS_Draft.md#fr-02-enforce-role-and-record-authorization); BR-08; NFR-SEC-01, NFR-SEC-02; OQ-01 | Proposed/Pending |
 | Student Affairs | Student record lifecycle | PB-03 | T-02, T-07, T-08, T-09 | [FR-03](SRS_Draft.md#fr-03-create-list-and-update-student-records); BR-09; NFR-DATA-01; OQ-03/12 | Proposed/Pending |
 | Course Catalog | Course record lifecycle | PB-04 | T-03, T-07, T-08, T-09 | [FR-04](SRS_Draft.md#fr-04-create-and-update-course-records); BR-09; NFR-DATA-01; OQ-04/13 | Proposed/Pending |
 | Course Enrollment | Registration and eligibility | PB-05 | T-04, T-07, T-08, T-09 | [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments); BR-01–05/09; NFR-DATA-01; OQ-05/06/08 | Proposed/Pending |
@@ -36,6 +36,16 @@ The Product Owner has approved the Architecture Lead's three proposals. They are
 - **PB-05:** Registration references Student and CourseOffering; CourseOffering references Course and Term; `(studentId, courseOfferingId)` is unique.
 - **PB-06:** Grade references Registration; a separate GET operation supports authorized Instructor grade retrieval. Arda must specify the route, response schema and authorization scope in OpenAPI.
 
+### Alignment note — Arda's PR #47 architecture proposal
+
+The PR #47 diagrams are treated as proposed logical/sequence evidence only (PR #47 remains open in the screenshots reviewed). The class diagram is consistent with the approved Registration–Student/CourseOffering, CourseOffering–Course/Term and Grade–Registration relationships. Enrollment, grade-entry, published-grade and session-lifecycle sequence diagrams provide candidate flows. They do **not** prove that the OpenAPI contract is aligned or that implementation is complete. In particular:
+- **TODO — Arda:** align `sid`, logout route/response and protected-operation security in OpenAPI; the session diagram itself flags a contract mismatch.
+- **TODO — Arda:** map Registration/CourseOffering relationships and `(studentId, courseOfferingId)` uniqueness into API/data-contract definitions; exact conflict response remains Pending.
+- **TODO — Arda:** define the separate Instructor grade GET route, response schema and authorization scope.
+- **Pending:** expiry/refresh, role/record authorization, enrollment eligibility/capacity/prerequisites/waitlist/withdrawal, grading/publication policies and PATCH semantics.
+
+These four PO decisions do not constitute approval of the full architecture, OpenAPI contract, SRS, backlog or Sprint commitment.
+
 ## Backlog summary
 
 | PB | Epic | User story | Priority | SP | SRS trace | Dependency | Owner status |
@@ -44,7 +54,7 @@ The Product Owner has approved the Architecture Lead's three proposals. They are
 | PB-02 | Identity & Access | As Student Affairs Staff, I want role-based access restrictions to be enforced so that each user can perform only authorized operations and access permitted data. | P1 Proposed | 5 Proposed | [FR-02](SRS_Draft.md#fr-02-enforce-role-and-record-authorization) | PB-01; permission matrix | Owner: TBD (technical reviewer: Arda) |
 | PB-03 | Student Affairs | As authorized Student Affairs Staff, I want to create, list, and update student records so that student information can be maintained accurately. | P1 Proposed | 5 Proposed | [FR-03](SRS_Draft.md#fr-03-create-list-and-update-student-records) | PB-02; student data decisions | Owner: TBD |
 | PB-04 | Course Catalog | As authorized Student Affairs Staff, I want to create and update course records so that course information can be maintained. | P1 Proposed | 5 Proposed | [FR-04](SRS_Draft.md#fr-04-create-and-update-course-records) | PB-02; course data decisions | Owner: TBD |
-| PB-05 | Enrollment | As a Student, I want to enroll in eligible courses and view my enrollments so that I can plan and track my studies. | P1 Proposed | 8 Proposed | [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments) | PB-03, PB-04; enrollment rules | Owner: TBD (business-rule refinement support: Product Owner) |
+| PB-05 | Course Enrollment | As a Student, I want to enroll in eligible courses and view my enrollments so that I can plan and track my studies. | P1 Proposed | 8 Proposed | [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments) | PB-03, PB-04; enrollment rules | Owner: TBD (business-rule refinement support: Product Owner) |
 | PB-06 | Grade Management | As an Instructor, I want to enter and update grades for students in courses assigned to me so that I can maintain course results. | P2 Proposed | 8 Proposed | [FR-06](SRS_Draft.md#fr-06-enter-or-update-grades-for-assigned-courses) | PB-02, PB-05; instructor/course assignment; grading policy | Owner: TBD (review support: Product Owner/QA) |
 | PB-07 | Grade Management | As a Student, I want to view my published grades so that I can monitor my academic progress. | P2 Proposed | 3 Proposed | [FR-07](SRS_Draft.md#fr-07-view-own-published-grades) | PB-06; publication policy | Owner: TBD |
 
@@ -117,7 +127,7 @@ The Product Owner has approved the Architecture Lead's three proposals. They are
 **Acceptance Criteria:**
 1. Only active students may enroll and only during the configured enrollment period.
 2. Each Registration references one Student and one CourseOffering; each CourseOffering references one Course and one Term.
-3. `(studentId, courseOfferingId)` is unique; a duplicate registration is rejected with 409 Conflict and a defined error code.
+3. **BR-03 — APPROVED (PO approval):** a student must not register more than once for the same Course Offering (the specific course section/branch); `(studentId, courseOfferingId)` is unique. A duplicate attempt is rejected. The exact API error code/response schema remains Pending OpenAPI alignment.
 4. Enrollment outside the enrollment period is rejected with 409 Conflict and a defined error code.
 5. A Student can view only their own registration records.
 6. Course capacity and applicable prerequisites are checked; a failed condition returns 409 Conflict with a specific code and message identifying the condition.
@@ -125,8 +135,11 @@ The Product Owner has approved the Architecture Lead's three proposals. They are
 8. Rejected requests create or modify no registration record.
 9. Successful requests create exactly one Registration and it appears in the student's own registration list.
 10. Arda updates the OpenAPI schemas/operations to represent the approved relationships and unique pair (**TODO — Arda**); API mapping is not complete until reviewed.
-**Business Rules:** Active status required; period enforced; capacity and prerequisites checked; duplicate `(studentId, courseOfferingId)` prohibited. Registration → Student + CourseOffering; CourseOffering → Course + Term. University Management stakeholder is responsible for enrollment dates, but role/configuration authority needs team confirmation.  
+**Business Rules:** Active status required; period enforced; capacity and prerequisites checked; **BR-03 (APPROVED, PO):** duplicate registration for the same student and Course Offering/section is prohibited by unique `(studentId, courseOfferingId)`. Registration → Student + CourseOffering; CourseOffering → Course + Term. University Management stakeholder is responsible for enrollment dates, but role/configuration authority needs team confirmation.  
 **Dependencies:** PB-03 and PB-04; enrollment data and rule decisions. **Trace:** FR-05.
+### PB-05 approved product rule — BR-03
+**APPROVED (PO approval):** A student must not have more than one Registration for the same Course Offering (the specific course section/branch). The unique pair is `(studentId, courseOfferingId)`. Arda's OpenAPI/data-contract representation and exact conflict response are **TODO — Arda**; API implementation is not yet evidenced.
+
 ## PB-06 — Instructor Grade Entry
 **Epic:** Grade Management  
 **Story:** As an Instructor, I want to enter and update grades for students in courses assigned to me so that I can maintain course results.  
@@ -151,30 +164,48 @@ The Product Owner has approved the Architecture Lead's three proposals. They are
 **Acceptance Criteria:**
 1. A Student can view only their own published grades.
 2. Unpublished grades are not visible to the student.
-3. If there are no published grades, display `No published grades are available.`
-4. Direct API requests for another student's grades return 403 Forbidden with code/message and disclose no protected information.
-5. Successful results include only authorized grade information.
-6. Publication policy and returned fields are documented.
-**Dependencies:** PB-06 and publication policy. **Trace:** FR-07.
+3. After the grades query completes successfully, if it returns zero published grades, display `No published grades are available.` This is a successful empty result.
+4. While the query is in progress, show a loading state; do not show the successful-empty message.
+5. If the API/query fails, show a distinct error state; do not show the successful-empty message.
+6. Direct API requests for another student's grades are denied with 403 and disclose no protected information.
+7. Successful non-empty results include only authorized grade information.
+8. Publication policy and returned fields are documented.
+**Dependencies:** PB-06 and publication policy. **Trace:** FR-07. The successful-empty, loading, and API-error states must remain distinct.
 
 ## Supporting refinement tasks and parent links
 
 | Task | Parent Epic / Feature | Parent PB / FR | Deliverable | Dependencies | Related OQ | BR / NFR | Owner / Status |
 |---|---|---|---|---|---|---|---|
-| T-01 | Identity & Access / Role authorization | PB-02 / FR-02 | Confirm role-to-operation and role-to-data matrix | T-06; team role model | OQ-01 | BR-08; NFR-SEC-01/02 | PO/Arda/team; Pending |
-| T-02 | Student Affairs / Student lifecycle | PB-03 / FR-03 | Approve Student fields, statuses and validation | T-07 API review | OQ-03/OQ-12 | BR-09; NFR-DATA-01 | PO/team; Pending |
-| T-03 | Course Catalog / Course lifecycle | PB-04 / FR-04 | Approve Course fields and uniqueness scope | T-07 API review | OQ-04/OQ-13 | BR-09; NFR-DATA-01 | PO/team; Pending |
+| T-01 | Identity & Access / Role authorization | PB-02 / FR-02 | Confirm role-to-operation and role-to-data matrix | T-06; team role model | OQ-01 | BR-08; NFR-SEC-01, NFR-SEC-02 | PO/Arda/team; Pending |
+| T-02 | Student Affairs / Student lifecycle | PB-03 / FR-03 | Approve Student fields, statuses, uniqueness scope, and PATCH policies: unique-value collision, repeated state-changing submission, same-value no-op, omitted/null/immutable/unknown fields | T-07 API review | OQ-03/OQ-12 | BR-09; NFR-DATA-01 | PO/team; Pending |
+| T-03 | Course Catalog / Course lifecycle | PB-04 / FR-04 | Approve Course fields and uniqueness scope, and PATCH policies: unique-value collision, repeated state-changing submission, same-value no-op, omitted/null/immutable/unknown fields | T-07 API review | OQ-04/OQ-13 | BR-09; NFR-DATA-01 | PO/team; Pending |
 | T-04 | Course Enrollment / Eligibility | PB-05 / FR-05 | Implement approved Registration–Student/CourseOffering and CourseOffering–Course/Term relationships and unique pair; confirm dates, capacity, prerequisites, waitlist/withdrawal and error mapping | T-02, T-03, T-07 | OQ-05/OQ-06/OQ-08 | BR-01–05/09; NFR-DATA-01 | Arda: OpenAPI mapping TODO; PO-approved data model; remaining policy Pending |
 | T-05 | Grade Management / Entry and publication | PB-06/PB-07 / FR-06/FR-07 | Implement Grade–Registration relationship and separate Instructor grade GET operation; confirm grading scale, precision, editing and publication rules | T-04, T-07 | OQ-07 | BR-06/07/09; NFR-AUD-01 (OPEN) | Arda: Instructor GET/OpenAPI mapping TODO; PO-approved relationship; grading policy Pending |
 | T-06 | Identity & Access / Authentication | PB-01 / FR-01 | Implement approved JWT `sid` claim and server-side session revocation on logout; confirm expiry/refresh and account lifecycle | OpenAPI contract review | OQ-02 | NFR-SEC-03 | Arda: OpenAPI sid/logout mapping TODO; expiry/refresh Pending |
-| T-07 | Cross-cutting / API contract alignment | PB-01–PB-07 / FR-01–FR-07 | Arda reviews operation/schema/requirement consistency | SRS/API draft available | OQ-02/05/07 (product decisions approved; OpenAPI mapping TODO), remaining OQs pending | Applicable BR/NFR per story | Arda; TODO — update OpenAPI and provide contract evidence |
-| T-08 | Cross-cutting / QA and testability | PB-01–PB-07 / FR-01–FR-07 | Ahmet reviews positive/negative cases, PATCH matrix and measurable NFRs | T-07; decision outcomes as available | OQ-01–13 | Applicable BR/NFR per story | Ahmet; Pending |
+| T-07 | Cross-cutting / API contract alignment | PB-01–PB-07 / FR-01–FR-07 | Arda reviews operation/schema/requirement consistency | SRS/API draft available | OQ-02/05/07 (PD-01 to PD-04 approved; OpenAPI mapping TODO), remaining OQs pending | Applicable BR/NFR per story | Arda; TODO — update OpenAPI and provide contract evidence |
+| T-08 | Cross-cutting / QA and testability | PB-01–PB-07 / FR-01–FR-07 | Ahmet reviews positive/negative cases, including separate PATCH tests for unique-value collision, repeated state-changing submission, same-value no-op, omitted/null/immutable/unknown fields; also reviews FR-07 successful-empty vs loading/API-error states and measurable NFRs | T-07; decision outcomes as available | OQ-01–13 | Applicable BR/NFR per story | Ahmet; Pending |
 | T-09 | Cross-cutting / Estimation and commitment | PB-01–PB-07 / FR-01–FR-07 | Team estimates stories and records owner/commitment evidence | T-01–T-08 refinement inputs | All applicable OQs | All applicable BR/NFR | Team; Pending |
 
 ## Definition of Ready / Refinement checks
 Before a story is selected for implementation, the team should confirm: (a) the actor and outcome are understood; (b) acceptance criteria are observable and testable; (c) dependencies and open business/technical decisions are identified; (d) data and permission impacts are understood; (e) the story is estimated by the team; and (f) an owner is assigned by agreement. These checks are proposed team practice, not an existing approved project rule.
 
+### PATCH review coverage — policy decisions remain Pending
+
+| Scenario | Student PATCH | Course PATCH | Status |
+|---|---|---|---|
+| Unique-value collision | Change a mutable unique student field to a value already held by another student | Change a field unique at the approved course scope to another course's value | Pending policy/error contract |
+| Repeated state-changing request | Repeat an identical request after its first submission changed the resource | Same | Pending idempotency/side-effect policy |
+| Same-value no-op | Set a field to its existing value | Same | Pending no-op and audit/update timestamp policy |
+| Omitted field | Omit an otherwise mutable field | Same | Pending omission semantics |
+| Explicit null | Send null for a candidate field | Same | Pending nullable-field policy |
+| Immutable field | Include an immutable field | Same | Pending reject/ignore policy |
+| Unknown field | Include an undeclared field | Same | Pending reject/ignore policy |
+
+These are distinct test scenarios. A unique-value collision means another record already owns the requested value; a repeated state-changing submission repeats a request that previously changed the resource; a same-value update sets the current value and may be a no-op. Do not combine these cases. No status code, reject/ignore behavior, idempotency guarantee or audit side effect is approved here. See SRS OQ-12/OQ-13; Arda/PO/team decisions are required before acceptance behavior is baselined.
+
 ## Traceability and deferred items
+
+**Terminology convention:** `Course Enrollment` names the business capability/feature; `Registration` names the persisted enrollment record; `CourseOffering` names the specific course section/branch. Use these terms consistently. The API path `/registrations` is a contract name pending Arda's alignment; do not use `Enrollment` and `Registration` as interchangeable entity names.
 
 ### Forward traceability (SRS requirement → backlog)
 
@@ -184,7 +215,7 @@ Before a story is selected for implementation, the team should confirm: (a) the 
 | [FR-02](SRS_Draft.md#fr-02-enforce-role-and-record-authorization) | PB-02 | Authorization story covers the requirement | Proposed; review pending |
 | [FR-03](SRS_Draft.md#fr-03-create-list-and-update-student-records) | PB-03 | Student record management story covers the requirement | Proposed; review pending |
 | [FR-04](SRS_Draft.md#fr-04-create-and-update-course-records) | PB-04 | Course record management story covers the requirement | Proposed; review pending |
-| [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments) | PB-05 | Enrollment story covers the requirement | Proposed; review pending |
+| [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments) | PB-05 | Course Enrollment story covers the requirement | Proposed; review pending |
 | [FR-06](SRS_Draft.md#fr-06-enter-or-update-grades-for-assigned-courses) | PB-06 | Instructor grade-entry story covers the requirement | Proposed; review pending |
 | [FR-07](SRS_Draft.md#fr-07-view-own-published-grades) | PB-07 | Student published-grade viewing story covers the requirement | Proposed; review pending |
 
@@ -210,14 +241,17 @@ Before a story is selected for implementation, the team should confirm: (a) the 
 | Separate mobile application | Deferred | No separate mobile deliverable is currently assumed | Approved scope change |
 | External integrations | Unconfirmed / not committed | No integration contract or external system is confirmed in draft inputs | Architecture review and explicit scope decision |
 
-### Approved decisions vs. outstanding implementation
+### Approved Product Owner decisions vs. outstanding implementation — PR #43 record
 
-| Item | Product decision | Outstanding work | Status |
-|---|---|---|---|
-| Session model (PB-01) | JWT `sid`; logout revokes server-side session | Arda updates and verifies OpenAPI token/session/logout contract | Approved / TODO — Arda |
-| Registration model (PB-05) | Registration → Student + CourseOffering; CourseOffering → Course + Term; unique `(studentId, courseOfferingId)` | Arda maps relationships and uniqueness into OpenAPI schemas/operations; student identity source still needs contract confirmation | Approved / TODO — Arda; identity mapping Pending |
-| Grade model (PB-06) | Grade → Registration; separate Instructor grade GET | Arda defines route, response schema and instructor authorization scope | Approved / TODO — Arda |
-| Other enrollment/grading/authorization/PATCH policies | Not decided by these three approvals | Obtain relevant PO/team/academic/QA decisions | Pending |
+The four decisions below are **APPROVED (PO approval)**. This is the explicit decision record requested by the reviewer. Approval does not imply that the OpenAPI contract or implementation has already been updated.
+
+| Decision | Product decision | Backlog / SRS trace | Outstanding work | Status |
+|---|---|---|---|---|
+| PD-01 — JWT/session | JWT contains `sid`; logout revokes the corresponding server-side session. | PB-01 / FR-01 | Arda updates and verifies OpenAPI token/session/logout contract. Expiry/refresh remains undecided. | **APPROVED (PO); TODO — Arda** |
+| PD-02 — Registration relationships | Registration → Student + CourseOffering; CourseOffering → Course + Term. | PB-05 / FR-05 | Arda maps relationships to OpenAPI schemas/operations; confirm student identity source and consistent Registration/Enrollment naming. | **APPROVED (PO); TODO — Arda** |
+| PD-03 — Duplicate per section | A student may have only one Registration for the same CourseOffering/section; unique `(studentId, courseOfferingId)`. Recorded as SRS BR-03. | PB-05 / FR-05 / BR-03 | Arda represents uniqueness and conflict response in API/data contract; exact error code/schema remains Pending. | **APPROVED (PO); TODO — Arda** |
+| PD-04 — Grade relationship | Grade → Registration. | PB-06 / FR-06 | Arda reflects relationship in OpenAPI and defines separate Instructor grade GET route, response schema and authorization scope. | **APPROVED (PO); TODO — Arda** |
+| Other enrollment/grading/authorization/PATCH policies | Not decided by these four approvals. | Relevant PBs / OQs | Obtain remaining PO/team/academic/QA decisions. | **Pending** |
 
 ## Decision, review, and estimation evidence tracker
 
@@ -231,7 +265,7 @@ Before a story is selected for implementation, the team should confirm: (a) the 
 | Sprint commitment | Team | Confirmed selected scope | Pending | TBD |
 
 ## Approval and estimation record
-- Product Owner approval of the three architecture decisions (PB-01, PB-05, PB-06): **Approved**. Overall backlog/sprint-scope approval: **Pending**.
+- Product Owner approval of four architecture/product decisions (PD-01 to PD-04; PB-01, PB-05, PB-06; including BR-03): **Approved**. Overall backlog/sprint-scope approval: **Pending**.
 - Team Story Point estimates: **Pending** (5/5/5/5/8/8/3 are carried forward only as proposed values; re-estimation required).
 - Implementation assignments: **Pending** (no owner is assigned by this draft).
 - Arda API feasibility review: **Pending evidence**.
@@ -243,11 +277,11 @@ Before a story is selected for implementation, the team should confirm: (a) the 
 | PB | SRS requirement | BR | NFR | Open decisions |
 |---|---|---|---|---|
 | PB-01 | [FR-01](SRS_Draft.md#fr-01-authenticate-user) | — | NFR-SEC-03 | OQ-02 (sid/revocation approved; API mapping pending) |
-| PB-02 | [FR-02](SRS_Draft.md#fr-02-enforce-role-and-record-authorization) | BR-08 | NFR-SEC-01/02 | OQ-01/OQ-08 |
-| PB-03 | [FR-03](SRS_Draft.md#fr-03-create-list-and-update-student-records) | BR-09 | NFR-DATA-01; NFR-AUD-01 OPEN | OQ-03/OQ-12 |
-| PB-04 | [FR-04](SRS_Draft.md#fr-04-create-and-update-course-records) | BR-09 | NFR-DATA-01; NFR-AUD-01 OPEN | OQ-04/OQ-13 |
-| PB-05 | [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments) | BR-01–05/09 | NFR-DATA-01; NFR-PERF-01 OPEN | OQ-05 (data model approved; API mapping pending)/OQ-06/OQ-08 |
-| PB-06 | [FR-06](SRS_Draft.md#fr-06-enter-or-update-grades-for-assigned-courses) | BR-06/09 | NFR-SEC-01; NFR-AUD-01 OPEN | OQ-07 (relationship/Instructor GET approved; API mapping pending)/OQ-08 |
+| PB-02 | [FR-02](SRS_Draft.md#fr-02-enforce-role-and-record-authorization) | BR-08 | NFR-SEC-01, NFR-SEC-02 | OQ-01/OQ-08 |
+| PB-03 | [FR-03](SRS_Draft.md#fr-03-create-list-and-update-student-records) | BR-09 | NFR-DATA-01; NFR-AUD-01 (OPEN) | OQ-03/OQ-12 |
+| PB-04 | [FR-04](SRS_Draft.md#fr-04-create-and-update-course-records) | BR-09 | NFR-DATA-01; NFR-AUD-01 (OPEN) | OQ-04/OQ-13 |
+| PB-05 | [FR-05](SRS_Draft.md#fr-05-enroll-in-a-course-and-view-enrollments) | BR-01–05/09 | NFR-DATA-01; NFR-PERF-01 OPEN | OQ-05 (PD-02/PD-03 and BR-03 approved; API mapping pending)/OQ-06/OQ-08 |
+| PB-06 | [FR-06](SRS_Draft.md#fr-06-enter-or-update-grades-for-assigned-courses) | BR-06/09 | NFR-SEC-01; NFR-AUD-01 (OPEN) | OQ-07 (PD-04 relationship approved; Instructor GET API mapping pending)/OQ-08 |
 | PB-07 | [FR-07](SRS_Draft.md#fr-07-view-own-published-grades) | BR-07 | NFR-SEC-02 | OQ-07 |
 
 ## API evidence and decision log
