@@ -468,3 +468,26 @@ All 8 current SVGs downloaded from 5349b12, XML-parsed, freshly rendered at nati
 [CSESSION]: https://github.com/mert494/student-information-system/blob/5349b1295e55625bc00922144d50488a9da00677/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg
 [CCTX]: https://github.com/mert494/student-information-system/blob/5349b1295e55625bc00922144d50488a9da00677/docs/diagrams/Sprint2_System_Context.svg
 [CFLOW]: https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=64-3
+
+## 22 November 2026 — architecture e11a9b2 provisional targeted recheck
+
+**Scope and provenance:** This follow-up summarizes Mert's provided Codex-assisted source/render assessment for [PR #47 at `e11a9b2427d949268f1911703e1df75f50f43a39`](https://github.com/mert494/student-information-system/pull/47). The separate local report and image contact sheets are not checked into the repository, so the rendered observations are attributed to that assessment rather than independently reproduced by this QA matrix editor. Preserve the earlier 63-row `b06ed7b` baseline: **34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED**. No historical row is reclassified by this supplement.
+
+| Existing control | Provisional result | Finding / verification boundary |
+| --- | --- | --- |
+| AR-01 — artifact inventory | PASS candidate | Eight SVGs reportedly parse and render; no acceptance inferred. |
+| AR-02 — C4 boundaries | PASS candidate | Runnable boundaries and backend scope corrected at diagram level. |
+| AR-03 — alignment umbrella | FAIL | Summary of remaining alignment findings, not an additional independent defect. |
+| AR-04 — schema/cardinality | PENDING | Reversed Term and unique-key label corrected; outstanding cardinality/mapping decisions need evidence. |
+| AR-05 — NFR mapping | PASS candidate | Merged SRS, NFR Draft 0.6 and attributed Figma evidence mapped; no PO target approval. |
+| AR-06 — authorization | **FAIL / MAJOR** | Enrollment POST/GET, Grade Entry and Published Grades authorization frames end before domain/data calls; contain allowed calls inside the allow operand and terminate denied paths. Modeling defect, not demonstrated runtime exploit. |
+| AR-07 — published grades | PASS candidate | Successful empty result separated from query/API error. |
+| AR-08 — SVG readability | **FAIL / MINOR** | Container, Component and Class still have occluded labels/multiplicities or a detached Grade dispatch connector, per attributed render review. |
+| AR-09 — dependency | PASS candidate | Grade-to-Registration lookup direction corrected at diagram level. |
+| AR-10 — session lifecycle | **FAIL / MAJOR** | Session creation/JWT/HTTP 200 precede invalid-login branch. Move these into authenticated-success only; failure returns generic 401 without a token/session. Existing replay rejection must remain. |
+
+**Ten-control provisional breakdown: 5 PASS candidates / 4 FAIL / 1 PENDING.** These are the existing AR-01–AR-10 controls, not new matrix rows. Neither these candidate results nor the previous full-matrix totals should be presented as a freshly completed final 63-control recheck.
+
+**Next actions:** Arda repairs AR-06, AR-08 and AR-10 in PR #47; Arda/Nurefşan clarify AR-04 decisions or keep them explicitly Pending. Ahmet independently reviews the final source SHA. Mert then reruns affected AR and cross-deliverable checks in PR #46; #45 independent NFR approval, #44 process evidence and Figma acceptance remain separate gates. [PR #49](https://github.com/mert494/student-information-system/pull/49) has merged as release-preparation documentation (`5de47a20f845c8a016c88b3c10eaf924f175b18a`) without any tag, release, main integration, or Teams submission. This append-only supplement does not change PR #46's DRAFT status.
+
+**Execution boundary:** No new diagram rendering, code/runtime test, usability/accessibility verification, independent approval, final QA acceptance or submission performed in this update.
