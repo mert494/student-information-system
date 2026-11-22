@@ -101,9 +101,9 @@
 
   <rect x="390" y="780" width="610" height="165" rx="14" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
   <text class="body" x="695" y="815" text-anchor="middle">Unresolved architecture decisions</text>
-  <text class="small" x="415" y="848">• Logical split does not select process/service boundaries.</text>
+  <text class="small" x="415" y="848">• Candidate runnable boundaries are proposed only;</text>
   <text class="small" x="415" y="873">• Auth/session, permission policy, persistence model,</text>
-  <text class="small" x="430" y="896">transport, hosting, and deployment all remain Pending.</text>
+  <text class="small" x="430" y="896">process sharing, hosting, and deployment remain Pending.</text>
   <text class="small" x="415" y="925">• FR-06 later instructor grade retrieval has no mapped API operation.</text>
 
   <rect x="390" y="985" width="610" height="82" rx="12" fill="#f7f9fb" stroke="#c6d2dc" />

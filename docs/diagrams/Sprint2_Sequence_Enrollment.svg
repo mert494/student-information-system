@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1270" viewBox="0 0 1650 1270" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed course enrollment</title>
-  <desc id="description">A proposal for FR-05/PB-05 using the existing registration operations, updated to the Product Owner-approved Student/CourseOffering relationship and duplicate-prevention rule. The current OpenAPI still accepts courseId only; its contract alignment and authorization remain open. No behavior is implemented or tested.</desc>
+  <desc id="description">A proposal for FR-05/PB-05 using the existing registration operations, aligned with the Student/CourseOffering relationship and duplicate-prevention rule recorded in merged PR #43 SRS §8.1. The current OpenAPI still accepts courseId only; its contract alignment and authorization remain open. No behavior is implemented or tested.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>

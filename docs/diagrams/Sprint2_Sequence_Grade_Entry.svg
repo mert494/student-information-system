@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1010" viewBox="0 0 1650 1010" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed instructor grade entry</title>
-  <desc id="description">A proposed FR-06 sequence using the current PUT operation. Grade's canonical parent is Registration through registrationId as approved per the architecture update request. Instructor read/list path and authorization remain open; no behavior is implemented or tested.</desc>
+  <desc id="description">A proposed FR-06 sequence using the current PUT operation. Grade's canonical parent is Registration through registrationId as recorded in merged PR #43 SRS §8.1. Instructor read/list path and authorization remain open; no behavior is implemented or tested.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>

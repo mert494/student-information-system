@@ -4,7 +4,7 @@
 
 **Scope:** Issue [#34](https://github.com/mert494/student-information-system/issues/34) only (planning task S2-09). This is a logical architecture and contract-mapping draft, not an implementation or a new API contract.
 
-**Source baselines:** `develop` at `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` (after PR #43 merged); Product Owner decisions in SRS §8.1 at `9a32847c59c47aeb712c93790c995e441517aace`; NFR Draft 0.6 in PR #45 at `f5a545e8f2bf75c5e49e1076291657d4bbcfad70`; and the current branch's OpenAPI at `df477c07c8adfcb37382fc129c26c98c80502bd5`. The SRS/NFR remain drafts overall; no live API or implementation is asserted.
+**Source baselines:** `develop` at `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` (after PR #43 merged); Product Owner decisions in SRS §8.1 at `9a32847c59c47aeb712c93790c995e441517aace`; NFR Draft 0.6 in PR #45 at `f5a545e8f2bf75c5e49e1076291657d4bbcfad70`; and `api/openapi.yaml` at this PR's starting HEAD `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4`. The SRS/NFR remain drafts overall; no live API or implementation is asserted.
 
 ## 1. Decision status and evidence rules
 
@@ -12,9 +12,9 @@
 | --- | --- |
 | **Proposed** | A candidate model, requirement, or choice appears in a draft source or is presented here for review. It is not an approval. |
 | **Pending** | Required owner/team evidence or a decision is absent. Keep dependent mappings provisional. |
-| **Approved** | Limited product decisions explicitly recorded by the Product Owner in merged SRS PR #43, §8.1 / PD-01–PD-04. These do not approve the full SRS, NFR targets, OpenAPI changes, implementation, or broader architecture. |
+| **Approved** | Limited product decisions explicitly recorded by the Product Owner in merged SRS PR #43, §8.1 and cross-referenced below with local architecture labels PD-01–PD-04. These do not approve the full SRS, NFR targets, OpenAPI changes, implementation, or broader architecture. |
 
-The SRS and refined backlog in PR #43 remain Draft 0.3. Their FR, entity, rule, and NFR labels are **provisional traceability identifiers**, not overall accepted requirements. Product Owner decisions PD-01–PD-04 are recorded in the merged SRS §8.1 at [`9a32847`](https://github.com/mert494/student-information-system/blob/9a32847c59c47aeb712c93790c995e441517aace/docs/sprint2/SRS_Draft.md#L175-L183); this is the approval evidence used below. Ahmet's PR #45 NFR Draft 0.6 is Proposed/Open, with no accepted target or runtime result. The traceability and gap-analysis files are planning evidence, not additional approvals.
+The SRS and refined backlog in PR #43 remain Draft 0.3. Their FR, entity, rule, and NFR labels are **provisional traceability identifiers**, not overall accepted requirements. SRS §8.1 at [`9a32847`](https://github.com/mert494/student-information-system/blob/9a32847c59c47aeb712c93790c995e441517aace/docs/sprint2/SRS_Draft.md#L175-L183) records three numbered Product Owner approvals, not four named PD identifiers. For traceability, this document uses local labels PD-01–PD-04: PD-01 maps to SRS decision 1; PD-02 and PD-03 separately map the relationship and uniqueness clauses within SRS decision 2; and PD-04 maps to SRS decision 3. These labels add no decision beyond the cited clauses. Ahmet's PR #45 NFR Draft 0.6 is Proposed/Open, with no accepted target or runtime result. The traceability and gap-analysis files are planning evidence, not additional approvals.
 
 | Decision | Status and boundary |
 | --- | --- |
@@ -73,7 +73,7 @@ PB-02 is cross-cutting and is not represented as an extra operation. The mapping
 
 ## 4. Existing API contract: inputs, outputs, errors, and authorization
 
-Operation details below are transcribed from the current `api/openapi.yaml` in the reviewed branch. The contract remains provisional and is not modified by this task. It labels the root `bearerAuth` requirement Proposed; the JWT Bearer/`sid` behavior described in §1 is Approved per the request but is not fully represented. All operations inherit the root requirement except `createSession`, which explicitly overrides it with `security: []`. That declaration does not supply role-level authorization rules.
+Operation details below are transcribed from `api/openapi.yaml` at PR #47's starting HEAD. The contract remains provisional and is not modified by this task. It labels the root `bearerAuth` requirement Proposed; the JWT Bearer/`sid` behavior described in §1 is Approved per merged SRS §8.1 but is not fully represented. All operations inherit the root requirement except `createSession`, which explicitly overrides it with `security: []`. That declaration does not supply role-level authorization rules.
 
 | Method and path | Operation ID | Declared input | Success output | Declared error responses | Authorization mapping |
 | --- | --- | --- | --- | --- | --- |
@@ -155,7 +155,7 @@ The merged PR #43 SRS and PR #45 NFR Draft 0.6 remain working drafts; all NFR ta
 
 ### 7.1 Technical feasibility assessment — PR #45 NFR Draft 0.6
 
-This review uses PR #45 NFR Draft 0.6 at [`f5a545e`](https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md), merged PR #43 SRS Draft 0.3 at [`6bef5c9`](https://github.com/mert494/student-information-system/blob/6bef5c98327b21249abfd49573f8a2ccdeb705f3/docs/sprint2/SRS_Draft.md), its PO decision record at [`9a32847` §8.1](https://github.com/mert494/student-information-system/blob/9a32847c59c47aeb712c93790c995e441517aace/docs/sprint2/SRS_Draft.md#L175-L183), and the proposed OpenAPI snapshot at [`98f9b5a`](https://github.com/mert494/student-information-system/blob/98f9b5ac41d24fa1139492c52a043e5773f8a6b4/api/openapi.yaml). All NFR targets remain Proposed/Open. The findings are feasibility observations, not approvals or test results; no target was benchmarked.
+This review uses PR #45 NFR Draft 0.6 at [`f5a545e`](https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md), merged PR #43 SRS Draft 0.3 at [`6bef5c9`](https://github.com/mert494/student-information-system/blob/6bef5c98327b21249abfd49573f8a2ccdeb705f3/docs/sprint2/SRS_Draft.md), its PO decision record at [`9a32847` §8.1](https://github.com/mert494/student-information-system/blob/9a32847c59c47aeb712c93790c995e441517aace/docs/sprint2/SRS_Draft.md#L175-L183), and `api/openapi.yaml` at [PR #47's starting HEAD](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/api/openapi.yaml). All NFR targets remain Proposed/Open. The findings are feasibility observations, not approvals or test results; no target was benchmarked.
 
 | NFR / target | Technical assessment against current evidence | Dependencies and clarification before acceptance |
 | --- | --- | --- |
@@ -234,7 +234,7 @@ These editable SVGs are architecture views based on the merged SRS decision reco
 
 | Source | Use and status |
 | --- | --- |
-| `api/openapi.yaml` at reviewed branch source `df477c0` | Existing provisional 12 operations, schemas, responses, bearer/JWT scheme, and server placeholder. Not changed in this task. |
+| `api/openapi.yaml` at PR #47 starting HEAD `1a5b3fe` | Existing provisional 12 operations, schemas, responses, bearer/JWT scheme, and server placeholder. Not changed in this task. |
 | `docs/System_Vision_and_Boundary.md` on `develop` | Candidate roles, system boundary, Sprint 1 external-systems proposal, and pending role permissions. |
 | `docs/Initial_Backlog_Draft.md` on `develop` | PB-01–PB-07 candidate backlog mapping; not treated as approved scope. |
 | `docs/sprint2/Sprint2_Requirements_Traceability.md` | Planning crosswalk from PBs to API and expected architecture/UX coverage; some cells were written before the PR #43 SRS draft existed. |

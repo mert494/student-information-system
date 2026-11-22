@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1180" viewBox="0 0 1700 1180" role="img" aria-labelledby="title description">
   <title id="title">UML candidate SIS domain class diagram</title>
-  <desc id="description">Candidate Student Information System domain model. Registration-to-Student, Registration-to-CourseOffering, CourseOffering-to-Course/Term, and Grade-to-Registration relationships follow Product Owner decisions reported in the architecture update request. Logical foreign-key names, physical keys, ID formats, inverse counts, and unresolved relationships remain proposed or pending.</desc>
+  <desc id="description">Candidate Student Information System domain model. Registration-to-Student, Registration-to-CourseOffering, CourseOffering-to-Course/Term, and Grade-to-Registration relationships follow the limited Product Owner decisions recorded in merged PR #43 SRS §8.1. PD-01–PD-04 are local architecture cross-reference labels, not identifiers used by the SRS. Logical foreign-key names, physical keys, ID formats, inverse counts, and unresolved relationships remain proposed or pending.</desc>
   <defs>
     <marker id="openArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10" fill="none" stroke="#596f82" stroke-width="1.5" /></marker>
     <style>
