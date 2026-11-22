@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1290" viewBox="0 0 1500 1290" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1470" viewBox="0 0 1500 1470" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — approved session lifecycle behavior</title>
   <desc id="description">A logical sequence for public session creation, JWT Bearer with sid linked to a server-side session, logout invalidation, and rejection of a token whose session was invalidated. These behaviors are approved per the architecture update request. Expiry duration, provider, token response contract mapping, and implementation are open or absent.</desc>
   <defs>
@@ -20,7 +20,7 @@
   <text class="subtitle" x="42" y="80">Approved logical behavior per the architecture update request; contract and implementation alignment remain incomplete.</text>
 
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
-    <path d="M160 195 V1190" /><path d="M455 195 V1190" /><path d="M750 195 V1190" /><path d="M1045 195 V1190" /><path d="M1340 195 V1190" />
+    <path d="M160 195 V1360" /><path d="M455 195 V1360" /><path d="M750 195 V1360" /><path d="M1045 195 V1360" /><path d="M1340 195 V1360" />
   </g>
   <g>
     <rect x="45" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
@@ -51,10 +51,13 @@
   <path d="M750 570 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="602" y="558" text-anchor="middle">7. 200 response with session reference + token info</text>
 
-  <rect x="330" y="595" width="820" height="90" rx="9" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
-  <text class="status" x="740" y="625" text-anchor="middle">CONTRACT MISMATCH — align in a separate OpenAPI change</text>
-  <text class="small" x="740" y="651" text-anchor="middle">Current SessionResponse defines `sessionId` only and has no JWT field or `sid` claim description.</text>
-  <text class="small" x="740" y="673" text-anchor="middle">Exact response shape and expiry duration are Open; no provider or token format detail is inferred here.</text>
+  <rect x="330" y="595" width="1120" height="115" rx="9" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
+  <text class="status" x="890" y="622" text-anchor="middle">alt — invalid credentials (declared POST /sessions failure path)</text>
+  <text class="small" x="890" y="648" text-anchor="middle">[Unknown user or wrong password; error details and identical-response criteria Pending]</text>
+  <path d="M1045 672 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="898" y="666" text-anchor="middle">401; create no session and issue no JWT</text>
+  <path d="M750 695 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="602" y="690" text-anchor="middle">401 response to client</text>
 
   <text class="small" x="42" y="730">PROTECTED REQUEST — current bearer declaration is proposed in OpenAPI; `sid` behavior is Approved per this update.</text>
   <path d="M455 780 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
@@ -74,9 +77,20 @@
   <path d="M1045 1120 H1340" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="1192" y="1108" text-anchor="middle">13. mark logical session invalid</text>
   <path d="M750 1170 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="602" y="1158" text-anchor="middle">14. 204; later JWT replay rejected (401 is NFR expectation; mapping Pending)</text>
+  <text class="msg" x="602" y="1158" text-anchor="middle">14. 204 logout response</text>
 
-  <rect x="330" y="1200" width="1120" height="60" rx="9" fill="#f7f9fb" stroke="#c6d2dc" />
-  <text class="small" x="890" y="1225" text-anchor="middle">Approved: invalidated session's token is no longer usable. Expiry duration OPEN; 403 role/record policy and implementation verification remain separate.</text>
-  <text class="small" x="890" y="1248" text-anchor="middle">This is a logical proposal only; no authentication provider, persistence engine, or live API is asserted.</text>
+  <text class="small" x="42" y="1202">REPLAY AFTER LOGOUT</text>
+  <path d="M455 1240 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="1228" text-anchor="middle">15. replay protected request with the prior JWT</text>
+  <path d="M750 1280 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="1268" text-anchor="middle">16. resolve sid and verify session state</text>
+  <path d="M1045 1320 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="898" y="1308" text-anchor="middle">17. session revoked</text>
+  <path d="M750 1355 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="1343" text-anchor="middle">18. reject replay with expected 401 (API mapping Pending)</text>
+
+  <rect x="330" y="1380" width="1120" height="62" rx="9" fill="#f7f9fb" stroke="#c6d2dc" />
+  <text class="small" x="890" y="1404" text-anchor="middle">Approved: an invalidated session's token cannot authorize later protected requests. Expiry duration Pending.</text>
+  <text class="small" x="890" y="1428" text-anchor="middle">Provider, response/claim mapping, role policy, persistence mechanism and runtime verification remain open.</text>
+  <text class="small" x="42" y="1454">OpenAPI mismatch: SessionResponse currently returns only sessionId and omits JWT/sid mapping. No live API is asserted.</text>
 </svg>

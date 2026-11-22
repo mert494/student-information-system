@@ -10,7 +10,7 @@
       .class-name { font-size: 18px; font-weight: 700; }
       .stereo { font-size: 13px; font-style: italic; fill: #536d81; }
       .attr { font-size: 14px; }
-      .edge { font-size: 13px; fill: #425d72; }
+      .edge { font-size: 13px; fill: #29485f; paint-order: stroke; stroke: #f4f7fb; stroke-width: 4px; stroke-linejoin: round; }
       .note { font-size: 14px; }
     </style>
   </defs>
@@ -22,25 +22,27 @@
   <path d="M480 305 H610" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
   <text class="edge" x="545" y="292" text-anchor="middle">assigned role; cardinality Pending</text>
   <path d="M500 655 H650" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="575" y="642" text-anchor="middle">CourseOffering belongs to Course (APPROVED)</text>
+  <text class="edge" x="575" y="518" text-anchor="middle">CourseOffering belongs to Course (APPROVED)</text>
   <text class="edge" x="514" y="674" text-anchor="middle">1</text>
-  <text class="edge" x="632" y="674" text-anchor="middle">0..*</text>
+  <text class="edge" x="632" y="674" text-anchor="middle">0..* (Proposed)</text>
   <path d="M1100 655 H1235" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="1167" y="642" text-anchor="middle">assigned instructor(s); counts Pending</text>
+  <text class="edge" x="1167" y="518" text-anchor="middle">assigned instructor(s) per offering (Proposed)</text>
+  <text class="edge" x="1105" y="674" text-anchor="start">0..* (Pending)</text>
+  <text class="edge" x="1230" y="674" text-anchor="end">1..* (Proposed)</text>
   <path d="M1550 450 H1630 V825 H640 V875" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
   <text class="edge" x="1135" y="812" text-anchor="middle">Registration belongs to Student (APPROVED)</text>
   <text class="edge" x="1570" y="468" text-anchor="middle">1</text>
-  <text class="edge" x="660" y="861" text-anchor="middle">0..*</text>
+  <text class="edge" x="660" y="861" text-anchor="middle">0..* (Proposed)</text>
   <path d="M875 790 V840 H740 V875" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
   <text class="edge" x="820" y="833" text-anchor="middle">Registration belongs to CourseOffering (APPROVED)</text>
   <text class="edge" x="891" y="811" text-anchor="middle">1</text>
-  <text class="edge" x="737" y="858" text-anchor="middle">0..*</text>
+  <text class="edge" x="737" y="858" text-anchor="middle">0..* (Proposed)</text>
   <path d="M875 790 H520 V850 H160 V875" fill="none" stroke="#596f82" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#openArrow)" />
   <text class="edge" x="440" y="840" text-anchor="middle">CourseOffering belongs to Term (APPROVED)</text>
-  <text class="edge" x="900" y="778" text-anchor="middle">1</text>
-  <text class="edge" x="165" y="868" text-anchor="middle">0..* (Proposed)</text>
-  <path d="M850 1015 H950" fill="none" stroke="#a17a2d" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#openArrow)" />
-  <text class="edge" x="900" y="1000" text-anchor="middle">registrationId FK; one Registration per Grade (APPROVED)</text>
+  <text class="edge" x="820" y="815" text-anchor="middle">0..* (Proposed)</text>
+  <text class="edge" x="165" y="868" text-anchor="middle">1</text>
+  <path d="M950 1015 H850" fill="none" stroke="#a17a2d" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#openArrow)" />
+  <text class="edge" x="900" y="1000" text-anchor="middle">PD-04</text>
   <text class="edge" x="862" y="1038" text-anchor="middle">1</text>
 
   <!-- UML candidate classes. -->
@@ -111,7 +113,7 @@
     <text class="attr" x="320" y="972">enrollmentId (SRS) / registrationId (API)</text>
     <text class="attr" x="320" y="999">studentId [logical FK]; courseOfferingId [logical FK]</text>
     <text class="attr" x="320" y="1026">term/status/timestamp: SRS candidates; mapping Open</text>
-    <text class="small" x="320" y="1070">UNIQUE (studentId, courseOfferingId) — Proposed</text>
+    <text class="small" x="320" y="1070">UNIQUE (studentId, courseOfferingId) — Approved (PD-03)</text>
     <text class="small" x="320" y="1100">Belongs to one Student and one CourseOffering (Approved).</text>
   </g>
   <g>
@@ -122,7 +124,7 @@
     <text class="attr" x="970" y="996">registrationId [logical FK; canonical parent Approved]</text>
     <text class="attr" x="970" y="1025">instructorId; value; publication status (SRS)</text>
     <text class="attr" x="970" y="1054">API: untyped value/status; published</text>
-    <text class="small" x="970" y="1080">Published-only Student response (Approved); exact count per Registration Open.</text>
+    <text class="small" x="970" y="1080">Draft FR-07: published-only Student list; not separate PD.</text>
     <text class="small" x="970" y="1107">Instructor read mapping proposed; path/permissions Open.</text>
   </g>
 
@@ -131,12 +133,13 @@
     <rect x="50" y="875" width="220" height="62" rx="8" fill="#fff0c9" stroke="#a17a2d" stroke-width="2" />
     <text class="stereo" x="160" y="896" text-anchor="middle">«candidate»</text>
     <text class="class-name" x="160" y="922" text-anchor="middle">Term</text>
-    <text class="attr" x="65" y="966">termId — logical ID</text>
+    <text class="attr" x="65" y="966">termId — identifier candidate [TODO]</text>
     <text class="small" x="65" y="992">Format and attributes [TODO]</text>
     <text class="small" x="65" y="1020">Term relationship Approved;</text>
     <text class="small" x="65" y="1045">inverse offering count Proposed.</text>
   </g>
 
-  <rect x="40" y="1145" width="1620" height="25" fill="#fff5dc" />
-  <text class="note" x="55" y="1164">Approved links are noted. ID/FK labels are logical candidates, not physical key names or formats; inverse 0..* counts and the proposed unique constraint require confirmation. No database engine/schema is implied.</text>
+  <rect x="40" y="1142" width="1620" height="38" fill="#fff5dc" />
+  <text class="note" x="55" y="1155">PD-02/03/04 links and the unique key are Approved. Inverse counts and grade count per Registration remain Pending.</text>
+  <text class="note" x="55" y="1174">CourseOffering instructor multiplicity is Proposed; inverse counts and physical key names/formats remain Pending. No engine is implied.</text>
 </svg>

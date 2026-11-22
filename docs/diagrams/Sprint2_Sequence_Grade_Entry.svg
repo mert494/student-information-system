@@ -41,9 +41,11 @@
   <text class="msg" x="640" y="303" text-anchor="middle">2. authenticate; check role and course assignment</text>
   <path d="M800 365 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="640" y="353" text-anchor="middle">3. outcome from approved matrix [TODO]</text>
-  <rect x="350" y="390" width="850" height="62" rx="8" fill="#fff5dc" stroke="#a17a2d" />
-  <text class="note" x="775" y="415" text-anchor="middle">GradeInput.value has no JSON type, scale, or range. Enrollment, assignment, publication, and</text>
-  <text class="small" x="775" y="438" text-anchor="middle">authorization rules are pending; the request must not write if rejected (proposed SRS rule).</text>
+  <rect x="80" y="380" width="1505" height="86" fill="none" stroke="#a17a2d" stroke-width="2" />
+  <path d="M80 405 H1585" stroke="#a17a2d" stroke-width="1.5" />
+  <text class="frame" x="100" y="399">alt — authorization outcome (role/assignment policy Pending)</text>
+  <text class="small" x="100" y="430">[Allow: authenticated and authorized; GradeInput JSON type/scale/range Pending]</text>
+  <text class="small" x="100" y="453">[Else: return 401/403 to client and stop before Registration query or persistence.]</text>
   <path d="M480 485 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="800" y="473" text-anchor="middle">4. submit grade input (scale/range Pending)</text>
   <path d="M1120 535 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />

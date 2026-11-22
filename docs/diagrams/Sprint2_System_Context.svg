@@ -38,19 +38,19 @@
 
   <rect x="50" y="190" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="actor-title" x="75" y="230">Student</text>
-  <text class="body" x="75" y="260"><tspan x="75">Proposed actor</tspan><tspan x="75" dy="22">Own academic information, enrollment,</tspan><tspan x="75" dy="22">and published-grade interactions.</tspan></text>
+  <text class="body" x="75" y="260"><tspan x="75">Proposed actor</tspan><tspan x="75" dy="22">Candidate student-data/enrollment</tspan><tspan x="75" dy="22">actions; grade visibility Pending.</tspan></text>
 
   <rect x="50" y="450" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="actor-title" x="75" y="490">Instructor</text>
-  <text class="body" x="75" y="520"><tspan x="75">Proposed actor</tspan><tspan x="75" dy="22">Course and grade interactions;</tspan><tspan x="75" dy="22">FR-06 later retrieval remains unmapped.</tspan></text>
+  <text class="body" x="75" y="520"><tspan x="75">Proposed actor</tspan><tspan x="75" dy="22">Candidate course/grade actions;</tspan><tspan x="75" dy="22">permission Pending; FR-06 read open.</tspan></text>
 
   <rect x="1150" y="190" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="actor-title" x="1175" y="230">Administrators</text>
-  <text class="body" x="1175" y="260"><tspan x="1175">Proposed actor</tspan><tspan x="1175" dy="22">Administrative interactions are</tspan><tspan x="1175" dy="22">subject to scope and permission decisions.</tspan></text>
+  <text class="body" x="1175" y="260"><tspan x="1175">Proposed actor</tspan><tspan x="1175" dy="22">Candidate administrative actions;</tspan><tspan x="1175" dy="22">scope and permissions Pending.</tspan></text>
 
   <rect x="1150" y="450" width="300" height="120" rx="14" fill="#ffffff" stroke="#54738c" stroke-width="2" />
   <text class="actor-title" x="1175" y="490">Student Affairs Staff</text>
-  <text class="body" x="1175" y="520"><tspan x="1175">Proposed actor</tspan><tspan x="1175" dy="22">Candidate student, course, and</tspan><tspan x="1175" dy="22">enrollment-related interactions.</tspan></text>
+  <text class="body" x="1175" y="520"><tspan x="1175">Proposed actor</tspan><tspan x="1175" dy="22">Candidate student/course actions;</tspan><tspan x="1175" dy="22">registration access Pending.</tspan></text>
 
   <rect x="505" y="240" width="490" height="360" rx="22" fill="#dcecf8" stroke="#244f73" stroke-width="3" />
   <text class="system-title" x="750" y="290" text-anchor="middle">Student Information System</text>
