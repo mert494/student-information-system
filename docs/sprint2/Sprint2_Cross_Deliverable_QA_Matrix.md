@@ -1,4 +1,4 @@
-> **Current result:** see "Current row-by-row QA snapshot - 22 November 2026" below: 63 controls, 34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED. The original sections immediately below are preserved historical snapshots, not current classifications.
+> **Historical snapshot — 22 November 2026:** the 63-control tally at `b06ed7b` is 34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED. It is NOT a current overall acceptance result. Earlier dated snapshots, tables and totals are preserved below; see the separate latest-audit supplement of 23 November 2026 for scoped source/render rechecks and unresolved gates.
 
 # Sprint 2 Cross-Deliverable QA Matrix - 20 November 2026 Refresh
 
@@ -491,3 +491,94 @@ All 8 current SVGs downloaded from 5349b12, XML-parsed, freshly rendered at nati
 **Next actions:** Arda repairs AR-06, AR-08 and AR-10 in PR #47; Arda/Nurefşan clarify AR-04 decisions or keep them explicitly Pending. Ahmet independently reviews the final source SHA. Mert then reruns affected AR and cross-deliverable checks in PR #46; #45 independent NFR approval, #44 process evidence and Figma acceptance remain separate gates. [PR #49](https://github.com/mert494/student-information-system/pull/49) has merged as release-preparation documentation (`5de47a20f845c8a016c88b3c10eaf924f175b18a`) without any tag, release, main integration, or Teams submission. This append-only supplement does not change PR #46's DRAFT status.
 
 **Execution boundary:** No new diagram rendering, code/runtime test, usability/accessibility verification, independent approval, final QA acceptance or submission performed in this update.
+
+## Latest audit supplement — 23 November 2026 (Europe/Istanbul, UTC+3)
+
+**Scope:** source/render verification for [#38][I38], not final acceptance. The 63-control **34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED** tally belongs to the historical 22 November snapshot at `b06ed7b`. Its rows/totals and the attributed `0713e9a` supplement above are preserved. No fresh overall 63-control total is published and no finding is marked Closed. All statements below apply only to the exact sources and bounded checks identified here.
+
+### Sources and review boundary
+
+| Source | Exact revision checked | Observed status / scope |
+| --- | --- | --- |
+| #46 starting source | `0713e9a6db79df64a0145321d862549545985582` | DRAFT; older Ahmet COMMENTED reviews do not approve this revision or this uncommitted supplement. |
+| #47 architecture document and all eight SVGs | `e11a9b2427d949268f1911703e1df75f50f43a39` | OPEN; [Ahmet's new current-HEAD review][Q23REVIEW] is COMMENTED, not APPROVED. |
+| #45 NFR Draft 0.7 | `412e0d262e9992dfdc43cf4389f5ad63ed755500` | OPEN; no current-HEAD review/independent approval. Compared with Draft 0.6 at `f5a545e8f2bf75c5e49e1076291657d4bbcfad70`. |
+| #43 SRS/backlog | Reviewed source `6bef5c98327b21249abfd49573f8a2ccdeb705f3`; merged `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` | MERGED after Ahmet's documentation APPROVED; limited PD decisions do not approve the entire system, NFRs or contract. |
+| develop / merged #49 | `5de47a20f845c8a016c88b3c10eaf924f175b18a` | #49 merged 22 November 23:41:15 UTC+3; approved source `8e64d96fc200d7e20cec464cfddcd95cc244280a`, Ahmet review 6014110411. |
+| #48 inventory | `321f80667c7eed5da6152d58b1aaabf0d2e67d92` | DRAFT; dated note records #49 and provisional QA; manifest architecture pins remain historical `1a5b3fe`, not final acceptance. |
+
+**Reproduced evidence, separate from attribution:** Mert/Codex fetched the exact Git sources, parsed all eight SVGs with Python ElementTree, checked unique IDs, local marker/ARIA/href references, absence of scripts/external resources, and rendered each with Chrome `157.0.8103.80`, headless, scale factor 1, at the declared viewport. All eight passed these mechanical checks. Fresh renders were pixel-identical to the individually inspected independent-audit renders; native visual inspection had identified the defects below. Render files are temporary and uncommitted. Reproduction: extract each SVG with `git show <exact-SHA>:<path>`; render on a zero-margin HTML page using `--headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=<width>,<height> --screenshot=<output>`; inspect native PNGs and compare text bounds. This establishes source/export evidence, not runtime behavior or independent architecture sign-off.
+
+| Exact SVG at #47 source above | Native viewport | Static validation / visual boundary |
+| --- | --- | --- |
+| [System Context][Q23CTX] | 1500 x 940 | XML/IDs/references/viewport PASS; readable, no permission grants inferred. |
+| [Container][Q23CONT] | 1800 x 1240 | Static PASS; request label obscured by API card (AR-08). |
+| [Component][Q23COMP] | 2000 x 1360 | Static PASS; obscured edge labels and dispatch defects (AR-08 / F23-01). |
+| [Domain/Class][Q23CLASS] | 1700 x 1180 | Static PASS; overlapping/obscured multiplicities and Registration header text (AR-08). |
+| [Enrollment][Q23ENR] | 1650 x 1270 | Static PASS; authorization fragment remains AR-06. |
+| [Grade Entry][Q23GRADE] | 1650 x 1010 | Static PASS; authorization fragment remains AR-06. |
+| [Published Grades][Q23PUB] | 1650 x 1080 | Static PASS; authorization fragment remains AR-06; query failure distinct from empty. |
+| [Session Lifecycle][Q23SESSION] | 1500 x 1470 | Static PASS; replay rejection visible, invalid-login ordering remains AR-10. |
+
+### Reconciled AR-01–AR-10 results (same controls, bounded supplement only)
+
+All ten rows below use #47 `e11a9b2427d949268f1911703e1df75f50f43a39`, rechecked 23 November. Owner: Arda; Mert records QA; unresolved model decisions also require Nurefşan/PO. These results support only the specified source/export scopes. Formal approval remains Pending.
+
+| Existing control | Result / severity | Independently reproduced evidence and disposition |
+| --- | --- | --- |
+| AR-01 artifact inventory | PASS / INFORMATIONAL | One architecture document and eight SVGs retrieved; XML/ID/reference/native viewport checks pass. No semantic/runtime acceptance. |
+| AR-02 C4 boundaries | PASS / INFORMATIONAL | [Container][Q23CONT] L25/67–104 proposes runnable web/API/data-store boundaries; [Component][Q23COMP] L35–38 scopes components inside Backend. This resolves the bounded abstraction wording defect, not dependency correctness (F23-01). |
+| AR-03 alignment umbrella | FAIL / MAJOR | Summary of remaining AR-04/06/10 and F23-01/02 dependencies; not another independent root defect. |
+| AR-04 schema/cardinality | PENDING / MAJOR | [Class][Q23CLASS] L40–43 now places 1 at Term and 0..* at Offering; L116 explicitly records the approved pair key. Inverse/instructor counts and physical/API mapping remain unresolved. Visual multiplicity ambiguity stays AR-08; no new uniqueness decision required. |
+| AR-05 NFR responsibility / baseline mapping | PENDING / MINOR | [Architecture][Q23ARCH] §7/7.1 maps SEC/DATA/PERF/UI control points; security/data/performance methods are unchanged in Draft 0.7. That narrow check passes, but the full control also requires correct baseline mapping: §7.1 still assesses Draft 0.6 and decision provenance remains F23-02. Do not upgrade the full control to PASS by narrowing its scope. Numeric feasibility and approval remain separate gates. |
+| AR-06 authorization rejection | FAIL / MAJOR | [Enrollment][Q23ENR] L47–59 and L85–94, [Grade Entry][Q23GRADE] L43–55, [Published Grades][Q23PUB] L43–55: deny/stop intent exists in text, but frames close before domain/data calls. Place allowed work inside the allow operand and terminate denied paths with client rejection; no downstream query/write. Modeling defect, not demonstrated runtime exploit. |
+| AR-07 Published Grades query failure | PASS / INFORMATIONAL | [Published Grades][Q23PUB] L61–73 explicitly separates nonempty 200, successful 200[] and failed-query 500, consistent with declared API responses. No Figma loading-state or runtime PASS. |
+| AR-08 SVG readability | FAIL / MINOR | [Component][Q23COMP] L43/47/60 labels obscured by cards; [Class][Q23CLASS] L30–31 instructor labels overlap (~42.6 x 15 px), L35/39 collide and L112 touches header; [Container][Q23CONT] L56 label is obscured. Detached Grade stub is also present, but its structural dispatch defect is tracked once as F23-01/MAJOR, not a second root defect. |
+| AR-09 lookup direction | PASS / INFORMATIONAL | [Component][Q23COMP] L59–60 and Grade card: Grade Management calls Enrollment for Registration lookup. This bounded caller/provider correction does not pass all Component dispatch arrows (F23-01). |
+| AR-10 Session Lifecycle | FAIL / MAJOR | [Session][Q23SESSION] L43–60: create sid (step 4), issue JWT (step 6), return 200 (step 7) precede invalid-credentials fragment at y595. Make valid/invalid operands mutually exclusive after authentication; failure must return generic 401 with no session, token or 200. Explicit revoked-token replay/401 is present (L81–90); that subfinding is corrected, not the whole lifecycle. |
+
+**Earlier independent-audit report: 5 bounded PASS / 4 FAIL / 1 PENDING; fresh reconciliation: 4 bounded documentation PASS / 4 FAIL / 2 PENDING / 0 NOT VERIFIED.** AR-01/02/07/09 pass their stated documentation scopes; AR-05's narrow control-point check is supported but its full baseline/provenance scope is Pending in light of the new review and Draft 0.7. Four FAIL controls are not four root defects: AR-03 is an umbrella. These counts exclude the additional scoped findings below and do not replace historical totals. Runtime auth/session/persistence, measured performance, live Figma permissions/history and usability/conformance execution remain NOT VERIFIED or Pending in their original scopes.
+
+### Additional current-HEAD review evidence (not extra AR rows)
+
+[Ahmet's 23 November 00:08:18 UTC+3 COMMENTED review][Q23REVIEW] is new since the preceding audit. Its two MAJORs were checked directly against sources; they are not treated as approval:
+
+- **F23-01 — FAIL / MAJOR, Component dispatch; Arda; #47 `e11a9b2427d949268f1911703e1df75f50f43a39`.** [Component][Q23COMP] L48–49: shared line stops at x1355 but Grade stub starts at x1430; the multi-subpath branch path has only a final marker-end, leaving Student/Course/Enrollment without individual arrowheads in the native render. Extend/connect the line and use a separate correctly directed path per domain branch. This is the structural connector root defect already observed under AR-08, with severity refined by the new review; do not count it twice.
+- **F23-02 — FAIL / MAJOR, decision provenance; Arda; same #47 SHA.** [Architecture][Q23ARCH] L3/7/17/24 and §7.1/§8 cite the older `9a32847` three-numbered-decision excerpt as the merged record and explain PD IDs as local labels. [Merged SRS][Q23SRS] L178–188 explicitly names PD-01–PD-04. Cite reviewed `6bef5c9`/merged baseline, remove the obsolete local-label explanation and cite FR-06 for Instructor GET: PD-04 decision text is Grade→Registration, with GET also in its TODO/status cell. Exact route/schema/scope remain Pending. No additional PO approval is inferred.
+
+Other notes in Ahmet's review (Enrollment return/other 409 cases, class field attribution/footer, background and version wording) remain attributed follow-ups, not freshly passed controls here. The existing [API][Q23API] L433 `published: false` example remains **A-03 FAIL / MAJOR** against draft FR-07. The API blob at #47 and develop is identical (`1b9bd06a84b9191e4b5d2e5c854aed3ada506abf`); sid/token, offering identity and Instructor GET mappings remain A-01/A-02/A-04 Pending. No contract was edited.
+
+### Draft 0.7 delta and PO decisions — separate from architecture approval
+
+Compared `f5a545e` with [Draft 0.7][Q23NFR] at `412e0d262e9992dfdc43cf4389f5ad63ed755500`:
+
+- **N-13 bounded provenance correction verified:** source register now records #43 merged as e265b6d; duplicate-key row no longer calls it unmerged; limitations identify a merged working draft and Draft 0.7; feasibility/tracker now identify e11a9b2's Draft 0.6 assessment and the latest 5349b12 COMMENTED reviews. Historical N-13 FAIL is retained as history, not reasserted as a current verified defect; this correction is not issue closure or document approval.
+- **N-12 tracker delta verified:** scope is decided; prototype removal is unverified. Latest Figma FAILs remain attributed to Ahmet's 22 November static walkthrough. Draft 0.7 does not establish a new Figma test or fix.
+- Security/TLS (§4.1), DATA/concurrency (§4.2) and performance methods (§4.3) are byte-for-byte unchanged. No new regression in those sections was introduced by this delta; no runtime/performance feasibility result is claimed. Architecture §7.1 still explicitly assesses Draft 0.6; reviewing Draft 0.7 is Pending. N-04/N-05 independent technical approval and new-ID adoption remain Pending.
+
+Verified Nurefşan's [PO scope/priority comment][Q23PO] and [prototype removal instruction][Q23SCOPE]: Attendance Entry/System Settings are excluded, removal/navigation cleanup by Azra not independently verified; WCAG 2.2 AA is accepted target direction, not conformance; at least five users per core flow are required before final acceptance. Performance 500/1000 ms remains Proposed; availability/backup Open; grade scale Pending academic confirmation. The 80% success / four-step proposals, role/API policies, NFR feasibility, new-ID adoption and full acceptance are not approved by those comments. No actual user-based usability test or new permission/history verification is evidenced.
+
+### #49 integration implications and next gates
+
+[Release-preparation document][Q23RELEASE] is integrated at `5de47a20f845c8a016c88b3c10eaf924f175b18a`, approved source `8e64d96fc200d7e20cec464cfddcd95cc244280a`. This integrates a plan, including D-05's final-SHA/post-release manifest sequence; it does not approve Sprint 2 release, main integration, tag, package or Teams submission. #48's later dated note records this merge; its final-only fields remain blank. The next authorized #48 refresh must distinguish reviewed source, merge SHA and historical pins rather than treating #49 as final acceptance.
+
+Arda fixes AR-06/08/10 and F23-01/02; Nurefşan/Arda resolve or explicitly retain the AR-04/role/API policies; Azra fixes/rechecks prototype gaps; Arda/another non-author reviews current #45. Mert then refreshes affected controls at exact SHAs and obtains non-author matrix review. Official assignment/Teams evidence and final integration/release gates remain Pending. All controls not expressly reassessed above retain their prior source-specific classifications. PR #46 remains DRAFT; no independent sign-off, review-state change, commit, push, merge, tag/release or submission is performed by this edit.
+
+### Source references for this supplement
+
+[Q23ARCH]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md
+[Q23SRS]: https://github.com/mert494/student-information-system/blob/5de47a20f845c8a016c88b3c10eaf924f175b18a/docs/sprint2/SRS_Draft.md
+[Q23API]: https://github.com/mert494/student-information-system/blob/5de47a20f845c8a016c88b3c10eaf924f175b18a/api/openapi.yaml
+[Q23NFR]: https://github.com/mert494/student-information-system/blob/412e0d262e9992dfdc43cf4389f5ad63ed755500/docs/sprint2/NFR_Quality_Measures.md
+[Q23RELEASE]: https://github.com/mert494/student-information-system/blob/5de47a20f845c8a016c88b3c10eaf924f175b18a/docs/sprint2/Sprint2_Integration_Release_Evidence.md
+[Q23REVIEW]: https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014540983
+[Q23PO]: https://github.com/mert494/student-information-system/pull/45#issuecomment-7084805589
+[Q23SCOPE]: https://github.com/mert494/student-information-system/issues/33#issuecomment-7084944231
+[Q23CTX]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_System_Context.svg
+[Q23CONT]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Container.svg
+[Q23COMP]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Component.svg
+[Q23CLASS]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Domain_Class.svg
+[Q23ENR]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Enrollment.svg
+[Q23GRADE]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg
+[Q23PUB]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Published_Grades.svg
+[Q23SESSION]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg
