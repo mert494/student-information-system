@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1010" viewBox="0 0 1650 1010" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1320" viewBox="0 0 1650 1320" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed instructor grade entry</title>
-  <desc id="description">A proposed FR-06 sequence using the current PUT operation. Grade's canonical parent is Registration through registrationId as recorded in merged PR #43 SRS §8.1. Instructor read/list path and authorization remain open; no behavior is implemented or tested.</desc>
+  <desc id="description">The grade-entry sequence uses an authorization alt fragment. Registration lookup, grade validation and persistence appear only in the Allow operand. The Deny operand returns 401/403 and terminates before any domain query or persistence. Role and assignment rules remain Pending; no behavior is implemented or tested.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
@@ -10,17 +10,16 @@
       .subtitle { font-size: 16px; fill: #425d72; }
       .part { font-size: 16px; font-weight: 700; }
       .msg { font-size: 14px; }
-      .note { font-size: 14px; }
       .frame { font-size: 15px; font-weight: 700; }
       .small { font-size: 12px; fill: #425d72; }
     </style>
   </defs>
-  <rect width="1650" height="1010" fill="#f4f7fb" />
+  <rect width="1650" height="1320" fill="#f4f7fb" />
   <text class="title" x="42" y="50">UML Sequence — Instructor grade entry (FR-06 / PB-06 proposed)</text>
-  <text class="subtitle" x="42" y="80">Grade belongs to Registration via registrationId (Approved); later instructor retrieval remains uncontracted.</text>
+  <text class="subtitle" x="42" y="80">Grade belongs to Registration via registrationId (Approved); later Instructor retrieval remains uncontracted.</text>
 
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
-    <path d="M160 200 V920" /><path d="M480 200 V920" /><path d="M800 200 V920" /><path d="M1120 200 V920" /><path d="M1440 200 V920" />
+    <path d="M160 200 V1285" /><path d="M480 200 V1285" /><path d="M800 200 V1285" /><path d="M1120 200 V1285" /><path d="M1440 200 V1285" />
   </g>
   <g>
     <rect x="45" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
@@ -37,40 +36,45 @@
 
   <path d="M160 260 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="320" y="248" text-anchor="middle">1. PUT /registrations/{registrationId}/grade</text>
-  <path d="M480 315 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="640" y="303" text-anchor="middle">2. authenticate; check role and course assignment</text>
-  <path d="M800 365 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="640" y="353" text-anchor="middle">3. outcome from approved matrix [TODO]</text>
-  <rect x="80" y="380" width="1505" height="86" fill="none" stroke="#a17a2d" stroke-width="2" />
-  <path d="M80 405 H1585" stroke="#a17a2d" stroke-width="1.5" />
-  <text class="frame" x="100" y="399">alt — authorization outcome (role/assignment policy Pending)</text>
-  <text class="small" x="100" y="430">[Allow: authenticated and authorized; GradeInput JSON type/scale/range Pending]</text>
-  <text class="small" x="100" y="453">[Else: return 401/403 to client and stop before Registration query or persistence.]</text>
-  <path d="M480 485 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="800" y="473" text-anchor="middle">4. submit grade input (scale/range Pending)</text>
-  <path d="M1120 535 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="523" text-anchor="middle">5. resolve Registration by registrationId (approved parent)</text>
-  <path d="M1440 575 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="563" text-anchor="middle">6. matching record and constraints [TODO]</text>
+  <path d="M480 310 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="298" text-anchor="middle">2. authenticate; evaluate role and course assignment</text>
+  <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="338" text-anchor="middle">3. authorization outcome [policy Pending]</text>
 
-  <rect x="80" y="600" width="1505" height="240" fill="none" stroke="#49677f" stroke-width="2" />
-  <path d="M80 630 H1585" stroke="#49677f" stroke-width="2" />
-  <text class="frame" x="100" y="622">alt — grade validation (proposed)</text>
-  <text class="small" x="100" y="655">[Enrolled student; assigned instructor; approved value]</text>
-  <path d="M1120 690 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="678" text-anchor="middle">persist accepted grade (mechanism Pending)</text>
-  <path d="M1440 720 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="708" text-anchor="middle">saved grade</text>
-  <path d="M480 755 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="743" text-anchor="middle">200 Grade (proposed success response)</text>
-  <path d="M80 775 H1585" stroke="#c6d2dc" stroke-width="1.5" />
-  <text class="small" x="100" y="800">[Invalid value or relationship; no write per draft SRS]</text>
-  <path d="M480 825 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="small" x="320" y="813" text-anchor="middle">400 / 404 response; exact mapping Pending</text>
+  <rect x="80" y="370" width="1500" height="830" fill="#ffffff" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="398">alt — authorization outcome (role / assignment policy Pending)</text>
+  <path d="M80 900 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="404" width="1496" height="494" fill="#f0f8f2" />
+  <text class="frame" x="102" y="432">[Allow: authenticated and authorized]</text>
+  <text class="small" x="102" y="460">Only this operand contains Registration queries, validation, or persistence.</text>
+  <path d="M480 505 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="493" text-anchor="middle">4. submit GradeInput (JSON type, scale and range Pending)</text>
+  <path d="M1120 550 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="538" text-anchor="middle">5. resolve Registration by registrationId</text>
+  <path d="M1440 595 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="583" text-anchor="middle">6. check candidate relationship/value constraints [TODO]</text>
+  <rect x="105" y="615" width="1450" height="260" fill="#ffffff" stroke="#54738c" stroke-width="1.5" />
+  <text class="small" x="120" y="640">alt — validation result (business rules and exact status mapping Pending)</text>
+  <path d="M105 755 H1555" stroke="#c6d2dc" stroke-width="1.5" />
+  <text class="small" x="122" y="675">[Valid value and approved relationship]</text>
+  <path d="M1120 710 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="698" text-anchor="middle">persist Grade; mechanism Pending</text>
+  <path d="M1120 742 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="800" y="738" text-anchor="middle">200 Grade response (proposed)</text>
+  <text class="small" x="122" y="785">[Invalid value / relationship]</text>
+  <path d="M1120 825 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="800" y="820" text-anchor="middle">400 / 404; reject without write (mapping Pending)</text>
 
-  <rect x="350" y="855" width="1235" height="82" rx="10" fill="#fff5dc" stroke="#a17a2d" />
-  <text class="note" x="967" y="887" text-anchor="middle">Authenticated but unauthorized is declared 403; unauthenticated is 401. These are proposed contract responses,</text>
-  <text class="small" x="967" y="914" text-anchor="middle">not verified enforcement. A rejected request must not modify grade data (draft rule; no persistence test run).</text>
-  <rect x="350" y="945" width="1235" height="48" rx="9" fill="#f7f9fb" stroke="#c6d2dc" />
-  <text class="small" x="967" y="975" text-anchor="middle">FR-06 later read is absent. Recommended option only: GET /course-offerings/{courseOfferingId}/grades; path/response/permissions Open. GET /grades remains student published-only.</text>
+  <rect x="82" y="902" width="1496" height="296" fill="#fff7f3" />
+  <text class="frame" x="102" y="932">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 975 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="963" text-anchor="middle">7. return 401 / 403 response</text>
+  <text class="small" x="102" y="1008">No Registration lookup, grade query, or persistence step occurs in this operand.</text>
+  <rect x="102" y="1030" width="1450" height="125" fill="#fff1ed" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="122" y="1063">break [denied] — this request terminates before any domain/data operation.</text>
+  <text class="small" x="122" y="1092">No role or course-assignment permission is inferred by this diagram.</text>
+
+  <rect x="80" y="1220" width="1500" height="72" fill="#fff5dc" stroke="#a17a2d" />
+  <text class="small" x="100" y="1249">FR-06 Instructor GET capability is approved, but route, response and access scope remain Pending.</text>
+  <text class="small" x="100" y="1273">Recommended path only: GET /course-offerings/{courseOfferingId}/grades; it is not in OpenAPI.</text>
 </svg>

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1080" viewBox="0 0 1650 1080" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1400" viewBox="0 0 1650 1400" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed student published-grade query</title>
-  <desc id="description">A proposed FR-07 sequence for GET /grades. Published-only behavior is stated in draft SRS FR-07, not a separate approved decision. Own-record authorization and returned fields remain Pending; the unchanged OpenAPI example contradicts FR-07 by showing published false.</desc>
+  <desc id="description">GET /grades uses a structural authorization alt fragment. Grade reads and filtering occur only in the Allow operand. The Deny operand returns 401/403 and terminates before data access. Inside the Allow operand, nonempty, empty, and query-failure outcomes are distinct. Own-record authorization and returned fields remain Pending; OpenAPI example still contradicts draft FR-07.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
@@ -10,17 +10,16 @@
       .subtitle { font-size: 16px; fill: #425d72; }
       .part { font-size: 16px; font-weight: 700; }
       .msg { font-size: 14px; }
-      .note { font-size: 14px; }
       .frame { font-size: 15px; font-weight: 700; }
       .small { font-size: 12px; fill: #425d72; }
     </style>
   </defs>
-  <rect width="1650" height="1030" fill="#f4f7fb" />
+  <rect width="1650" height="1400" fill="#f4f7fb" />
   <text class="title" x="42" y="50">UML Sequence — Student published-grade query (FR-07 / PB-07 proposed)</text>
   <text class="subtitle" x="42" y="80">Draft SRS FR-07 proposes published-only results; own-record authorization remains Pending.</text>
 
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
-  <path d="M160 200 V990" /><path d="M480 200 V990" /><path d="M800 200 V990" /><path d="M1120 200 V990" /><path d="M1440 200 V990" />
+    <path d="M160 200 V1350" /><path d="M480 200 V1350" /><path d="M800 200 V1350" /><path d="M1120 200 V1350" /><path d="M1440 200 V1350" />
   </g>
   <g>
     <rect x="45" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
@@ -35,43 +34,52 @@
     <text class="part" x="1440" y="149" text-anchor="middle">Conceptual data</text><text class="small" x="1440" y="176" text-anchor="middle">Persistence Pending</text>
   </g>
 
-  <path d="M160 260 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="320" y="248" text-anchor="middle">1. GET /grades</text>
-  <path d="M480 315 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="640" y="303" text-anchor="middle">2. authenticate and authorize collection access</text>
-  <path d="M800 365 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="640" y="353" text-anchor="middle">3. matrix decision [TODO]</text>
-  <rect x="80" y="380" width="1500" height="86" fill="none" stroke="#a17a2d" stroke-width="2" />
-  <path d="M80 405 H1580" stroke="#a17a2d" stroke-width="1.5" />
-  <text class="frame" x="100" y="399">alt — authorization outcome (role/own-record policy Pending)</text>
-  <text class="small" x="100" y="430">[Allow: authenticated and authorized; only this branch continues to the grade query below]</text>
-  <text class="small" x="100" y="453">[Else: return 401/403 to client and stop before protected data query.]</text>
+  <path d="M160 255 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="243" text-anchor="middle">1. GET /grades</text>
+  <path d="M480 305 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="293" text-anchor="middle">2. authenticate; evaluate role/own-record access</text>
+  <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="338" text-anchor="middle">3. authorization outcome [matrix Pending]</text>
 
-  <path d="M480 485 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="800" y="473" text-anchor="middle">4. request the student's published-grade collection</text>
-  <path d="M1120 535 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="523" text-anchor="middle">5. read candidate grade records</text>
-  <path d="M1440 575 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="563" text-anchor="middle">6. matching data [field set Pending]</text>
-  <path d="M1120 615 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="800" y="603" text-anchor="middle">7. draft FR-07 filter (Proposed); own-record check (Pending)</text>
+  <rect x="80" y="370" width="1500" height="850" fill="#ffffff" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="398">alt — authorization outcome (role/own-record policy Pending)</text>
+  <path d="M80 960 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="404" width="1496" height="554" fill="#f0f8f2" />
+  <text class="frame" x="102" y="432">[Allow: authenticated and authorized]</text>
+  <text class="small" x="102" y="460">Only this operand performs protected data reads and the draft FR-07 filter.</text>
+  <path d="M480 500 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="488" text-anchor="middle">4. request this Student's published-grade collection</text>
+  <path d="M1120 545 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="533" text-anchor="middle">5. query candidate Grade records</text>
+  <path d="M1440 590 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="578" text-anchor="middle">6. candidate records [field set Pending]</text>
+  <path d="M1120 625 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="613" text-anchor="middle">7. apply draft FR-07 published-only filter</text>
 
-  <rect x="80" y="650" width="1500" height="250" fill="none" stroke="#49677f" stroke-width="2" />
-  <path d="M80 680 H1580" stroke="#49677f" stroke-width="2" />
-  <text class="frame" x="100" y="672">alt — successful query result (proposed SRS behavior)</text>
-  <text class="small" x="100" y="705">[One or more published grades for this Student]</text>
-  <path d="M480 745 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="733" text-anchor="middle">200 Grade[]; published items only (draft SRS proposal)</text>
-  <path d="M80 770 H1580" stroke="#c6d2dc" stroke-width="1.5" />
-  <text class="small" x="100" y="798">[Successful query returns no published grades]</text>
-  <path d="M480 830 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="818" text-anchor="middle">200 [] (successful empty collection)</text>
-  <path d="M80 840 H1580" stroke="#c6d2dc" stroke-width="1.5" />
-  <text class="small" x="100" y="861">[Grade query fails; distinct from a successful empty result]</text>
-  <text class="small" x="320" y="878" text-anchor="middle">500 API error (declared response)</text>
-  <path d="M480 886 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <rect x="105" y="650" width="1450" height="288" fill="#ffffff" stroke="#54738c" stroke-width="1.5" />
+  <text class="small" x="120" y="675">alt — query result (empty success is distinct from failure)</text>
+  <path d="M105 745 H1555" stroke="#c6d2dc" stroke-width="1.5" />
+  <path d="M105 840 H1555" stroke="#c6d2dc" stroke-width="1.5" />
+  <text class="small" x="122" y="705">[One or more published grades]</text>
+  <path d="M480 730 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="320" y="727" text-anchor="middle">200 Grade[] (draft SRS proposal)</text>
+  <text class="small" x="122" y="775">[Successful query; no published grades]</text>
+  <path d="M480 815 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="320" y="812" text-anchor="middle">200 [] (empty collection)</text>
+  <text class="small" x="122" y="870">[Query/API failure]</text>
+  <path d="M480 910 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="320" y="907" text-anchor="middle">500 API error (declared response)</text>
 
-  <rect x="350" y="915" width="1235" height="55" rx="10" fill="#fff5dc" stroke="#a17a2d" />
-  <text class="small" x="967" y="948" text-anchor="middle">Contract mismatch: GET /grades example has published: false; revise separately. UX empty-state wording remains unresolved.</text>
-  <text class="small" x="42" y="1020">No sequence path assigns role permission. Query/API errors and auth failures are distinct from a successful empty Grade[].</text>
+  <rect x="82" y="962" width="1496" height="256" fill="#fff7f3" />
+  <text class="frame" x="102" y="990">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 1035 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="1023" text-anchor="middle">8. return 401 / 403 response</text>
+  <text class="small" x="102" y="1070">No Grade query, data read, or filter occurs in this operand.</text>
+  <rect x="102" y="1093" width="1450" height="92" fill="#fff1ed" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="122" y="1125">break [denied] — terminate this request before protected data access.</text>
+  <text class="small" x="122" y="1154">No role or own-record permission is inferred by the diagram.</text>
+
+  <rect x="80" y="1240" width="1500" height="105" fill="#fff5dc" stroke="#a17a2d" />
+  <text class="small" x="100" y="1270">Contract mismatch: GET /grades example has published: false; revise separately. UX empty-state wording remains unresolved.</text>
+  <text class="small" x="100" y="1296">The role/own-record matrix and returned field set remain Pending; no permission is implied.</text>
 </svg>

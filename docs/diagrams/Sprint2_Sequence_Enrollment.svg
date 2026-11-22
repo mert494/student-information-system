@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1270" viewBox="0 0 1650 1270" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1640" viewBox="0 0 1650 1640" role="img" aria-labelledby="title description">
   <title id="title">UML sequence — proposed course enrollment</title>
-  <desc id="description">A proposal for FR-05/PB-05 using the existing registration operations, aligned with the Student/CourseOffering relationship and duplicate-prevention rule recorded in merged PR #43 SRS §8.1. The current OpenAPI still accepts courseId only; its contract alignment and authorization remain open. No behavior is implemented or tested.</desc>
+  <desc id="description">POST /registrations and a separate GET /registrations each use an authorization alt fragment. Domain and data steps occur only inside the Allow operand. The Deny operand returns 401/403 and ends in a break before protected data operations. The role matrix is Pending. The current OpenAPI still accepts courseId only, while the approved model links Registration to Student and CourseOffering.</desc>
   <defs>
     <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
     <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
@@ -10,20 +10,17 @@
       .subtitle { font-size: 16px; fill: #425d72; }
       .part { font-size: 16px; font-weight: 700; }
       .msg { font-size: 14px; }
-      .note { font-size: 14px; }
       .frame { font-size: 15px; font-weight: 700; }
       .small { font-size: 12px; fill: #425d72; }
     </style>
   </defs>
-  <rect width="1650" height="1160" fill="#f4f7fb" />
+  <rect width="1650" height="1640" fill="#f4f7fb" />
   <text class="title" x="42" y="50">UML Sequence — Student course enrollment (FR-05 / PB-05 proposed)</text>
   <text class="subtitle" x="42" y="80">Approved model: one Student + one CourseOffering per Registration; current request schema mismatch is called out below.</text>
 
-  <!-- Lifelines -->
   <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
-    <path d="M160 200 V1210" /><path d="M480 200 V1210" /><path d="M800 200 V1210" /><path d="M1120 200 V1210" /><path d="M1440 200 V1210" />
+    <path d="M160 200 V1595" /><path d="M480 200 V1595" /><path d="M800 200 V1595" /><path d="M1120 200 V1595" /><path d="M1440 200 V1595" />
   </g>
-  <!-- Proposed participants -->
   <g>
     <rect x="45" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
     <text class="part" x="160" y="149" text-anchor="middle">Student</text><text class="small" x="160" y="176" text-anchor="middle">Proposed actor</text>
@@ -37,65 +34,62 @@
     <text class="part" x="1440" y="149" text-anchor="middle">Conceptual data</text><text class="small" x="1440" y="176" text-anchor="middle">No store/engine selected</text>
   </g>
 
-  <!-- Request and authorization check -->
-  <path d="M160 260 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="320" y="248" text-anchor="middle">1. POST /registrations (proposed courseOfferingId)</text>
-  <path d="M480 310 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="640" y="298" text-anchor="middle">2. authenticate and check role/record permission</text>
-  <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="640" y="338" text-anchor="middle">3. decision per approved matrix [TODO]</text>
-  <rect x="80" y="366" width="1505" height="82" fill="none" stroke="#a17a2d" stroke-width="2" />
-  <path d="M80 393 H1585" stroke="#a17a2d" stroke-width="1.5" />
-  <text class="frame" x="100" y="387">alt — authorization outcome (role/record policy Pending)</text>
-  <text class="small" x="100" y="416">[Allow: authenticated and authorized; only this branch continues below]</text>
-  <text class="small" x="100" y="440">[Else: return 401/403 to client and stop; no domain query or persistence.]</text>
+  <text class="small" x="42" y="228">CREATE REGISTRATION — proposed request and logical data mapping.</text>
+  <path d="M160 270 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="258" text-anchor="middle">1. POST /registrations (proposed courseOfferingId)</text>
+  <path d="M480 315 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="303" text-anchor="middle">2. authenticate; evaluate role/record matrix</text>
+  <path d="M800 355 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="343" text-anchor="middle">3. authorization outcome [policy Pending]</text>
 
-  <!-- Enrollment evaluation -->
-  <path d="M480 475 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="800" y="463" text-anchor="middle">4. submit candidate enrollment request</text>
-  <path d="M1120 505 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="493" text-anchor="middle">5. resolve caller Student + CourseOffering</text>
-  <path d="M1440 545 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="533" text-anchor="middle">6. verify pair uniqueness; other rules Pending</text>
+  <rect x="80" y="375" width="1500" height="650" fill="#ffffff" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="402">alt — authorization outcome (role/record permission matrix Pending)</text>
+  <path d="M80 735 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="408" width="1496" height="325" fill="#f0f8f2" />
+  <text class="frame" x="102" y="433">[Allow: authenticated and authorized]</text>
+  <path d="M480 470 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="458" text-anchor="middle">4. submit candidate registration request</text>
+  <path d="M1120 510 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="498" text-anchor="middle">5. resolve caller Student + CourseOffering</text>
+  <path d="M1440 550 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="538" text-anchor="middle">6. verify approved duplicate pair (studentId, courseOfferingId)</text>
+  <path d="M1120 580 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="small" x="1280" y="568" text-anchor="middle">7. create Registration for a unique pair; mechanism Pending</text>
+  <path d="M1120 620 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="800" y="608" text-anchor="middle">201 on create; proposed 409 for duplicate pair</text>
+  <text class="small" x="102" y="660">Duplicate pair causes no write; other eligibility/capacity rules remain Pending.</text>
 
-  <rect x="80" y="570" width="1505" height="250" fill="none" stroke="#49677f" stroke-width="2" />
-  <path d="M80 600 H1585" stroke="#49677f" stroke-width="2" />
-  <text class="frame" x="100" y="592">alt — validation outcome (proposed)</text>
-  <text class="small" x="100" y="625">[Approved Student/CourseOffering links valid; other eligibility checks Pending]</text>
-  <path d="M1120 650 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="638" text-anchor="middle">create one Registration with studentId + courseOfferingId (logical FKs)</text>
-  <path d="M1440 675 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="663" text-anchor="middle">accepted; transaction mechanism Pending</text>
-  <path d="M80 710 H1585" stroke="#c6d2dc" stroke-width="1.5" />
-  <text class="small" x="100" y="735">[Duplicate pair rejected (Approved); 409 is current SRS/API proposal, mapping Pending]</text>
-  <path d="M1120 765 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="800" y="753" text-anchor="middle">409 Conflict to API; specific error code/message Pending</text>
-  <path d="M480 795 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="783" text-anchor="middle">409 Conflict response (proposed)</text>
-  <path d="M480 700 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="688" text-anchor="middle">201 Registration (proposed success response)</text>
+  <rect x="82" y="737" width="1496" height="286" fill="#fff7f3" />
+  <text class="frame" x="102" y="765">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 805 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="793" text-anchor="middle">7. return 401 / 403 response</text>
+  <text class="small" x="102" y="838">No Registration lookup, domain query, or persistence step occurs in this operand.</text>
+  <rect x="102" y="860" width="1450" height="118" fill="#fff1ed" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="122" y="890">break [denied] — terminate this request before any domain/data operation.</text>
+  <text class="small" x="122" y="920">The Allow operand above is the only branch containing enrollment work.</text>
 
-  <!-- Separate list interaction for the same FR-05 scenario. -->
-  <path d="M160 875 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="320" y="863" text-anchor="middle">7. GET /registrations</text>
-  <path d="M480 915 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="640" y="903" text-anchor="middle">8. authenticate / authorize [matrix Pending]</text>
-  <path d="M800 955 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="640" y="943" text-anchor="middle">9. decision Pending</text>
-  <rect x="80" y="970" width="1505" height="72" fill="none" stroke="#a17a2d" stroke-width="2" />
-  <path d="M80 995 H1585" stroke="#a17a2d" stroke-width="1.5" />
-  <text class="frame" x="100" y="989">alt — authorization outcome for GET /registrations (own-record policy Pending)</text>
-  <text class="small" x="100" y="1020">[Allow: continue below]</text>
-  <path d="M800 1030 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="small" x="1130" y="1020" text-anchor="middle">[Else: return 401 / 403 and stop before query]</text>
-  <path d="M480 1080 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="800" y="1068" text-anchor="middle">10. request own-registration collection (proposed)</text>
-  <path d="M1120 1125 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
-  <text class="msg" x="1280" y="1113" text-anchor="middle">11. query candidate registration records</text>
-  <path d="M1440 1170 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="1280" y="1158" text-anchor="middle">12. candidate collection</text>
-  <path d="M480 1200 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
-  <text class="msg" x="320" y="1188" text-anchor="middle">200 Registration[]; own-data filtering Pending</text>
-  <rect x="42" y="1220" width="1560" height="32" fill="#fff5dc" />
-  <text class="small" x="52" y="1242">Contract mismatch: RegistrationInput requires courseId; CourseOffering/Term APIs absent. courseOfferingId mapping, role matrix, transaction mechanism and physical key enforcement remain Pending/Proposed.</text>
+  <text class="small" x="42" y="1065">SEPARATE LIST REQUEST — GET /registrations has its own authorization decision.</text>
+  <path d="M160 1105 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="1093" text-anchor="middle">8. GET /registrations</text>
+  <path d="M480 1150 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="1138" text-anchor="middle">9. authenticate; evaluate own-record access</text>
+  <path d="M800 1195 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="1183" text-anchor="middle">10. authorization outcome [policy Pending]</text>
+
+  <rect x="80" y="1215" width="1500" height="330" fill="#ffffff" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="1242">alt — list authorization outcome (own-record policy Pending)</text>
+  <path d="M80 1380 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="1248" width="1496" height="130" fill="#f0f8f2" />
+  <text class="frame" x="102" y="1277">[Allow: authenticated and authorized]</text>
+  <path d="M480 1315 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="1303" text-anchor="middle">11. query candidate registration records</text>
+  <path d="M480 1355 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="1343" text-anchor="middle">200 Registration[]; own-data filter Pending</text>
+  <rect x="82" y="1382" width="1496" height="161" fill="#fff7f3" />
+  <text class="frame" x="102" y="1410">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 1450 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="1438" text-anchor="middle">401 / 403 response</text>
+  <text class="small" x="102" y="1480">break [denied] — no registration data query occurs.</text>
+  <text class="small" x="102" y="1510">Contract mismatch: RegistrationInput requires courseId; approved model requires CourseOffering.</text>
+  <text class="small" x="42" y="1580">No role or own-record permission is inferred; CourseOffering/Term API mapping remains Pending.</text>
 </svg>

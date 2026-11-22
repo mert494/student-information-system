@@ -53,7 +53,7 @@
   <path d="M805 750 V875 H920 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
   <path d="M1095 755 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
   <path d="M1430 755 V835 H1230 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
-  <text class="edge" x="1025" y="865" text-anchor="middle">Candidate repository/data-access calls</text>
+  <text class="edge" x="960" y="865" text-anchor="middle">Candidate repository/data-access calls</text>
   <path d="M1350 1005 H1655" fill="none" stroke="#80621b" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#dataArrow)"/>
   <text class="edge" x="1500" y="987" text-anchor="middle">Persistence interface (proposed)</text>
   <path d="M1290 725 H1230" fill="none" stroke="#80621b" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#dataArrow)"/>
