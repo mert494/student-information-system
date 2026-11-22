@@ -19,58 +19,58 @@
       "srs": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/a9b6b4819ca18146e4e2b72346405283dbdd0c60/docs/sprint2/SRS_Draft.md",
-          "version": "a9b6b4819ca18146e4e2b72346405283dbdd0c60"
+          "value": "https://github.com/mert494/student-information-system/blob/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2/SRS_Draft.md",
+          "version": "e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a"
         }
       ],
       "refined_backlog": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/a9b6b4819ca18146e4e2b72346405283dbdd0c60/docs/sprint2/Refined_Backlog_Draft.md",
-          "version": "a9b6b4819ca18146e4e2b72346405283dbdd0c60"
+          "value": "https://github.com/mert494/student-information-system/blob/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2/Refined_Backlog_Draft.md",
+          "version": "e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a"
         }
       ],
       "review": {
-        "reviewer": "mert494",
-        "version": "a9b6b4819ca18146e4e2b72346405283dbdd0c60",
-        "date": "2026-11-19",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-5965776469",
-        "status": "COMMENTED; draft under review; acceptance Pending; findings open"
+        "reviewer": "ahmetserdar41",
+        "version": "6bef5c98327b21249abfd49573f8a2ccdeb705f3",
+        "date": "2026-11-22",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013531643",
+        "status": "APPROVED at PR source 6bef5c98327b21249abfd49573f8a2ccdeb705f3; merged baseline e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a. Documentation approval only; seven non-blocking follow-ups retained. Product/contract decisions and runtime verification remain Pending."
       }
     },
     "nfr_quality": {
       "nfr": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8/docs/sprint2/NFR_Quality_Measures.md",
-          "version": "4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8"
+          "value": "https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md",
+          "version": "f5a545e8f2bf75c5e49e1076291657d4bbcfad70"
         }
       ],
       "quality_measures": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8/docs/sprint2/NFR_Quality_Measures.md",
-          "version": "4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8"
+          "value": "https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md",
+          "version": "f5a545e8f2bf75c5e49e1076291657d4bbcfad70"
         }
       ],
       "review": {
         "reviewer": "mert494",
-        "version": "4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8",
-        "date": "2026-11-20",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5997625993",
-        "status": "COMMENTED; final target approval and runtime/performance verification Pending; Arda supplementary COMMENTED evidence is in members/checklist"
+        "version": "7d752cada7bea0a950c3a435e1ee0a6c667c85d1",
+        "date": "2026-11-22",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6013479731",
+        "status": "COMMENTED at older Draft 0.5 7d752cada7bea0a950c3a435e1ee0a6c667c85d1, not current Draft 0.6 f5a545e8f2bf75c5e49e1076291657d4bbcfad70. Arda/another non-author approval, PO targets/new IDs, feasibility, OpenAPI alignment and runtime verification remain Pending."
       }
     },
     "figma_flows": {
       "figma": [
         {
           "kind": "url",
-          "value": "https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/Untitled?node-id=1-1681&t=obxBWqyIa9OpcM99-1",
+          "value": "https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=1-1681",
           "version": ""
         },
         {
           "kind": "url",
-          "value": "https://www.figma.com/proto/n5jM7D19uV3Yj2rQRkoV6F/Untitled?node-id=1-1681&t=obxBWqyIa9OpcM99-1",
+          "value": "https://www.figma.com/proto/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=1-1681",
           "version": ""
         }
       ],
@@ -83,17 +83,17 @@
       ],
       "review": {
         "reviewer": "ahmetserdar41",
-        "version": "UNKNOWN: unfrozen file, walkthrough start node 10:79; ownership UNKNOWN",
-        "date": "2026-11-20",
-        "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7039054965",
-        "status": "Static walkthrough with coverage/accessibility findings; not a formal PR review; no user-based USE-01 test; final UX acceptance Pending"
+        "version": "UNKNOWN: live file observed 2026-11-22; v1.3-sprint2 producer-reported; version history and ownership unverified",
+        "date": "2026-11-22",
+        "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958",
+        "status": "Attributed static walkthrough, not a formal PR review: NFR-USE-02 FAIL; NFR-ACCESS-01(a) FAIL. Remaining states/contrast and uncheckable controls retained. No new walkthrough or USE-01 user test in this preparation refresh; final UX acceptance Pending."
       },
       "access": {
         "reviewer": "Pending: all intended reviewers",
         "version": "UNKNOWN",
         "date": "",
-        "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7039054965",
-        "status": "Pending/Unknown: Ahmet public-prototype access recorded; team/reviewer permissions and frozen version not verified",
+        "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958",
+        "status": "Pending/Unknown: attributed public walkthrough only; ownership, frozen version/history, all-team/reviewer permissions and accessibility acceptance not independently verified.",
         "audience": "UNKNOWN: intended team/reviewer audience not verified"
       }
     },
@@ -101,60 +101,60 @@
       "architecture_document": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         }
       ],
       "c4": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_System_Context.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_System_Context.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Container.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Container.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Component.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Component.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         }
       ],
       "uml": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Domain_Class.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Domain_Class.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Sequence_Enrollment.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Enrollment.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Sequence_Published_Grades.svg",
-          "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Published_Grades.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/5349b1295e55625bc00922144d50488a9da00677/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg",
-          "version": "5349b1295e55625bc00922144d50488a9da00677"
+          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg",
+          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         }
       ],
       "review": {
         "reviewer": "mert494",
-        "version": "df477c07c8adfcb37382fc129c26c98c80502bd5",
-        "date": "2026-11-20",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-5997960088",
-        "status": "COMMENTED; structural MAJOR findings PARTIAL; sequence authorization MAJOR unresolved; architecture acceptance Pending; earlier Ahmet review in members/checklist at its actual old HEAD"
+        "version": "5349b1295e55625bc00922144d50488a9da00677",
+        "date": "2026-11-21",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6007087029",
+        "status": "COMMENTED at historical 5349b1295e55625bc00922144d50488a9da00677, not current 1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4. Document and all eight SVGs now pinned to newer source; independent review, rendered QA and acceptance Pending. Old FAIL findings are historical, not newly verified failures or automatic PASS."
       }
     }
   },
@@ -208,6 +208,74 @@
         {
           "type": "issue",
           "url": "https://github.com/mert494/student-information-system/issues/26#issuecomment-6956776245"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-5965223751"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6007085709"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013501864"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5981223436"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5981606023"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6007111378"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013506931"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5981094098"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5998972154"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6007109944"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6013479731"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-5997343533"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6007087029"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/b06ed7ba4023454082e0ab689b4ba45095bb2c33"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/23dd18159df335331bde6b8798bd93b4420cb525"
+        },
+        {
+          "type": "pr",
+          "url": "https://github.com/mert494/student-information-system/pull/48"
+        },
+        {
+          "type": "artifact",
+          "url": "https://github.com/mert494/student-information-system/blob/b06ed7ba4023454082e0ab689b4ba45095bb2c33/docs/sprint2/Sprint2_Cross_Deliverable_QA_Matrix.md"
         }
       ]
     },
@@ -236,6 +304,10 @@
         {
           "type": "issue",
           "url": "https://github.com/mert494/student-information-system/issues/29"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/6bef5c98327b21249abfd49573f8a2ccdeb705f3"
         }
       ]
     },
@@ -268,6 +340,10 @@
         {
           "type": "issue",
           "url": "https://github.com/mert494/student-information-system/issues/36"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
         }
       ]
     },
@@ -320,6 +396,42 @@
         {
           "type": "issue",
           "url": "https://github.com/mert494/student-information-system/issues/31"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013531643"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013236160"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5998727032"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6005000584"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/48#pullrequestreview-5998727350"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/49#pullrequestreview-6014110411"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/f5a545e8f2bf75c5e49e1076291657d4bbcfad70"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/63ca3e8c8efc57637185808a6f1981a7561c09d5"
+        },
+        {
+          "type": "issue",
+          "url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958"
         }
       ]
     },
@@ -340,6 +452,18 @@
         {
           "type": "issue",
           "url": "https://github.com/mert494/student-information-system/issues/39"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/8e64d96fc200d7e20cec464cfddcd95cc244280a"
+        },
+        {
+          "type": "pr",
+          "url": "https://github.com/mert494/student-information-system/pull/49"
+        },
+        {
+          "type": "artifact",
+          "url": "https://github.com/mert494/student-information-system/blob/8e64d96fc200d7e20cec464cfddcd95cc244280a/docs/sprint2/Sprint2_Integration_Release_Evidence.md"
         }
       ]
     },
@@ -388,6 +512,18 @@
         {
           "type": "review",
           "url": "https://github.com/mert494/student-information-system/pull/42#pullrequestreview-5965490511"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/67e08eb5b0a39f8a6802759ea8cfac604f833dfd"
+        },
+        {
+          "type": "artifact",
+          "url": "https://github.com/mert494/student-information-system/blob/67e08eb5b0a39f8a6802759ea8cfac604f833dfd/docs/sprint2/Sprint2_Process_and_Contribution_Log.md"
+        },
+        {
+          "type": "issue",
+          "url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7071930286"
         }
       ]
     }

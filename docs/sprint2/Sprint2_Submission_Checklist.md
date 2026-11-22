@@ -264,3 +264,167 @@ These exact HEADs were checked on 22 November. All four PRs were **OPEN** and ha
 - **Release preparation:** Barış's preparation continues, as reported by Mert; [the merged #42 preparation document](Sprint2_Integration_Release_Evidence.md) is a baseline, not a completed Sprint 2 release. Final integration and release evidence remain Pending.
 - **Final identities:** `expected_commit`, `release.tag`, `release.commit` and `release.url` remain empty. The historical `base_commit` is unchanged. No final source commit or Sprint 2 tag/release is selected by this update.
 - **Checker boundary:** empty Figma versions, remote access, human acceptance, contribution ownership, release and submission gates retain their existing PENDING classifications. A mechanically valid URL or populated array is not a PASS for acceptance. PR #48 remains DRAFT; no formal approval, merge, release/tag, Teams submission, Issue closure or permission change is performed.
+
+## Preparation Update — 22 November 2026, 23:11:31 UTC+3 — version-specific source registry
+
+**OBSERVATION / preparation only.** Refs [#40](https://github.com/mert494/student-information-system/issues/40), [#38](https://github.com/mert494/student-information-system/issues/38), [#39](https://github.com/mert494/student-information-system/issues/39). All 16, 20 and earlier 22 November records above remain unchanged historical snapshots. This later observation supersedes their source registry only; it is not final acceptance. Sources and reviews require another check before integration/submission.
+
+- Observed develop: `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a`. Historical base_commit remains `2945b81c934ee14c2c7a5875ad5cbcae79fc1f96`; it is not the current/final integration target.
+- Published DRAFT #48 HEAD: `23dd18159df335331bde6b8798bd93b4420cb525`. This local refresh awaits Mert's commit/push authorization and is not yet published at that SHA.
+- **16 category artifact entries, 9/9 required sub-output arrays, 4/4 categories:** SRS/backlog 2; NFR/quality 2; Figma 3; architecture 9. Repeated source files serve separate required outputs; this is not 16 unique files. Process, QA and release-preparation documents are supported member artifact evidence, not new category keys.
+
+### Current source and review registry
+
+| Source | Exact revision / baseline | Observed state and acceptance boundary |
+| --- | --- | --- |
+| [#43](https://github.com/mert494/student-information-system/pull/43) | `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` | MERGED. Ahmet 6013531643 APPROVED the PR source 6bef5c98327b21249abfd49573f8a2ccdeb705f3; seven non-blocking follow-ups retained. Document approval does not settle all PO/contract/runtime questions. |
+| [#44](https://github.com/mert494/student-information-system/pull/44) | `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | OPEN; Ahmet 6013236160 and Mert 6013506931 COMMENTED at current HEAD. No APPROVED; independent approval Pending. Review/SHA disputes require reconciliation with the ledger below. |
+| [#45](https://github.com/mert494/student-information-system/pull/45) | `f5a545e8f2bf75c5e49e1076291657d4bbcfad70` | OPEN; Draft 0.6. Latest Mert 6013479731 is COMMENTED at older 7d752cada7bea0a950c3a435e1ee0a6c667c85d1. No current-source approval. Arda/another non-author review, PO targets/new IDs, feasibility and runtime verification Pending. |
+| [#46](https://github.com/mert494/student-information-system/pull/46) | `b06ed7ba4023454082e0ab689b4ba45095bb2c33` | DRAFT. Latest recorded snapshot: 63 controls, 34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED, architecture source 5349b1295e55625bc00922144d50488a9da00677. These are attributed version-specific results, not this refresh verifying new architecture 1a5b3fe. No review at b06ed7b; recheck Pending. |
+| [#47](https://github.com/mert494/student-information-system/pull/47) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | OPEN; all eight SVGs and document changed at this revision. Latest Mert 6007087029 and Ahmet 6005000584 are COMMENTED at older 5349b12. Current independent review/rendered QA Pending; neither historical FAIL nor new PASS is inherited automatically. |
+| [#48](https://github.com/mert494/student-information-system/pull/48) | `23dd18159df335331bde6b8798bd93b4420cb525` | DRAFT; Ahmet 5998727350 COMMENTED at older 2ddec8c. No approval of published or proposed changes. |
+| [#49](https://github.com/mert494/student-information-system/pull/49) | `8e64d96fc200d7e20cec464cfddcd95cc244280a` | OPEN; Ahmet 6014110411 APPROVED this exact revision at 2026-11-22T19:46:37Z. Preparation document only: integration/tag/release/checker final-SHA run and Teams receipt Pending. Its old artifact links and architecture 5349b12 observations are historical; this registry supersedes them for inventory only. |
+
+Supporting registry documents: [#44 document](https://github.com/mert494/student-information-system/blob/67e08eb5b0a39f8a6802759ea8cfac604f833dfd/docs/sprint2/Sprint2_Process_and_Contribution_Log.md), [#46 document](https://github.com/mert494/student-information-system/blob/b06ed7ba4023454082e0ab689b4ba45095bb2c33/docs/sprint2/Sprint2_Cross_Deliverable_QA_Matrix.md), [#49 document](https://github.com/mert494/student-information-system/blob/8e64d96fc200d7e20cec464cfddcd95cc244280a/docs/sprint2/Sprint2_Integration_Release_Evidence.md).
+
+### All eight SVGs — source existence, not rendered acceptance
+
+The latest #47 commit changes all eight SVG paths. These are actual containing revisions and Git blob identities; no visual approval is performed here.
+
+| SVG | Actual source commit | Git blob |
+| --- | --- | --- |
+| [Sprint2_Component.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Component.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `410af09c2b7c4c8439fb3b793cc4dff14be0cf85` |
+| [Sprint2_Container.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Container.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `0768e2f81fc761148034beeff0cc9e54688b2ed6` |
+| [Sprint2_Domain_Class.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Domain_Class.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `d8fb15f7a78060f91a141aae80c1bc8dc45eaa53` |
+| [Sprint2_Sequence_Enrollment.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Enrollment.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `15a37eaca105de168a24340a014e0dfec10732cf` |
+| [Sprint2_Sequence_Grade_Entry.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `59189059a263b1538957eee2a72e4a4dad729017` |
+| [Sprint2_Sequence_Published_Grades.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Published_Grades.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `4dcf763fbcdfd86b0f5af1c0eedcc7f5f927f3b0` |
+| [Sprint2_Sequence_Session_Lifecycle.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `e15e4e44d6172f867190fd571ce6e3f1011d9afe` |
+| [Sprint2_System_Context.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_System_Context.svg) | `1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4` | `4c6610fc3f21f4e21c6b4a1545cb45429394112e` |
+
+### Six-member contributor reconciliation and review ledger
+
+All existing contribution URLs remain. New records are attributed GitHub evidence, not a contribution-quality score or acceptance. Review timestamps are submission times (UTC), not commit timestamps; repeated reviews by one person are not independent reviewers.
+
+| Account | Previous entries | Current entries |
+| --- | --- | --- |
+| mert494 | 12 | 29 |
+| nsnkcc | 6 | 7 |
+| ardaberkkara1 | 7 | 8 |
+| ahmetserdar41 | 12 | 21 |
+| baryyss-001 | 4 | 7 |
+| azrayy | 11 | 14 |
+
+Ahmet's missing first NFR commit [63ca3e8](https://github.com/mert494/student-information-system/commit/63ca3e8c8efc57637185808a6f1981a7561c09d5) was verified as `63ca3e8c8efc57637185808a6f1981a7561c09d5`, GitHub author ahmetserdar41, and added once. Later drafts do not erase this contribution.
+
+Review records below were checked against current GitHub review objects. **COMMENTED and DISMISSED are not APPROVED.** Approval at an older source does not approve a newer HEAD. Historical dismissals remain recorded.
+
+| PR / review | Author | Actual reviewed SHA | Current state | Submitted at (UTC) |
+| --- | --- | --- | --- | --- |
+| [#24 / 5924357973](https://github.com/mert494/student-information-system/pull/24#pullrequestreview-5924357973) | azrayy | `c6a1aa92b3d1c2b56bce531db666ae76391a0644` | APPROVED | 2026-11-16T17:24:07Z |
+| [#24 / 5937084529](https://github.com/mert494/student-information-system/pull/24#pullrequestreview-5937084529) | ahmetserdar41 | `c6a1aa92b3d1c2b56bce531db666ae76391a0644` | APPROVED | 2026-11-17T10:51:00Z |
+| [#25 / 5924352904](https://github.com/mert494/student-information-system/pull/25#pullrequestreview-5924352904) | azrayy | `54c1e0af409c516a81efec4a90805f06cd093b90` | DISMISSED | 2026-11-16T17:23:44Z |
+| [#25 / 5937084851](https://github.com/mert494/student-information-system/pull/25#pullrequestreview-5937084851) | ahmetserdar41 | `54c1e0af409c516a81efec4a90805f06cd093b90` | DISMISSED | 2026-11-17T10:51:02Z |
+| [#25 / 5943542094](https://github.com/mert494/student-information-system/pull/25#pullrequestreview-5943542094) | ahmetserdar41 | `54c1e0af409c516a81efec4a90805f06cd093b90` | APPROVED | 2026-11-17T17:40:25Z |
+| [#25 / 5943656924](https://github.com/mert494/student-information-system/pull/25#pullrequestreview-5943656924) | azrayy | `54c1e0af409c516a81efec4a90805f06cd093b90` | APPROVED | 2026-11-17T17:48:13Z |
+| [#41 / 5960120065](https://github.com/mert494/student-information-system/pull/41#pullrequestreview-5960120065) | azrayy | `f4d49c10b2e5fc034654500ce76ce5b3bbdd2d51` | APPROVED | 2026-11-18T15:53:01Z |
+| [#41 / 5960127871](https://github.com/mert494/student-information-system/pull/41#pullrequestreview-5960127871) | azrayy | `f4d49c10b2e5fc034654500ce76ce5b3bbdd2d51` | APPROVED | 2026-11-18T15:53:24Z |
+| [#41 / 5970428075](https://github.com/mert494/student-information-system/pull/41#pullrequestreview-5970428075) | ahmetserdar41 | `f4d49c10b2e5fc034654500ce76ce5b3bbdd2d51` | APPROVED | 2026-11-19T06:37:24Z |
+| [#42 / 5965029193](https://github.com/mert494/student-information-system/pull/42#pullrequestreview-5965029193) | mert494 | `640b6172c46413ce4e194938fac6e5b96445c306` | COMMENTED | 2026-11-18T20:58:32Z |
+| [#42 / 5965490511](https://github.com/mert494/student-information-system/pull/42#pullrequestreview-5965490511) | azrayy | `f20aa7afe57e44938e78a6d82b113d0e95adae12` | DISMISSED | 2026-11-18T21:30:52Z |
+| [#42 / 5965667751](https://github.com/mert494/student-information-system/pull/42#pullrequestreview-5965667751) | mert494 | `6a6446b3b957633bb3da902644308871cbb1b45c` | APPROVED | 2026-11-18T21:44:34Z |
+| [#43 / 5965223751](https://github.com/mert494/student-information-system/pull/43#pullrequestreview-5965223751) | mert494 | `f27e16995e129f53a97c3807d966e99728217ec1` | COMMENTED | 2026-11-18T21:10:09Z |
+| [#43 / 5965776469](https://github.com/mert494/student-information-system/pull/43#pullrequestreview-5965776469) | mert494 | `a9b6b4819ca18146e4e2b72346405283dbdd0c60` | COMMENTED | 2026-11-18T21:53:18Z |
+| [#43 / 6007085709](https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6007085709) | mert494 | `9a32847c59c47aeb712c93790c995e441517aace` | COMMENTED | 2026-11-21T17:49:24Z |
+| [#43 / 6013501864](https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013501864) | mert494 | `6bef5c98327b21249abfd49573f8a2ccdeb705f3` | COMMENTED | 2026-11-22T17:27:24Z |
+| [#43 / 6013531643](https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013531643) | ahmetserdar41 | `6bef5c98327b21249abfd49573f8a2ccdeb705f3` | APPROVED | 2026-11-22T17:35:14Z |
+| [#44 / 5981223436](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5981223436) | mert494 | `fbc2b4427f6f8d58d165200e706398ed159cb389` | COMMENTED | 2026-11-19T18:49:11Z |
+| [#44 / 5981606023](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5981606023) | mert494 | `479e68b96def3f348c737fcb7537a616abd26e2c` | COMMENTED | 2026-11-19T19:13:27Z |
+| [#44 / 5992353101](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5992353101) | ahmetserdar41 | `3b0da5ad7269141d3fe631800fc701089de08c07` | COMMENTED | 2026-11-20T12:03:18Z |
+| [#44 / 5997703006](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5997703006) | mert494 | `269b489187f17f89d696e8ffa43ff3fb68e4254a` | COMMENTED | 2026-11-20T18:42:39Z |
+| [#44 / 6007111378](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6007111378) | mert494 | `9603c0de003dea3b90d78926365ad94c5bbc7a47` | COMMENTED | 2026-11-21T17:53:22Z |
+| [#44 / 6013236160](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013236160) | ahmetserdar41 | `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | COMMENTED | 2026-11-22T16:20:22Z |
+| [#44 / 6013506931](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013506931) | mert494 | `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | COMMENTED | 2026-11-22T17:28:44Z |
+| [#45 / 5981094098](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5981094098) | mert494 | `63ca3e8c8efc57637185808a6f1981a7561c09d5` | COMMENTED | 2026-11-19T18:40:21Z |
+| [#45 / 5997625993](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5997625993) | mert494 | `4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8` | COMMENTED | 2026-11-20T18:35:57Z |
+| [#45 / 5997924366](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5997924366) | ardaberkkara1 | `4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8` | COMMENTED | 2026-11-20T19:02:08Z |
+| [#45 / 5998972154](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5998972154) | mert494 | `e63e1010cac2759c312ac8db3b8ef215a8598cda` | COMMENTED | 2026-11-20T20:33:02Z |
+| [#45 / 6007109944](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6007109944) | mert494 | `61e5fea3b50878a07c53fb53f85a0c2984da2d5a` | COMMENTED | 2026-11-21T17:53:09Z |
+| [#45 / 6013479731](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6013479731) | mert494 | `7d752cada7bea0a950c3a435e1ee0a6c667c85d1` | COMMENTED | 2026-11-22T17:21:30Z |
+| [#46 / 5983510910](https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5983510910) | ahmetserdar41 | `0f0d2fb81caf0f1e2d45c535e6ae109aeb4cc379` | COMMENTED | 2026-11-19T21:14:36Z |
+| [#46 / 5998727032](https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5998727032) | ahmetserdar41 | `e773377555209662b658055fd6a7b2edd47b3630` | COMMENTED | 2026-11-20T20:11:47Z |
+| [#47 / 5992352880](https://github.com/mert494/student-information-system/pull/47#pullrequestreview-5992352880) | ahmetserdar41 | `a1e6fed85fc8dacd926ee2f5ac38b7ce34e15e4f` | COMMENTED | 2026-11-20T12:03:17Z |
+| [#47 / 5997343533](https://github.com/mert494/student-information-system/pull/47#pullrequestreview-5997343533) | mert494 | `a1e6fed85fc8dacd926ee2f5ac38b7ce34e15e4f` | COMMENTED | 2026-11-20T18:13:08Z |
+| [#47 / 5997960088](https://github.com/mert494/student-information-system/pull/47#pullrequestreview-5997960088) | mert494 | `df477c07c8adfcb37382fc129c26c98c80502bd5` | COMMENTED | 2026-11-20T19:05:23Z |
+| [#47 / 6005000584](https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6005000584) | ahmetserdar41 | `5349b1295e55625bc00922144d50488a9da00677` | COMMENTED | 2026-11-21T11:43:42Z |
+| [#47 / 6007087029](https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6007087029) | mert494 | `5349b1295e55625bc00922144d50488a9da00677` | COMMENTED | 2026-11-21T17:49:37Z |
+| [#48 / 5998727350](https://github.com/mert494/student-information-system/pull/48#pullrequestreview-5998727350) | ahmetserdar41 | `2ddec8c6737ac0600a85ce16a4a861b2bbca5918` | COMMENTED | 2026-11-20T20:11:49Z |
+| [#49 / 6014110411](https://github.com/mert494/student-information-system/pull/49#pullrequestreview-6014110411) | ahmetserdar41 | `8e64d96fc200d7e20cec464cfddcd95cc244280a` | APPROVED | 2026-11-22T19:46:37Z |
+
+### Superseded manifest review/access declarations — historical archive
+
+These primary declarations are preserved from published #48 at 23dd181. Their finding text is historical, not a fresh judgement on newer sources.
+
+```json
+{
+  "srs_backlog": {
+    "review": {
+      "reviewer": "mert494",
+      "version": "a9b6b4819ca18146e4e2b72346405283dbdd0c60",
+      "date": "2026-11-19",
+      "evidence_url": "https://github.com/mert494/student-information-system/pull/43#pullrequestreview-5965776469",
+      "status": "COMMENTED; draft under review; acceptance Pending; findings open"
+    }
+  },
+  "nfr_quality": {
+    "review": {
+      "reviewer": "mert494",
+      "version": "4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8",
+      "date": "2026-11-20",
+      "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5997625993",
+      "status": "COMMENTED; final target approval and runtime/performance verification Pending; Arda supplementary COMMENTED evidence is in members/checklist"
+    }
+  },
+  "figma_flows": {
+    "review": {
+      "reviewer": "ahmetserdar41",
+      "version": "UNKNOWN: unfrozen file, walkthrough start node 10:79; ownership UNKNOWN",
+      "date": "2026-11-20",
+      "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7039054965",
+      "status": "Static walkthrough with coverage/accessibility findings; not a formal PR review; no user-based USE-01 test; final UX acceptance Pending"
+    },
+    "access": {
+      "reviewer": "Pending: all intended reviewers",
+      "version": "UNKNOWN",
+      "date": "",
+      "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7039054965",
+      "status": "Pending/Unknown: Ahmet public-prototype access recorded; team/reviewer permissions and frozen version not verified",
+      "audience": "UNKNOWN: intended team/reviewer audience not verified"
+    }
+  },
+  "architecture": {
+    "review": {
+      "reviewer": "mert494",
+      "version": "df477c07c8adfcb37382fc129c26c98c80502bd5",
+      "date": "2026-11-20",
+      "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-5997960088",
+      "status": "COMMENTED; structural MAJOR findings PARTIAL; sequence authorization MAJOR unresolved; architecture acceptance Pending; earlier Ahmet review in members/checklist at its actual old HEAD"
+    }
+  }
+}
+```
+
+### Figma provenance and remaining preparation gates
+
+- [Azra announced v1.3-sprint2](https://github.com/mert494/student-information-system/issues/33#issuecomment-7071930286); the version is producer-reported. [Ahmet's recheck](https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958) still records NFR-USE-02 FAIL and NFR-ACCESS-01(a) FAIL. No new Figma walkthrough was performed here.
+- Design/prototype URLs match the shared key/node in [the sharing record](https://github.com/mert494/student-information-system/issues/32#issuecomment-7050134256), with transient tracking parameters removed. User Flow is node 64:3. All three versions remain empty. Frozen version history, ownership, team/reviewer permissions and final accessibility/UX acceptance remain UNKNOWN/Pending.
+- Remaining attributed UX work: inactive-student, closed-period and prerequisite states (FR-05), FR-07 loading, red 50/50 contrast, and missing grade/course input controls. Demo-only button annotations and FR-06 focus label require recheck after fixes. Screenshot contrast estimates are not measured WCAG conformance; USE-01 user testing is Pending.
+- PO/Nurefşan and technical owners: unresolved SRS/API policies, grade scale and Attendance Entry/System Settings scope remain decisions to resolve. PD-01–PD-04 and Figma improvements do not approve all NFR targets/new IDs.
+- Arda/another non-author: NFR Draft 0.6 approval remains Pending. Independent architecture review at 1a5b3fe is Pending. Mert/Ahmet must then refresh the affected QA rows, preserving historical source/results and separating documentation checks from runtime tests. Azra fixes UX findings.
+- Azra reconciles #44 review-to-SHA mappings with exact review records; Ahmet/Mert supply independent follow-up. Barış continues integration/release preparation with refreshed sources; #49 approval is not release execution.
+- Mert: official assignment URL/instructions, team number, timezone and format/attachment limits remain Pending. Final package and Teams receipt are Pending; no evidence is invented.
+- expected_commit and release.tag/commit/url remain empty. Historical base_commit is unchanged. No final package, tag, release, upload, approval, merge or Issue closure is performed. PR #48 remains DRAFT.
+
+### Validation boundary
+
+JSON parsing, existing schema version 1, all 24 existing unit tests, artifact/review consistency, new Markdown table structure and git diff --check passed. Checker text/JSON ran with PYTHONIOENCODING=utf-8: exit 2, 128 PASS / 0 ERROR / 413 PENDING; classifications are unchanged. No UnicodeEncodeError occurred with that procedure. This is a dirty-worktree preparation run at published HEAD 23dd181, not an audit of a new committed revision or final acceptance. Present the proposed diff and remaining blockers to Mert before commit/push.
