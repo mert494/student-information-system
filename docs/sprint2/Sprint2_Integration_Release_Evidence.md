@@ -1,33 +1,35 @@
 # Sprint 2 integration and release evidence (S2-14)
 
-Status: **Draft baseline, 18 November 2026. Preparation only; final acceptance Pending.** Prepared by Barış (`baryyss-001`). Issue: [#39](https://github.com/mert494/student-information-system/issues/39) (S2-14). Branch: `docs/39-baris-sprint2-release-evidence`. PR: [#42](https://github.com/mert494/student-information-system/pull/42) (target `develop`). Owner, priority and window remain Proposed as in the [task register](Sprint2_Task_Breakdown.md#s2-14); Mert coordinates. Final acceptance depends on S2-12 ([#37](https://github.com/mert494/student-information-system/issues/37)) and S2-13 ([#38](https://github.com/mert494/student-information-system/issues/38)), both open on 18 November 2026.
+Status: **Readiness update, 22 November 2026. Preparation only; final acceptance Pending.** Prepared by Barış (`baryyss-001`). Issue: [#39](https://github.com/mert494/student-information-system/issues/39) (S2-14), assigned to `baryyss-001` on 22 November 2026 (18:09 UTC, per the Issue event log). First version: PR [#42](https://github.com/mert494/student-information-system/pull/42), merged into `develop` as `98f9b5a`. This update: branch `docs/39-baris-sprint2-release-readiness`, PR [TODO]. Owner, priority and window remain Proposed as in the [task register](Sprint2_Task_Breakdown.md#s2-14); Mert coordinates. Final acceptance depends on S2-12 ([#37](https://github.com/mert494/student-information-system/issues/37)) and S2-13 ([#38](https://github.com/mert494/student-information-system/issues/38)), both open on 22 November 2026.
 
-This document records the repository state as read, and the checks to repeat before integration and release. It does not perform or authorize any merge, tag, release, upload or Issue closure. Each of those needs separate user authorization ([AGENTS.md](../../AGENTS.md)).
+This document records the repository state as read, and the checks to repeat before integration and release. It does not perform or authorize any merge, approval, tag, release, upload, access change or Issue closure. Each of those needs separate user authorization ([AGENTS.md](../../AGENTS.md)). Merge order and the open decisions in section 9 are proposals until the decision owner answers.
 
-## 1. Baseline read on 18 November 2026
+## 1. Baseline read on 22 November 2026
 
-All values were read with `git` and `gh` from Barış's account (`write` access, no Settings access). Commands are listed so that anyone can repeat them.
+All values were read with `git` and `gh` from Barış's account (`write` access, no Settings access); last recheck at about 19:00 UTC. Commands are listed so that anyone can repeat them. The 18 November baseline is in the version merged by PR #42.
 
 | Item | Value | Source command |
 | --- | --- | --- |
 | Repository | [mert494/student-information-system](https://github.com/mert494/student-information-system); public; default branch `main` | `gh repo view mert494/student-information-system --json defaultBranchRef,visibility` |
-| `origin/main` | `c6af2af` — Merge PR [#23](https://github.com/mert494/student-information-system/pull/23) (2026-11-04 23:41 +0300) | `git rev-parse origin/main` |
-| `origin/develop` | `2945b81` — Merge PR [#25](https://github.com/mert494/student-information-system/pull/25) | `git rev-parse origin/develop` |
-| `main` vs `develop` | `main` has 2 commits not in `develop` (the merge commits of [#21](https://github.com/mert494/student-information-system/pull/21) and [#23](https://github.com/mert494/student-information-system/pull/23)); `develop` has 4 commits not in `main` (Sprint 2 planning [#24](https://github.com/mert494/student-information-system/pull/24) and traceability [#25](https://github.com/mert494/student-information-system/pull/25)) | `git rev-list --left-right --count origin/main...origin/develop` |
+| `origin/main` | `c6af2af9840d7166912370d645e002eb69649efb` — Merge PR [#23](https://github.com/mert494/student-information-system/pull/23) (2026-11-04); unchanged since 18 November | `git rev-parse origin/main` |
+| `origin/develop` | `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` — Merge PR [#43](https://github.com/mert494/student-information-system/pull/43) (2026-11-22 18:03 UTC), after PRs [#42](https://github.com/mert494/student-information-system/pull/42) (2026-11-18) and [#41](https://github.com/mert494/student-information-system/pull/41) (2026-11-19) | `git rev-parse origin/develop` |
+| `main` vs `develop` | `main` has 2 commits not in `develop` (merge commits of [#21](https://github.com/mert494/student-information-system/pull/21) and [#23](https://github.com/mert494/student-information-system/pull/23)); `develop` has 17 commits not in `main` | `git rev-list --left-right --count origin/main...origin/develop` |
+| `develop` → `main` conflicts | None at the SHAs above | `git merge-tree --write-tree origin/main origin/develop` |
 | Repository merge settings | Merge, squash and rebase are allowed at repository level; rulesets restrict `main` and `develop` to `merge` (section 2). Branches are not deleted automatically on merge. | `gh repo view ... --json mergeCommitAllowed,squashMergeAllowed,rebaseMergeAllowed,deleteBranchOnMerge` |
-| Open PRs | Read before this document's own PR ([#42](https://github.com/mert494/student-information-system/pull/42)) was opened, so #42 is not listed: [#41](https://github.com/mert494/student-information-system/pull/41) `feature/40-sprint2-submission-checker` → `develop`, review decision `APPROVED`, not merged | `gh pr list --state open` |
-| CI | No GitHub Actions workflow exists; `.github/` holds only Issue and PR templates. There is no automated status check to require. | `git ls-tree -r --name-only origin/develop .github` |
+| Sprint 2 source PRs | #43 merged; five open, [#44](https://github.com/mert494/student-information-system/pull/44)–[#48](https://github.com/mert494/student-information-system/pull/48); details in section 4. Read before this update's own PR was opened. | `gh pr list --state all` |
+| Tags and releases | Only `sprint-1` and the "Sprint 1" release (section 3) | `git ls-remote --tags origin`, `gh release list` |
+| CI | No GitHub Actions workflow; no required status check. The offline [submission checker](Submission_Checker_Usage.md) from PR #41 is run by hand (section 7). | `git ls-tree -r --name-only origin/develop .github` |
 
 ## 2. Branch protection (rulesets)
 
-Classic branch protection returns `404` for both `main` and `develop`; protection is provided by repository rulesets. Both rulesets are unchanged since the Sprint 1 check in [Repository_Setup.md](../Repository_Setup.md#7-pr-rule-and-release-evidence) (`updated_at` 2026-11-03).
+Classic branch protection returns `404` for both `main` and `develop`; protection is provided by repository rulesets. Both rulesets are unchanged since the Sprint 1 check in [Repository_Setup.md](../Repository_Setup.md#7-pr-rule-and-release-evidence) (`updated_at` 2026-11-03; rechecked 22 November 2026).
 
 | Ruleset | Target | Enforcement | PR required | Approvals | Stale approvals dismissed | Last-push approval | Threads resolved | Merge method | Deletion / force push blocked |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [main-protection](https://github.com/mert494/student-information-system/rules/26478471) | `refs/heads/main` | `active` | Yes | 2 | Yes | Yes | Yes | `merge` | Yes / Yes |
 | [develop-protection](https://github.com/mert494/student-information-system/rules/26478727) | `refs/heads/develop` | `active` | Yes | 1 | Yes | Yes | Yes | `merge` | Yes / Yes |
 
-Source: `gh api repos/mert494/student-information-system/rulesets` and `gh api repos/mert494/student-information-system/rulesets/<id>`. `bypass_actors` is `null` from a `write` account, so bypass settings remain unverified: [TODO — Mert, as admin, confirms the bypass list].
+Source: `gh api repos/mert494/student-information-system/rulesets` and `gh api repos/mert494/student-information-system/rulesets/<id>`. `bypass_actors` is `null` from a `write` account, so bypass settings remain unverified (D-07 in section 9).
 
 ## 3. Sprint 1 tag and release (preserve, do not alter)
 
@@ -35,23 +37,34 @@ Source: `gh api repos/mert494/student-information-system/rulesets` and `gh api r
 | --- | --- |
 | Release | [Sprint 1](https://github.com/mert494/student-information-system/releases/tag/sprint-1), published 2026-11-04 20:14:53 UTC by `mert494`, not draft, not pre-release, no assets |
 | Tag | `sprint-1`, lightweight tag (points directly to a commit) |
-| Tag commit | `d64b7f33119d9ccccb20200aaed38ea6b54b1e16` — Merge PR [#21](https://github.com/mert494/student-information-system/pull/21) `develop` → `main`, approved by `azrayy` and `ahmetserdar41` |
+| Tag commit | `d64b7f33119d9ccccb20200aaed38ea6b54b1e16` — Merge PR [#21](https://github.com/mert494/student-information-system/pull/21) `develop` → `main`, approved by `azrayy` and `ahmetserdar41`; unchanged on 22 November 2026 |
 | Reachable from | `origin/main` only |
 | Later `main` commit | `c6af2af` (PR [#23](https://github.com/mert494/student-information-system/pull/23), Sprint 1 submission corrections) was merged after the tag, so `sprint-1` does not point to the current `main` head. This is recorded as history; the tag must not be moved. |
 
-Commands: `git rev-parse sprint-1`, `git cat-file -t sprint-1`, `git branch -r --contains sprint-1`, `gh release view sprint-1 --json ...`.
+Commands: `git ls-remote --tags origin`, `git cat-file -t sprint-1`, `git branch -r --contains sprint-1`, `gh release view sprint-1 --json ...`.
 
-## 4. Observations for the team
+## 4. Source PRs and proposed merge order
 
-These are observations, not decisions. Each needs an owner's answer.
+All six PRs target `develop`. Head SHAs and review states change with every push; recheck them with section 5 immediately before each merge.
 
-| ID | Observation | Proposed action | Decision owner |
-| --- | --- | --- | --- |
-| OBS-1 | No tag ruleset exists; both rulesets target branches only. Anyone with `write` access can technically delete or move a tag. | Consider a tag ruleset that blocks deletion and update of `sprint-*` tags. Proposed only. | Mert (admin) |
-| OBS-2 | The collaborator list returns 7 accounts. `mhmttemin` (`write`) is not in the six-member account table in [Repository_Setup.md](../Repository_Setup.md#2-account-and-access-matrix). | Confirm who this account belongs to and whether the access is intended. Not assumed. | Mert (admin) |
-| OBS-3 | Repository settings allow squash and rebase merges, but the rulesets allow only `merge` on `main` and `develop`. Individual commit history on protected branches is therefore preserved. | No change needed; recheck before each merge. | — |
-| OBS-4 | `sprint-1` is a lightweight tag and the Sprint 1 release has no assets. | Agree whether the Sprint 2 tag is annotated and whether the release includes exported files (section 6). | Team / Mert |
-| OBS-5 | There is no CI, so "checks passed" cannot be shown by GitHub status checks. Document checks are manual (section 5). | Keep manual check results in the PR description. | Barış / reviewers |
+| PR | Deliverable / task | Author | Head on 22 Nov | Review decision / merge state | Notes |
+| --- | --- | --- | --- | --- | --- |
+| [#43](https://github.com/mert494/student-information-system/pull/43) | SRS and refined backlog (S2-03, S2-04) | `nsnkcc` | `6bef5c9` | **Merged** 2026-11-22 18:03 UTC by `mert494` as `e265b6d`; approved by `ahmetserdar41` | Merged head `6bef5c9` |
+| [#45](https://github.com/mert494/student-information-system/pull/45) | NFR and quality measures (S2-05, S2-06) | `ahmetserdar41` | `f5a545e` | `REVIEW_REQUIRED` / `BLOCKED` | Reviews so far are comments only |
+| [#47](https://github.com/mert494/student-information-system/pull/47) | Architecture, C4 and UML (S2-09–S2-11) | `ardaberkkara1` | `5349b12` | `REVIEW_REQUIRED` / `BLOCKED` | Eight SVG diagrams and one Markdown document |
+| [#44](https://github.com/mert494/student-information-system/pull/44) | Process and contribution log (S2-12) | `azrayy` | `67e08eb` | `REVIEW_REQUIRED` / `BLOCKED` | Records reviews and contributions of the other PRs |
+| [#46](https://github.com/mert494/student-information-system/pull/46) | Cross-deliverable QA matrix (S2-13) | `mert494` | `b06ed7b` | `REVIEW_REQUIRED` / `BLOCKED`, draft | Checks the versions of the PRs above |
+| [#48](https://github.com/mert494/student-information-system/pull/48) | Submission checklist and manifest (S2-15) | `mert494` | `23dd181` | `REVIEW_REQUIRED` / `BLOCKED`, draft | Manifest links point to the versions listed in section 8 |
+
+**Proposed merge order (decision D-01, Pending):**
+
+1. Deliverable PRs: #43 (merged), #45, #47. They change different files and can merge in any order once each is approved.
+2. #44, after its records name the final versions of 1.
+3. #46, after the QA matrix is rechecked against the merged versions of 1.
+4. #48 last, after the manifest evidence links are updated to the merged versions (section 8, note A).
+5. `develop` → `main` integration (section 6).
+
+Reason: each later PR refers to the exact versions of the earlier ones. Merging in this order avoids a second round of edits after merges.
 
 ## 5. Pre-merge checklist (repeat for every integration PR)
 
@@ -68,13 +81,51 @@ Copy this into the PR description or a review comment and fill it against the ac
 - [ ] Merge method is `merge`; no force push or history rewrite.
 - [ ] Separate merge authorization obtained from the responsible person; merge commit SHA recorded afterwards.
 
-## 6. Sprint 2 release preparation (Pending separate authorization)
+## 6. `develop` → `main` integration (Pending)
+
+Nothing in this section has been done.
+
+1. Start only after the PRs in section 4 are merged or explicitly left out by a recorded decision.
+2. Open one PR from `develop` to `main`. Record its head SHA (the `develop` SHA being integrated) in the table in section 7.
+3. Run the [submission checker](Submission_Checker_Usage.md) on that SHA and attach the output. A blocking `ERROR` stops the integration; remaining `PENDING` items are listed in the PR.
+4. Apply section 5. `main-protection` needs **2 approvals** from people other than the PR author, given after the last push. Who approves and when: decision D-02, Pending. Proposed window: 23–24 November.
+5. After separate merge authorization, merge with `merge`. The resulting `main` merge commit is the candidate for the release (section 7, step 2).
+
+### Running the submission checker on Windows
+
+The checker prints text from the repository documents, including Turkish letters such as `ı`, `ş` and `ğ` that the Windows code page `cp1252` cannot represent. When Python's output encoding is such a code page, `--format text` stops with `UnicodeEncodeError` before printing the report (exit 1). This happens typically when the output is redirected or piped, for example `> report.txt` or `| grep` in Git Bash. `--format json` is not affected, because it writes ASCII only.
+
+Force UTF-8 output for the run, using the line for your shell:
+
+```bash
+# Git Bash
+PYTHONIOENCODING=utf-8 python -B tools/check_sprint2_submission.py --ref <SHA> --format text
+```
+
+```powershell
+# PowerShell
+$env:PYTHONIOENCODING = "utf-8"; python -B tools/check_sprint2_submission.py --ref <SHA> --format text
+```
+
+```bat
+:: Command Prompt (cmd.exe)
+set PYTHONIOENCODING=utf-8
+python -B tools/check_sprint2_submission.py --ref <SHA> --format text
+```
+
+Alternative in any shell: `python -X utf8 -B tools/check_sprint2_submission.py --ref <SHA> --format text`. To keep a report file, redirect the output of one of these commands; the checker itself writes no file.
+
+The exit code is the checker's own result (0 no blocking findings, 1 blocking `ERROR`, 2 blocking `PENDING`, 3 configuration error; see [Submission_Checker_Usage.md](Submission_Checker_Usage.md)). An exit code of 1 together with a `UnicodeEncodeError` traceback is the encoding problem, not a finding.
+
+Tested on 22 November 2026 (Windows 11, Python 3.14.4) against `develop` `e265b6d`: in Git Bash, plain `--format text` with redirected output failed with `UnicodeEncodeError` (exit 1); with `PYTHONIOENCODING=utf-8` and with `-X utf8` the report printed (`Overall: PENDING`, exit 2); `--format json` printed without the variable (exit 2). The PowerShell and cmd lines ran without error (exit 2), but that PowerShell session already had UTF-8 output configured, so they do not prove the failure is absent there without the setting.
+
+## 7. Sprint 2 release preparation (Pending separate authorization)
 
 Nothing in this section has been done. It is the plan for 23–24 November (Proposed window).
 
-1. Wait until S2-12 (#37) and S2-13 (#38) record their results and the final `develop` → `main` PR passes section 5.
-2. Before tagging, record the full 40-character SHA of the reviewed `main` merge commit in the release evidence table below, and get the tag/release authorization for that exact SHA. This recorded SHA, not whatever `main` points to later, is the reference for verification.
-3. After separate authorization, create the new tag and release on that recorded SHA (pass the SHA explicitly, not the branch name `main`). Proposed name: `sprint-2` [TODO — team confirms name and annotated vs lightweight].
+1. Wait until S2-12 (#37) and S2-13 (#38) record their results and the `develop` → `main` PR (section 6) is merged.
+2. Before tagging, record the full 40-character SHA of the reviewed `main` merge commit in the release evidence table below, and get the tag/release authorization for that exact SHA. This recorded SHA, not whatever `main` points to later, is the reference for verification. The same value goes into `expected_commit` and `release.commit` in [submission_manifest.json](submission_manifest.json), so the release check and the submission checker use one source (who fills the manifest: decision D-05, Pending).
+3. After separate authorization, create the new tag and release on that recorded SHA (pass the SHA explicitly, not the branch name `main`). Proposed name: `sprint-2`; name and annotated vs lightweight: decision D-03, Pending. Release assets: decision D-04, Pending.
 4. Do not delete, move or reuse `sprint-1` or its release.
 5. Verify after creation and record the full output. The check reads tags from the remote with `git ls-remote`, not from local tags, so a stale or locally created tag cannot pass it. It stops with `FAIL` and a non-zero exit code at the first fetch, SHA or ancestry error; only a final `PASS` line counts as evidence. Set `AUTHORIZED_SHA` to the SHA recorded in step 2 and run it in Bash (Git Bash on Windows):
 
@@ -136,32 +187,104 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
 
    Tested on 19 November 2026 with `NEW_TAG=sprint-1` and `AUTHORIZED_SHA=d64b7f3…` as a stand-in (`PASS`, exit 0), and with a wrong SHA, a missing tag (`sprint-2`), a placeholder and a short SHA, an unreachable remote and a commit not on `main` (each `FAIL`, exit 1). After moving `PASS` to the last line, the block was run again as written: the normal run ends with `PASS` (exit 0), and a simulated failure of `git log` or `git rev-parse` in the informational step stops with `FAIL` and no `PASS` line (exit 1). The annotated-tag (peeled `^{}`) branch was checked only with sample `ls-remote` output, because no annotated tag exists on the remote yet.
 
-6. Release notes contain the four Sprint 2 deliverable headings, known gaps and validation limits ([submission checklist](Sprint2_Submission_Checklist.md#authorized-integration-release-and-teams-delivery)).
+6. Run the submission checker against the same commit, after `git fetch --tags origin` so that its local tag lookup sees the new tag:
+
+   ```bash
+   python -B tools/check_sprint2_submission.py --ref <AUTHORIZED_SHA> --format json
+   ```
+
+   Its `release.tag` finding must be `PASS` and there must be no `release.source` `ERROR` (the checker reports `release.source` only when the tag does not identify the audited commit). The checker reads local tags only; the remote check in step 5 is the authoritative one. On Windows, use `--format json` or the UTF-8 settings in section 6 ("Running the submission checker on Windows") for `--format text`.
+7. Release notes follow the draft below, filled with actual values ([submission checklist](Sprint2_Submission_Checklist.md#authorized-integration-release-and-teams-delivery)).
 
 | Release evidence | Value |
 | --- | --- |
 | Final integration PR (`develop` → `main`) | [TODO] |
+| Integrated `develop` SHA (PR head) | [TODO] |
+| Submission checker output on the integrated SHA | [TODO] |
 | Reviewed `main` merge commit SHA (authorized, recorded before tagging) | [TODO] |
 | Sprint 2 tag name and resolved commit SHA (must equal the authorized SHA) | [TODO] |
 | Sprint 2 release URL | [TODO] |
 | `sprint-1` SHA after release (unchanged) | [TODO] |
 | Verification output (`PASS` line and date) | [TODO] |
+| Manifest `expected_commit` / `release.commit` equal to the authorized SHA | [TODO] |
 | Authorization for tag/release | [TODO] |
 
-## 7. Tool and artifact access
+### Release notes draft
 
-No Sprint 2 deliverable artifact was found in this repository on 18 November 2026 (`origin/develop` at `2945b81`; `docs/sprint2/` holds planning and tracking files only). Work in external tools such as Figma or diagram editors was not checked and is not assumed to be absent. Each row must be checked with a reviewer account (or the agreed sharing audience) once the artifact exists.
+Values in angle brackets are filled at release time; nothing below describes a finished release.
 
-| Artifact | Location | Editable source preserved | Export available | Access checked by / date |
+```markdown
+# Sprint 2 — Requirements and Architecture
+
+Commit: <AUTHORIZED_SHA> (main). Integration PR: <link>. Previous release: sprint-1 (unchanged).
+
+## Detailed SRS and refined Product Backlog
+<links to the merged SRS and backlog versions>
+
+## Non-functional requirements and quality-measure specifications
+<link to the merged NFR document>
+
+## Figma UI/UX prototypes and user-flow diagrams
+<Figma file, prototype and user-flow links with version/date; access audience>
+
+## Architecture documentation (C4 and UML)
+<links to the architecture document and diagrams>
+
+## Known gaps and open decisions
+<open findings from the QA matrix and unresolved decisions, copied as they stand>
+
+## Validation limits
+Documentation and design artifacts only; no implementation, deployment, runtime or performance test is part of this release.
+<submission checker result and manual checks that remain Pending>
+```
+
+## 8. Tool and artifact access
+
+Links below are the evidence entries in `submission_manifest.json` at PR #48 head `23dd181`, read on 22 November 2026. Of these deliverables, only the SRS and refined backlog are merged into `develop` (PR #43, `e265b6d`). No access test was performed by Barış; Figma links were not opened.
+
+| Artifact | Location (version in manifest) | Editable source preserved | Export available | Access checked by / date |
 | --- | --- | --- | --- | --- |
-| SRS and refined backlog | [TODO] | [TODO] | [TODO] | [TODO] |
-| NFR and quality measures | [TODO] | [TODO] | [TODO] | [TODO] |
-| Figma prototype and user flows | [TODO] | [TODO] | [TODO] | [TODO] |
-| C4 and UML diagrams | [TODO] | [TODO] | [TODO] | [TODO] |
+| SRS and refined backlog | [SRS_Draft.md](https://github.com/mert494/student-information-system/blob/a9b6b4819ca18146e4e2b72346405283dbdd0c60/docs/sprint2/SRS_Draft.md), [Refined_Backlog_Draft.md](https://github.com/mert494/student-information-system/blob/a9b6b4819ca18146e4e2b72346405283dbdd0c60/docs/sprint2/Refined_Backlog_Draft.md) (`a9b6b48`; merged head `6bef5c9` is in `develop` at [`e265b6d`](https://github.com/mert494/student-information-system/tree/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2), note A) | Yes (Markdown in Git) | Not needed | [TODO] |
+| NFR and quality measures | [NFR_Quality_Measures.md](https://github.com/mert494/student-information-system/blob/4502c7e9ffdd8c38599e6e5addbfdd7bf7a641c8/docs/sprint2/NFR_Quality_Measures.md) (`4502c7e`; PR #45 head is `f5a545e`, note A) | Yes (Markdown in Git) | Not needed | [TODO] |
+| Figma prototype | [design](https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/Untitled?node-id=1-1681&t=obxBWqyIa9OpcM99-1), [prototype](https://www.figma.com/proto/n5jM7D19uV3Yj2rQRkoV6F/Untitled?node-id=1-1681&t=obxBWqyIa9OpcM99-1) (no version recorded, note B) | In Figma; version/freeze [TODO] | [TODO] | [TODO] |
+| User-flow diagrams | [Figma node 64-3](https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=64-3) (no version recorded, note B) | In Figma; version/freeze [TODO] | [TODO] | [TODO] |
+| Architecture document | [Architecture_Decisions_and_Contract_Mapping.md](https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md) (`df477c0`; PR #47 head is `5349b12`, note A) | Yes (Markdown in Git) | Not needed | [TODO] |
+| C4 diagrams | System Context, Container, Component SVGs in `docs/diagrams/` (`df477c0`) | SVG in Git; whether another editable source exists: [TODO — Arda] (note C) | SVG renders on GitHub | [TODO] |
+| UML diagrams | Domain/Class and four sequence SVGs in `docs/diagrams/` (`df477c0`, Session Lifecycle at `5349b12`) | SVG in Git; [TODO — Arda] (note C) | SVG renders on GitHub | [TODO] |
 | OpenAPI contract ([api/openapi.yaml](../../api/openapi.yaml)) | In repository | Yes (Git) | Not needed | [TODO] |
 
-## 8. Scope limits
+- **Note A:** The manifest links point to older commits on the PR branches than the current PR heads. After each PR is merged, its evidence entries should point to the merged version on `develop`, otherwise the release would cite versions that differ from the reviewed ones.
+- **Note B:** The Figma design/prototype links and the user-flow link name different files (`Untitled` and `SENG321---OBS-prototype`) with the same file key. Which one is authoritative, the frozen version and the reviewer access audience are not recorded.
+- **Note C:** The SVG files are text and can be edited in Git. Whether they were exported from another tool whose source should also be kept is not stated.
+
+## 9. Open decisions and observations
+
+These are not decisions. Each row needs the owner's answer before the step it blocks.
+
+| ID | Question / observation | Blocks | Owner | Status |
+| --- | --- | --- | --- | --- |
+| D-01 | Merge order of PRs #43–#48 (proposal in section 4) | Section 4 | Mert | Pending |
+| D-02 | Who gives the 2 `main` approvals for the `develop` → `main` PR, and when | Section 6 | Mert / team | Pending |
+| D-03 | Sprint 2 tag name (`sprint-2` proposed) and annotated vs lightweight | Section 7, step 3 | Mert / team | Pending |
+| D-04 | Release assets: exported files attached, or links only | Section 7, step 3 | Mert / team | Pending |
+| D-05 | Who fills `expected_commit` and `release.*` in `submission_manifest.json` | Section 7, step 2 | Mert | Pending |
+| D-06 | Tag ruleset blocking deletion and update of `sprint-*` tags (OBS-1) | Before tagging | Mert (admin) | Pending |
+| D-07 | Bypass list of both rulesets (not readable from a `write` account) | Section 2 | Mert (admin) | Pending |
+| D-08 | `mhmttemin` (`write`) is not in the six-member table in [Repository_Setup.md](../Repository_Setup.md#2-account-and-access-matrix); owner and intended access (OBS-2) | Section 2 | Mert (admin) | Pending |
+| D-09 | Assignee of Issue #39 | Contribution evidence | Mert | Resolved: assigned to `baryyss-001` on 22 November 2026 (Issue event log) |
+
+| ID | Observation | Proposed action | Owner |
+| --- | --- | --- | --- |
+| OBS-1 | No tag ruleset exists; both rulesets target branches only. Anyone with `write` access can technically delete or move a tag. | D-06 | Mert (admin) |
+| OBS-2 | The collaborator list returns 7 accounts, including `mhmttemin`. | D-08 | Mert (admin) |
+| OBS-3 | Repository settings allow squash and rebase merges, but the rulesets allow only `merge` on `main` and `develop`, so individual commit history on protected branches is preserved. | No change; recheck before each merge. | — |
+| OBS-4 | `sprint-1` is a lightweight tag and the Sprint 1 release has no assets. | D-03, D-04 | Mert / team |
+| OBS-5 | There is no CI, so "checks passed" cannot be shown by GitHub status checks. | Keep manual and checker results in each PR description. | Barış / reviewers |
+| OBS-6 | `tools/check_sprint2_submission.py --format text` fails on Windows with `UnicodeEncodeError` when the output encoding is a code page such as `cp1252`. Its 24 unit tests pass (`python -B -m unittest discover -s tests`, Python 3.14.4). On `develop` `e265b6d` the checker returns `Overall: PENDING` (exit 2), as expected before all deliverables are merged. | Documented workaround in section 6. A code fix (for example `sys.stdout.reconfigure(encoding="utf-8")`) is the checker owner's decision. | Mert |
+
+## 10. Scope limits
 
 - No production infrastructure, deployment, Docker or CI task is added by S2-14.
 - No member's history is rewritten; account association questions (F-25) stay open as recorded elsewhere.
-- Independent review of this document: [TODO].
+- The content of the source PRs was not reviewed here; only their state, versions and file lists were read.
+- Independent review of this update: [TODO].
