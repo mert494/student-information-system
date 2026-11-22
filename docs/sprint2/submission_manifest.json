@@ -74,7 +74,13 @@
           "version": ""
         }
       ],
-      "user_flows": [],
+      "user_flows": [
+        {
+          "kind": "url",
+          "value": "https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=64-3",
+          "version": ""
+        }
+      ],
       "review": {
         "reviewer": "ahmetserdar41",
         "version": "UNKNOWN: unfrozen file, walkthrough start node 10:79; ownership UNKNOWN",
@@ -136,6 +142,11 @@
           "kind": "url",
           "value": "https://github.com/mert494/student-information-system/blob/df477c07c8adfcb37382fc129c26c98c80502bd5/docs/diagrams/Sprint2_Sequence_Published_Grades.svg",
           "version": "df477c07c8adfcb37382fc129c26c98c80502bd5"
+        },
+        {
+          "kind": "url",
+          "value": "https://github.com/mert494/student-information-system/blob/5349b1295e55625bc00922144d50488a9da00677/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg",
+          "version": "5349b1295e55625bc00922144d50488a9da00677"
         }
       ],
       "review": {

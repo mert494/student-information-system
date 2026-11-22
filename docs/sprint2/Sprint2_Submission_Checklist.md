@@ -223,3 +223,44 @@ Open PR/commit/blob URLs can be declared with `kind: url`, and member PR/review 
 | Sprint 2 tag/release / Teams receipt | Pending future authorized actions; sprint-1 is not Sprint 2 evidence |
 
 [Barış's merged release-preparation document](Sprint2_Integration_Release_Evidence.md) is a historical preparation baseline from #42; it is not a completed release. Current API observations found only the Sprint 1 release. All source HEADs, review states, audience/version evidence and final-only fields must be rechecked before final integration/submission. This update does not merge, approve, create a release/tag, upload to Teams or close an Issue.
+
+## Preparation Update — 22 November 2026
+
+**OBSERVATION — 22 November 2026, Europe/Istanbul (UTC+3). Preparation only; not FINAL SUBMISSION or final acceptance.** Related work: [DRAFT PR #48](https://github.com/mert494/student-information-system/pull/48), [#40 submission inventory](https://github.com/mert494/student-information-system/issues/40) and [#38 QA](https://github.com/mert494/student-information-system/issues/38). The 16 and 20 November records above remain historical snapshots; this dated section supersedes their inventory-gap descriptions only where explicitly stated below. Source branches, review states and Figma content may change after this observation and require another refresh before final integration/submission. No acceptance checkbox is changed.
+
+### Two existing artifacts added to the draft inventory
+
+- **Session Lifecycle sequence:** added [Sprint2_Sequence_Session_Lifecycle.svg](https://github.com/mert494/student-information-system/blob/5349b1295e55625bc00922144d50488a9da00677/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg) to `categories.architecture.uml`, with version `5349b1295e55625bc00922144d50488a9da00677`. The pinned SVG source exists in PR #47; recording it is not final diagram or architecture approval. If #47 changes, use the newly reviewed SHA at the next final refresh.
+- **Figma User Flow page:** added the supplied [User Flow page, node 64:3](https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=64-3) to `categories.figma_flows.user_flows`. Its `version` remains empty under schema version 1. A page/node link does not freeze a Figma version or establish ownership, all-team access or UX acceptance.
+
+The manifest now has **16 artifact entries across all 9 required sub-output arrays and all 4 categories**: SRS/backlog 2; NFR/quality measures 2; Figma/prototype/user flows 3; architecture/C4/UML 9 (1 document, 3 C4 and 5 UML). These are inventory declarations, not accepted deliverables. Existing artifact versions and historical review/access declarations are retained; this is not a refresh of every manifest source or review.
+
+### Latest attributed Figma evidence and verification limits
+
+Azra [announced `v1.3-sprint2`](https://github.com/mert494/student-information-system/issues/33#issuecomment-7071930286) on 22 November. The version name and saved-version claim are **producer-reported**; Figma version history has not been independently verified. The connector could not open a file session because it reported insufficient edit access; this attempt does not establish the intended team's view/comment permissions. No permission settings were changed.
+
+[Ahmet's 22 November static recheck](https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958) records improvements, but **NFR-USE-02 and NFR-ACCESS-01 (a) remain FAIL**:
+
+- Fixed in his walkthrough: enrollment success/full/duplicate branches from `Ekle`, invalid-grade and separate load/API-error/retry states, published-grades empty-state meaning, login labels, darker button text contrast and a focus-order page.
+- Still missing: inactive-student, closed-period and unmet-prerequisite states (FR-05), and the FR-07 loading state. Red `50/50` text contrast still fails; missing input controls prevent checks on the grade-entry and course-definition screens.
+- Demo-only state buttons need annotation; the grade-entry focus-order label needs FR-06 correction. Grade scale, final empty-state wording, Attendance Entry and System Settings scope still need the relevant Product Owner/academic decisions.
+- Contrast observations are screenshot estimates, not instrument-measured WCAG conformance. No user-based NFR-USE-01 test, independent version-history/ownership check, all-team/reviewer access verification or final UX acceptance is established. These remain Pending/Unverified.
+
+### Observed source PR HEADs
+
+These exact HEADs were checked on 22 November. All four PRs were **OPEN** and had **no formal APPROVED review** at this observation. COMMENTED reviews and PD-01–PD-04 product decisions do not constitute approval of an entire source document, architecture, NFR targets or submission package.
+
+| Source PR | Observed HEAD | Review / acceptance status |
+| --- | --- | --- |
+| [#43 SRS/backlog](https://github.com/mert494/student-information-system/pull/43) | `6bef5c98327b21249abfd49573f8a2ccdeb705f3` | OPEN; COMMENTED follow-up; formal approval Pending |
+| [#44 process/contributions](https://github.com/mert494/student-information-system/pull/44) | `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | OPEN; COMMENTED follow-up; formal approval Pending |
+| [#45 NFR/quality measures](https://github.com/mert494/student-information-system/pull/45) | `7d752cada7bea0a950c3a435e1ee0a6c667c85d1` | OPEN; COMMENTED follow-up; target acceptance/technical sign-off Pending |
+| [#47 architecture/C4/UML](https://github.com/mert494/student-information-system/pull/47) | `5349b1295e55625bc00922144d50488a9da00677` | OPEN; COMMENTED reviews; architecture acceptance Pending |
+
+### Remaining preparation and final-only gates
+
+- **QA #46:** the [matrix snapshot at `e773377555209662b658055fd6a7b2edd47b3630`](https://github.com/mert494/student-information-system/blob/e773377555209662b658055fd6a7b2edd47b3630/docs/sprint2/Sprint2_Cross_Deliverable_QA_Matrix.md) is historical. No final refresh has been performed. This update does not edit PR #46, change historical QA results or close findings.
+- **Official assignment:** real Teams assignment URL, official instructions/timezone, team details, format/attachment restrictions and final package verification remain Pending. Teams receipt remains Pending; no upload has occurred.
+- **Release preparation:** Barış's preparation continues, as reported by Mert; [the merged #42 preparation document](Sprint2_Integration_Release_Evidence.md) is a baseline, not a completed Sprint 2 release. Final integration and release evidence remain Pending.
+- **Final identities:** `expected_commit`, `release.tag`, `release.commit` and `release.url` remain empty. The historical `base_commit` is unchanged. No final source commit or Sprint 2 tag/release is selected by this update.
+- **Checker boundary:** empty Figma versions, remote access, human acceptance, contribution ownership, release and submission gates retain their existing PENDING classifications. A mechanically valid URL or populated array is not a PASS for acceptance. PR #48 remains DRAFT; no formal approval, merge, release/tag, Teams submission, Issue closure or permission change is performed.
