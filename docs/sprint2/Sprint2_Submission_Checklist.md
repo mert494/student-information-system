@@ -428,3 +428,22 @@ These primary declarations are preserved from published #48 at 23dd181. Their fi
 ### Validation boundary
 
 JSON parsing, existing schema version 1, all 24 existing unit tests, artifact/review consistency, new Markdown table structure and git diff --check passed. Checker text/JSON ran with PYTHONIOENCODING=utf-8: exit 2, 128 PASS / 0 ERROR / 413 PENDING; classifications are unchanged. No UnicodeEncodeError occurred with that procedure. This is a dirty-worktree preparation run at published HEAD 23dd181, not an audit of a new committed revision or final acceptance. Present the proposed diff and remaining blockers to Mert before commit/push.
+
+## Preparation Update — 22 November 2026, post-#49 integration and #47 targeted QA
+
+**Scope:** This is a later observed preparation state, not a rewrite of the 16/20/22 November historical snapshots or an acceptance decision. The schema-v1 manifest keeps **16 artifact entries in all 9 required sub-output arrays**, its original `base_commit`, and empty `expected_commit` / `release.tag` / `release.commit` / `release.url` fields. Existing recorded source pins are historical/provisional and must be refreshed only against actual final reviewed sources.
+
+| Evidence / PR | Verified revision / state | Required follow-up |
+| --- | --- | --- |
+| [#43 SRS/backlog](https://github.com/mert494/student-information-system/pull/43) | Merged to `develop` at `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` | Seven non-blocking SRS notes remain tracked; merge was for Draft 0.3, not full product acceptance. |
+| [#49 release preparation](https://github.com/mert494/student-information-system/pull/49) | Merged to `develop` at `5de47a20f845c8a016c88b3c10eaf924f175b18a`, approved source `8e64d96fc200d7e20cec464cfddcd95cc244280a` | Release plan and D-05 post-release manifest sequence are integrated. No Sprint 2 tag, release, `main` merge or Teams receipt exists as evidence here. Do not confuse the merge SHA with the reviewed source SHA. |
+| [#47 architecture](https://github.com/mert494/student-information-system/pull/47) | OPEN at `e11a9b2427d949268f1911703e1df75f50f43a39`; no formal approval | Attributed targeted QA for existing AR-01–AR-10: 5 candidate PASS / 4 FAIL / 1 PENDING. AR-06 authorization containment and AR-10 failed-login session order remain MAJOR; AR-08 SVG label/connector readability MINOR; AR-04 model decisions PENDING. Arda fixes, Ahmet independently reviews; refresh source pins afterwards. |
+| [#46 cross-deliverable QA](https://github.com/mert494/student-information-system/pull/46) | OPEN/DRAFT at `0713e9a6db79df64a0145321d862549545985582` | Append-only provisional architecture recheck recorded. Historical 63-control totals at `b06ed7b` remain 34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED; these totals were **not** recalculated against `e11a9b2`. Final per-row recheck after source approval Pending. |
+| [#45 NFR](https://github.com/mert494/student-information-system/pull/45) | OPEN at `f5a545e8f2bf75c5e49e1076291657d4bbcfad70` | Draft 0.6; independent technical review and PO target/new-ID decisions Pending. |
+| [#44 process log](https://github.com/mert494/student-information-system/pull/44) | OPEN at `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | Review-SHA mapping, contribution and Figma v1.3 chronology corrections and independent approval Pending. |
+
+**Manifest scope:** No artifact record was automatically repointed to the currently unapproved architecture HEAD. Existing final-only fields remain blank. Source PR state and review evidence must be reread immediately before final inventory refresh; artifact links require actual source checks and must not imply QA or release acceptance.
+
+**Unverified delivery gates:** Figma's producer-reported version/history, intended reviewer access, NFR-USE-02 and NFR-ACCESS-01(a) failures, pending PO/API/authorization decisions, official Teams assignment URL/timezone/format/team number, release/tag remote verification, final manifest hash and Teams receipt. Neither checker PENDING nor an artifact URL proves acceptance.
+
+**Validation boundary:** This update is based on GitHub PR metadata and the previously provided targeted QA report; no fresh SVG rendering, full schema checker run, runtime test, Teams upload or independent acceptance was performed during this note update.
