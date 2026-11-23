@@ -34,7 +34,8 @@
   <text class="edge" x="488" y="1025">1</text><text class="edge" x="590" y="752">0..*</text>
 
   <path class="association" d="M1120 640 H1300"/>
-  <text class="edge" x="1210" y="615" text-anchor="middle">Instructor assignment (Proposed)</text>
+  <text class="edge" x="1210" y="462" text-anchor="middle">Instructor assignment</text>
+  <text class="edge" x="1210" y="480" text-anchor="middle">(Proposed)</text>
   <text class="edge" x="1125" y="666">0..*</text><text class="edge" x="1265" y="666">1..*</text>
 
   <path class="association" d="M905 750 V940"/>
@@ -43,7 +44,7 @@
 
   <path class="association" d="M1730 250 H1780 V1220 H1000 V1200"/>
   <text class="edge" x="1410" y="1212" text-anchor="middle">Registration → Student (PD-02)</text>
-  <text class="edge" x="1735" y="275">1</text><text class="edge" x="1008" y="1195">0..*</text>
+  <text class="edge" x="1735" y="275">1</text><text class="edge" x="1008" y="1225">0..*</text>
 
   <path class="association" d="M1300 1060 H1120"/>
   <text class="edge" x="1210" y="1035" text-anchor="middle">Grade → Registration (PD-04)</text>
