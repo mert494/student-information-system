@@ -53,7 +53,7 @@
 
   <!-- Candidate UI/API request and response path; transport and server remain unresolved. -->
   <path d="M940 370 H1090" fill="none" stroke="#49677f" stroke-width="3" marker-end="url(#arrow)" />
-  <text class="edge-label" x="1015" y="211" text-anchor="middle">REST request (proposed)</text>
+  <text class="edge-label" x="1015" y="348" text-anchor="middle">REST request (proposed)</text>
   <path d="M1090 410 H940" fill="none" stroke="#49677f" stroke-width="2" marker-end="url(#arrow)" />
   <text class="small" x="1015" y="550" text-anchor="middle">Response data / errors</text>
 

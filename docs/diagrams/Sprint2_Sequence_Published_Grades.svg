@@ -41,10 +41,10 @@
   <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="640" y="338" text-anchor="middle">3. authorization result [matrix Pending]</text>
 
-  <rect x="80" y="370" width="1500" height="1210" fill="#ffffff" fill-opacity="0.54" stroke="#244f73" stroke-width="2.5" />
+  <rect x="80" y="370" width="1500" height="1210" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
   <text class="frame" x="98" y="398">alt — authorization outcome (role/own-record policy Pending)</text>
   <path d="M80 1280 H1580" stroke="#244f73" stroke-width="2" />
-  <rect x="82" y="404" width="1496" height="874" fill="#e5f2e8" fill-opacity="0.58" />
+  <rect x="82" y="404" width="1496" height="874" fill="#e5f2e8" fill-opacity="0.16" />
   <text class="frame" x="102" y="432">[Allow: authenticated and authorized]</text>
   <text class="small" x="102" y="460">Only this operand performs protected grade reads and the draft FR-07 filter.</text>
   <path d="M480 500 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
@@ -52,7 +52,7 @@
   <path d="M1120 550 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="1280" y="538" text-anchor="middle">5. query and filter candidate Grade records</text>
 
-  <rect x="105" y="585" width="1450" height="675" fill="#ffffff" fill-opacity="0.58" stroke="#54738c" stroke-width="1.5" />
+  <rect x="105" y="585" width="1450" height="675" fill="#ffffff" fill-opacity="0.16" stroke="#54738c" stroke-width="1.5" />
   <text class="small" x="120" y="611">alt — query outcome (mutually exclusive; failure replaces success results)</text>
   <path d="M105 800 H1555" stroke="#c6d2dc" stroke-width="1.5" />
   <path d="M105 1018 H1555" stroke="#c6d2dc" stroke-width="1.5" />
@@ -81,16 +81,16 @@
   <path d="M480 1190 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="320" y="1178" text-anchor="middle">14. 500 API error response to Student</text>
 
-  <rect x="82" y="1282" width="1496" height="296" fill="#fff0ec" fill-opacity="0.62" />
+  <rect x="82" y="1282" width="1496" height="296" fill="#fff0ec" fill-opacity="0.16" />
   <text class="frame" x="102" y="1310">[Deny: unauthenticated or not authorized]</text>
   <path d="M480 1355 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="320" y="1343" text-anchor="middle">15. return 401 / 403 response to Student</text>
   <text class="small" x="102" y="1390">No Grade query, data read, or filter occurs in this operand.</text>
-  <rect x="102" y="1410" width="1450" height="95" fill="#ffe3dc" fill-opacity="0.72" stroke="#b64b3c" stroke-width="1.5" />
+  <rect x="102" y="1410" width="1450" height="95" fill="#ffe3dc" fill-opacity="0.16" stroke="#b64b3c" stroke-width="1.5" />
   <text class="small" x="122" y="1442">break [denied] — terminate before any protected data access.</text>
   <text class="small" x="122" y="1472">Role, own-record scope and returned fields remain Pending.</text>
 
-  <rect x="80" y="1610" width="1500" height="70" fill="#fff5dc" fill-opacity="0.78" stroke="#a17a2d" />
+  <rect x="80" y="1610" width="1500" height="70" fill="#fff5dc" fill-opacity="0.16" stroke="#a17a2d" />
   <text class="small" x="100" y="1640">Contract mismatch: GET /grades example includes published: false; contract alignment remains Pending.</text>
   <text class="small" x="100" y="1665">A failed query is an error, never the successful empty collection state.</text>
 </svg>

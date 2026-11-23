@@ -34,20 +34,20 @@
   <text class="edge" x="488" y="1025">1</text><text class="edge" x="590" y="752">0..*</text>
 
   <path class="association" d="M1120 640 H1300"/>
-  <text class="edge" x="1210" y="770" text-anchor="middle">Instructor assignment (Proposed)</text>
+  <text class="edge" x="1210" y="615" text-anchor="middle">Instructor assignment (Proposed)</text>
   <text class="edge" x="1125" y="666">0..*</text><text class="edge" x="1265" y="666">1..*</text>
 
   <path class="association" d="M905 750 V940"/>
   <text class="edge" x="930" y="835">CourseOffering → Registration (PD-02)</text>
-  <text class="edge" x="925" y="780">0..*</text><text class="edge" x="925" y="930">1</text>
+  <text class="edge" x="925" y="780">1</text><text class="edge" x="925" y="930">0..*</text>
 
-  <path class="association" d="M1730 250 H1760 V850 H1120 V1060"/>
-  <text class="edge" x="1410" y="835" text-anchor="middle">Registration → Student (PD-02)</text>
-  <text class="edge" x="1735" y="275">1</text><text class="edge" x="1130" y="1048">0..*</text>
+  <path class="association" d="M1730 250 H1780 V1220 H1000 V1200"/>
+  <text class="edge" x="1410" y="1212" text-anchor="middle">Registration → Student (PD-02)</text>
+  <text class="edge" x="1735" y="275">1</text><text class="edge" x="1008" y="1195">0..*</text>
 
   <path class="association" d="M1300 1060 H1120"/>
   <text class="edge" x="1210" y="1035" text-anchor="middle">Grade → Registration (PD-04)</text>
-  <text class="edge" x="1280" y="1085">1</text><text class="edge" x="1125" y="1085">0..*</text>
+  <text class="edge" x="1280" y="1085">0..*</text><text class="edge" x="1125" y="1085">1</text>
 
   <!-- Candidate classes. -->
   <g><rect class="class" x="70" y="150" width="400" height="190" rx="8"/><rect class="head" x="70" y="150" width="400" height="60" rx="8"/>

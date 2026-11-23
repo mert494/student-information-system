@@ -42,10 +42,10 @@
   <path d="M750 360 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="898" y="348" text-anchor="middle">3. authenticate credentials (provider Pending)</text>
 
-  <rect x="300" y="385" width="1150" height="530" fill="#ffffff" fill-opacity="0.58" stroke="#244f73" stroke-width="2.5" />
+  <rect x="300" y="385" width="1150" height="530" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
   <text class="status" x="315" y="412">alt — login outcome (mutually exclusive operands)</text>
   <path d="M300 690 H1450" stroke="#244f73" stroke-width="2" />
-  <rect x="302" y="415" width="1146" height="273" fill="#f0f8f2" fill-opacity="0.48" />
+  <rect x="302" y="415" width="1146" height="273" fill="#f0f8f2" fill-opacity="0.16" />
   <text class="status" x="320" y="442">[Success: credentials valid]</text>
   <path d="M1045 470 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="898" y="458" text-anchor="middle">4. authentication success</text>
@@ -60,7 +60,7 @@
   <path d="M750 670 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="602" y="658" text-anchor="middle">9. 200 response; payload mapping Pending</text>
 
-  <rect x="302" y="692" width="1146" height="221" fill="#fff7f3" fill-opacity="0.48" />
+  <rect x="302" y="692" width="1146" height="221" fill="#fff7f3" fill-opacity="0.16" />
   <text class="status" x="320" y="722">[Else: credentials invalid]</text>
   <path d="M1045 770 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="898" y="758" text-anchor="middle">Authentication failure result</text>
@@ -77,12 +77,12 @@
   <text class="msg" x="602" y="1023" text-anchor="middle">10. protected request: Authorization: Bearer JWT</text>
   <path d="M750 1085 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
   <text class="msg" x="898" y="1073" text-anchor="middle">11. resolve sid; check Session remains valid</text>
-  <rect x="500" y="1100" width="950" height="150" fill="#ffffff" fill-opacity="0.56" stroke="#244f73" stroke-width="2" />
+  <rect x="500" y="1100" width="950" height="150" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2" />
   <text class="status" x="515" y="1125">alt — session state (mutually exclusive)</text>
   <path d="M500 1165 H1450" stroke="#244f73" stroke-width="1.5" />
-  <rect x="502" y="1128" width="946" height="35" fill="#f0f8f2" fill-opacity="0.38" />
+  <rect x="502" y="1128" width="946" height="35" fill="#f0f8f2" fill-opacity="0.16" />
   <text class="small" x="520" y="1153">[Active] protected work may continue; role/record authorization remains Pending.</text>
-  <rect x="502" y="1167" width="946" height="78" fill="#fff7f3" fill-opacity="0.42" />
+  <rect x="502" y="1167" width="946" height="78" fill="#fff7f3" fill-opacity="0.16" />
   <text class="small" x="1060" y="1186">[Invalidated/unknown sid] stop before domain work.</text>
   <path d="M750 1210 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="small" x="602" y="1202" text-anchor="middle">401 response (contract mapping Pending)</text>

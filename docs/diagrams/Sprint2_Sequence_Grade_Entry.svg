@@ -41,10 +41,10 @@
   <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="640" y="338" text-anchor="middle">3. authorization result [policy Pending]</text>
 
-  <rect x="80" y="370" width="1500" height="890" fill="#ffffff" fill-opacity="0.54" stroke="#244f73" stroke-width="2.5" />
+  <rect x="80" y="370" width="1500" height="890" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
   <text class="frame" x="98" y="398">alt — authorization outcome (role / assignment policy Pending)</text>
   <path d="M80 1065 H1580" stroke="#244f73" stroke-width="2" />
-  <rect x="82" y="404" width="1496" height="659" fill="#e5f2e8" fill-opacity="0.58" />
+  <rect x="82" y="404" width="1496" height="659" fill="#e5f2e8" fill-opacity="0.16" />
   <text class="frame" x="102" y="432">[Allow: authenticated and authorized]</text>
   <text class="small" x="102" y="460">Only this operand contains Registration queries, validation, and persistence.</text>
   <path d="M480 500 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
@@ -54,7 +54,7 @@
   <path d="M1440 590 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="1280" y="578" text-anchor="middle">6. verify relationship and candidate value constraints</text>
 
-  <rect x="105" y="615" width="1450" height="430" fill="#ffffff" fill-opacity="0.58" stroke="#54738c" stroke-width="1.5" />
+  <rect x="105" y="615" width="1450" height="430" fill="#ffffff" fill-opacity="0.16" stroke="#54738c" stroke-width="1.5" />
   <text class="small" x="120" y="640">alt — validation outcome (business rules and exact status mapping Pending)</text>
   <path d="M105 820 H1555" stroke="#c6d2dc" stroke-width="1.5" />
   <text class="small" x="122" y="668">[Valid grade value and Registration relationship]</text>
@@ -71,15 +71,15 @@
   <text class="msg" x="320" y="908" text-anchor="middle">11. 400 / 404 error response to Instructor</text>
   <text class="small" x="122" y="955">Reject without a Grade write; exact condition-to-status mapping remains Pending.</text>
 
-  <rect x="82" y="1067" width="1496" height="191" fill="#fff0ec" fill-opacity="0.62" />
+  <rect x="82" y="1067" width="1496" height="191" fill="#fff0ec" fill-opacity="0.16" />
   <text class="frame" x="102" y="1095">[Deny: unauthenticated or not authorized]</text>
   <path d="M480 1140 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
   <text class="msg" x="320" y="1128" text-anchor="middle">12. return 401 / 403 response to Instructor</text>
   <text class="small" x="102" y="1174">No Registration lookup, grade query, validation, or persistence occurs in this operand.</text>
-  <rect x="102" y="1192" width="1450" height="48" fill="#ffe3dc" fill-opacity="0.72" stroke="#b64b3c" stroke-width="1.5" />
+  <rect x="102" y="1192" width="1450" height="48" fill="#ffe3dc" fill-opacity="0.16" stroke="#b64b3c" stroke-width="1.5" />
   <text class="small" x="122" y="1222">break [denied] — stop before any domain or data operation.</text>
 
-  <rect x="80" y="1290" width="1500" height="115" fill="#fff5dc" fill-opacity="0.76" stroke="#a17a2d" />
+  <rect x="80" y="1290" width="1500" height="115" fill="#fff5dc" fill-opacity="0.16" stroke="#a17a2d" />
   <text class="small" x="100" y="1322">FR-06 separately requires an Instructor GET for assigned-course grades; it is not PD-04.</text>
   <text class="small" x="100" y="1350">Route, response, assignment/record permissions, and API mapping remain Pending.</text>
   <text class="small" x="42" y="1450">Grade belongs to Registration by PD-04. No grade scale, implementation, or runtime behavior is inferred.</text>

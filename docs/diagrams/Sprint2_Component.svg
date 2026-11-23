@@ -38,7 +38,7 @@
   <text class="small" x="1585" y="130" text-anchor="end">Candidate boundary; implementation/topology Pending</text>
 
   <path d="M298 320 H400" fill="none" stroke="#365f7c" stroke-width="3" marker-end="url(#arrow)"/>
-  <text class="edge" x="350" y="302" text-anchor="middle">REST request</text>
+  <text class="edge" x="350" y="286" text-anchor="middle">REST request</text>
   <path d="M700 330 H750" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text class="small" x="725" y="211" text-anchor="middle">Session operations</text>
   <path d="M700 438 V480 H1355 V445" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
@@ -61,7 +61,7 @@
   <path d="M1350 1005 H1655" fill="none" stroke="#80621b" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#dataArrow)"/>
   <text class="edge" x="1500" y="987" text-anchor="middle">Persistence interface (proposed)</text>
   <path d="M1290 725 H1230" fill="none" stroke="#80621b" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#dataArrow)"/>
-  <text class="small" x="1260" y="785" text-anchor="middle">Grade Management → Enrollment: Registration lookup</text>
+  <text class="small" x="1260" y="708" text-anchor="middle">Registration lookup</text>
 
   <rect x="400" y="220" width="300" height="225" rx="14" fill="#ffffff" stroke="#365f7c" stroke-width="2"/>
   <rect x="400" y="220" width="300" height="48" rx="12" fill="#dcecf8" stroke="#365f7c" stroke-width="2"/>
