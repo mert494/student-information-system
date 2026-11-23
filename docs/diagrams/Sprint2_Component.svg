@@ -40,24 +40,28 @@
   <path d="M298 320 H400" fill="none" stroke="#365f7c" stroke-width="3" marker-end="url(#arrow)"/>
   <text class="edge" x="350" y="302" text-anchor="middle">REST request</text>
   <path d="M700 330 H750" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text class="small" x="725" y="311" text-anchor="middle">session ops</text>
+  <text class="small" x="725" y="211" text-anchor="middle">Session operations</text>
   <path d="M700 438 V480 H1355 V445" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text class="edge" x="1025" y="472" text-anchor="middle">Protected operation → authorization decision</text>
   <path d="M1140 335 H1090" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text class="small" x="1115" y="315" text-anchor="middle">validate sid</text>
-  <path d="M1355 445 V520 H525" fill="none" stroke="#365f7c" stroke-width="2.5"/>
-  <path d="M525 520 V555 M805 520 V555 M1095 520 V555 M1430 520 V555" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text class="small" x="1115" y="211" text-anchor="middle">Validate session ID (sid)</text>
+  <path d="M1395 445 V520" fill="none" stroke="#365f7c" stroke-width="2.5"/>
+  <path d="M525 520 H1430" fill="none" stroke="#365f7c" stroke-width="2.5"/>
+  <path d="M525 520 V555" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M805 520 V555" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M1095 520 V555" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M1430 520 V555" fill="none" stroke="#365f7c" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text class="edge" x="970" y="512" text-anchor="middle">Dispatch to one requested domain component only after authorization allows</text>
 
-  <path d="M525 750 V835 H850 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
-  <path d="M805 750 V875 H920 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
+  <path d="M525 750 V835 H700 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
+  <path d="M805 750 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
   <path d="M1095 755 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
   <path d="M1430 755 V835 H1230 V905" fill="none" stroke="#80621b" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#dataArrow)"/>
   <text class="edge" x="960" y="865" text-anchor="middle">Candidate repository/data-access calls</text>
   <path d="M1350 1005 H1655" fill="none" stroke="#80621b" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#dataArrow)"/>
   <text class="edge" x="1500" y="987" text-anchor="middle">Persistence interface (proposed)</text>
   <path d="M1290 725 H1230" fill="none" stroke="#80621b" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#dataArrow)"/>
-  <text class="small" x="1260" y="710" text-anchor="middle">Registration lookup</text>
+  <text class="small" x="1260" y="785" text-anchor="middle">Grade Management → Enrollment: Registration lookup</text>
 
   <rect x="400" y="220" width="300" height="225" rx="14" fill="#ffffff" stroke="#365f7c" stroke-width="2"/>
   <rect x="400" y="220" width="300" height="48" rx="12" fill="#dcecf8" stroke="#365f7c" stroke-width="2"/>
@@ -113,7 +117,7 @@
   <rect x="1290" y="555" width="280" height="46" rx="12" fill="#dcecf8" stroke="#54738c" stroke-width="2"/>
   <text class="card-title" x="1430" y="585" text-anchor="middle">Grade management</text>
   <text class="small" x="1310" y="626">recordGrade; listMyPublishedGrades</text>
-  <text class="small" x="1310" y="648">PD-04 Instructor GET capability approved;</text>
+  <text class="small" x="1310" y="648">FR-06 Instructor GET capability required;</text>
   <text class="small" x="1310" y="670">path and scope Pending (FR-06).</text>
   <text class="small" x="1310" y="700">Calls Enrollment to resolve the</text>
   <text class="small" x="1310" y="722">Registration parent only; rules Pending.</text>
