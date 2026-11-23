@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1420" viewBox="0 0 1800 1420" role="img" aria-labelledby="title description">
+  <title id="title">UML candidate SIS domain class model</title>
+  <desc id="description">Candidate domain classes and relationship multiplicities. PD-02 through PD-04 and the duplicate-registration key are explicitly identified as approved in merged SRS §8.1. Candidate identifiers, inverse counts, instructor assignment multiplicity and unspecified fields remain proposed or pending; no physical schema is implied.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 30px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #425d72; }
+      .name { font-size: 18px; font-weight: 700; }
+      .stereo { font-size: 13px; font-style: italic; fill: #536d81; }
+      .attr { font-size: 14px; }
+      .note { font-size: 14px; }
+      .edge { font-size: 13px; font-weight: 600; paint-order: stroke; stroke: #f4f7fb; stroke-width: 5px; stroke-linejoin: round; }
+      .class { fill: #ffffff; stroke: #54738c; stroke-width: 2; }
+      .head { fill: #dcecf8; stroke: #54738c; stroke-width: 2; }
+      .proposal { fill: #fff5dc; stroke: #a17a2d; stroke-width: 2; stroke-dasharray: 7 5; }
+      .association { fill: none; stroke: #596f82; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1800" height="1420" fill="#f4f7fb"/>
+  <text class="title" x="45" y="50">UML — Candidate SIS domain/class model</text>
+  <text class="subtitle" x="45" y="82">Approved relationships follow merged SRS §8.1; candidate IDs and inverse multiplicities are not physical schema decisions.</text>
+
+  <!-- Associations, kept in open lanes between class boxes. -->
+  <path class="association" d="M470 250 H690"/>
+  <text class="edge" x="580" y="228" text-anchor="middle">role assignment (Pending)</text>
+
+  <path class="association" d="M470 610 H690"/>
+  <text class="edge" x="580" y="585" text-anchor="middle">CourseOffering → Course (PD-02)</text>
+  <text class="edge" x="490" y="640">1</text><text class="edge" x="605" y="640">0..*</text>
+
+  <path class="association" d="M470 1000 H640 V730 H690"/>
+  <text class="edge" x="520" y="875" text-anchor="middle">CourseOffering → Term (PD-02)</text>
+  <text class="edge" x="488" y="1025">1</text><text class="edge" x="590" y="752">0..*</text>
+
+  <path class="association" d="M1120 640 H1300"/>
+  <text class="edge" x="1210" y="462" text-anchor="middle">Instructor assignment</text>
+  <text class="edge" x="1210" y="480" text-anchor="middle">(Proposed)</text>
+  <text class="edge" x="1125" y="666">0..*</text><text class="edge" x="1265" y="666">1..*</text>
+
+  <path class="association" d="M905 750 V940"/>
+  <text class="edge" x="930" y="835">CourseOffering → Registration (PD-02)</text>
+  <text class="edge" x="925" y="780">1</text><text class="edge" x="925" y="930">0..*</text>
+
+  <path class="association" d="M1730 250 H1780 V1220 H1000 V1200"/>
+  <text class="edge" x="1410" y="1212" text-anchor="middle">Registration → Student (PD-02)</text>
+  <text class="edge" x="1735" y="275">1</text><text class="edge" x="1008" y="1225">0..*</text>
+
+  <path class="association" d="M1300 1060 H1120"/>
+  <text class="edge" x="1210" y="1035" text-anchor="middle">Grade → Registration (PD-04)</text>
+  <text class="edge" x="1280" y="1085">0..*</text><text class="edge" x="1125" y="1085">1</text>
+
+  <!-- Candidate classes. -->
+  <g><rect class="class" x="70" y="150" width="400" height="190" rx="8"/><rect class="head" x="70" y="150" width="400" height="60" rx="8"/>
+    <text class="stereo" x="270" y="173" text-anchor="middle">«candidate»</text><text class="name" x="270" y="198" text-anchor="middle">User / Account</text>
+    <text class="attr" x="90" y="245">userId — logical ID candidate; format Pending</text><text class="attr" x="90" y="275">loginIdentifier; credentialReference</text><text class="attr" x="90" y="305">systemRole; accountStatus</text><text class="attr" x="90" y="328">Credential and role policy Pending</text></g>
+  <g><rect class="proposal" x="690" y="150" width="400" height="190" rx="8"/><rect x="690" y="150" width="400" height="60" rx="8" fill="#fff0c9" stroke="#a17a2d" stroke-width="2"/>
+    <text class="stereo" x="890" y="173" text-anchor="middle">«enumeration candidate»</text><text class="name" x="890" y="198" text-anchor="middle">SystemRole</text>
+    <text class="attr" x="710" y="245">Student; Instructor</text><text class="attr" x="710" y="275">Administrators; Student Affairs Staff</text><text class="attr" x="710" y="315">Role-to-operation mapping Pending</text></g>
+  <g><rect class="class" x="1300" y="150" width="430" height="190" rx="8"/><rect class="head" x="1300" y="150" width="430" height="60" rx="8"/>
+    <text class="stereo" x="1515" y="173" text-anchor="middle">«candidate»</text><text class="name" x="1515" y="198" text-anchor="middle">Student</text>
+    <text class="attr" x="1320" y="245">studentId — API logical ID candidate; format Pending</text><text class="attr" x="1320" y="275">studentNumber — unique in SRS draft</text><text class="attr" x="1320" y="305">firstName; lastName; email; program/department</text><text class="attr" x="1320" y="328">studentStatus (SRS candidate); API fullName mapping Pending</text></g>
+
+  <g><rect class="class" x="70" y="500" width="400" height="220" rx="8"/><rect class="head" x="70" y="500" width="400" height="60" rx="8"/>
+    <text class="stereo" x="270" y="523" text-anchor="middle">«candidate»</text><text class="name" x="270" y="548" text-anchor="middle">Course</text>
+    <text class="attr" x="90" y="595">courseId — API logical ID candidate; format Pending</text><text class="attr" x="90" y="625">courseCode — uniqueness scope Pending</text><text class="attr" x="90" y="655">title; description; credits; department</text><text class="attr" x="90" y="695">Required fields and API mapping Pending</text></g>
+  <g><rect class="class" x="690" y="500" width="430" height="250" rx="8"/><rect class="head" x="690" y="500" width="430" height="60" rx="8"/>
+    <text class="stereo" x="905" y="523" text-anchor="middle">«candidate»</text><text class="name" x="905" y="548" text-anchor="middle">CourseOffering</text>
+    <text class="attr" x="710" y="595">courseOfferingId — candidate; format Pending</text><text class="attr" x="710" y="625">courseId [logical FK]; termId [logical FK]</text><text class="attr" x="710" y="655">capacity; assigned Instructor(s) (SRS candidates)</text><text class="attr" x="710" y="695">Physical keys and assignment rules Pending</text><text class="attr" x="710" y="725">No CourseOffering/Term API resources in contract</text></g>
+  <g><rect class="proposal" x="1300" y="500" width="430" height="220" rx="8"/><rect x="1300" y="500" width="430" height="60" rx="8" fill="#fff0c9" stroke="#a17a2d" stroke-width="2"/>
+    <text class="stereo" x="1515" y="523" text-anchor="middle">«candidate reference»</text><text class="name" x="1515" y="548" text-anchor="middle">Instructor identity</text>
+    <text class="attr" x="1320" y="595">instructorId — candidate reference; source Pending</text><text class="attr" x="1320" y="625">1..* assigned Instructors per offering Proposed</text><text class="attr" x="1320" y="680">Assignment and permissions Pending</text></g>
+
+  <g><rect class="proposal" x="70" y="900" width="400" height="190" rx="8"/><rect x="70" y="900" width="400" height="60" rx="8" fill="#fff0c9" stroke="#a17a2d" stroke-width="2"/>
+    <text class="stereo" x="270" y="923" text-anchor="middle">«candidate»</text><text class="name" x="270" y="948" text-anchor="middle">Term</text>
+    <text class="attr" x="90" y="995">termId — identifier candidate; format Pending</text><text class="attr" x="90" y="1025">Attributes and lifecycle [TODO]</text><text class="attr" x="90" y="1070">Relationship per PD-02; inverse count Proposed</text></g>
+  <g><rect class="class" x="690" y="940" width="430" height="260" rx="8"/><rect class="head" x="690" y="940" width="430" height="60" rx="8"/>
+    <text class="stereo" x="905" y="963" text-anchor="middle">«candidate»</text><text class="name" x="905" y="988" text-anchor="middle">Registration</text>
+    <text class="attr" x="710" y="1035">registrationId — API logical ID candidate; format Pending</text><text class="attr" x="710" y="1065">studentId [logical FK]; courseOfferingId [logical FK]</text><text class="attr" x="710" y="1095">status; created/enrolled timestamp (SRS candidates)</text><text class="attr" x="710" y="1135">UNIQUE (studentId, courseOfferingId) — Approved (PD-03)</text><text class="attr" x="710" y="1175">Exactly one Student and one CourseOffering (PD-02)</text></g>
+  <g><rect class="class" x="1300" y="940" width="430" height="260" rx="8"/><rect class="head" x="1300" y="940" width="430" height="60" rx="8"/>
+    <text class="stereo" x="1515" y="963" text-anchor="middle">«candidate»</text><text class="name" x="1515" y="988" text-anchor="middle">Grade</text>
+    <text class="attr" x="1320" y="1035">gradeId — SRS logical ID candidate; format Pending</text><text class="attr" x="1320" y="1065">registrationId [logical FK; parent per PD-04]</text><text class="attr" x="1320" y="1095">value; publicationStatus (SRS/API mapping Pending)</text><text class="attr" x="1320" y="1135">No instructorId field in SRS candidate model</text><text class="attr" x="1320" y="1175">Instructor GET required separately by draft FR-06</text></g>
+
+  <rect x="40" y="1240" width="1720" height="145" fill="#fff5dc"/>
+  <text class="note" x="60" y="1275">Approved by merged SRS §8.1: CourseOffering→Course and →Term; Registration→Student/CourseOffering; Grade→Registration; unique key (studentId, courseOfferingId).</text>
+  <text class="note" x="60" y="1310">Proposed: inverse counts for Course/Term/Student/Offering; 1..* Instructor assignments per CourseOffering. Pending: inverse Instructor count and Grade count per Registration.</text>
+  <text class="note" x="60" y="1345">Logical identifiers/FKs are conceptual only. No engine, physical schema, API resource, or role permission is implied.</text>
+</svg>

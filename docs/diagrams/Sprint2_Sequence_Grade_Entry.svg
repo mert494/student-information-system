@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1570" viewBox="0 0 1650 1570" role="img" aria-labelledby="title description">
+  <title id="title">UML sequence — proposed instructor grade entry</title>
+  <desc id="description">Authorization guards all grade-domain work. In the Allow operand, the system resolves Registration, validates the grade, persists valid data, and returns 200 to the Instructor; invalid values or relationships return 400/404 without a write. Denial returns 401/403 before domain access. Role and record permissions remain Pending.</desc>
+  <defs>
+    <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
+    <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 29px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #425d72; }
+      .part { font-size: 16px; font-weight: 700; }
+      .msg { font-size: 14px; }
+      .frame { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; fill: #354f63; }
+    </style>
+  </defs>
+  <rect width="1650" height="1570" fill="#f4f7fb" />
+  <text class="title" x="42" y="50">UML Sequence — Instructor grade entry (FR-06 / PB-06 proposed)</text>
+  <text class="subtitle" x="42" y="80">Grade → Registration is approved; grade scale and API contract details remain unresolved.</text>
+
+  <g stroke="#71899b" stroke-width="2" stroke-dasharray="7 6" stroke-opacity="0.9">
+    <path d="M160 200 V1510" /><path d="M480 200 V1510" /><path d="M800 200 V1510" /><path d="M1120 200 V1510" /><path d="M1440 200 V1510" />
+  </g>
+  <g>
+    <rect x="45" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="160" y="149" text-anchor="middle">Instructor</text><text class="small" x="160" y="176" text-anchor="middle">Proposed actor</text>
+    <rect x="365" y="115" width="230" height="85" rx="12" fill="#dcecf8" stroke="#244f73" stroke-width="2" />
+    <text class="part" x="480" y="149" text-anchor="middle">API contract boundary</text><text class="small" x="480" y="176" text-anchor="middle">No running API asserted</text>
+    <rect x="685" y="115" width="230" height="85" rx="12" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
+    <text class="part" x="800" y="149" text-anchor="middle">Authorization decision</text><text class="small" x="800" y="176" text-anchor="middle">Assignment matrix Pending</text>
+    <rect x="1005" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="1120" y="149" text-anchor="middle">Grade management</text><text class="small" x="1120" y="176" text-anchor="middle">Logical responsibility</text>
+    <rect x="1325" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 5" />
+    <text class="part" x="1440" y="149" text-anchor="middle">Conceptual data</text><text class="small" x="1440" y="176" text-anchor="middle">Persistence Pending</text>
+  </g>
+
+  <path d="M160 260 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="248" text-anchor="middle">1. PUT /registrations/{registrationId}/grade</text>
+  <path d="M480 310 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="298" text-anchor="middle">2. evaluate authentication, role and record scope</text>
+  <path d="M800 350 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="338" text-anchor="middle">3. authorization result [policy Pending]</text>
+
+  <rect x="80" y="370" width="1500" height="890" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="398">alt — authorization outcome (role / assignment policy Pending)</text>
+  <path d="M80 1065 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="404" width="1496" height="659" fill="#e5f2e8" fill-opacity="0.16" />
+  <text class="frame" x="102" y="432">[Allow: authenticated and authorized]</text>
+  <text class="small" x="102" y="460">Only this operand contains Registration queries, validation, and persistence.</text>
+  <path d="M480 500 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="488" text-anchor="middle">4. submit GradeInput (JSON type, scale and range Pending)</text>
+  <path d="M1120 545 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="533" text-anchor="middle">5. resolve Registration by registrationId</text>
+  <path d="M1440 590 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="578" text-anchor="middle">6. verify relationship and candidate value constraints</text>
+
+  <rect x="105" y="615" width="1450" height="430" fill="#ffffff" fill-opacity="0.16" stroke="#54738c" stroke-width="1.5" />
+  <text class="small" x="120" y="640">alt — validation outcome (business rules and exact status mapping Pending)</text>
+  <path d="M105 820 H1555" stroke="#c6d2dc" stroke-width="1.5" />
+  <text class="small" x="122" y="668">[Valid grade value and Registration relationship]</text>
+  <path d="M1120 705 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="693" text-anchor="middle">7. persist Grade (mechanism Pending)</text>
+  <path d="M1440 740 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="1280" y="728" text-anchor="middle">8. persistence result</text>
+  <path d="M1120 775 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="800" y="763" text-anchor="middle">9. Grade result to API</text>
+  <path d="M480 805 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="793" text-anchor="middle">10. 200 Grade response to Instructor</text>
+  <text class="small" x="122" y="850">[Invalid grade value or missing Registration]</text>
+  <path d="M480 920 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="908" text-anchor="middle">11. 400 / 404 error response to Instructor</text>
+  <text class="small" x="122" y="955">Reject without a Grade write; exact condition-to-status mapping remains Pending.</text>
+
+  <rect x="82" y="1067" width="1496" height="191" fill="#fff0ec" fill-opacity="0.16" />
+  <text class="frame" x="102" y="1095">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 1140 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="1128" text-anchor="middle">12. return 401 / 403 response to Instructor</text>
+  <text class="small" x="102" y="1174">No Registration lookup, grade query, validation, or persistence occurs in this operand.</text>
+  <rect x="102" y="1192" width="1450" height="48" fill="#ffe3dc" fill-opacity="0.16" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="122" y="1222">break [denied] — stop before any domain or data operation.</text>
+
+  <rect x="80" y="1290" width="1500" height="115" fill="#fff5dc" fill-opacity="0.16" stroke="#a17a2d" />
+  <text class="small" x="100" y="1322">FR-06 separately requires an Instructor GET for assigned-course grades; it is not PD-04.</text>
+  <text class="small" x="100" y="1350">Route, response, assignment/record permissions, and API mapping remain Pending.</text>
+  <text class="small" x="42" y="1450">Grade belongs to Registration by PD-04. No grade scale, implementation, or runtime behavior is inferred.</text>
+</svg>
