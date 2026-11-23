@@ -200,7 +200,7 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
 | Sprint 2 release URL | [TODO] |
 | `sprint-1` SHA after release (unchanged) | [TODO] |
 | Verification output (`PASS` line and date) | [TODO] |
-| Submission checker output on the authorized SHA (filled manifest, `manifest_sha256`) | [TODO] |
+| Submission checker output on the authorized SHA (filled manifest, `manifest_sha256`, manifest Git blob ID) | [TODO] |
 | Post-release manifest PR and commit | [TODO] |
 | Authorization for tag/release | [TODO] |
 
@@ -252,8 +252,8 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
    python -B tools/check_sprint2_submission.py --ref <M> --format json
    ```
 
-   Expected: no blocking `ERROR`; `git.expected` `PASS`; `release.tag` `PASS`; no `release.source` finding; overall `PENDING` only from the manual gates. Record the output and its `manifest_sha256`. If `release.tag` is `PENDING` with "Local tag commit: None", the tag was not fetched; repeat `git fetch origin --tags`.
-8. **Post-release evidence PR.** Commit the filled manifest from step 6 unchanged (same `manifest_sha256`) and open a PR to `develop` (Mert, as manifest owner). This commit comes after `M`, is not part of the release, and the tag is not moved. Whether it also goes to `main` is not required for the release; it would need another `main` PR with 2 approvals.
+   Expected: no blocking `ERROR`; `git.expected` `PASS`; `release.tag` `PASS`; no `release.source` finding; overall `PENDING` only from the manual gates. Record the output, its `manifest_sha256` and the Git blob ID of the manifest used for this run (`git hash-object docs/sprint2/submission_manifest.json`). If `release.tag` is `PENDING` with "Local tag commit: None", the tag was not fetched; repeat `git fetch origin --tags`.
+8. **Post-release evidence PR.** Commit the filled manifest from step 6 unchanged. The committed blob ID (`git rev-parse <commit>:docs/sprint2/submission_manifest.json`) must equal the blob ID recorded in step 7; do not compare `manifest_sha256` for this (see "Corrections of 23 November 2026" below). Then open a PR to `develop` (Mert, as manifest owner). This commit comes after `M`, is not part of the release, and the tag is not moved. Whether it also goes to `main` is not required for the release; it would need another `main` PR with 2 approvals.
 9. **Teams submission** (S2-15, #40) cites the tag `sprint-2`, the SHA `M`, the release URL and the step 7 output.
 
 **Three separate pieces of evidence.** They are kept apart and none replaces another:
@@ -265,6 +265,36 @@ Nothing in this section has been done. It is the plan for 23–24 November (Prop
 If anything changes on `develop` after step 2, repeat steps 2–3 for the new head; stale approvals are dismissed by the rulesets. If the tag points to the wrong commit, stop and report; do not move or recreate it without a new decision.
 
 **Tested on 22 November 2026** in a local throwaway clone with its remote removed (nothing pushed, no GitHub tag): with the committed manifest and `--ref e265b6d`, overall `PENDING`, `release.tag` `PENDING`, `git.expected` non-blocking `PENDING`, exit 2. With a local annotated `sprint-2` tag on `e265b6d` and the manifest filled in the working tree only, `--ref e265b6d` gave `git.expected` `PASS`, `release.tag` `PASS`, `release.url` `PASS`, no blocking `ERROR`, overall `PENDING` from manual gates, exit 2. Negative cases, each exit 1: filled manifest checked against a different `--ref` (`git.expected` and `release.source` `ERROR`); tag on another commit (`release.tag` `ERROR`); `expected_commit` different from `--ref` (`git.expected` `ERROR`). A tag missing locally gave `release.tag` `PENDING`, not `PASS`.
+
+**Corrections of 23 November 2026.** The paragraph above is kept as written on 22 November. Two points in this section were wrong or incomplete. The accepted order (D-05) does not change.
+
+*Correction 1: `manifest_sha256`.* Until this correction, step 8 said that the committed manifest keeps "the same `manifest_sha256`". That is not reliable. The checker computes the value over the raw bytes of the manifest file in the working tree at the time of the run (`Source.read()` without a ref, `read_bytes()`), so line endings are included. It does not hash the Git blob. This repository has no `.gitattributes`, so with `core.autocrlf=true` (the setting on Barış's Windows machine) Git stores LF but can check the file out with CRLF. The same committed content then gives a different `manifest_sha256`. The value therefore identifies the exact local file used in one run. Steps 7–8 now compare Git blob IDs instead.
+
+Measured with one filled manifest (Git 2.54.0 for Windows, Python 3.14.4):
+
+| State of the same manifest | Line endings in working tree | `manifest_sha256` | Git blob ID |
+| --- | --- | --- | --- |
+| Filled, before commit, `core.autocrlf=true` | LF | `b72870f6f85a…` | `7815f1864b2a…` |
+| Committed content | LF (in Git) | `b72870f6f85a…` (SHA-256 of the blob content) | `7815f1864b2a…` |
+| Fresh checkout, `core.autocrlf=true` | CRLF | `bbfb5acf2ef0…` | `7815f1864b2a…` |
+| Fresh checkout, `core.autocrlf=false` | LF | `b72870f6f85a…` | `7815f1864b2a…` |
+
+A change of one character in the manifest gave a different blob ID (`ddca49699319…`), so the comparison still detects edits. Limit: with `core.autocrlf=false`, a manifest saved with CRLF has a different blob ID (`d4b6a6f805fa…`), because Git then does not convert it. Use the same clone and Git settings for steps 6–8.
+
+*Correction 2: two negative tests.* On 22 November, "tag on another commit" and "`expected_commit` different from `--ref`" were run with `--ref c6af2af`, an old `main` commit without the five Sprint 2 planning documents. The checker reported five `file.read` `ERROR` findings there, which alone give exit 1. The `release.tag` and `git.expected` findings were observed, but exit 1 was not proof of them, and this was not stated. The case "filled manifest checked against a different `--ref`" used `e265b6d`, which contains the documents, and is not affected.
+
+Repeated in a new throwaway clone with its remote removed, with `develop` `5de47a2` as the stand-in for `M` and `e265b6d` as the other commit; both contain the documents. The tags were annotated, local to that clone and deleted with it:
+
+| Case | `--ref` | `expected_commit` | Tag resolves to | `release.commit` | Blocking `ERROR` findings | Exit |
+| --- | --- | --- | --- | --- | --- | --- |
+| Control: all equal | `5de47a2` | `5de47a2` | `5de47a2` | `5de47a2` | None (`git.expected` and `release.tag` `PASS`) | 2 |
+| Different `--ref` | `e265b6d` | `5de47a2` | `5de47a2` | `5de47a2` | `git.expected`, `release.source` | 1 |
+| Tag on another commit | `5de47a2` | `5de47a2` | `e265b6d` | `5de47a2` | `release.tag`, `release.source` | 1 |
+| `expected_commit` different from `--ref` | `5de47a2` | `e265b6d` | `5de47a2` | `5de47a2` | `git.expected` | 1 |
+| Tag missing locally | `5de47a2` | `5de47a2` | None | `5de47a2` | None (`release.tag` `PENDING`) | 2 |
+| Old setup, all equal | `c6af2af` | `c6af2af` | `c6af2af` | `c6af2af` | Five `file.read` only | 1 |
+
+The control has no `ERROR`, so each exit 1 in the repeated negative cases comes only from the findings listed in its row. The last row reproduces the problem of 22 November: exit 1 although all four values are equal. No checker code, verification script, manifest or GitHub tag was changed.
 
 ### Release notes draft
 
