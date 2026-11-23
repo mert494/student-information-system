@@ -54,11 +54,11 @@
         }
       ],
       "review": {
-        "reviewer": "mert494",
-        "version": "7d752cada7bea0a950c3a435e1ee0a6c667c85d1",
-        "date": "2026-11-22",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6013479731",
-        "status": "COMMENTED at older Draft 0.5 7d752cada7bea0a950c3a435e1ee0a6c667c85d1, not current Draft 0.6 f5a545e8f2bf75c5e49e1076291657d4bbcfad70. Arda/another non-author approval, PO targets/new IDs, feasibility, OpenAPI alignment and runtime verification remain Pending."
+        "reviewer": "ardaberkkara1",
+        "version": "7b4702bc379229617515fdbb540c85d6c2cf13f2",
+        "date": "2026-11-23",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6025947753",
+        "status": "COMMENTED independent Architecture Lead technical review of current PR #45 Draft 0.8.1 at 7b4702bc379229617515fdbb540c85d6c2cf13f2; not APPROVED and not implementation-feasibility or target acceptance. MINOR architecture-tracker refresh remains. Artifact entries deliberately retain historical Draft 0.6 f5a545e8f2bf75c5e49e1076291657d4bbcfad70 pending final reviewed/merged selection. Role/API, credential/TLS, capacity/workload, PO/new-ID and runtime/user-test evidence remain Pending."
       }
     },
     "figma_flows": {
@@ -150,11 +150,11 @@
         }
       ],
       "review": {
-        "reviewer": "mert494",
-        "version": "5349b1295e55625bc00922144d50488a9da00677",
-        "date": "2026-11-21",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6007087029",
-        "status": "COMMENTED at historical 5349b1295e55625bc00922144d50488a9da00677, not current 1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4. Document and all eight SVGs now pinned to newer source; independent review, rendered QA and acceptance Pending. Old FAIL findings are historical, not newly verified failures or automatic PASS."
+        "reviewer": "ahmetserdar41",
+        "version": "f8bcef72632b335eabccdf156f01b0ec4a4cb565",
+        "date": "2026-11-22",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014649716",
+        "status": "Latest submitted GitHub review is COMMENTED at historical f8bcef72632b335eabccdf156f01b0ec4a4cb565 (2026-11-22T21:36:32Z), not current PR #47 HEAD 86a296887d7a6bc7cb8e3333c91395216478ca99. Earlier dispatch/provenance/client-response corrections are present, but the coordinator source recheck confirms CourseOffering-Registration and Registration-Grade multiplicity regressions and remaining readability gaps; no approval at current HEAD. Artifact entries retain historical 1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4; final source selection and independent acceptance remain Pending. No runtime result is asserted."
       }
     }
   },
@@ -276,6 +276,22 @@
         {
           "type": "artifact",
           "url": "https://github.com/mert494/student-information-system/blob/b06ed7ba4023454082e0ab689b4ba45095bb2c33/docs/sprint2/Sprint2_Cross_Deliverable_QA_Matrix.md"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6014659707"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/926e01189aa10e3612ecc0e1586b8eb53ae2758b"
+        },
+        {
+          "type": "artifact",
+          "url": "https://github.com/mert494/student-information-system/blob/926e01189aa10e3612ecc0e1586b8eb53ae2758b/docs/sprint2/Sprint2_Cross_Deliverable_QA_Matrix.md"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/321f80667c7eed5da6152d58b1aaabf0d2e67d92"
         }
       ]
     },
@@ -344,6 +360,14 @@
         {
           "type": "commit",
           "url": "https://github.com/mert494/student-information-system/commit/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6025947753"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/86a296887d7a6bc7cb8e3333c91395216478ca99"
         }
       ]
     },
@@ -432,6 +456,18 @@
         {
           "type": "issue",
           "url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958"
+        },
+        {
+          "type": "commit",
+          "url": "https://github.com/mert494/student-information-system/commit/7b4702bc379229617515fdbb540c85d6c2cf13f2"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014540983"
+        },
+        {
+          "type": "review",
+          "url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014649716"
         }
       ]
     },

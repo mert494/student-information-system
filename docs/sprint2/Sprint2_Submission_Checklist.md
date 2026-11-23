@@ -447,3 +447,179 @@ JSON parsing, existing schema version 1, all 24 existing unit tests, artifact/re
 **Unverified delivery gates:** Figma's producer-reported version/history, intended reviewer access, NFR-USE-02 and NFR-ACCESS-01(a) failures, pending PO/API/authorization decisions, official Teams assignment URL/timezone/format/team number, release/tag remote verification, final manifest hash and Teams receipt. Neither checker PENDING nor an artifact URL proves acceptance.
 
 **Validation boundary:** This update is based on GitHub PR metadata and the previously provided targeted QA report; no fresh SVG rendering, full schema checker run, runtime test, Teams upload or independent acceptance was performed during this note update.
+
+## Preparation Update — 23 November 2026 — current-source reconciliation and delivery gates
+
+**Preparation record only — NO-GO for integration, final manifest selection and submission.** GitHub metadata, reviews, source commits and exact artifact paths were read on 23 November 2026; registry observation 20:26:12 Europe/Istanbul (17:26:12 UTC). Related Issues: [#40 submission](https://github.com/mert494/student-information-system/issues/40), [#38 QA](https://github.com/mert494/student-information-system/issues/38), [#37 process](https://github.com/mert494/student-information-system/issues/37) and [#39 integration/release](https://github.com/mert494/student-information-system/issues/39). No historical section or QA tally above is rewritten. This section supersedes earlier current-state descriptions only for the observations explicitly recorded here.
+
+### Checkout, source and review registry
+
+The existing docs/mert-sprint2-submission-evidence worktree was clean at fb0fda8 and was fast-forwarded to the verified remote baseline 321f80667c7eed5da6152d58b1aaabf0d2e67d92 before editing; no new commit was created. The separate dirty Sprint 1 worktree was left untouched. Remote branch and refs/pull/48/head agreed. Only this checklist and submission_manifest.json are authorized working files. The local edits below are uncommitted and are not published at the baseline SHA.
+
+All seven source HEADs below are unchanged from the user-supplied snapshots. The review registry has advanced: Arda submitted a current-HEAD technical COMMENTED review of #45. PR descriptions and commit messages were not used as substitutes for source/review inspection. Current remote develop is 5de47a20f845c8a016c88b3c10eaf924f175b18a; the PR #48 branch is a separate preparation branch, not a final integrated snapshot.
+
+| PR / author / related Issues | Verified source HEAD | State and exact review boundary |
+| --- | --- | --- |
+| [#43](https://github.com/mert494/student-information-system/pull/43) — nsnkcc; #27 / #28 / #29 | `6bef5c98327b21249abfd49573f8a2ccdeb705f3` | MERGED; Ahmet [6013531643](https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013531643) APPROVED this source; Mert 6013501864 COMMENTED. Draft-document merge approval, with seven non-blocking follow-ups; not full product/API/runtime acceptance. |
+| [#44](https://github.com/mert494/student-information-system/pull/44) — azrayy; #37 | `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | OPEN; Mert [6013506931](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013506931) and Ahmet 6013236160 COMMENTED at this HEAD. Evidence/contribution MAJOR remains PARTIAL; no APPROVED review. |
+| [#45](https://github.com/mert494/student-information-system/pull/45) — ahmetserdar41; #30 / #31 | `7b4702bc379229617515fdbb540c85d6c2cf13f2` | OPEN, NFR Draft 0.8.1; Arda [6025947753](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6025947753) COMMENTED at this exact HEAD. Mert 6014659707 COMMENTED at older 68c040e. No APPROVED review or final target/feasibility acceptance. |
+| [#46](https://github.com/mert494/student-information-system/pull/46) — mert494; #38 | `926e01189aa10e3612ecc0e1586b8eb53ae2758b` | OPEN / DRAFT; latest Ahmet review [5998727032](https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5998727032) is COMMENTED at older e773377. No review at current HEAD; current-source recheck and non-author matrix review Pending. |
+| [#47](https://github.com/mert494/student-information-system/pull/47) — ardaberkkara1; #34 / #35 / #36 | `86a296887d7a6bc7cb8e3333c91395216478ca99` | OPEN; latest submitted review [6014649716](https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014649716) is Ahmet COMMENTED at older f8bcef7. No submitted review or APPROVED at 86a2968; coordinator source findings below still block acceptance. |
+| [#48](https://github.com/mert494/student-information-system/pull/48) — mert494; #40 / #38 | `321f80667c7eed5da6152d58b1aaabf0d2e67d92` | OPEN / DRAFT; Ahmet [5998727350](https://github.com/mert494/student-information-system/pull/48#pullrequestreview-5998727350) COMMENTED at older 2ddec8c; scope did not include the checklist. No approval of 321f806 or these local edits. |
+| [#49](https://github.com/mert494/student-information-system/pull/49) — baryyss-001; #39 | `8e64d96fc200d7e20cec464cfddcd95cc244280a` | MERGED; Ahmet [6014110411](https://github.com/mert494/student-information-system/pull/49#pullrequestreview-6014110411) APPROVED this exact readiness-document source. Approval does not cover #44–#48 or authorize release/submission. |
+
+All submitted reviews on #43–#49 and their conversation comments were read. COMMENTED is not APPROVED; DISMISSED historical approvals remain historical. Submitted review timestamps and reviewed SHAs are kept separate from commit dates and PR opening/merge times.
+
+### Verified merged documents
+
+| PR | Reviewed source and source author | Actual merge into develop | Integrated documents / boundary |
+| --- | --- | --- | --- |
+| #43 | `6bef5c98327b21249abfd49573f8a2ccdeb705f3`; nsnkcc | `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a`; merged by mert494 at 2026-11-22T18:03:07Z | [SRS_Draft.md](https://github.com/mert494/student-information-system/blob/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2/SRS_Draft.md); [Refined_Backlog_Draft.md](https://github.com/mert494/student-information-system/blob/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2/Refined_Backlog_Draft.md). Exact document blobs match the reviewed source and current develop. |
+| #49 | `8e64d96fc200d7e20cec464cfddcd95cc244280a`; baryyss-001 | `5de47a20f845c8a016c88b3c10eaf924f175b18a`; merged by mert494 at 2026-11-22T20:41:15Z | [Sprint2_Integration_Release_Evidence.md](https://github.com/mert494/student-information-system/blob/5de47a20f845c8a016c88b3c10eaf924f175b18a/docs/sprint2/Sprint2_Integration_Release_Evidence.md). Exact document blobs match the reviewed source and current develop. |
+
+#43 preserves Draft 0.3 and PD-01–PD-04; Ahmet's seven non-blocking notes remain evidence, not automatically Closed. #49 is merged release-preparation documentation only. Its non-blocking release-procedure follow-ups remain: confirm a clean checkout at the audited D snapshot; verify annotated tag type manually (git cat-file -t must report tag); verify publication/draft flags; compare committed manifest blobs or record line-ending settings; explicitly set PYTHONIOENCODING=utf-8 because an existing incompatible setting overrides -X utf8; and obtain a repository decision link for relayed D-01/D-05 choices. These future actions require their applicable separate authorization. [Review 6014110411](https://github.com/mert494/student-information-system/pull/49#pullrequestreview-6014110411) and [additional test note 7084719139](https://github.com/mert494/student-information-system/pull/49#issuecomment-7084719139) are attributed historical tests, not tests rerun here. No Sprint 2 tag or published release appeared in the remote tag/release inventory; sprint-1 is preserved.
+
+### Architecture #47 — present corrections and outstanding source findings
+
+This preparation carries forward the independent chat QA recheck of 86a2968 and rechecks its unchanged source against the merged SRS. It is not a submitted GitHub review or architecture approval; no new SVG rendering or runtime test is claimed in this preparation. Arda's NFR review describes submitted architecture corrections; that statement does not establish independent closure or override the contradictory multiplicities below.
+
+| Item | Current source evidence / disposition | Gate |
+| --- | --- | --- |
+| Earlier Component dispatch finding | [Component L44–54](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Component.svg#L44-L54) has separate four branch arrowheads and shared continuity to Grade management, separated from the protected-operation path. Correction present. | Non-author review of current HEAD still required. |
+| Earlier decision-provenance finding | [Architecture L15–24](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md#L15-L24) uses merged SRS 6bef5c9 PD-01–PD-04 and separates FR-06 Instructor GET from PD-04. Correction present; citation ranges at L3/L17 still miss actual SRS decision rows L185–188. | Do not infer API/policy acceptance. |
+| Earlier Enrollment/Grade response regression | [Enrollment L56–67](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Enrollment.svg#L56-L67) and [Grade Entry L57–72](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg#L57-L72) restore exclusive success/conflict or invalid operands and API-to-actor responses. Duplicate/FR-05 conflicts explicitly have no write. | Internal result-arrow omissions and final independent recheck remain. |
+| MAJOR — CourseOffering–Registration multiplicities | [Domain/Class L40–42](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Domain_Class.svg#L40-L42) puts 0..* at CourseOffering and 1 at Registration. PD-02 requires each Registration to have exactly one CourseOffering; put 1 at CourseOffering and mark any inverse Registration count Proposed. | NO-GO; Arda correction and independent verification required. |
+| MAJOR — Registration–Grade multiplicities | [Domain/Class L48–50](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Domain_Class.svg#L48-L50) puts 0..* at Registration and 1 at Grade. PD-04 requires each Grade to reference one Registration; put 1 at Registration. Grade count per Registration remains Pending, not an approved one-to-one rule. | NO-GO; do not count as fixed by a commit message. |
+| AR-06 / AR-10 | Prior successful documentation fixes remain present: authorization Allow/Deny containment and client denial; exclusive login success/failure; generic 401 without session/JWT on failure; logout/replay rejection. [Session L45–110](https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg#L45-L110). | Documentation recheck only; no matrix row changed or runtime enforcement claimed. |
+| AR-08 / remaining MINOR | Nested fills still fade lifelines; Grade–Registration label touches/overlaps box borders; inverse-count Proposed/Pending wording needs reconciliation. Enrollment POST and Grade invalid paths still omit internal results to API. Enrollment/Session background heights differ from canvas heights. Component/Container labels and Instructor multiplicities improved. | Readability and diagram consistency remain open; no fresh render here. |
+| Other requested MINORs | Enrollment GET now has query/results/client response; Published Grades failure is exclusive of successful empty/nonempty results; Registration naming/field provenance corrected; Session has Identity failure result, generic 401 and invalidated-sid branch; NFR citation is Draft 0.8.1. | Source corrections present; formal current-HEAD architecture approval remains Pending. |
+
+Approved relationship source: [SRS PD-02/PD-04 L185–188](https://github.com/mert494/student-information-system/blob/6bef5c98327b21249abfd49573f8a2ccdeb705f3/docs/sprint2/SRS_Draft.md#L185-L188). The two multiplicity regressions are one structural-model root finding with two affected associations; do not inflate QA totals by counting the same defect again under readability.
+
+### NFR, process log and QA reconciliation
+
+- **NFR #45:** Draft 0.8.1 at 7b4702b is still Proposed/Open overall. [Arda's current independent technical review](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6025947753) was submitted 2026-11-23T17:09:33Z as COMMENTED. It finds no new MAJOR measurement-structure issue, but requests a MINOR refresh of architecture evidence in sections 5.1/7. Implementation feasibility remains conditional on role/record policy, sid/revocation contract, credential/TLS decisions, courseOfferingId/capacity/waitlist semantics, and workload/environment. Performance targets are not capacity commitments; user/accessibility acceptance is not demonstrated. This review is not APPROVED, target acceptance or runtime verification.
+- **Process #44:** [Committed log L25–27 and L55](https://github.com/mert494/student-information-system/blob/67e08eb5b0a39f8a6802759ea8cfac604f833dfd/docs/sprint2/Sprint2_Process_and_Contribution_Log.md#L25-L27) still has the mappings identified in [Mert 6013506931](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013506931) and Ahmet 6013236160. The following records are authoritative; no correction is made to #44 in this task.
+
+| Review | Author / actual reviewed commit | Actual submitted time (UTC) |
+| --- | --- | --- |
+| [#46 / 5998727032](https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5998727032) | ahmetserdar41; `e773377555209662b658055fd6a7b2edd47b3630` | 2026-11-20T20:11:47Z |
+| [#46 / 5983510910](https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5983510910) | ahmetserdar41; `0f0d2fb81caf0f1e2d45c535e6ae109aeb4cc379` | 2026-11-19T21:14:36Z |
+| [#45 / 5998972154](https://github.com/mert494/student-information-system/pull/45#pullrequestreview-5998972154) | mert494; `e63e1010cac2759c312ac8db3b8ef215a8598cda` | 2026-11-20T20:33:02Z |
+| [#44 / 5981606023](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5981606023) | mert494; `479e68b96def3f348c737fcb7537a616abd26e2c` | 2026-11-19T19:13:27Z |
+| [#44 / 5997703006](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5997703006) | mert494; `269b489187f17f89d696e8ffa43ff3fb68e4254a` | 2026-11-20T18:42:39Z |
+| [#44 / 5992353101](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-5992353101) | ahmetserdar41; `3b0da5ad7269141d3fe631800fc701089de08c07` | 2026-11-20T12:03:18Z |
+
+The process-log contribution inventory also omits verifiable historical reviews listed in Mert's follow-up: Ahmet #46 5983510910, #47 6005000584, #48 5998727350; Mert #43 6007085709, #44 5997703006/6007111378, #45 6007109944, #47 5997343533/5997960088/6007087029 and the earlier #42 COMMENTED review 5965029193. Preserve their actual authors, reviewed SHAs and states. Responsibility acceptance comment 6992432115 is not the first Figma-sharing comment 6996130573. The committed log still describes v1.2 and pre-decision scope; newer v1.3 and PO events need an attributed new snapshot, not a rewrite of events.
+
+- **QA #46:** [Current matrix](https://github.com/mert494/student-information-system/blob/926e01189aa10e3612ecc0e1586b8eb53ae2758b/docs/sprint2/Sprint2_Cross_Deliverable_QA_Matrix.md) remains DRAFT at 926e011. Its appended e11a9b2-era architecture supplement and historical 63-control tally (34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED at b06ed7b) do not audit 86a2968. Ahmet's latest submitted review covers e773377, not current HEAD. Mert must refresh affected controls at exact current sources and obtain non-author matrix review. No full tally is recalculated here, and no finding is marked Closed by this preparation.
+
+### Figma scope, remaining findings and missing evidence
+
+- [Azra's v1.3 announcement](https://github.com/mert494/student-information-system/issues/33#issuecomment-7071930286) is producer-reported. [Ahmet's 22 November static walkthrough](https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958) reports NFR-USE-02 FAIL (FR-05 inactive Student, closed period, unmet prerequisite; FR-07 loading missing) and NFR-ACCESS-01(a) FAIL (red 50/50 contrast). Grade-entry/course-definition input controls were not checkable.
+- Demonstration-only state buttons need annotation; the grade-entry focus group should say FR-06; 0–100 must remain an example pending academic grade-scale confirmation. Final empty-state wording remains owner-confirmation work. Screenshot contrast estimates are not instrument-measured WCAG conformance.
+- [PO scope decision](https://github.com/mert494/student-information-system/issues/33#issuecomment-7084944231) explicitly excludes Attendance Entry and System Settings from Sprint 2 and requests removal of screens/navigation. This is now a known decision, not still an undecided scope question; implementation/removal and independent recheck remain unverified.
+- [PO NFR decision](https://github.com/mert494/student-information-system/pull/45#issuecomment-7084805589) records WCAG 2.2 AA as target and at least five users per core flow before final acceptance. NFR-USE-01 has no user-test evidence; proposed success/step/performance values and availability/backup decisions retain their separate statuses.
+- Design, prototype and User Flow URLs are present, but the three public URL probes could not be accessed by the web tool. This is PENDING/Unverified access, not proof of broken URLs or permission denial. No new walkthrough, authenticated version-history/ownership check, immutable snapshot or intended all-reviewer permission test occurred. All three manifest version fields remain empty.
+
+### Manifest v1 — complete inventory audit, not a final selection
+
+All original keys, 4 categories, 9 sub-output arrays and 16 artifact entries are retained exactly. These are 15 distinct URLs: the NFR document serves two sub-outputs. Of 16 entries, 2 refer to merged documents, 11 to historical branch-local/provisional documents and 3 to external Figma URLs. The 13 GitHub entries resolve to 12 distinct nonempty exact Git blobs; current develop retains the two merged SRS/backlog blobs. Reachability establishes existence only.
+
+| Required sub-output / entry | Retained artifact URL | Classification / access result |
+| --- | --- | --- |
+| srs_backlog.srs | [SRS_Draft.md](https://github.com/mert494/student-information-system/blob/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2/SRS_Draft.md) | MERGED, e265b6d — exact blob exists |
+| srs_backlog.refined_backlog | [Refined_Backlog_Draft.md](https://github.com/mert494/student-information-system/blob/e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a/docs/sprint2/Refined_Backlog_Draft.md) | MERGED, e265b6d — exact blob exists |
+| nfr_quality.nfr | [NFR_Quality_Measures.md](https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md) | Historical branch-local f5a545e — exact blob exists; not final approval |
+| nfr_quality.quality_measures | [NFR_Quality_Measures.md](https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md) | Historical branch-local f5a545e — exact blob exists; not final approval |
+| figma_flows.figma | [figma](https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=1-1681) | EXTERNAL — version/access PENDING |
+| figma_flows.figma | [figma](https://www.figma.com/proto/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=1-1681) | EXTERNAL — version/access PENDING |
+| figma_flows.user_flows | [user_flows](https://www.figma.com/design/n5jM7D19uV3Yj2rQRkoV6F/SENG321---OBS-prototype?node-id=64-3) | EXTERNAL — version/access PENDING |
+| architecture.architecture_document | [Architecture_Decisions_and_Contract_Mapping.md](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.c4 | [Sprint2_System_Context.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_System_Context.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.c4 | [Sprint2_Container.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Container.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.c4 | [Sprint2_Component.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Component.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.uml | [Sprint2_Domain_Class.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Domain_Class.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.uml | [Sprint2_Sequence_Enrollment.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Enrollment.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.uml | [Sprint2_Sequence_Grade_Entry.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.uml | [Sprint2_Sequence_Published_Grades.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Published_Grades.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+| architecture.uml | [Sprint2_Sequence_Session_Lifecycle.svg](https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg) | Historical branch-local 1a5b3fe — exact blob exists; not final approval |
+
+**Manifest changes in this preparation:** update only nfr_quality.review to Arda's verified current-HEAD COMMENTED review and architecture.review to Ahmet's latest submitted historical f8bcef7 review, with current-source limitations stated. No artifact URL/version is repointed to unapproved 7b4702b or 86a2968. Keep original base_commit 2945b81c934ee14c2c7a5875ad5cbcae79fc1f96; expected_commit and release.tag/commit/url remain empty. No new category, schema key or final source identity is invented.
+
+Nine additive member-evidence records are verified: Mert review 6014659707, QA commit/artifact 926e011 and published #48 baseline commit 321f806; Arda review 6025947753 and architecture commit 86a2968; Ahmet NFR commit 7b4702b and architecture reviews 6014540983/6014649716. All prior 86 records remain in order. The proposed inventory is 95 entries: 86 directly attributed records plus 9 contextual Issues. Contextual Issue existence/assignment is not authorship, completion or acceptance.
+
+| Account | Existing entries retained | Proposed entries |
+| --- | --- | --- |
+| mert494 | 29 | 33 |
+| nsnkcc | 7 | 7 |
+| ardaberkkara1 | 8 | 10 |
+| ahmetserdar41 | 21 | 24 |
+| baryyss-001 | 7 | 7 |
+| azrayy | 14 | 14 |
+
+### Superseded manifest review declarations — preserved from published 321f806
+
+The following two declarations are archived verbatim as data before replacing the active review fields. Their old source/status wording is historical and must not be treated as a current finding. Other review/access declarations and every artifact pin remain unchanged.
+
+```json
+{
+  "nfr_quality": {
+    "reviewer": "mert494",
+    "version": "7d752cada7bea0a950c3a435e1ee0a6c667c85d1",
+    "date": "2026-11-22",
+    "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6013479731",
+    "status": "COMMENTED at older Draft 0.5 7d752cada7bea0a950c3a435e1ee0a6c667c85d1, not current Draft 0.6 f5a545e8f2bf75c5e49e1076291657d4bbcfad70. Arda/another non-author approval, PO targets/new IDs, feasibility, OpenAPI alignment and runtime verification remain Pending."
+  },
+  "architecture": {
+    "reviewer": "mert494",
+    "version": "5349b1295e55625bc00922144d50488a9da00677",
+    "date": "2026-11-21",
+    "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6007087029",
+    "status": "COMMENTED at historical 5349b1295e55625bc00922144d50488a9da00677, not current 1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4. Document and all eight SVGs now pinned to newer source; independent review, rendered QA and acceptance Pending. Old FAIL findings are historical, not newly verified failures or automatic PASS."
+  }
+}
+```
+
+### Official submission envelope — known versus unverified
+
+| Field | Evidence / status |
+| --- | --- |
+| Date and time | Mert-reported deadline: 24 November 2026, 23:59; repeated in [Issue #40](https://github.com/mert494/student-information-system/issues/40). Official assignment URL and timezone remain unverified; this is not a freshly read Teams assignment. |
+| Upload destination/method | Teams designated assignment is the reported destination; exact assignment, uploader workflow and attachment-versus-link instructions remain unverified. |
+| File format and limits | Official required file types, naming, size/count limits and packaging remain Pending. No PDF, Word or ZIP mandate is inferred. |
+| Team number / official roster | Team number and official assignment-side team details remain Pending. The six GitHub accounts are evidence inventory, not a substitute for the official team identifier. |
+| Buffer target | 24 November 21:00 is a proposed preparation/upload buffer, not the official deadline. |
+| Release / final package | No Sprint 2 tag/release or approved final SHA exists in this record. Only sprint-1 was found in remote tags/releases; final package/access verification remains Pending. |
+| Submission receipt | No Teams upload performed by this task; no receipt, attachment confirmation or submission timestamp supplied or independently verified. Keep Pending; do not claim delivery. |
+
+### GO / NO-GO gates and owner actions
+
+| Gate | Current decision | Evidence/action required before GO |
+| --- | --- | --- |
+| Local preparation | GO within the two authorized files | Preserve history and scope; complete checks below. This does not authorize commit/push. |
+| Source integration | NO-GO | Arda corrects multiplicities/readability and obtains current-HEAD independent architecture review; Ahmet refreshes NFR tracker and preserves conditional decisions; Azra corrects process evidence/contributions and UX findings; owners supply required acceptance. Recheck live source/target SHAs, reviews, threads and conflicts, then obtain separate merge authorization. #43/#49 merges do not approve the remaining PRs. |
+| QA reconciliation | NO-GO | Mert refreshes #46 against exact current sources, preserving history and obtaining non-author review; no new overall QA counts inferred from this checklist. |
+| Final manifest / package | NO-GO | Select reviewed/merged artifact versions deliberately; verify all nine outputs, frozen Figma version/access, roster, source hashes and known-gap decisions. Keep final-only fields empty in #48; follow reviewed D-05 order later, with separate authorization for any future post-release resource/action. |
+| Release / main integration | NO-GO | Separate authorization for each merge/tag/release, exact approved commit, current rules/protection/reviews, annotated-tag and publication checks. This task modifies neither main nor develop. |
+| Official submission | NO-GO | Verify assignment/timezone/team number/formats/upload method; satisfy or explicitly resolve acceptance gates, receive final submission authorization, then record actual upload/receipt. PENDING is not success or approval. |
+
+Documentation correctness, independent technical approval, product/policy approval and runtime verification are separate. No live API/security/data/concurrency/performance test, built-UI accessibility conformance, user-based usability test, meeting, final assignment, issue closure or Teams submission is fabricated. Runtime absence is disclosed; it is not presented as a newly invented Sprint 2 implementation requirement.
+
+### Validation of this local preparation
+
+The existing 24 tests and schema validation ran successfully with C:/anaconda/python.exe. Text/JSON checker runs explicitly used PYTHONIOENCODING=utf-8. Checker PENDING remains a blocking result, not acceptance. Existing tests/checker/schema are unchanged; no dependencies or new test files were added.
+
+| Check | Result / exit status |
+| --- | --- |
+| JSON parsing and existing schema-v1 validation | PASS; exit 0. All original schema keys, 4 categories, 9 arrays and 16 artifacts retained. |
+| Existing unit suite | 24 PASS / 0 failures / 0 errors / 0 skipped; exit 0 (python -B -m unittest discover -s tests -v). |
+| Submission checker — text | PENDING — 137 PASS / 0 ERROR / 512 PENDING; exit 2; PYTHONIOENCODING=utf-8. |
+| Submission checker — JSON | PENDING — 137 PASS / 0 ERROR / 512 PENDING; exit 2; same findings/counts as text; all four categories PENDING. |
+| Artifact/review/author attribution | PASS — all 95 entries resolve; 86 directly attributed records and 9 contextual Issues. All 43 review records match their accounts and actual SHAs: 30 COMMENTED / 10 APPROVED / 3 DISMISSED, scoped to their own historical versions. |
+| Historical preservation, Markdown tables/links and scope | PASS — original checklist bytes retained as an exact prefix; original 86 member entries, all artifact arrays and historical review declarations preserved. All 22 tables rectangular; 207 checklist links parsed without unsupported syntax; 54 distinct added URLs: 51 GitHub targets verified, 3 Figma access probes PENDING. Exactly two authorized files changed; index unchanged. |
+| git diff --check | PASS; exit 0; no whitespace errors. |
+
+The checker inspected the dirty worktree on branch docs/mert-sprint2-submission-evidence, with HEAD metadata 321f80667c7eed5da6152d58b1aaabf0d2e67d92; HEAD does not identify these uncommitted contents. Manifest SHA-256 (CRLF worktree bytes): 1c70624c530b1f4c9a43150df8d9d25ffda6081db9cf9f06abd5bd94c661f140. The nine new contribution URLs account for nine additional mechanical contribution.url passes; this is not a completion score. The checker remains offline: its remote/manual findings remain PENDING despite the separate GitHub existence checks.
+
+These local changes await Mert's explicit commit/push authorization for the existing branch and PR #48. No new PR, commit, push, merge, tag/release, remote update or Teams delivery is performed by this preparation.
