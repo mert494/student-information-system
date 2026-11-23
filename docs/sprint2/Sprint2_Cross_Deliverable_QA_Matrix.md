@@ -582,3 +582,172 @@ Arda fixes AR-06/08/10 and F23-01/02; Nurefşan/Arda resolve or explicitly retai
 [Q23GRADE]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg
 [Q23PUB]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Published_Grades.svg
 [Q23SESSION]: https://github.com/mert494/student-information-system/blob/e11a9b2427d949268f1911703e1df75f50f43a39/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg
+
+## 23 November 2026 — current-source provisional reconciliation (starting #46 926e011)
+
+**DRAFT / PREPARATION ONLY — NO-GO for final integration or submission.** Related Issue: [#38][I38]. This append records Mert's source/review reconciliation at 20:55:39 Europe/Istanbul (17:55:39 UTC). PR #46 remote HEAD and the clean local docs/mert-sprint2-cross-qa worktree both matched 926e01189aa10e3612ecc0e1586b8eb53ae2758b before editing. Current source HEADs and reviewed commits were reverified against GitHub before this append. These local contents are uncommitted and do not yet exist at the starting SHA.
+
+**History is unchanged.** All 584 pre-existing lines, snapshots, source SHAs, review attributions, evidence definitions, the earlier architecture supplements and their scoped counts are preserved verbatim. The historical 63-control tally remains **34 PASS / 18 FAIL / 9 PENDING / 2 NOT VERIFIED** at b06ed7b. Earlier headings calling themselves current/latest remain historical observations at their own sources. This later, bounded audit supersedes only the current-state descriptions expressly reassessed below; it does not replace any historical tally, create a new full 63-control result, close a finding/Issue, or accept a deliverable.
+
+### Current source, reviewed-commit and merge registry
+
+| PR / source author | Exact verified HEAD | Actual reviewed commit and state | Current PR / merge boundary |
+| --- | --- | --- | --- |
+| [#43][C23FINALPR43] — nsnkcc | `6bef5c98327b21249abfd49573f8a2ccdeb705f3` | Ahmet [6013531643][C23FINALR6013531643] APPROVED this exact source; Mert [6013501864][C23FINALR6013501864] COMMENTED at the same source. | MERGED by mert494 as e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a at 2026-11-22T18:03:07Z. Draft-document approval; seven non-blocking follow-ups remain. |
+| [#44][C23FINALPR44] — azrayy | `67e08eb5b0a39f8a6802759ea8cfac604f833dfd` | Mert [6013506931][C23FINALR6013506931] and Ahmet [6013236160][C23FINALR6013236160] COMMENTED at this exact HEAD. | OPEN; no APPROVED review. Process evidence/contribution MAJOR unresolved. |
+| [#45][C23FINALPR45] — ahmetserdar41 | `7b4702bc379229617515fdbb540c85d6c2cf13f2` | Arda [6025947753][C23FINALR6025947753] COMMENTED at this exact HEAD, submitted 2026-11-23T17:09:33Z. Mert [6014659707][C23FINALR6014659707] COMMENTED at older 68c040ef4093a83894fc5958100db100a3084d0e. | OPEN; Draft 0.8.1. Improved working draft; tracker MINOR, conditional feasibility and final target acceptance remain. |
+| [#46][C23FINALPR46] — mert494 | `926e01189aa10e3612ecc0e1586b8eb53ae2758b` | Latest Ahmet [5998727032][C23FINALR5998727032] is COMMENTED at older e773377555209662b658055fd6a7b2edd47b3630. | OPEN / DRAFT; no independent review/approval at current HEAD or of this local append. Mert does not approve his own matrix. |
+| [#47][C23FINALPR47] — ardaberkkara1 | `86a296887d7a6bc7cb8e3333c91395216478ca99` | Latest submitted review is Ahmet [6014649716][C23FINALR6014649716], COMMENTED at older f8bcef72632b335eabccdf156f01b0ec4a4cb565. | OPEN; no submitted current-HEAD review or current-HEAD approval. Source corrections and new regressions are separated below. |
+| [#48][C23FINALPR48] — mert494 | `bffc61bb1fdfafc4a5b0d92126de612e2a6ad182` | Ahmet [5998727350][C23FINALR5998727350] COMMENTED at older 2ddec8c6737ac0600a85ce16a4a861b2bbca5918; that review did not inspect the checklist. | OPEN / DRAFT; preparation inventory mechanically validated; final acceptance and independent review remain Pending. |
+| [#49][C23FINALPR49] — baryyss-001 | `8e64d96fc200d7e20cec464cfddcd95cc244280a` | Ahmet [6014110411][C23FINALR6014110411] APPROVED this exact readiness-document source. | MERGED by mert494 as 5de47a20f845c8a016c88b3c10eaf924f175b18a at 2026-11-22T20:41:15Z. This is not release execution or approval of #44–#48. |
+
+All submitted reviews and conversation comments on #43–#49 were reread. Reviewed source, review submission time, PR HEAD and merge commit are different evidence fields. COMMENTED and a pushed correction do not establish APPROVED; historical approval of a different source is not inherited. The approved #43 source 6bef5c9 and merge e265b6d remain distinct, as do approved #49 source 8e64d96 and merge 5de47a2. Neither merge supplies overall SRS/NFR/API/UX acceptance. The [merged release-preparation document][C23FINALRELEASE] remains preparation evidence.
+
+### Architecture #47 — current-source dispositions, not rewritten history
+
+The rows below use exact #47 HEAD 86a296887d7a6bc7cb8e3333c91395216478ca99, the [merged-SRS source][C23FINALSRS] at 6bef5c9 and unchanged [OpenAPI][C23FINALAPI]. This editing task reread source paths/coordinates/guards; it did not rerender SVGs. Visual observations are attributed exclusively to the supplied independent audit report in the next section. PASS below means the stated documentation/model correction only; no implementation or security acceptance is inferred.
+
+| Existing control / finding | Provisional status / severity | Evidence and bounded disposition |
+| --- | --- | --- |
+| Original MAJOR 1 — dispatch (F23-01) | PASS / documentation correction | [Component][C23FINALCOMP] L44–54: four separate branch arrowheads, continuous x525–1430 connector, Grade management connection and separate x1395 authorization trunk are present. Original dispatch finding resolved at its stated scope; no Issue closure. |
+| Original MAJOR 2 — decision provenance (F23-02) | PASS / documentation correction | [architecture document][C23FINALARCH] L15–24 now cites merged 6bef5c9 and actual PD-01–PD-04 identifiers. Instructor GET is separately FR-06; PD-04 is Grade→Registration. Citation-range MINOR remains, not the original wrong-source MAJOR. |
+| Original MAJOR 3 — Enrollment / Grade Entry regression | PASS / documentation correction | [Sequence Enrollment][C23FINALENR] L56–67 and [Sequence Grade Entry][C23FINALGRADE] L57–72 restore mutually exclusive success/conflict or invalid operands, no-write rejection and API-to-Student/Instructor 201/409/200/400/404 responses. Incomplete internal results remain MINOR. |
+| AR-03 alignment umbrella | FAIL / MAJOR | Summarizes remaining AR-04 structural regressions and unresolved cross-artifact consistency; not another independent defect. Do not retain the fixed AR-06/AR-10 defects as current failures. |
+| AR-04 — CourseOffering–Registration | FAIL / MAJOR | [Domain Class][C23FINALCLASS] L40–42 puts 0..* at CourseOffering and 1 at Registration. PD-02 requires exactly one CourseOffering per Registration: put 1 at the CourseOffering end; any inverse count at Registration remains explicitly Proposed. This is a new endpoint regression, separate from the corrected historical Term association. |
+| AR-04 — Registration–Grade | FAIL / MAJOR | [Domain Class][C23FINALCLASS] L48–50 puts 0..* at Registration and 1 at Grade. PD-04 requires exactly one Registration per Grade: put 1 at the Registration end; Grade count per Registration is Pending unless explicitly proposed/decided. Do not assert an approved one-to-one rule. |
+| AR-06 modeled authorization termination | PASS / documentation correction | [Sequence Enrollment][C23FINALENR] L45–107 (POST and GET), [Sequence Grade Entry][C23FINALGRADE] L44–80 and [Sequence Published Grades][C23FINALPUB] L44–90 contain protected calls inside Allow; Deny returns 401/403 and terminates without downstream domain/data work. This preserves the successful structural correction, not runtime authorization. |
+| AR-10 modeled session success/failure | PASS / documentation correction | [Sequence Session Lifecycle][C23FINALSESSION] L45–110 keeps session creation, JWT and 200 success-only; Identity→API failure and generic 401 occur without session/token; invalidated-sid and post-logout replay rejection remain explicit. Expiry/claim mapping and actual revocation execution remain unverified. |
+| AR-07 / Enrollment GET / FR-05 conflicts | PASS / documentation correction | [Sequence Enrollment][C23FINALENR] L77–104 includes query, data result, API return and client response; L56–67 separates create from duplicate/inactive/closed-period/capacity/prerequisite 409/no-write conflicts. [Sequence Published Grades][C23FINALPUB] L50–82 separates successful nonempty, successful empty and failed-query outcomes; failure does not follow a successful response. |
+| AR-08 readability | FAIL / MINOR, attributed visual evidence | Supplied independent native-size render audit reports readable C4 labels and Instructor counts but remaining faint/obscured lifelines under layered fills and Grade–Registration text meeting/partly overlapping box borders. Do not repeat the corrected old Container/Component occlusion as a fresh failure. |
+| Other diagram documentation follow-ups | FAIL / MINOR | [Sequence Enrollment][C23FINALENR] L60–67 lacks internal Enrollment→API result arrows before client outcomes; [Sequence Grade Entry][C23FINALGRADE] L69–72 lacks the internal invalid-result return. [architecture document][C23FINALARCH] L3/L17 links SRS L175–183 rather than decision rows L185–188. [Domain Class][C23FINALCLASS] L36–38/L85 mixes displayed inverse counts with Pending wording. Enrollment/Session backgrounds end before their canvases. |
+| Actual authorization/session/persistence execution | NOT VERIFIED | No live API, authentication/role/record enforcement, revocation, persistence/concurrency, performance or implementation-level verification was performed. Model PASS cannot satisfy these scopes. |
+
+Approved relationship evidence is [merged-SRS source][C23FINALSRS] §8.1 L185–188. The two AR-04 associations are affected parts of the structural-model finding; AR-03 is its umbrella. No new root-defect total is inferred from these repeated control/association references. Other unassessed controls retain their historical evidence scope; this partial table is not a full fresh AR/63-control score.
+
+### Cross-deliverable QA and acceptance boundaries
+
+| Existing scope | Provisional status | Current evidence / remaining work |
+| --- | --- | --- |
+| N-04 NFR acceptance and feasibility | PENDING / MAJOR | [6025947753][C23FINALR6025947753] is Arda's current-HEAD independent COMMENTED technical review. It describes Draft 0.8.1 as suitable to remain the improved working draft, with no new MAJOR measurement-structure issue; it explicitly withholds implementation-feasibility, target and final NFR acceptance. Do not describe the current-head review as missing, APPROVED or a benchmark. |
+| N-12 current evidence tracker | FAIL / MINOR | [NFR Draft 0.8.1][C23FINALNFR] §5.1/§7, especially L187, still describes older #47 heads/findings. Record submitted corrections, the new cardinality regressions, remaining AR-08 and actual current-head COMMENTED review. Do not imply that Arda's statement that corrections were submitted independently closes #47. |
+| N-13 source provenance | PASS / bounded documentation correction | Draft 0.8.1 correctly records #43 merged from 6bef5c9 as e265b6d and distinguishes static observations/prototype evidence from absent runtime/user tests. This corrects the old unmerged/version wording only; N-12 tracker and N-04 acceptance are separate. |
+| N-05 / A-01 / A-02 / A-04 policy and API alignment | PENDING | Nine new NFR IDs still need accepted scope/trace adoption; role/record matrix, sid/token/logout contract, credential/TLS decisions, courseOfferingId/capacity/waitlist semantics, Instructor GET contract, grading/PATCH policy and workload/environment remain conditional. PO decisions and draft-document approval do not settle unspecified details. |
+| P-04 process review/SHA and contribution evidence | FAIL / MAJOR | [process log][C23FINALPROC] L25–27/L55 retains incorrect mappings: 5998727032 belongs to e773377, not 0f0d2fb (that review is 5983510910); 5998972154 belongs to e63e101, not 4502c7e; 5981606023 belongs to 479e68b, not both 479e68b/269b489; 5997703006 belongs to 269b489; Ahmet 5992353101 belongs to 3b0da5a. [6013506931][C23FINALR6013506931] supplies exact timestamps and missing contribution records. |
+| P-06 / P-07 / P-08 process follow-ups | FAIL / MINOR | The committed log still describes v1.2 and omits the newer v1.3/PO events; review, commit and PR-opening dates must stay distinct. Responsibility acceptance 6992432115 is not initial Figma sharing 6996130573. Missing historical reviews must be added by attribution, not reassigned to another person or source. |
+| F-03 / F-07 prototype flow and accessibility | FAIL / attributed findings | [Ahmet's 22 November static walkthrough][C23FINALFQA] reports missing inactive-student/closed-period/prerequisite states (FR-05), FR-07 loading, and red 50/50 contrast failure. Grade/course input controls were not checkable. Demo buttons, FR-06 focus label, grade-range example and final wording need follow-up. Screenshot contrast estimates are not instrument-measured conformance. No new walkthrough occurred in this editing task. |
+| F-02 / F-08 permissions and usability execution | NOT VERIFIED | All intended reviewers' access and user-based testing are unverified. Static public walkthroughs do not establish team permissions or per-flow usability results. The required five-user-per-flow evidence is absent; no test, meeting or acceptance is invented. |
+| F-05 immutable version / ownership | PENDING | [Azra's v1.3 announcement][C23FINALFANN] calls the live file v1.3-sprint2; that is producer-reported. Authenticated version history, ownership, frozen source/exports and current intended-audience access need evidence. Node IDs do not freeze a version. |
+| PO scope versus prototype removal | PENDING implementation/recheck | [PO prototype-scope instruction][C23FINALSCOPE] excludes Attendance Entry/System Settings and requests removal of screens/navigation; scope is decided, removal remains unverified. [PO scope/target-direction comment][C23FINALPO] records WCAG 2.2 AA target direction and at least five users per core flow; performance values remain Proposed, availability/backup Open and grade scale Pending academic confirmation. |
+| A-03 published-grade example | FAIL / MAJOR documentation inconsistency | [OpenAPI][C23FINALAPI] GET /grades L410–439, especially L433, still contains published:false against the published-only expectation. This is a static SRS/API example mismatch, not runtime data exposure. No contract edit is made here. |
+| I-03 preparation inventory | PASS / mechanical scope | [submission checklist][C23FINALCHECK] and [submission manifest][C23FINALMAN] at bffc61b preserve the prior checklist prefix, schema v1, 4 categories, 9 arrays, 16 artifact entries, all 86 prior member records and historical pins/base_commit 2945b81c934ee14c2c7a5875ad5cbcae79fc1f96. Nine verified additions make 95 member entries (86 directly attributed, 9 contextual Issues); assignment/Issue existence is not contribution acceptance. |
+| I-02 final integrated reconciliation | PENDING / MAJOR | #48 is DRAFT; expected_commit and release.tag/commit/url remain empty. Its preparation validations do not accept final artifacts, Figma access, source/target consistency, product decisions, releases or submission. Actual independent reviews of #46/#48 remain Pending. |
+
+#43's seven non-blocking SRS/backlog notes and #49's approved-readiness-document follow-ups remain historical, open evidence at their reviewed sources. #49 does not authorize a merge, tag, release, package or Teams upload. Documentation completeness, independent approval, product/technical policies and runtime/prototype verification remain distinct.
+
+### Visual and checker provenance — supplied audit, not rerendered by this edit
+
+**Attribution:** The following eight native-size render inspections, observations, renderer/version, repeat-capture method and two PNG hashes are supplied by the independent audit report in this conversation, as explicitly provided by Mert for this append. This editing task did not rerender, compare PNG pixels, create screenshots or publish render artifacts. No repository permalink for that separate audit report/PNG files is asserted. Current GitHub sources were independently reread; visual findings remain attributed to the supplied report.
+
+Reported method: exact #47 86a2968 sources, headless Edge **158.0.4370.33**, separate page per SVG, standards HTML, zero margins/padding, overflow hidden, white page background, device scale factor 1, declared native viewport, document.fonts.ready and two animation frames before capture. The stabilized audit reports two matching captures for each of all eight SVGs. Do not claim pixel identity with the historical Chrome/e11a9b2 renders, whose method/source remains unchanged above.
+
+| SVG source at 86a2968 | Reported native viewport | Supplied audit scope |
+| --- | --- | --- |
+| [System Context][C23FINALCTX] | 1500 x 940 | Source/export inspection; actor arrows do not grant permissions. |
+| [Container][C23FINALCONT] | 1800 x 1240 | C4 labels/readability improved. |
+| [Component][C23FINALCOMP] | 2000 x 1360 | Separate dispatch arrows and moved labels present. |
+| [Domain Class][C23FINALCLASS] | 1800 x 1420 | Two reversed association multiplicities and remaining label-border issue. |
+| [Sequence Enrollment][C23FINALENR] | 1650 x 1940 | Authorization/outcome corrections; nested lifeline/background concerns. |
+| [Sequence Grade Entry][C23FINALGRADE] | 1650 x 1570 | Exclusive outcomes and actor responses; faint lifelines/internal invalid result concern. |
+| [Sequence Published Grades][C23FINALPUB] | 1650 x 1720 | Exclusive nonempty/empty/error outcomes; layered lifelines. |
+| [Sequence Session Lifecycle][C23FINALSESSION] | 1500 x 1820 | Success/failure ordering and replay modeled; faint lifelines/background concern. |
+
+Supplied **Domain/Class PNG SHA-256** (1800 x 1420):
+
+`5764fa3ed8781f7aef830f672891c83ab2f40c46106610623d349b9e02f165be`
+
+Supplied **Grade Entry PNG SHA-256** (1650 x 1570):
+
+`3a0afff0db3637083a4dcfcccd0b0e9814e79fdd8466ce62f8032bc38df8e51d`
+
+These are the supplied raster-capture SHA-256 values, not SVG Git blob IDs or evidence of newly created repository assets. The supplied audit's static SVG/XML/ID/reference checks and render inspection establish documentation/export evidence only.
+
+**Submission checker provenance:** Supplied independent audit at clean #48 bffc61bb1fdfafc4a5b0d92126de612e2a6ad182: **137 PASS / 0 ERROR / 511 PENDING; exit 2**, text and JSON; all four categories PENDING. Its earlier dirty preparation count of 512 decreased only when git.dirty disappeared. The local validation table below separately identifies what this editing task actually reran. Neither a mechanical PASS nor exit 2 is final acceptance; no final-SHA check of this uncommitted matrix/package is claimed.
+
+### Owner actions — remaining work, not completed assignments
+
+| Owner / role | Required next evidence or correction | Gate / limits |
+| --- | --- | --- |
+| Arda | Correct both AR-04 endpoint regressions; retain AR-06/AR-10 and client-response fixes; repair AR-08/internal results/citations/status labels; reconcile API mappings with requirements owner. Supply exact revised SHA, readable exports and independent non-author recheck. | Architecture acceptance/integration remains NO-GO. Do not infer role, endpoint or technology approval. |
+| Ahmet | Refresh #45 tracker against actual #47 source/review; preserve Arda's current COMMENTED scope and conditional targets; independently recheck revised architecture/prototype as applicable and record real per-flow tester evidence when performed. | Cannot independently approve own NFR. No runtime/user test marked complete without results. |
+| Azra | Correct #44 mappings, chronology, sharing sources and omitted contributions; append newer v1.3/PO evidence without changing historical events. Fix missing prototype states/contrast/controls/demo/focus labels and remove excluded screens/navigation; provide frozen-version/access evidence. | Process MAJOR and attributed prototype failures remain open until evidence/recheck. |
+| Nurefşan / Product Owner | Confirm remaining role/record, grade, PATCH/error and NFR scope/target decisions and trace adoption; preserve PD-01–PD-04 boundaries and already-decided prototype exclusions; provide date/source for new decisions. | Existing document approval/scope direction is not blanket product, contract or numeric-target approval. |
+| Barış | Keep #49 approved source and merge distinct; maintain current source/target, protection/review and reproducibility evidence; retain documented manual tag-type, publication, checkout/line-ending and UTF-8 follow-ups for a separately authorized future procedure. | No integration, release preparation/execution, tag, publication or permission change is performed by this matrix edit. |
+| Mert | Obtain non-author review of this #46 append and current #48; rerun affected controls at revised exact SHAs; preserve history; coordinate official assignment details and evidence handoff; request separate authorization before commit/push or later integration/submission actions. | Own #46/#48 work cannot supply its own independent approval; both PRs remain DRAFT. |
+
+### Integration and delivery gates
+
+| Gate | Current disposition | Missing evidence / permitted next step |
+| --- | --- | --- |
+| Documentation completeness | FAIL / NO-GO | AR-04 and process evidence MAJORs remain; retain minor follow-ups and unresolved contract/model decisions without inventing resolutions. Local preparation can continue in authorized scope. |
+| Independent review approval | PENDING | #43/#49 have limited source approvals; #44/#45/#47 are not APPROVED at current HEADs, #46/#48 current-source non-author acceptance is absent. Arda's #45 COMMENTED review is real but not approval. |
+| Product / technical policy | PENDING | Resolve or explicitly retain owner-owned scope, role/API/credential/TLS/capacity/grading/target/workload questions; do not invent policy to fill the matrix. |
+| Runtime and prototype verification | NOT VERIFIED | No implementation-level tests or new Figma walkthrough/history/access/user tests in this editing task. Future prototype acceptance needs the required evidence; runtime absence is disclosed, not a new invented Sprint 2 implementation requirement. |
+| Final integration and artifact selection | PENDING / NO-GO | After source corrections, recheck exact HEADs/reviews/conflicts/affected rows and obtain applicable separate integration authorization. Do not automatically repoint manifest pins or fill final-only identities. |
+| Official assignment and submission | NOT VERIFIED / NO-GO | [Issue #40][C23FINALI40] repeats Mert-reported 24 November 2026, 23:59. Actual assignment URL/timezone, uploader workflow, attachment-versus-link method, required formats/naming/limits and team number remain unverified. A proposed 21:00 buffer is not the official deadline. |
+| Actual upload / receipt | NOT VERIFIED | No submission performed or receipt supplied/verified by this task. An approved preparation document or populated URL is not Teams delivery. |
+
+Checks available now: source/review/merge association, static documentation and link/table checks, original-prefix preservation, attributed-render provenance and preparation inventory/checker reproduction. Checks after source revisions: new SHA-specific schema/cardinality/control/visual rechecks and independent reviews, corrected prototype/frozen-version/audience verification and actual user-test evidence. Final integration/package/official upload verification requires its own evidence and authorization; no such action occurs here.
+
+### Local validation of this append
+
+| Check performed by this editing task | Result / scope |
+| --- | --- |
+| Source HEADs, reviewed commits and review attribution | PASS — all seven expected HEADs/states reverified before writing and at final validation; actual source/review/merge identities distinguished. All 38 new GitHub reference targets resolve to verified PR, review, file or comment records; COMMENTED is not APPROVED. |
+| Historical prefix / tallies / references / one-file scope | PASS — all original 131344 CRLF bytes (584 lines) retained as an exact prefix, with the original SHA-256 below unchanged. Historical tally, review/source statements and old definitions untouched; only this authorized file modified; index unchanged. |
+| Existing unit tests | 24 PASS / 0 failures / 0 errors / 0 skipped; exit 0. Ran python -B -m unittest discover -s tests -v in the #46 worktree; these are checker tests, not product runtime tests. |
+| Existing Markdown/link checks and table consistency | PASS — existing prose_lines/markdown_links and document scanner report zero link/reference/scanner errors; 297 links parsed; 31 tables have consistent columns; 38 new definitions are unique and used, with no duplicate definitions. Added target existence checked separately against GitHub records; no blanket new reachability check of every historical external link or full CommonMark/anchor claim. |
+| #48 schema / preparation checker reproduction | Schema v1 PASS, exit 0. Read-only text and JSON runs in the separate clean #48 worktree at bffc61bb1fdfafc4a5b0d92126de612e2a6ad182 both reproduce 137 PASS / 0 ERROR / 511 PENDING, exit 2, all four categories PENDING. This is not a final-package or final-SHA validation of this uncommitted matrix. |
+| git diff --check | PASS; exit 0, no whitespace errors. No file staged; no source/PR state changed. |
+
+Original worktree-file SHA-256 before this append (CRLF bytes): `deaa3613855f5e13739815686400a6a4c0cf034b87c4f148828596588c4f14d0`. The recorded original prefix is the preservation oracle; this is not a self-hash of the new appendix. No historical status, reviewer attribution, source identity or definition is edited. This local preparation awaits Mert's explicit commit/push authorization; no staging, commit, push, approval, ready-for-review transition, merge, release/tag, Issue closure or Teams submission is performed.
+
+### New source references — existing definitions remain unchanged
+
+[C23FINALPR43]: https://github.com/mert494/student-information-system/pull/43
+[C23FINALPR44]: https://github.com/mert494/student-information-system/pull/44
+[C23FINALPR45]: https://github.com/mert494/student-information-system/pull/45
+[C23FINALPR46]: https://github.com/mert494/student-information-system/pull/46
+[C23FINALPR47]: https://github.com/mert494/student-information-system/pull/47
+[C23FINALPR48]: https://github.com/mert494/student-information-system/pull/48
+[C23FINALPR49]: https://github.com/mert494/student-information-system/pull/49
+[C23FINALARCH]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md
+[C23FINALCLASS]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Domain_Class.svg
+[C23FINALCOMP]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Component.svg
+[C23FINALCONT]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Container.svg
+[C23FINALCTX]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_System_Context.svg
+[C23FINALENR]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Enrollment.svg
+[C23FINALGRADE]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg
+[C23FINALPUB]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Published_Grades.svg
+[C23FINALSESSION]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg
+[C23FINALSRS]: https://github.com/mert494/student-information-system/blob/6bef5c98327b21249abfd49573f8a2ccdeb705f3/docs/sprint2/SRS_Draft.md
+[C23FINALNFR]: https://github.com/mert494/student-information-system/blob/7b4702bc379229617515fdbb540c85d6c2cf13f2/docs/sprint2/NFR_Quality_Measures.md
+[C23FINALPROC]: https://github.com/mert494/student-information-system/blob/67e08eb5b0a39f8a6802759ea8cfac604f833dfd/docs/sprint2/Sprint2_Process_and_Contribution_Log.md
+[C23FINALAPI]: https://github.com/mert494/student-information-system/blob/86a296887d7a6bc7cb8e3333c91395216478ca99/api/openapi.yaml
+[C23FINALCHECK]: https://github.com/mert494/student-information-system/blob/bffc61bb1fdfafc4a5b0d92126de612e2a6ad182/docs/sprint2/Sprint2_Submission_Checklist.md
+[C23FINALMAN]: https://github.com/mert494/student-information-system/blob/bffc61bb1fdfafc4a5b0d92126de612e2a6ad182/docs/sprint2/submission_manifest.json
+[C23FINALRELEASE]: https://github.com/mert494/student-information-system/blob/5de47a20f845c8a016c88b3c10eaf924f175b18a/docs/sprint2/Sprint2_Integration_Release_Evidence.md
+[C23FINALFQA]: https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958
+[C23FINALFANN]: https://github.com/mert494/student-information-system/issues/33#issuecomment-7071930286
+[C23FINALSCOPE]: https://github.com/mert494/student-information-system/issues/33#issuecomment-7084944231
+[C23FINALPO]: https://github.com/mert494/student-information-system/pull/45#issuecomment-7084805589
+[C23FINALI40]: https://github.com/mert494/student-information-system/issues/40
+[C23FINALR6013531643]: https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013531643
+[C23FINALR6013501864]: https://github.com/mert494/student-information-system/pull/43#pullrequestreview-6013501864
+[C23FINALR6013506931]: https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013506931
+[C23FINALR6013236160]: https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6013236160
+[C23FINALR6025947753]: https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6025947753
+[C23FINALR6014659707]: https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6014659707
+[C23FINALR5998727032]: https://github.com/mert494/student-information-system/pull/46#pullrequestreview-5998727032
+[C23FINALR6014649716]: https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014649716
+[C23FINALR5998727350]: https://github.com/mert494/student-information-system/pull/48#pullrequestreview-5998727350
+[C23FINALR6014110411]: https://github.com/mert494/student-information-system/pull/49#pullrequestreview-6014110411
