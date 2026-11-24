@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1820" viewBox="0 0 1500 1820" role="img" aria-labelledby="title description">
+  <title id="title">UML sequence — session lifecycle recorded in the SRS</title>
+  <desc id="description">Login uses mutually exclusive success and failure operands. Success shows authentication success, server-side Session creation, JWT issuance with sid, then response. Failure shows an Identity failure result and generic 401 only, with no Session or JWT. A separate scenario shows active-session access, logout invalidation, and rejection of replayed revoked JWTs. SRS §8.1 records the lifecycle; expiry, provider, token response mapping, and implementation remain Pending.</desc>
+  <defs>
+    <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
+    <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 29px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #425d72; }
+      .part { font-size: 15px; font-weight: 700; }
+      .msg { font-size: 14px; }
+      .small { font-size: 12px; fill: #425d72; }
+      .status { font-size: 14px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1500" height="1740" fill="#f4f7fb" />
+  <text class="title" x="42" y="50">UML Sequence — JWT Bearer and server-side session lifecycle</text>
+  <text class="subtitle" x="42" y="80">Session behavior recorded in merged PR #43 SRS §8.1; contract and implementation alignment remain incomplete.</text>
+
+  <g stroke="#a9bac7" stroke-width="2" stroke-dasharray="7 6">
+    <path d="M160 195 V1710" /><path d="M455 195 V1710" /><path d="M750 195 V1710" /><path d="M1045 195 V1710" /><path d="M1340 195 V1710" />
+  </g>
+  <g>
+    <rect x="45" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="160" y="145" text-anchor="middle">User</text><text class="small" x="160" y="172" text-anchor="middle">Actor; permissions not implied</text>
+    <rect x="340" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="455" y="145" text-anchor="middle">Client</text><text class="small" x="455" y="172" text-anchor="middle">No UI implementation asserted</text>
+    <rect x="635" y="110" width="230" height="85" rx="12" fill="#dcecf8" stroke="#244f73" stroke-width="2" />
+    <text class="part" x="750" y="145" text-anchor="middle">API contract boundary</text><text class="small" x="750" y="172" text-anchor="middle">No running API asserted</text>
+    <rect x="930" y="110" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="1045" y="145" text-anchor="middle">Identity / session</text><text class="small" x="1045" y="172" text-anchor="middle">Logical responsibility only</text>
+    <rect x="1225" y="110" width="230" height="85" rx="12" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" stroke-dasharray="8 5" />
+    <text class="part" x="1340" y="145" text-anchor="middle">Server-side Session</text><text class="small" x="1340" y="172" text-anchor="middle">Conceptual state; store Open</text>
+  </g>
+
+  <text class="small" x="42" y="225">LOGIN — POST /sessions is public in the current contract (security: []). One request follows exactly one outcome.</text>
+  <path d="M160 270 H455" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="308" y="258" text-anchor="middle">1. enter credentials</text>
+  <path d="M455 315 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="303" text-anchor="middle">2. POST /sessions (SignInRequest)</text>
+  <path d="M750 360 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="348" text-anchor="middle">3. authenticate credentials (provider Pending)</text>
+
+  <rect x="300" y="385" width="1150" height="530" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
+  <text class="status" x="315" y="412">alt — login outcome (mutually exclusive operands)</text>
+  <path d="M300 690 H1450" stroke="#244f73" stroke-width="2" />
+  <rect x="302" y="415" width="1146" height="273" fill="#f0f8f2" fill-opacity="0.16" />
+  <text class="status" x="320" y="442">[Success: credentials valid]</text>
+  <path d="M1045 470 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="898" y="458" text-anchor="middle">4. authentication success</text>
+  <path d="M750 510 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="498" text-anchor="middle">5. create server-side Session; assign sid</text>
+  <path d="M1045 550 H1340" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1192" y="538" text-anchor="middle">6. store active Session (sid)</text>
+  <path d="M1340 590 H1045" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1192" y="578" text-anchor="middle">7. active Session available</text>
+  <path d="M1045 640 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="898" y="628" text-anchor="middle">8. issue JWT containing sid (expiry Pending)</text>
+  <path d="M750 670 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="658" text-anchor="middle">9. 200 response; payload mapping Pending</text>
+
+  <rect x="302" y="692" width="1146" height="221" fill="#fff7f3" fill-opacity="0.16" />
+  <text class="status" x="320" y="722">[Else: credentials invalid]</text>
+  <path d="M1045 770 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="898" y="758" text-anchor="middle">Authentication failure result</text>
+  <path d="M750 815 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="803" text-anchor="middle">401 generic response to client</text>
+  <text class="small" x="320" y="842">No server-side Session is created; no JWT is generated or issued.</text>
+  <rect x="320" y="852" width="1100" height="50" fill="#fff1ed" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="340" y="875">break — failed login terminates; no success-path step follows.</text>
+  <text class="small" x="340" y="894">Identity-provider details and token response mapping remain Pending.</text>
+
+  <text class="small" x="42" y="958">FOLLOWING SCENARIO — assumes the separate login request succeeded.</text>
+  <text class="small" x="42" y="987">PROTECTED REQUEST — bearer declaration is Proposed in OpenAPI; sid lifecycle behavior is recorded in SRS §8.1.</text>
+  <path d="M455 1035 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="1023" text-anchor="middle">10. protected request: Authorization: Bearer JWT</text>
+  <path d="M750 1085 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="1073" text-anchor="middle">11. resolve sid; check Session remains valid</text>
+  <rect x="500" y="1100" width="950" height="150" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2" />
+  <text class="status" x="515" y="1125">alt — session state (mutually exclusive)</text>
+  <path d="M500 1165 H1450" stroke="#244f73" stroke-width="1.5" />
+  <rect x="502" y="1128" width="946" height="35" fill="#f0f8f2" fill-opacity="0.16" />
+  <text class="small" x="520" y="1153">[Active] protected work may continue; role/record authorization remains Pending.</text>
+  <rect x="502" y="1167" width="946" height="78" fill="#fff7f3" fill-opacity="0.16" />
+  <text class="small" x="1060" y="1186">[Invalidated/unknown sid] stop before domain work.</text>
+  <path d="M750 1210 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="602" y="1202" text-anchor="middle">401 response (contract mapping Pending)</text>
+  <rect x="520" y="1220" width="900" height="22" fill="#fff1ed" stroke="#b64b3c" stroke-width="1" />
+  <text class="small" x="535" y="1237">break — terminate protected request for invalidated sid.</text>
+
+  <text class="small" x="42" y="1280">LOGOUT</text>
+  <path d="M455 1320 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="1308" text-anchor="middle">12. DELETE /sessions/current with current JWT</text>
+  <path d="M750 1370 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="1358" text-anchor="middle">13. invalidate Session identified by sid</text>
+  <path d="M1045 1420 H1340" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1192" y="1408" text-anchor="middle">14. mark logical Session invalid</text>
+  <path d="M750 1470 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="1458" text-anchor="middle">15. 204 logout response</text>
+
+  <text class="small" x="42" y="1520">REPLAY AFTER LOGOUT</text>
+  <path d="M455 1555 H750" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="602" y="1543" text-anchor="middle">16. replay protected request with prior JWT</text>
+  <path d="M750 1605 H1045" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="898" y="1593" text-anchor="middle">17. resolve sid; verify Session state</text>
+  <path d="M1045 1655 H750" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="898" y="1643" text-anchor="middle">18. revoked Session</text>
+  <path d="M750 1705 H455" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="602" y="1693" text-anchor="middle">19. reject replay with expected 401 (mapping Pending)</text>
+  <text class="small" x="42" y="1740">Expiry duration, provider, response/claim mapping, persistence mechanism and runtime verification remain Pending.</text>
+  <text class="small" x="42" y="1765">OpenAPI returns sessionId only; no live API is asserted.</text>
+</svg>

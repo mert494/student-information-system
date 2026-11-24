@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1940" viewBox="0 0 1650 1940" role="img" aria-labelledby="title description">
+  <title id="title">UML sequence — proposed course enrollment</title>
+  <desc id="description">POST /registrations and GET /registrations have separate authorization alternatives. The POST Allow path distinguishes a unique accepted registration (create then 201) from duplicate or other documented FR-05 conflicts (409, no write). GET shows the data query and result return. Denied branches return 401/403 before protected data operations. Role and record permissions remain Pending.</desc>
+  <defs>
+    <marker id="msg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#49677f" /></marker>
+    <marker id="reply" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a2b" /></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183247; }
+      .title { font-size: 29px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #425d72; }
+      .part { font-size: 16px; font-weight: 700; }
+      .msg { font-size: 14px; }
+      .frame { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; fill: #354f63; }
+    </style>
+  </defs>
+  <rect width="1650" height="1840" fill="#f4f7fb" />
+  <text class="title" x="42" y="50">UML Sequence — Student course enrollment (FR-05 / PB-05 proposed)</text>
+  <text class="subtitle" x="42" y="80">Registration ↔ Student/CourseOffering and duplicate key are approved; the current API field mapping remains incomplete.</text>
+
+  <g stroke="#71899b" stroke-width="2" stroke-dasharray="7 6" stroke-opacity="0.9">
+    <path d="M160 200 V1780" /><path d="M480 200 V1780" /><path d="M800 200 V1780" /><path d="M1120 200 V1780" /><path d="M1440 200 V1780" />
+  </g>
+  <g>
+    <rect x="45" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="160" y="149" text-anchor="middle">Student</text><text class="small" x="160" y="176" text-anchor="middle">Proposed actor</text>
+    <rect x="365" y="115" width="230" height="85" rx="12" fill="#dcecf8" stroke="#244f73" stroke-width="2" />
+    <text class="part" x="480" y="149" text-anchor="middle">API contract boundary</text><text class="small" x="480" y="176" text-anchor="middle">No running API asserted</text>
+    <rect x="685" y="115" width="230" height="85" rx="12" fill="#fff5dc" stroke="#a17a2d" stroke-width="2" />
+    <text class="part" x="800" y="149" text-anchor="middle">Authorization decision</text><text class="small" x="800" y="176" text-anchor="middle">Role matrix Pending</text>
+    <rect x="1005" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#54738c" stroke-width="2" />
+    <text class="part" x="1120" y="149" text-anchor="middle">Enrollment responsibility</text><text class="small" x="1120" y="176" text-anchor="middle">Logical component proposal</text>
+    <rect x="1325" y="115" width="230" height="85" rx="12" fill="#ffffff" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="8 5" />
+    <text class="part" x="1440" y="149" text-anchor="middle">Conceptual data</text><text class="small" x="1440" y="176" text-anchor="middle">No store/engine selected</text>
+  </g>
+
+  <text class="small" x="42" y="228">POST /registrations — request and authorization outcome.</text>
+  <path d="M160 270 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="258" text-anchor="middle">1. POST /registrations (courseOfferingId proposed)</text>
+  <path d="M480 315 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="303" text-anchor="middle">2. authenticate; evaluate role/record permissions</text>
+  <path d="M800 355 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="343" text-anchor="middle">3. authorization result [policy Pending]</text>
+
+  <rect x="80" y="375" width="1500" height="780" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="402">alt — authorization outcome (role/record permission matrix Pending)</text>
+  <path d="M80 890 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="408" width="1496" height="480" fill="#e5f2e8" fill-opacity="0.16" />
+  <text class="frame" x="102" y="433">[Allow: authenticated and authorized]</text>
+  <path d="M480 475 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="463" text-anchor="middle">4. validate Student, CourseOffering and FR-05 conditions</text>
+  <path d="M1120 520 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="508" text-anchor="middle">5. check existing (studentId, courseOfferingId) pair</text>
+  <path d="M1440 565 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="1280" y="553" text-anchor="middle">6. existing record / availability result</text>
+  <rect x="102" y="585" width="1450" height="280" fill="#ffffff" fill-opacity="0.16" stroke="#54738c" stroke-width="1.5" />
+  <text class="small" x="122" y="611">alt — registration outcome (conflict rules from draft FR-05)</text>
+  <path d="M102 722 H1552" stroke="#c6d2dc" stroke-width="1.5" />
+  <text class="small" x="122" y="642">[Unique pair and all eligibility checks pass]</text>
+  <path d="M1120 680 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="668" text-anchor="middle">7. create and persist exactly one Registration</text>
+  <path d="M480 705 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="693" text-anchor="middle">8. 201 Created — Registration response</text>
+  <text class="small" x="122" y="753">[Duplicate, inactive Student, closed period, capacity, or prerequisite conflict]</text>
+  <text class="small" x="122" y="792">9. No data write occurs for any listed FR-05 conflict.</text>
+  <path d="M480 842 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="830" text-anchor="middle">10. 409 Conflict — specific error details Pending</text>
+
+  <rect x="82" y="892" width="1496" height="255" fill="#fff0ec" fill-opacity="0.16" />
+  <text class="frame" x="102" y="920">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 965 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="953" text-anchor="middle">11. return 401 / 403 response to Student</text>
+  <text class="small" x="102" y="1000">No Student/Offering lookup, domain query, or persistence occurs in this operand.</text>
+  <rect x="102" y="1020" width="1450" height="90" fill="#ffe3dc" fill-opacity="0.16" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="122" y="1052">break [denied] — terminate the request before any protected data operation.</text>
+
+  <text class="small" x="42" y="1202">GET /registrations — separate request and own-record policy.</text>
+  <path d="M160 1240 H480" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="320" y="1228" text-anchor="middle">12. GET /registrations</text>
+  <path d="M480 1285 H800" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="640" y="1273" text-anchor="middle">13. authenticate; evaluate own-record access</text>
+  <path d="M800 1330 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="640" y="1318" text-anchor="middle">14. authorization result [policy Pending]</text>
+
+  <rect x="80" y="1350" width="1500" height="510" fill="#ffffff" fill-opacity="0.16" stroke="#244f73" stroke-width="2.5" />
+  <text class="frame" x="98" y="1377">alt — list authorization outcome (own-record policy Pending)</text>
+  <path d="M80 1650 H1580" stroke="#244f73" stroke-width="2" />
+  <rect x="82" y="1383" width="1496" height="265" fill="#e5f2e8" fill-opacity="0.16" />
+  <text class="frame" x="102" y="1410">[Allow: authenticated and authorized]</text>
+  <path d="M480 1450 H1120" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="800" y="1438" text-anchor="middle">15. query Registration records</text>
+  <path d="M1120 1485 H1440" stroke="#49677f" stroke-width="2.5" marker-end="url(#msg)" />
+  <text class="msg" x="1280" y="1473" text-anchor="middle">16. read records within authorized scope</text>
+  <path d="M1440 1520 H1120" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="1280" y="1508" text-anchor="middle">17. query result: Registration data</text>
+  <path d="M1120 1560 H480" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="800" y="1548" text-anchor="middle">18. return data to API</text>
+  <path d="M480 1600 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="small" x="320" y="1588" text-anchor="middle">19. 200 Registration[] response</text>
+  <text class="small" x="102" y="1628">Own-record filter and caller-to-Student mapping remain Pending.</text>
+  <rect x="82" y="1652" width="1496" height="206" fill="#fff0ec" fill-opacity="0.16" />
+  <text class="frame" x="102" y="1680">[Deny: unauthenticated or not authorized]</text>
+  <path d="M480 1720 H160" stroke="#8a6a2b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#reply)" />
+  <text class="msg" x="320" y="1708" text-anchor="middle">20. return 401 / 403 response to Student</text>
+  <text class="small" x="102" y="1755">No Registration query or data read occurs in this operand.</text>
+  <rect x="102" y="1770" width="1450" height="65" fill="#ffe3dc" fill-opacity="0.16" stroke="#b64b3c" stroke-width="1.5" />
+  <text class="small" x="122" y="1798">break [denied] — terminate the request before protected data access.</text>
+
+  <text class="small" x="42" y="1892">Contract mismatch: RegistrationInput currently requires courseId; PD-02 requires Registration → CourseOffering.</text>
+  <text class="small" x="42" y="1918">The explicit FR-05 conflicts are draft requirements; specific permissions and API mapping remain Pending.</text>
+</svg>
