@@ -83,17 +83,17 @@
       ],
       "review": {
         "reviewer": "ahmetserdar41",
-        "version": "UNKNOWN: live file observed 2026-11-22; v1.3-sprint2 producer-reported; version history and ownership unverified",
-        "date": "2026-11-22",
-        "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958",
-        "status": "Attributed static walkthrough, not a formal PR review: NFR-USE-02 FAIL; NFR-ACCESS-01(a) FAIL. Remaining states/contrast and uncheckable controls retained. No new walkthrough or USE-01 user test in this preparation refresh; final UX acceptance Pending."
+        "version": "UNKNOWN: live public Figma file reviewed 2026-11-24; v1.3 producer-reported; version history still unverified",
+        "date": "2026-11-24",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6029857255",
+        "status": "APPROVED independent PR #44 static prototype subset on exact source 8a08b82a6cd4b72ab78a833f3e68e86df1feef1a; merged as 86dfc34b81ae1cc2dfd6af6d1c8d9f28fda7ad38. FR-05 inactive-student 409 registration rejection and no login block, FR-07 loading, grade-entry labels and OQ-07 note visually verified. NFR-USE-02 and NFR-ACCESS-01(a) prototype subset PASS only; no NFR-USE-01 test, WCAG conformance, measurement or immutable Figma snapshot verification. Minor issues recorded in review."
       },
       "access": {
         "reviewer": "Pending: all intended reviewers",
         "version": "UNKNOWN",
         "date": "",
-        "evidence_url": "https://github.com/mert494/student-information-system/issues/33#issuecomment-7079275958",
-        "status": "Pending/Unknown: attributed public walkthrough only; ownership, frozen version/history, all-team/reviewer permissions and accessibility acceptance not independently verified.",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6029857255",
+        "status": "Public anonymous static walkthrough confirmed by Ahmet on 2026-11-24 (PR #44 review 6029857255); version history, frozen snapshot, ownership and all intended team/reviewer permissions remain unverified. No usability or full accessibility certification.",
         "audience": "UNKNOWN: intended team/reviewer audience not verified"
       }
     },
@@ -101,60 +101,60 @@
       "architecture_document": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/sprint2/Architecture_Decisions_and_Contract_Mapping.md",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         }
       ],
       "c4": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_System_Context.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_System_Context.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Container.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Container.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Component.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Component.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         }
       ],
       "uml": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Domain_Class.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Domain_Class.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Enrollment.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Sequence_Enrollment.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Sequence_Grade_Entry.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Published_Grades.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Sequence_Published_Grades.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         },
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg",
-          "version": "1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4"
+          "value": "https://github.com/mert494/student-information-system/blob/8f2d37df6244fc1917bffee1d0f77ea0b23775cb/docs/diagrams/Sprint2_Sequence_Session_Lifecycle.svg",
+          "version": "8f2d37df6244fc1917bffee1d0f77ea0b23775cb"
         }
       ],
       "review": {
         "reviewer": "ahmetserdar41",
-        "version": "f8bcef72632b335eabccdf156f01b0ec4a4cb565",
-        "date": "2026-11-22",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/47#pullrequestreview-6014649716",
-        "status": "Latest submitted GitHub review is COMMENTED at historical f8bcef72632b335eabccdf156f01b0ec4a4cb565 (2026-11-22T21:36:32Z), not current PR #47 HEAD 86a296887d7a6bc7cb8e3333c91395216478ca99. Earlier dispatch/provenance/client-response corrections are present, but the coordinator source recheck confirms CourseOffering-Registration and Registration-Grade multiplicity regressions and remaining readability gaps; no approval at current HEAD. Artifact entries retain historical 1a5b3fe8f7a22dca3c68f693ff7bac623b0ec4d4; final source selection and independent acceptance remain Pending. No runtime result is asserted."
+        "version": "b6628c825e545bd4705bcd2c5631d25ef63846dd",
+        "date": "2026-11-24",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/47",
+        "status": "APPROVED by Ahmet on exact architecture PR #47 source b6628c825e545bd4705bcd2c5631d25ef63846dd; merged to develop as 8f2d37df6244fc1917bffee1d0f77ea0b23775cb. Documentation and SVG checks only; no runtime/API/load acceptance. Review details and unresolved contract questions remain in PR #47."
       }
     }
   },
