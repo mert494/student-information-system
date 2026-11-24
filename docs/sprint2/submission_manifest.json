@@ -42,23 +42,23 @@
       "nfr": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md",
-          "version": "f5a545e8f2bf75c5e49e1076291657d4bbcfad70"
+          "value": "https://github.com/mert494/student-information-system/blob/271a9a74d35582293b5f912084bf89550f48d245/docs/sprint2/NFR_Quality_Measures.md",
+          "version": "271a9a74d35582293b5f912084bf89550f48d245"
         }
       ],
       "quality_measures": [
         {
           "kind": "url",
-          "value": "https://github.com/mert494/student-information-system/blob/f5a545e8f2bf75c5e49e1076291657d4bbcfad70/docs/sprint2/NFR_Quality_Measures.md",
-          "version": "f5a545e8f2bf75c5e49e1076291657d4bbcfad70"
+          "value": "https://github.com/mert494/student-information-system/blob/271a9a74d35582293b5f912084bf89550f48d245/docs/sprint2/NFR_Quality_Measures.md",
+          "version": "271a9a74d35582293b5f912084bf89550f48d245"
         }
       ],
       "review": {
         "reviewer": "ardaberkkara1",
-        "version": "7b4702bc379229617515fdbb540c85d6c2cf13f2",
-        "date": "2026-11-23",
-        "evidence_url": "https://github.com/mert494/student-information-system/pull/45#pullrequestreview-6025947753",
-        "status": "COMMENTED independent Architecture Lead technical review of current PR #45 Draft 0.8.1 at 7b4702bc379229617515fdbb540c85d6c2cf13f2; not APPROVED and not implementation-feasibility or target acceptance. MINOR architecture-tracker refresh remains. Artifact entries deliberately retain historical Draft 0.6 f5a545e8f2bf75c5e49e1076291657d4bbcfad70 pending final reviewed/merged selection. Role/API, credential/TLS, capacity/workload, PO/new-ID and runtime/user-test evidence remain Pending."
+        "version": "67ba85691be9fa1a5341bc5d0b0239563c9da77c",
+        "date": "2026-11-24",
+        "evidence_url": "https://github.com/mert494/student-information-system/pull/45",
+        "status": "APPROVED by independent Architecture Lead Arda on exact PR #45 source 67ba85691be9fa1a5341bc5d0b0239563c9da77c, Draft 0.8.4; merged to develop as 271a9a74d35582293b5f912084bf89550f48d245. Approval is strictly for the working-draft deliverable, not PO acceptance of Proposed/Open individual targets, SRS/API contract, implementability, runtime security/load tests, or deployed compliance. Existing OQ-01/OQ-02/OQ-10 and contract questions remain open."
       }
     },
     "figma_flows": {
