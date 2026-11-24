@@ -759,3 +759,23 @@ Original worktree-file SHA-256 before the 2460fb6 append (CRLF bytes): `deaa3613
 [C23FIXREVIEW]: https://github.com/mert494/student-information-system/pull/46#pullrequestreview-6027029411
 [C23FIXNFR082]: https://github.com/mert494/student-information-system/blob/7b46ca60ce10538fd39c0fcfd00dbbe52110b929/docs/sprint2/NFR_Quality_Measures.md
 [C23FIXNFRDIFF]: https://github.com/mert494/student-information-system/compare/7b4702bc379229617515fdbb540c85d6c2cf13f2...7b46ca60ce10538fd39c0fcfd00dbbe52110b929
+
+
+---
+
+## 24 November 2026 — Post-integration reconciliation (source evidence; not final QA acceptance)
+
+This section is a new, time-scoped reconciliation. All preceding historical QA counts, row-level FAIL/PASS/PENDING states, and original reviews remain unchanged; these historical observations are **not** overwritten by later fixes. This is not a new full-matrix re-score, no project-wide PASS count is asserted, and no runtime/user-based test was performed.
+
+| Deliverable / gate | Latest verified source and independent evidence | Current disposition at this reconciliation |
+| --- | --- | --- |
+| SRS / refined backlog (#43) | Approved source `6bef5c98327b21249abfd49573f8a2ccdeb705f3`; merged to develop in `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` | MERGED; bounded documentation approval only; unresolved API/PO details remain separately tracked |
+| Process log / prototype (#44) | Approved source `8a08b82a6cd4b72ab78a833f3e68e86df1feef1a`; Ahmet's [final APPROVED review](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6029857255); merged in `86dfc34b81ae1cc2dfd6af6d1c8d9f28fda7ad38` | MERGED; static Figma NFR-USE-02 and NFR-ACCESS-01(a) prototype subset PASS on reviewed live file; no WCAG compliance assertion, NFR-USE-01 user study or version-history verification |
+| FR-05 Inactive Student product decision | Nurefşan's [final decision](https://github.com/mert494/student-information-system/issues/33#issuecomment-7113667894); Ahmet's review of #44 above | Decision: login must NOT block inactive students; registration flow rejects inactive registration with 409 and does not create a record; Figma static QA confirmed on 24 Nov. Backend enforcement is **required, not runtime verified** |
+| Architecture / C4 + UML (#47) | Approved source `b6628c825e545bd4705bcd2c5631d25ef63846dd`; Ahmet's [APPROVED review](https://github.com/mert494/student-information-system/pull/47); merged in `8f2d37df6244fc1917bffee1d0f77ea0b23775cb` | MERGED; documentation/SVG-level architectural review, not live API integration or performance acceptance |
+| DevOps integration evidence (#49/#50) | #49 merged `5de47a20f845c8a016c88b3c10eaf924f175b18a`; #50 independently approved and merged `621dd9a207d4ea75af29dcf08c6598c600053c64` | MERGED to develop; final main/release/tag/Teams gates still PENDING |
+| NFR / quality measures (#45) | HEAD `67ba85691be9fa1a5341bc5d0b0239563c9da77c`; Arda's last COMMENTED technical review covers earlier `7b4702bc379229617515fdbb540c85d6c2cf13f2`; fresh review requested | OPEN, NOT APPROVED, NOT MERGED. Proposed p95/load goals, OQ-01/OQ-02/OQ-10, authorization/API alignment, infrastructure feasibility and actual tests remain independently unresolved |
+| Cross-deliverable QA (#46) | This PR is a DRAFT reconciliation; previous matrix HEAD `d274d8a23f9ea963a4c7fe945cde6dc2fb5c4b4c` and historical results retained above | DRAFT; current-source QA recheck and independent review required after #45 decision and final source selection |
+| Submission checklist/manifest (#48) | DRAFT checklist and schema-v1 manifest; final-only release fields intentionally blank | DRAFT; no final acceptance, no main release or Teams submission receipt |
+
+**Review boundary:** the two new APPROVED reviews (#44, #47) validate the exact reviewed heads and stated scopes; they do not retroactively convert historical matrix FAILs into PASS or approve the NFR targets. The latest prototype check was static and not instrument-measured. Final full-matrix disposition remains PENDING until source synchronization, objective checks and non-author review. Preserve this dated record as a separate reconciliation rather than rewriting the earlier 59/63-row snapshots.
