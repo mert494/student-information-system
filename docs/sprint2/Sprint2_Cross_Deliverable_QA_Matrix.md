@@ -779,3 +779,22 @@ This section is a new, time-scoped reconciliation. All preceding historical QA c
 | Submission checklist/manifest (#48) | DRAFT checklist and schema-v1 manifest; final-only release fields intentionally blank | DRAFT; no final acceptance, no main release or Teams submission receipt |
 
 **Review boundary:** the two new APPROVED reviews (#44, #47) validate the exact reviewed heads and stated scopes; they do not retroactively convert historical matrix FAILs into PASS or approve the NFR targets. The latest prototype check was static and not instrument-measured. Final full-matrix disposition remains PENDING until source synchronization, objective checks and non-author review. Preserve this dated record as a separate reconciliation rather than rewriting the earlier 59/63-row snapshots.
+
+
+---
+
+## 24 November 2026 — NFR Draft 0.8.4 approved and integrated (supplemental final-source checkpoint)
+
+This checkpoint updates the prior dated reconciliation **without rewriting** its earlier status as observed at that time, and without changing historical QA control counts or asserting a new comprehensive Pass/Fail score. The source integration is verified in GitHub. Acceptance of the NFR *document draft* does not resolve its explicitly Proposed/Open targets or replace actual runtime or user testing.
+
+| Gate | Exact approved evidence / merged source | Disposition |
+| --- | --- | --- |
+| NFR + quality measures (#45) | Author source `67ba85691be9fa1a5341bc5d0b0239563c9da77c` (Draft 0.8.4), Arda `APPROVED` on that exact HEAD (see [PR #45 reviews](https://github.com/mert494/student-information-system/pull/45)); merge commit `271a9a74d35582293b5f912084bf89550f48d245` | **MERGED / independently approved working-draft deliverable**, not approval of every Proposed/Open numerical target or feasibility commitment |
+| SRS/backlog (#43) | Merge `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` | MERGED; traceability and remaining PO/API questions retain their own status |
+| Figma / process (#44) | Merge `86dfc34b81ae1cc2dfd6af6d1c8d9f28fda7ad38`; [Ahmet's review](https://github.com/mert494/student-information-system/pull/44#pullrequestreview-6029857255) | MERGED; independent static prototype subset passes; no user usability test or full WCAG certification |
+| Architecture / UML (#47) | Merge `8f2d37df6244fc1917bffee1d0f77ea0b23775cb`; [independent review](https://github.com/mert494/student-information-system/pull/47) | MERGED; technical/source review only |
+| DevOps integration (#49/#50) | Merge `5de47a20f845c8a016c88b3c10eaf924f175b18a` and `621dd9a207d4ea75af29dcf08c6598c600053c64` | MERGED; final main/tag/release/Teams receipt not yet created |
+| This QA Matrix (#46) | Previous historical row-level findings preserved above. This entry reflects four category deliverable sources now integrated | **DRAFT; final QA disposition and independent current-head review PENDING**; DO NOT retroactively make all historical FAIL/PENDING checks PASS |
+| Submission manifest/checklist (#48) | Schema-v1 NFR artifact references updated to exact merge commit `271a9a74d35582293b5f912084bf89550f48d245`; 16 artifact references retained | **DRAFT**; release/main-specific fields stay empty until actual events |
+
+Remaining prerequisites: independent final review of this matrix after source reconciliation, peer review of submission manifest/checklist, verified scope and remaining PO/contract decisions, main integration under branch controls, annotated release tag at exact final main SHA, exported deliverable package, and official upload receipt. No implementation, performance, live security, database/concurrency, full accessibility or usability test is claimed by this documentation-only reconciliation.
