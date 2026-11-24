@@ -645,3 +645,24 @@ This checkpoint supersedes **current status only**, not the preserved earlier au
 **Remaining delivery dependency chain:** Obtain independent current-HEAD NFR review and permitted #45 merge; reconcile #46 and obtain non-author review; reconcile #48 and obtain non-author review; separately authorize `develop`→`main` PR and obtain required two independent reviews; only then perform explicitly authorized merge, verify reviewed main SHA, create one correctly targeted annotated `sprint-2` release tag and release, prepare final PDF/SVG/source/ZIP package from integrated artifacts, and submit using verified official Teams instructions. A subsequent actual upload and receipt must be recorded; neither is presently claimed.
 
 **Do not prematurely finalize:** Manifest `expected_commit` and release `tag`/`commit`/`url` remain empty pending the exact reviewed main SHA and actual release. This intentional intermediate state can still cause the submission checker to return PENDING. Neither this update nor the historical 24-unit-test result constitutes a newly executed test run or full acceptance.
+
+
+---
+
+## 24 November 2026 — NFR integration and submission-evidence final-source refresh
+
+This supplementary checkpoint follows the prior source-registry snapshot; those historical observations are retained as written. Four Sprint 2 deliverable source areas now have independently reviewed documents/artifacts **merged into develop**. The complete end-to-end release and submission remain PENDING.
+
+| Deliverable | Current approved and merged source | Remaining boundary |
+| --- | --- | --- |
+| SRS / refined backlog | PR #43 source `6bef5c98327b21249abfd49573f8a2ccdeb705f3` → merge `e265b6db9c801d9b5c0b1c01edfeb78646a1fb9a` | Historical open product/API decisions are not silently accepted |
+| NFR / Quality Measures Draft 0.8.4 | PR #45 source `67ba85691be9fa1a5341bc5d0b0239563c9da77c`, independent Arda APPROVED → merge `271a9a74d35582293b5f912084bf89550f48d245` | Working-draft acceptance only; Proposed/Open targets and runtime feasibility remain pending |
+| Figma / User Flows / Process Log | PR #44 source `8a08b82a6cd4b72ab78a833f3e68e86df1feef1a`, Ahmet APPROVED → merge `86dfc34b81ae1cc2dfd6af6d1c8d9f28fda7ad38` | Static subset QA PASS; version history, frozen snapshot, all reviewer access, usability and full WCAG conformance not yet verified |
+| Architecture / C4 / UML | PR #47 source `b6628c825e545bd4705bcd2c5631d25ef63846dd`, Ahmet APPROVED → merge `8f2d37df6244fc1917bffee1d0f77ea0b23775cb` | Documentation and diagrams, not runtime integration validation |
+| Integration prep | DevOps PRs #49/#50 → merges `5de47a20f845c8a016c88b3c10eaf924f175b18a`, `621dd9a207d4ea75af29dcf08c6598c600053c64` | No final main PR, annotated release tag, release publication or Teams receipt |
+| QA Matrix #46 | Updated DRAFT branch `docs/mert-sprint2-cross-qa` | Requires independent current-source QA review and deliberate disposition of remaining findings |
+| Submission manifest/checklist #48 | Updated DRAFT branch `docs/mert-sprint2-submission-evidence`; manifest preserves all nine arrays and 16 artifact occurrences | Independent review, approved final artifact references and final delivery still pending |
+
+The schema-v1 submission manifest now pins the NFR file to exact **merged** commit `271a9a74d35582293b5f912084bf89550f48d245` in both `nfr` and `quality_measures`; the review evidence remains explicitly scoped to Arda's Draft 0.8.4 approval. Existing architecture file references remain pinned to `8f2d37df6244fc1917bffee1d0f77ea0b23775cb`. No new test run, static export, PDF/ZIP packaging or official upload is claimed in this change.
+
+**Next gates in order:** #46 peer review and approval → #48 peer review and approval → verify main-branch protection and open develop→main PR → receive two independent source-specific approvals → separately authorize main merge and release/tag → generate final PDF/SVG/source/ZIP from integrated files → upload using verified course instructions and record actual receipt. Until then `expected_commit` and release `tag`/`commit`/`url` stay empty, and PENDING checker findings remain blocking rather than counted as success.
