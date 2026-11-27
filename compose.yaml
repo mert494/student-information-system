@@ -1,0 +1,19 @@
+# Optional candidate database only. Backend does not connect to it yet.
+services:
+  postgres:
+    image: postgres:18.7
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sis_candidate}
+      POSTGRES_USER: ${POSTGRES_USER:-sis_local}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a local-only password using the example}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - candidate_postgres:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  candidate_postgres:
