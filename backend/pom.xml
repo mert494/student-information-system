@@ -16,8 +16,6 @@
   <description>Local candidate scaffold; architecture approval pending; related Issue [TODO]</description>
   <properties>
     <java.version>21</java.version>
-    <!-- Keep the requested JUnit 5 line; no Spring Test/JUnit 6 dependency is introduced. -->
-    <junit-jupiter.version>5.14.4</junit-jupiter.version>
     <jacoco.version>0.8.16</jacoco.version>
     <coverage.minimum>0.50</coverage.minimum>
     <unit.coverage.data-file>${project.build.directory}/jacoco-unit.exec</unit.coverage.data-file>
@@ -28,13 +26,8 @@
       <artifactId>spring-boot-starter-webmvc</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
