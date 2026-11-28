@@ -1,0 +1,121 @@
+name: SIS foundation CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  # Coalesce each PR; keep every branch push in its own group (including pending runs).
+  group: foundation-${{ github.workflow }}-${{ github.event_name }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  backend:
+    name: Backend unit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend/pom.xml
+      - name: Build, unit tests and JaCoCo 50 percent gate
+        working-directory: backend
+        shell: bash
+        run: |
+          chmod +x mvnw
+          ./mvnw -B -ntp -Dstyle.color=never clean verify 2>&1 | tee unit-build.log
+      - name: Reject missing or empty backend unit evidence
+        run: >-
+          python3 scripts/verify_coverage.py backend
+          --coverage backend/target/site/jacoco/jacoco.xml
+          --tests backend/target/surefire-reports
+      - name: Retain backend diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: backend-unit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            backend/target/site/jacoco/
+            backend/target/surefire-reports/
+            backend/unit-build.log
+          retention-days: 30
+          if-no-files-found: warn
+
+  frontend:
+    name: Frontend unit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install locked dependencies
+        working-directory: frontend
+        shell: bash
+        run: npm ci --no-fund --no-audit 2>&1 | tee install.log
+      - name: Typecheck and production build
+        working-directory: frontend
+        shell: bash
+        run: npm run build 2>&1 | tee build.log
+      - name: Unit tests and independent frontend line gate
+        working-directory: frontend
+        shell: bash
+        run: npm run test:coverage 2>&1 | tee unit-test.log
+      - name: Reject missing or empty frontend unit evidence
+        run: >-
+          python3 scripts/verify_coverage.py frontend
+          --coverage frontend/coverage/unit/coverage-summary.json
+          --tests frontend/reports/unit-junit.xml
+      - name: Retain frontend diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: frontend-unit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            frontend/coverage/unit/
+            frontend/reports/
+            frontend/*.log
+          retention-days: 30
+          if-no-files-found: warn
+
+  result:
+    name: CI result
+    if: always()
+    needs: [backend, frontend]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    env:
+      BACKEND_RESULT: ${{ needs.backend.result }}
+      FRONTEND_RESULT: ${{ needs.frontend.result }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Verify fail-closed coverage tooling
+        run: python3 -B -m unittest discover -s scripts/tests -v
+      - name: Existing Sprint 2 checker tests (outside application coverage)
+        run: python3 -B -m unittest discover -s tests -p test_sprint2_submission.py -v
+      - name: Require both components to pass
+        shell: bash
+        run: |
+          echo "Backend: $BACKEND_RESULT; Frontend: $FRONTEND_RESULT"
+          if [[ "$BACKEND_RESULT" != success || "$FRONTEND_RESULT" != success ]]; then
+            echo "::error::Build, tests or coverage failed or were skipped. Inspect the named job and its artifacts."
+            exit 1
+          fi

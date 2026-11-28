@@ -1,0 +1,8 @@
+# Scope normalization to new Sprint 3 content; preserve historical files.
+backend/** text=auto
+frontend/** text=auto
+scripts/** text=auto
+docs/sprint3/** text=auto
+backend/mvnw text eol=lf
+backend/mvnw.cmd text eol=crlf
+.github/workflows/ci.yml text eol=lf
