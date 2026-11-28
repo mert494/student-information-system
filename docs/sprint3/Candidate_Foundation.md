@@ -1,16 +1,22 @@
 # Sprint 3 integration candidate
 
-Status: **LOCAL / 41 FILES STAGED / APPROVALS PENDING**. Prepared 25 November 2026 for Mert. Related GitHub Issue: [TODO]. Sprint deadline: 14 December 2026, 23:59 Europe/Istanbul.
+Status: **DRAFT PR #69 / APPROVALS PENDING**. Original preparation: 25 November 2026; DevOps review update: 28 November 2026. Related Issues: [#53 — S3-02 scaffold/test harness](https://github.com/mert494/student-information-system/issues/53) and [#54 — S3-03 CI/coverage](https://github.com/mert494/student-information-system/issues/54). Sprint deadline: 14 December 2026, 23:59 Europe/Istanbul.
 
-## Base and authorization boundary
+## Current publication and review boundary
 
-This candidate is on local branch `feature/sprint3-mvp-ci-foundation` in a separate disposable clone, based on remote develop `5aca26068e2b640f96041f630463d82b73041a4e`. Remote main is `409049b69f25596968ae2ba678abd2afbfdd798e`; both bases contain the same 58 file blobs, with different history. Mert authorized creating this isolated local branch/import, staging and review of the 41 prepared files, and these documentation corrections. The current index has **41 staged changes: 39 additions and 2 modifications**. No candidate commits or remote changes have occurred. Commit, push, Issue/PR creation, merge, settings and release actions still require applicable separate authorization.
+[Draft PR #69](https://github.com/mert494/student-information-system/pull/69) was published from commit `11d6291a8c7b134d0f15e8ebf28a33c563b522ac` on 27 November 2026. The reviewed baseline is now `a9f4014c939635773778b8fbb6586e1b94b59c1e`; Arda's follow-up changes only the backend test dependencies to Spring Boot management. This local DevOps correction preserves that change. Architecture/product acceptance and independent review remain pending.
+
+[SIS foundation CI run #1](https://github.com/mert494/student-information-system/actions/runs/46047276557) completed successfully for the original `11d6291a8c7b134d0f15e8ebf28a33c563b522ac` revision. GitHub reports Backend unit, Frontend unit and CI result successful, including both diagnostic-upload steps. This is historical hosted evidence, not a run of the newer baseline or this local patch. Artifact contents/downloads and deliberate hosted failure cases remain unverified.
+
+## Historical preparation boundary (25 November 2026)
+
+This candidate is on local branch `feature/sprint3-mvp-ci-foundation` in a separate disposable clone, based on remote develop `5aca26068e2b640f96041f630463d82b73041a4e`. Remote main is `409049b69f25596968ae2ba678abd2afbfdd798e`; both bases contain the same 58 file blobs, with different history. Mert authorized creating this isolated local branch/import, staging and review of the 41 prepared files, and these documentation corrections. At that historical checkpoint the index had **41 staged changes: 39 additions and 2 modifications**. No candidate commits or remote changes had occurred at that checkpoint. Commit, push, Issue/PR creation, merge, settings and release actions still require applicable separate authorization.
 
 Arda's stack/architecture approval and Nurefşan's scope approval remain absent. Local build success supplies technical evidence only. This is a process-health/connectivity scaffold; no FR-01–FR-07 capability or placeholder authentication/security is implemented.
 
 The original dirty checkout, its Git refs/index/worktree registrations and its uncommitted files are protected by before/after fingerprints. All 39 foundation source candidates and the four planning proposals were inspected; their originals remain unchanged. Fetches and the branch creation occurred only in the new clone.
 
-## Reconciliation decisions
+## Original reconciliation decisions (historical)
 
 | Area | Exact candidate treatment |
 | --- | --- |
@@ -21,22 +27,22 @@ The original dirty checkout, its Git refs/index/worktree registrations and its u
 | Existing workflows/templates | No workflow existed at the base. Add the candidate workflow; preserve existing Issue and PR templates. |
 | New source whitespace | Remove only extra blank EOF lines reported by Git on 31 newly imported files. No logic, dependencies or test expectations changed. The original foundation is unchanged. |
 | Workflow integration | Retain backend/frontend builds, separate coverage and artifacts; add execution of the existing 24 Sprint 2 checker tests, explicitly outside application coverage. |
-| Evidence links | Replace standalone-foundation links to excluded local logs with portable report paths as code and [TODO] CI links. No fake GitHub run or inaccessible log link is published as evidence. |
+| Evidence links | Replace standalone-foundation links to excluded local logs with portable report paths as code and subsequently verified historical CI links in [Test_Report.md](Test_Report.md). No fake GitHub run or inaccessible log link is published as evidence. |
 | Optional PostgreSQL | Retain compose/example files as unverified candidates. Backend has no DB driver, schema or readiness claim. Arda/Barış may omit these files from the eventual PR before approval. |
 | Planning documents | Read all four local proposals without copying their entire draft backlog into this first PR. [Issue mapping](First_PR_Issue_Mapping.md) and [next sequence](Next_Development_Sequence.md) state exactly what remains. |
 | Branch naming | Use Mert's requested branch name. It is a scoped exception to the draft Issue-number naming convention; no Issue number is invented. |
 
-No previously tracked file is modified except README and .gitignore. Relative to the base, the index contains only the authorized 41-file candidate: 39 staged additions and 2 staged modifications. The earlier preparation checkpoint had an index identical to the base and untracked additions; that is a historical snapshot, not the current state. No candidate commit or remote change exists.
+No previously tracked file is modified except README and .gitignore. The original 41-file publication comprised 39 additions and 2 modifications relative to that base. The earlier preparation checkpoint had an index identical to the base and untracked additions; that is a historical snapshot, not the current state. That statement described pre-publication preparation; see the current publication boundary above.
 
 ## Approval dependencies
 
 | Owner | Review or decision required |
 | --- | --- |
-| Arda / `ardaberkkara1` | Java 21 / Spring Boot 4.2.0 / Maven, namespace, module boundaries, local health route, runtime config, frontend proxy and tooling; explicit JUnit 5.14.4 override instead of Boot's default JUnit 6; future Spring integration-test compatibility; future API/security/data contracts. |
+| Arda / `ardaberkkara1` | Java 21 / Spring Boot 4.2.0 / Maven, namespace, module boundaries, local health route, runtime config, frontend proxy and tooling; Spring Boot managed test dependencies retained from `a9f4014`; future Spring integration-test compatibility; future API/security/data contracts. |
 | Nurefşan / `nsnkcc` | Accept this limited technical foundation in Sprint 3, confirm MVP priorities and first functional slice; approve product fields, permissions, enrollment and grading/publication behavior before implementation. |
 | Barış / `baryyss-001` | Review workflow/cache/artifacts, local setup, optional database configuration and operational limits. No repository Settings change is included. |
 | Ahmet / `ahmetserdar41` | Review test value, complete coverage denominator, failure propagation and local evidence; review implementation separately from formal acceptance. |
-| Mert / `mert494` | Coordinate decisions/actual Issue linkage; staging/review of these 41 files and documentation corrections are authorized. Commit, push, remote Issue/PR and merge still need applicable separate authorization. Use the actual contributor's identity. |
+| Mert / `mert494` | Coordinate decisions/actual Issue linkage; the original foundation was published as Draft PR #69; this review authorizes local corrections only. Further Git/publication/merge actions need applicable separate authorization. Use the actual contributor's identity. |
 
 Suggested independent PR reviewers: **Arda (architecture), Barış (CI), Ahmet (tests)**. No review was requested or approval recorded. Satisfy live rules even if a suggested reviewer is the author/latest pusher.
 
@@ -52,6 +58,6 @@ The provisional OpenAPI still needs token/session mapping, offering references, 
 
 Use [Test_Report.md](Test_Report.md) for results from this integration checkout. Coverage percentages concern this tiny scaffold only. The 24 submission-checker tests and seven coverage-tool tests are reported separately from backend/frontend metrics.
 
-Known environment limits: Windows JDK 21.0.1 requires the documented existing ASCII alias for native-agent paths; the verifier keeps cache/temp/data within ignored local output and restores process environment. Mockito may emit non-failing dynamic-agent warnings. Docker/PostgreSQL, Linux execution, GitHub runner/cache/artifact behavior, shared hosting and formal MVP/NFR acceptance remain unverified. No new runtime/dependency version was selected during integration.
+Historical Windows troubleshooting and Mockito warnings are preserved in [Test_Report.md](Test_Report.md#windows-troubleshooting-historical-environment). Hosted Ubuntu execution succeeded for the original revision; artifact contents, hosted failure cases, Docker/PostgreSQL, shared hosting and formal MVP/NFR acceptance remain unverified. This correction selects no new dependency version.
 
 Before the first real feature PR: approve relevant slices, reconcile Arda-owned OpenAPI, confirm provisioning and role/record security, attach real test/CI evidence and follow the [next sequence](Next_Development_Sequence.md). No mocked product endpoints or superficial security layer should be introduced to bridge missing decisions.

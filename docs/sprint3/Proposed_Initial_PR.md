@@ -1,4 +1,10 @@
-# Proposed first Sprint 3 integration PR
+# Historical first Sprint 3 PR preparation
+
+Updated 28 November 2026: [Draft PR #69](https://github.com/mert494/student-information-system/pull/69) was published from commit `11d6291a8c7b134d0f15e8ebf28a33c563b522ac` on 27 November 2026. The reviewed baseline is now `a9f4014c939635773778b8fbb6586e1b94b59c1e`; Arda's follow-up changes only the backend test dependencies to Spring Boot management. This local DevOps correction preserves that change. Architecture/product acceptance and independent review remain pending.
+
+[SIS foundation CI run #1](https://github.com/mert494/student-information-system/actions/runs/46047276557) completed successfully for the original `11d6291a8c7b134d0f15e8ebf28a33c563b522ac` revision. GitHub reports Backend unit, Frontend unit and CI result successful, including both diagnostic-upload steps. This is historical hosted evidence, not a run of the newer baseline or this local patch. Artifact contents/downloads and deliberate hosted failure cases remain unverified.
+
+The draft text below preserves the pre-publication review snapshot. Its staged/uncommitted state, old JUnit dependency description and authorization wording describe that earlier checkpoint, not the current PR or this local correction. Current setup is in [README.md](../../README.md); evidence is in [Test_Report.md](Test_Report.md).
 
 **Title:** `chore(sprint3): initialize MVP and CI foundation`
 
@@ -15,9 +21,7 @@ The result is a technical foundation for future MVP work. Authentication, Studen
 
 ## Related Issue
 
-GitHub Issue: **[TODO]** — none created. Proposed Issue title: **[Sprint 3] Initialize technical scaffold and unit-test CI**. This is a bounded S3-02/S3-03 delivery slice under the existing 16-item local proposal; it does not complete those original Issues' full acceptance criteria. See `docs/sprint3/First_PR_Issue_Mapping.md`.
-
-Mert coordinates Issue linkage. Do not invent a number or assume automatic closure for a PR to develop. Replace the placeholder only after separately authorized Issue creation or linkage to an actual Issue.
+Related to [#53 — S3-02 scaffold/test harness](https://github.com/mert494/student-information-system/issues/53) and [#54 — S3-03 CI/coverage](https://github.com/mert494/student-information-system/issues/54). This bounded delivery slice does not complete either Issue's full acceptance criteria and requests no automatic closure. See [Issue mapping](First_PR_Issue_Mapping.md). No new Issue is needed.
 
 ## Changes Made
 
@@ -48,7 +52,7 @@ These are **historical local results from the integration validation run before 
 
 Backend coverage includes its uncovered application entry/configuration. Frontend coverage includes its uncovered bootstrap. No handwritten production class/module is excluded and no combined percentage is claimed. The percentages cover this small scaffold, not a future expanded MVP.
 
-Commands, report paths, environment limits and final diff/inventory/preservation checks are recorded in `docs/sprint3/Test_Report.md`. GitHub run URL, tested merge SHA and artifact links: **[TODO — no remote run exists]**.
+Commands, report paths, environment limits and final diff/inventory/preservation checks are recorded in `docs/sprint3/Test_Report.md`. Historical original run: [SIS foundation CI run #1](https://github.com/mert494/student-information-system/actions/runs/46047276557). Its success is verified; tested merge-SHA capture and artifact content/download validation remain pending. No hosted run of this local patch is claimed.
 
 ## Architecture assumptions awaiting Arda
 

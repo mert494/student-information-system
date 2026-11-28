@@ -1,6 +1,6 @@
 # Subsequent Sprint 3 branches and PR sequence
 
-Status: proposal, 25 November 2026. Actual Issues/owners/estimates: [TODO] until approved. Deadline: **14 December 2026, 23:59 Europe/Istanbul**. No branch below has been created.
+Status: proposal, 25 November 2026. Foundation links: [#53 — S3-02 scaffold/test harness](https://github.com/mert494/student-information-system/issues/53) and [#54 — S3-03 CI/coverage](https://github.com/mert494/student-information-system/issues/54); remaining owner/estimate approvals are pending. Deadline: **14 December 2026, 23:59 Europe/Istanbul**. Branch names below remain proposals; this document does not establish their creation.
 
 Use the team's approved naming convention with an actual Issue number once available. The `<issue>` strings below are patterns, not GitHub numbers. Keep each PR focused and target the approved current develop. This task authorizes neither future implementation nor remote actions.
 
@@ -45,4 +45,4 @@ Keep the existing PD decisions and inactive-student rule unchanged. Performance 
 
 ## Publication/integration rules
 
-One independent approval is currently required for develop and two for main; stale reviews/last-push/conversation rules apply. Only merge commits are allowed. Do not force push, alter release tags, introduce a new repository setting or combine push/PR/merge authorizations. Use actual Issue/PR/commit evidence from each contributor's account. Related Issue: [TODO].
+One independent approval is currently required for develop and two for main; stale reviews/last-push/conversation rules apply. Only merge commits are allowed. Do not force push, alter release tags, introduce a new repository setting or combine push/PR/merge authorizations. Use actual Issue/PR/commit evidence from each contributor's account. Related foundation Issues: [#53 — S3-02 scaffold/test harness](https://github.com/mert494/student-information-system/issues/53) and [#54 — S3-03 CI/coverage](https://github.com/mert494/student-information-system/issues/54).

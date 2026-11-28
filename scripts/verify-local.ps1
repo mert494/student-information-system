@@ -1,5 +1,5 @@
 param([string]$JavaHome = $env:JAVA_HOME)
-# Candidate local verifier. Related Sprint 3 Issue: [TODO].
+# Candidate local verifier. Related Sprint 3 Issues: #53 (scaffold) and #54 (CI/coverage).
 # Restores process environment; downloads/builds stay under this candidate directory.
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot

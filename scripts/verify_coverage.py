@@ -1,6 +1,6 @@
 """Fail closed on absent, empty, failing or below-threshold unit reports.
 
-Related Sprint 3 Issue: [TODO]. Unit coverage is separate for each component.
+Related Sprint 3 Issue: #54 (CI/coverage). Unit coverage is separate for each component.
 """
 import argparse
 import json

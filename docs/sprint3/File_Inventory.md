@@ -1,8 +1,8 @@
 # Exact first-PR file inventory
 
-Status: local and staged; architecture and product-scope approvals pending. Related GitHub Issue: [TODO]. Base develop: `5aca26068e2b640f96041f630463d82b73041a4e`.
+Status: original Draft PR #69 foundation inventory; architecture and product-scope approvals pending. Related Issues: [#53 — S3-02 scaffold/test harness](https://github.com/mert494/student-information-system/issues/53) and [#54 — S3-03 CI/coverage](https://github.com/mert494/student-information-system/issues/54). Base develop: `5aca26068e2b640f96041f630463d82b73041a4e`.
 
-**41 staged paths: 39 additions and 2 modifications.** All 39 original foundation candidates are represented; two integration-planning documents were added. No candidate commits or remote changes have occurred. Mert authorized staging/review and these documentation corrections; Arda's architecture approval and Nurefşan's scope approval remain pending.
+**41 original publication paths: 39 additions and 2 modifications.** All 39 original foundation candidates are represented; two integration-planning documents were added. The table preserves the original preparation index classification relative to develop; it is not the unstaged DevOps correction inventory. [Draft PR #69](https://github.com/mert494/student-information-system/pull/69) was published from commit `11d6291a8c7b134d0f15e8ebf28a33c563b522ac` on 27 November 2026. The reviewed baseline is now `a9f4014c939635773778b8fbb6586e1b94b59c1e`; Arda's follow-up changes only the backend test dependencies to Spring Boot management. This local DevOps correction preserves that change. Architecture/product acceptance and independent review remain pending.
 
 | Staged status relative to base | Exact path |
 | --- | --- |
@@ -67,4 +67,4 @@ The separate local `../evidence` directory contains the exact pathspec, SHA-256 
 - Arda reviews all technical stack/package/health/proxy/testing choices; Barış reviews workflow/wrapper/optional infrastructure; Ahmet reviews tests and coverage.
 - Nurefşan accepts the limited foundation scope and owns future product decisions. No current file implements unresolved grading, enrollment or authentication behavior.
 - Optional `compose.yaml` and root `.env.example` remain unverified; reviewers may defer them before refreshing the final inventory.
-- Mert authorized staging/review of these 41 files and documentation corrections only. Commit, push, Issue/PR creation and merge still require applicable separate authorization and required owner decisions; Arda and Nurefşan have not approved the pending decisions.
+- The original staging/publication authorizations are historical. This review permits local corrections only; further staging, commits, pushes, PR edits and merge require applicable separate authorization and required owner decisions; Arda and Nurefşan have not approved the pending decisions.
